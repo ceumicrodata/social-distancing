@@ -34,7 +34,7 @@ label variable naics "4-digit NAICS 2017 code"
 label variable zip "2010 Zip-code Tabulation Area"
 label variable establishments "Number of establishments"
 label variable employment "Total employment"
-label variable large_plant_employment "Employment in plants larger than 249 workers"
+label variable large_plant_employment "Employment in plants larger than 99 workers"
 label variable population_density "Population density of ZIP-code (person/km2)"
 label variable employment_density "Employment density of ZIP-code (person/km2)"
 

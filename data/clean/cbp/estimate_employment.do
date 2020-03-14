@@ -27,8 +27,7 @@ replace employment = 2000 if size1==1000 & missing(size2)
 replace employment = (size1 + size2)/2 if missing(employment)
 
 * number of people working at large plants
-generate large_plant_employment = (size1>=250)*employment
-
+generate large_plant_employment = (size1>=100)*employment
 
 * aggregate across bins
 foreach X of var *employment {
