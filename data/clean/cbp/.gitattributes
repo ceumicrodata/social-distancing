@@ -1,0 +1,1 @@
+zip_code_business_patterns.dta filter=lfs diff=lfs merge=lfs -text
