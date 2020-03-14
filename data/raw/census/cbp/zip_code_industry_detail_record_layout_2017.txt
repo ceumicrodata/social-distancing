@@ -1,0 +1,39 @@
+ZBP[YR]DETAIL.TXT
+
+                                ZIP Code Area Data Dictionary                                
+                                by 6-Digit NAICS Codes 
+
+Note:  In the filenames, [YR] is the 2-digit data year.  Each data field is separated by comma (,) delimiters.
+
+
+Field           Data  
+Name            Type    Description
+
+ZIP             C       ZIP Code
+
+NAICS           C       Industry Code - 6-digit NAICS code.
+                  
+EST             N       Total Number of Establishments
+
+N<5             N       Number of Establishments: Less than 5 Employee Size Class
+
+N5_9            N       Number of Establishments: 5-9 Employee Size Class
+
+N10_19          N       Number of Establishments: 10-19 Employee Size Class
+
+N20_49          N       Number of Establishments: 20-49 Employee Size Class
+
+N50_99          N       Number of Establishments: 50-99 Employee Size Class
+
+N100_249        N       Number of Establishments: 100-249 Employee Size Class
+
+N250_499        N       Number of Establishments: 250-499 Employee Size Class
+
+N500_999        N       Number of Establishments: 500-999 Employee Size Class
+
+N1000           N       Number of Establishments: 1,000 or More Employee Size Class
+
+
+NOTE: Flag definition for Establishment by Employment Size Class fields (N<5, N5_9, etc.):
+	
+	N	Not available or not comparable 
