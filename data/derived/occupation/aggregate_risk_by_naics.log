@@ -1,0 +1,108 @@
+
+  ___  ____  ____  ____  ____ (R)
+ /__    /   ____/   /   ____/
+___/   /   /___/   /   /___/   15.1   Copyright 1985-2017 StataCorp LLC
+  Statistics/Data Analysis            StataCorp
+                                      4905 Lakeway Drive
+     MP - Parallel Edition            College Station, Texas 77845 USA
+                                      800-STATA-PC        http://www.stata.com
+                                      979-696-4600        stata@stata.com
+                                      979-696-4601 (fax)
+
+Single-user 2-core Stata perpetual license:
+       Serial number:  501506203290
+         Licensed to:  Miklos Koren
+                       CEU MicroData
+
+
+Notes:
+      1.  Stata is running in batch mode.
+      2.  Unicode is supported; see help unicode_advice.
+      3.  More than 2 billion observations are allowed; see help obs_advice.
+      4.  Maximum number of variables is set to 5000; see help set_maxvar.
+
+. do aggregate_risk_by_naics.do 
+
+. clear all
+
+. use "../../clean/employment-matrix/matrix.dta"
+
+. 
+. merge m:1 SOCCode using "risks.dta", keep(master match) nogen
+
+    Result                           # of obs.
+    -----------------------------------------
+    not matched                           603
+        from master                       603  
+        from using                          0  
+
+    matched                            19,986  
+    -----------------------------------------
+
+. * a few cases are missing the risk, take these to be low risk
+. mvencode communication infection, mv(0) override
+communicat~n: 603 missing values recoded
+   infection: 603 missing values recoded
+
+. 
+. replace Employment = round(Employment*1000)
+(20,589 real changes made)
+
+. compress
+  variable Employment was double now long
+  (82,356 bytes saved)
+
+. 
+. foreach X of var communication infection {
+  2.         summarize `X' [fw=Employment], detail
+  3.         generate double high_`X' = (`X' > r(p75)) * Employment
+  4. }
+
+                 Communication index [0,100]
+-------------------------------------------------------------
+      Percentiles      Smallest
+ 1%           35              0
+ 5%           47              0
+10%           50              0       Obs          74,475,600
+25%           57              0       Sum of Wgt.  74,475,600
+
+50%           64                      Mean           63.29125
+                        Largest       Std. Dev.        11.197
+75%           72             95
+90%           76             95       Variance       125.3728
+95%           78             96       Skewness      -1.290535
+99%           87             96       Kurtosis       8.949198
+
+                Infection risk index [0,100]
+-------------------------------------------------------------
+      Percentiles      Smallest
+ 1%           17              0
+ 5%           21              0
+10%           24              0       Obs          74,475,600
+25%           27              0       Sum of Wgt.  74,475,600
+
+50%           35                      Mean           36.48628
+                        Largest       Std. Dev.      12.62117
+75%           44             98
+90%           52             98       Variance        159.294
+95%           56             99       Skewness       .9353229
+99%           78            100       Kurtosis       5.351069
+
+. 
+. collapse (sum) Employment high_communication high_infection, by(naics)
+
+. foreach X in communication infection {
+  2.         replace high_`X' = round(high_`X' / Employment * 100)
+  3. }
+(193 real changes made)
+(195 real changes made)
+
+. drop Employment
+
+. 
+. export delimited "naics_risk.csv", replace
+(note: file naics_risk.csv not found)
+file naics_risk.csv saved
+
+. 
+end of do-file
