@@ -1,0 +1,158 @@
+
+  ___  ____  ____  ____  ____ (R)
+ /__    /   ____/   /   ____/
+___/   /   /___/   /   /___/   15.1   Copyright 1985-2017 StataCorp LLC
+  Statistics/Data Analysis            StataCorp
+                                      4905 Lakeway Drive
+     MP - Parallel Edition            College Station, Texas 77845 USA
+                                      800-STATA-PC        http://www.stata.com
+                                      979-696-4600        stata@stata.com
+                                      979-696-4601 (fax)
+
+Single-user 2-core Stata perpetual license:
+       Serial number:  501506203290
+         Licensed to:  Miklos Koren
+                       CEU MicroData
+
+
+Notes:
+      1.  Stata is running in batch mode.
+      2.  Unicode is supported; see help unicode_advice.
+      3.  More than 2 billion observations are allowed; see help obs_advice.
+      4.  Maximum number of variables is set to 5000; see help set_maxvar.
+
+. do read_risks.do 
+
+. clear all
+
+. * introduce short names for all risk factors
+. local risks proximity infections group face2face customers contact
+
+. local proximity Physical_Proximity
+
+. local infections Exposed_to_Disease_or_Infections
+
+. local group Exposed_to_Disease_or_Infections
+
+. local face2face Face-to-Face_Discussions
+
+. local customers Deal_With_External_Customers
+
+. local contact Contact_With_Others
+
+. 
+. tempfile rsk
+
+. generate str Code = ""
+
+. save `rsk', replace emptyok
+(note: dataset contains 0 observations)
+(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St61964.000001 no
+> t found)
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St61964.000001 saved
+
+. 
+. foreach risk in `risks' {
+  2.         import delimited "../../raw/onet/``risk''.csv", clear case(preserv
+> e) varnames(1) numericcols(1)
+  3.         rename Context `risk'
+  4.         merge 1:1 Code using `rsk', nogen
+  5.         save `rsk', replace
+  6. }
+(3 vars, 967 obs)
+
+    Result                           # of obs.
+    -----------------------------------------
+    not matched                           967
+        from master                       967  
+        from using                          0  
+
+    matched                                 0  
+    -----------------------------------------
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St61964.000001 saved
+(3 vars, 968 obs)
+
+    Result                           # of obs.
+    -----------------------------------------
+    not matched                             1
+        from master                         1  
+        from using                          0  
+
+    matched                               967  
+    -----------------------------------------
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St61964.000001 saved
+(3 vars, 968 obs)
+
+    Result                           # of obs.
+    -----------------------------------------
+    not matched                             0
+    matched                               968  
+    -----------------------------------------
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St61964.000001 saved
+(3 vars, 967 obs)
+
+    Result                           # of obs.
+    -----------------------------------------
+    not matched                             1
+        from master                         0  
+        from using                          1  
+
+    matched                               967  
+    -----------------------------------------
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St61964.000001 saved
+(3 vars, 968 obs)
+
+    Result                           # of obs.
+    -----------------------------------------
+    not matched                             0
+    matched                               968  
+    -----------------------------------------
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St61964.000001 saved
+(3 vars, 968 obs)
+
+    Result                           # of obs.
+    -----------------------------------------
+    not matched                             0
+    matched                               968  
+    -----------------------------------------
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St61964.000001 saved
+
+. 
+. merge 1:1 Code using "crosswalk.dta", nogen keep(master match)
+
+    Result                           # of obs.
+    -----------------------------------------
+    not matched                             1
+        from master                         1  
+        from using                          0  
+
+    matched                               967  
+    -----------------------------------------
+
+. * official crosswalk missing for 1 occuopation
+. replace SOCCode = substr(Code, 1, 7) if missing(SOCCode)
+(1 real change made)
+
+. 
+. * average with SOC occupation
+. collapse (mean) `risks', by(SOCCode Description)
+
+. foreach X of var `risks' {
+  2.         replace `X' = round(`X')
+  3. }
+(55 real changes made)
+(63 real changes made)
+(63 real changes made)
+(64 real changes made)
+(63 real changes made)
+(54 real changes made)
+
+. 
+. order SOCCode Description
+
+. export delimited "risks.csv", replace
+(note: file risks.csv not found)
+file risks.csv saved
+
+. 
+end of do-file

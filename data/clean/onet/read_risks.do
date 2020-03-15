@@ -18,5 +18,16 @@ foreach risk in `risks' {
 	merge 1:1 Code using `rsk', nogen
 	save `rsk', replace
 }
-order Code Occupation
+
+merge 1:1 Code using "crosswalk.dta", nogen keep(master match)
+* official crosswalk missing for 1 occuopation
+replace SOCCode = substr(Code, 1, 7) if missing(SOCCode)
+
+* average with SOC occupation
+collapse (mean) `risks', by(SOCCode Description)
+foreach X of var `risks' {
+	replace `X' = round(`X')
+}
+
+order SOCCode Description
 export delimited "risks.csv", replace

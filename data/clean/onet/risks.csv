@@ -1,969 +1,765 @@
-Code,Occupation,contact,customers,face2face,group,infections,proximity
-11-1011.00,Chief Executives,95,83,100,18,18,43
-11-1011.03,Chief Sustainability Officers,85,68,94,3,3,48
-11-1021.00,General and Operations Managers,95,78,99,14,14,55
-11-2011.00,Advertising and Promotions Managers,92,80,97,1,1,46
-11-2021.00,Marketing Managers,90,81,94,2,2,47
-11-2022.00,Sales Managers,96,82,83,3,3,48
-11-2031.00,Public Relations and Fundraising Managers,97,90,100,13,13,38
-11-3011.00,Administrative Services Managers,88,78,98,23,23,45
-11-3021.00,Computer and Information Systems Managers,90,51,91,1,1,41
-11-3031.01,Treasurers and Controllers,82,54,98,7,7,35
-11-3031.02,"Financial Managers, Branch or Department",93,80,100,4,4,53
-11-3051.00,Industrial Production Managers,92,65,96,5,5,55
-11-3051.01,Quality Control Systems Managers,99,82,100,16,16,48
-11-3051.02,Geothermal Production Managers,87,64,99,4,4,38
-11-3051.03,Biofuels Production Managers,91,66,98,10,10,53
-11-3051.04,Biomass Power Plant Managers,89,58,100,2,2,44
-11-3051.06,Hydroelectric Production Managers,85,65,95,8,8,50
-11-3061.00,Purchasing Managers,89,69,90,1,1,41
-11-3071.01,Transportation Managers,97,79,100,11,11,42
-11-3071.02,Storage and Distribution Managers,85,71,89,2,2,52
-11-3071.03,Logistics Managers,90,54,96,3,3,48
-11-3111.00,Compensation and Benefits Managers,91,30,98,1,1,32
-11-3121.00,Human Resources Managers,91,47,99,5,5,41
-11-3131.00,Training and Development Managers,91,56,84,7,7,46
-11-9013.01,Nursery and Greenhouse Managers,86,53,93,4,4,63
-11-9013.02,Farm and Ranch Managers,77,54,95,5,5,53
-11-9013.03,Aquacultural Managers,83,64,99,5,5,51
-11-9021.00,Construction Managers,92,66,91,4,4,50
-11-9031.00,"Education Administrators, Preschool and Childcare Center/Program",100,69,97,40,40,75
-11-9032.00,"Education Administrators, Elementary and Secondary School",93,88,95,21,21,52
-11-9033.00,"Education Administrators, Postsecondary",88,66,94,21,21,38
-11-9039.01,Distance Learning Coordinators,90,64,79,1,1,47
-11-9039.02,Fitness and Wellness Coordinators,89,69,94,14,14,66
-11-9041.00,Architectural and Engineering Managers,80,66,97,3,3,43
-11-9041.01,Biofuels/Biodiesel Technology and Product Development Managers,77,42,96,3,3,46
-11-9051.00,Food Service Managers,97,81,95,10,10,78
-11-9061.00,Funeral Service Managers,92,84,81,56,56,60
-11-9071.00,Gaming Managers,90,84,99,17,17,76
-11-9081.00,Lodging Managers,97,87,96,4,4,49
-11-9111.00,Medical and Health Services Managers,87,66,98,34,34,45
-11-9121.00,Natural Sciences Managers,79,66,91,4,4,40
-11-9121.01,Clinical Research Coordinators,94,59,93,34,34,46
-11-9121.02,Water Resource Specialists,74,65,92,11,11,43
-11-9131.00,Postmasters and Mail Superintendents,99,89,98,17,17,56
-11-9141.00,"Property, Real Estate, and Community Association Managers",88,67,93,2,2,51
-11-9151.00,Social and Community Service Managers,92,78,97,26,26,42
-11-9161.00,Emergency Management Directors,91,86,90,15,15,52
-11-9199.01,Regulatory Affairs Managers,83,59,96,5,5,43
-11-9199.02,Compliance Managers,92,73,95,13,13,54
-11-9199.03,Investment Fund Managers,81,56,94,0,0,41
-11-9199.04,Supply Chain Managers,89,68,98,3,3,51
-11-9199.07,Security Managers,91,78,93,34,34,55
-11-9199.08,Loss Prevention Managers,96,75,92,16,16,58
-11-9199.09,Wind Energy Operations Managers,91,68,92,0,0,45
-11-9199.10,Wind Energy Project Managers,75,70,80,1,1,44
-11-9199.11,Brownfield Redevelopment Specialists and Site Managers,83,71,85,9,9,53
-13-1011.00,"Agents and Business Managers of Artists, Performers, and Athletes",99,73,89,0,0,43
-13-1021.00,"Buyers and Purchasing Agents, Farm Products",95,79,100,2,2,51
-13-1022.00,"Wholesale and Retail Buyers, Except Farm Products",96,71,94,10,10,58
-13-1023.00,"Purchasing Agents, Except Wholesale, Retail, and Farm Products",84,71,95,0,0,37
-13-1031.01,"Claims Examiners, Property and Casualty Insurance",94,86,87,3,3,56
-13-1031.02,"Insurance Adjusters, Examiners, and Investigators",92,81,79,3,3,43
-13-1032.00,"Insurance Appraisers, Auto Damage",99,98,82,12,12,41
-13-1041.01,Environmental Compliance Inspectors,70,62,93,17,17,57
-13-1041.02,Licensing Examiners and Inspectors,95,94,87,51,51,70
-13-1041.03,Equal Opportunity Representatives and Officers,86,74,90,3,3,41
-13-1041.04,Government Property Inspectors and Investigators,94,86,90,25,25,52
-13-1041.06,Coroners,89,88,92,77,77,83
-13-1041.07,Regulatory Affairs Specialists,80,38,86,1,1,55
-13-1051.00,Cost Estimators,81,61,90,2,2,44
-13-1071.00,Human Resources Specialists,94,68,98,5,5,41
-13-1074.00,Farm Labor Contractors,87,40,89,1,1,66
-13-1075.00,Labor Relations Specialists,90,54,90,1,1,51
-13-1081.00,Logisticians,89,74,90,8,8,58
-13-1081.01,Logistics Engineers,84,60,98,0,0,49
-13-1081.02,Logistics Analysts,83,52,92,7,7,51
-13-1111.00,Management Analysts,82,44,85,2,2,41
-13-1121.00,"Meeting, Convention, and Event Planners",98,93,98,0,0,72
-13-1131.00,Fundraisers,89,92,97,7,7,39
-13-1141.00,"Compensation, Benefits, and Job Analysis Specialists",88,33,85,3,3,32
-13-1151.00,Training and Development Specialists,89,49,92,2,2,59
-13-1161.00,Market Research Analysts and Marketing Specialists,81,64,81,0,0,36
-13-1199.01,Energy Auditors,84,69,91,11,11,59
-13-1199.02,Security Management Specialists,84,73,91,11,11,51
-13-1199.03,Customs Brokers,93,71,93,1,1,54
-13-1199.04,Business Continuity Planners,82,49,72,1,1,49
-13-1199.05,Sustainability Specialists,80,64,77,1,1,47
-13-1199.06,Online Merchants,87,79,88,0,0,49
-13-2011.01,Accountants,90,73,90,1,1,39
-13-2011.02,Auditors,88,66,95,0,0,53
-13-2021.01,Assessors,83,89,93,0,0,58
-13-2021.02,"Appraisers, Real Estate",78,54,75,3,3,34
-13-2031.00,Budget Analysts,88,42,94,6,6,43
-13-2041.00,Credit Analysts,87,56,86,2,2,49
-13-2051.00,Financial Analysts,83,59,94,0,0,47
-13-2052.00,Personal Financial Advisors,85,75,82,2,2,37
-13-2053.00,Insurance Underwriters,88,64,85,1,1,52
-13-2061.00,Financial Examiners,83,59,98,1,1,57
-13-2071.00,Credit Counselors,96,86,90,8,8,48
-13-2071.01,Loan Counselors,94,80,94,7,7,40
-13-2072.00,Loan Officers,94,78,88,4,4,42
-13-2081.00,"Tax Examiners and Collectors, and Revenue Agents",95,91,88,5,5,57
-13-2082.00,Tax Preparers,80,70,85,4,4,55
-13-2099.01,Financial Quantitative Analysts,64,34,89,0,0,46
-13-2099.02,Risk Management Specialists,92,63,93,7,7,43
-13-2099.04,"Fraud Examiners, Investigators and Analysts",77,71,87,5,5,52
-15-1111.00,Computer and Information Research Scientists,86,67,92,0,0,33
-15-1121.00,Computer Systems Analysts,80,57,85,5,5,48
-15-1121.01,Informatics Nurse Specialists,82,61,94,47,47,60
-15-1122.00,Information Security Analysts,83,47,87,1,1,52
-15-1131.00,Computer Programmers,79,32,90,0,0,39
-15-1132.00,"Software Developers, Applications",70,36,96,0,0,50
-15-1133.00,"Software Developers, Systems Software",75,42,89,0,0,45
-15-1134.00,Web Developers,72,37,83,1,1,44
-15-1141.00,Database Administrators,86,44,83,4,4,52
-15-1142.00,Network and Computer Systems Administrators,87,20,88,3,3,54
-15-1143.00,Computer Network Architects,68,43,84,0,0,39
-15-1143.01,Telecommunications Engineering Specialists,85,61,90,3,3,52
-15-1151.00,Computer User Support Specialists,97,59,95,8,8,64
-15-1152.00,Computer Network Support Specialists,93,63,95,13,13,55
-15-1199.01,Software Quality Assurance Engineers and Testers,79,20,94,0,0,47
-15-1199.02,Computer Systems Engineers/Architects,78,49,90,4,4,46
-15-1199.03,Web Administrators,65,44,86,0,0,41
-15-1199.04,Geospatial Information Scientists and Technologists,64,46,83,1,1,44
-15-1199.05,Geographic Information Systems Technicians,71,61,87,6,6,46
-15-1199.06,Database Architects,78,43,89,1,1,46
-15-1199.07,Data Warehousing Specialists,61,23,86,0,0,45
-15-1199.08,Business Intelligence Analysts,80,45,93,2,2,39
-15-1199.09,Information Technology Project Managers,89,64,84,5,5,51
-15-1199.10,Search Marketing Strategists,68,51,76,0,0,44
-15-1199.11,Video Game Designers,87,25,94,0,0,51
-15-1199.12,Document Management Specialists,79,51,88,2,2,49
-15-2011.00,Actuaries,66,42,90,0,0,35
-15-2021.00,Mathematicians,59,36,79,1,1,40
-15-2031.00,Operations Research Analysts,67,38,90,3,3,41
-15-2041.00,Statisticians,70,30,85,3,3,36
-15-2041.01,Biostatisticians,69,36,88,2,2,33
-15-2041.02,Clinical Data Managers,81,45,78,6,6,48
-15-2091.00,Mathematical Technicians,25,10,,6,6,
-17-1011.00,"Architects, Except Landscape and Naval",84,61,92,2,2,53
-17-1012.00,Landscape Architects,82,71,89,0,0,47
-17-1021.00,Cartographers and Photogrammetrists,80,81,90,0,0,54
-17-1022.00,Surveyors,78,67,95,9,9,48
-17-1022.01,Geodetic Surveyors,76,55,83,5,5,40
-17-2011.00,Aerospace Engineers,81,61,98,0,0,50
-17-2021.00,Agricultural Engineers,76,60,88,5,5,45
-17-2031.00,Biomedical Engineers,76,43,91,32,32,49
-17-2041.00,Chemical Engineers,74,40,96,11,11,45
-17-2051.00,Civil Engineers,77,52,91,4,4,45
-17-2051.01,Transportation Engineers,81,65,97,5,5,48
-17-2061.00,Computer Hardware Engineers,61,38,93,0,0,44
-17-2071.00,Electrical Engineers,78,59,92,1,1,48
-17-2072.00,"Electronics Engineers, Except Computer",76,66,93,3,3,51
-17-2072.01,Radio Frequency Identification Device Specialists,84,68,92,6,6,45
-17-2081.00,Environmental Engineers,84,70,95,13,13,47
-17-2081.01,Water/Wastewater Engineers,85,73,92,23,23,40
-17-2111.01,Industrial Safety and Health Engineers,83,58,94,19,19,53
-17-2111.02,Fire-Prevention and Protection Engineers,75,67,87,11,11,45
-17-2111.03,Product Safety Engineers,81,63,91,7,7,47
-17-2112.00,Industrial Engineers,84,51,97,2,2,55
-17-2112.01,Human Factors Engineers and Ergonomists,72,48,87,5,5,49
-17-2121.01,Marine Engineers,71,56,90,3,3,56
-17-2121.02,Marine Architects,83,62,95,3,3,58
-17-2131.00,Materials Engineers,71,47,90,2,2,45
-17-2141.00,Mechanical Engineers,86,51,98,7,7,58
-17-2141.01,Fuel Cell Engineers,70,36,83,0,0,42
-17-2141.02,Automotive Engineers,82,62,99,0,0,52
-17-2151.00,"Mining and Geological Engineers, Including Mining Safety Engineers",74,41,95,7,7,48
-17-2161.00,Nuclear Engineers,75,43,95,1,1,46
-17-2171.00,Petroleum Engineers,87,44,91,1,1,30
-17-2199.01,Biochemical Engineers,79,55,92,18,18,49
-17-2199.02,Validation Engineers,78,59,92,5,5,59
-17-2199.03,Energy Engineers,84,64,86,10,10,41
-17-2199.04,Manufacturing Engineers,81,34,97,6,6,56
-17-2199.05,Mechatronics Engineers,86,49,85,1,1,61
-17-2199.06,Microsystems Engineers,73,58,93,6,6,44
-17-2199.07,Photonics Engineers,84,45,96,1,1,47
-17-2199.08,Robotics Engineers,74,50,95,0,0,55
-17-2199.09,Nanosystems Engineers,72,39,88,12,12,50
-17-2199.10,Wind Energy Engineers,67,50,80,1,1,38
-17-2199.11,Solar Energy Systems Engineers,70,51,89,4,4,50
-17-3011.01,Architectural Drafters,69,66,99,6,6,47
-17-3011.02,Civil Drafters,81,38,94,1,1,49
-17-3012.01,Electronic Drafters,78,60,96,1,1,47
-17-3012.02,Electrical Drafters,78,54,96,1,1,49
-17-3013.00,Mechanical Drafters,68,42,91,0,0,50
-17-3021.00,Aerospace Engineering and Operations Technicians,76,67,92,0,0,52
-17-3022.00,Civil Engineering Technicians,89,75,99,22,22,57
-17-3023.01,Electronics Engineering Technicians,75,42,92,7,7,54
-17-3023.03,Electrical Engineering Technicians,80,49,93,2,2,60
-17-3024.00,Electro-Mechanical Technicians,83,43,92,12,12,62
-17-3024.01,Robotics Technicians,73,46,93,13,13,54
-17-3025.00,Environmental Engineering Technicians,86,64,93,17,17,47
-17-3026.00,Industrial Engineering Technicians,88,45,93,0,0,52
-17-3027.00,Mechanical Engineering Technicians,92,63,99,3,3,60
-17-3027.01,Automotive Engineering Technicians,80,46,97,3,3,63
-17-3029.01,Non-Destructive Testing Specialists,80,60,95,4,4,60
-17-3029.02,Electrical Engineering Technologists,70,35,95,3,3,51
-17-3029.03,Electromechanical Engineering Technologists,84,69,100,6,6,66
-17-3029.04,Electronics Engineering Technologists,78,68,92,7,7,49
-17-3029.05,Industrial Engineering Technologists,82,48,99,11,11,49
-17-3029.06,Manufacturing Engineering Technologists,76,46,98,1,1,52
-17-3029.07,Mechanical Engineering Technologists,91,46,93,0,0,56
-17-3029.08,Photonics Technicians,56,42,93,4,4,49
-17-3029.09,Manufacturing Production Technicians,79,40,93,8,8,57
-17-3029.11,Nanotechnology Engineering Technologists,74,34,91,6,6,48
-17-3029.12,Nanotechnology Engineering Technicians,74,47,97,6,6,64
-17-3031.01,Surveying Technicians,76,51,96,11,11,50
-17-3031.02,Mapping Technicians,75,48,83,2,2,57
-19-1011.00,Animal Scientists,84,67,91,32,32,46
-19-1012.00,Food Scientists and Technologists,85,58,91,29,29,52
-19-1013.00,Soil and Plant Scientists,68,62,92,5,5,41
-19-1020.01,Biologists,84,50,92,8,8,51
-19-1021.00,Biochemists and Biophysicists,68,15,91,24,24,41
-19-1022.00,Microbiologists,72,40,93,82,82,61
-19-1023.00,Zoologists and Wildlife Biologists,81,70,93,19,19,39
-19-1029.01,Bioinformatics Scientists,68,35,97,15,15,34
-19-1029.02,Molecular and Cellular Biologists,59,13,90,36,36,53
-19-1029.03,Geneticists,73,46,93,38,38,45
-19-1031.01,Soil and Water Conservationists,83,81,95,6,6,53
-19-1031.02,Range Managers,95,86,93,16,16,43
-19-1031.03,Park Naturalists,83,91,99,17,17,73
-19-1032.00,Foresters,73,71,89,3,3,41
-19-1041.00,Epidemiologists,76,64,93,23,23,38
-19-1042.00,"Medical Scientists, Except Epidemiologists",82,40,95,33,33,43
-19-2011.00,Astronomers,61,33,85,1,1,31
-19-2012.00,Physicists,77,56,93,5,5,47
-19-2021.00,Atmospheric and Space Scientists,69,50,89,1,1,46
-19-2031.00,Chemists,81,51,92,23,23,57
-19-2032.00,Materials Scientists,71,37,90,2,2,46
-19-2041.00,"Environmental Scientists and Specialists, Including Health",81,65,95,6,6,40
-19-2041.01,Climate Change Analysts,82,63,90,0,0,38
-19-2041.02,Environmental Restoration Planners,78,70,75,1,1,51
-19-2041.03,Industrial Ecologists,69,44,86,0,0,40
-19-2042.00,"Geoscientists, Except Hydrologists and Geographers",67,38,91,7,7,40
-19-2043.00,Hydrologists,73,51,89,6,6,39
-19-2099.01,Remote Sensing Scientists and Technologists,68,42,82,0,0,40
-19-3011.00,Economists,59,38,89,6,6,33
-19-3011.01,Environmental Economists,61,31,82,0,0,29
-19-3022.00,Survey Researchers,77,54,89,0,0,40
-19-3031.01,School Psychologists,85,66,96,17,17,56
-19-3031.02,Clinical Psychologists,90,78,100,57,57,62
-19-3031.03,Counseling Psychologists,92,70,100,38,38,47
-19-3032.00,Industrial-Organizational Psychologists,82,71,90,1,1,40
-19-3039.01,Neuropsychologists and Clinical Neuropsychologists,82,64,99,50,50,71
-19-3041.00,Sociologists,71,48,89,7,7,40
-19-3051.00,Urban and Regional Planners,83,88,96,6,6,54
-19-3091.01,Anthropologists,80,54,88,18,18,55
-19-3091.02,Archeologists,77,51,90,11,11,63
-19-3092.00,Geographers,74,45,93,4,4,47
-19-3093.00,Historians,79,71,88,7,7,56
-19-3094.00,Political Scientists,73,52,85,7,7,31
-19-3099.01,Transportation Planners,81,76,93,0,0,42
-19-4011.01,Agricultural Technicians,84,56,93,15,15,56
-19-4011.02,Food Science Technicians,76,39,86,12,12,57
-19-4021.00,Biological Technicians,79,23,96,39,39,51
-19-4031.00,Chemical Technicians,77,34,93,8,8,58
-19-4041.01,Geophysical Data Technicians,82,51,96,0,0,44
-19-4041.02,Geological Sample Test Technicians,48,36,79,4,4,44
-19-4051.01,Nuclear Equipment Operation Technicians,83,19,100,14,14,72
-19-4051.02,Nuclear Monitoring Technicians,85,44,100,9,9,70
-19-4061.00,Social Science Research Assistants,67,42,82,0,0,47
-19-4061.01,City and Regional Planning Aides,85,79,98,0,0,46
-19-4091.00,"Environmental Science and Protection Technicians, Including Health",79,69,97,26,26,51
-19-4092.00,Forensic Science Technicians,74,79,95,66,66,68
-19-4093.00,Forest and Conservation Technicians,85,71,100,15,15,68
-19-4099.01,Quality Control Analysts,90,49,94,10,10,62
-19-4099.02,Precision Agriculture Technicians,78,67,85,3,3,48
-19-4099.03,Remote Sensing Technicians,76,39,88,0,0,48
-21-1011.00,Substance Abuse and Behavioral Disorder Counselors,92,77,98,63,63,68
-21-1012.00,"Educational, Guidance, School, and Vocational Counselors",99,66,100,36,36,64
-21-1013.00,Marriage and Family Therapists,96,76,99,30,30,58
-21-1014.00,Mental Health Counselors,94,66,90,36,36,58
-21-1015.00,Rehabilitation Counselors,83,59,82,26,26,60
-21-1021.00,"Child, Family, and School Social Workers",99,82,99,37,37,56
-21-1022.00,Healthcare Social Workers,92,88,100,88,88,76
-21-1023.00,Mental Health and Substance Abuse Social Workers,94,70,96,39,39,50
-21-1091.00,Health Educators,93,73,97,50,50,64
-21-1092.00,Probation Officers and Correctional Treatment Specialists,97,74,96,52,52,57
-21-1093.00,Social and Human Service Assistants,99,82,97,58,58,79
-21-1094.00,Community Health Workers,90,72,94,53,53,76
-21-2011.00,Clergy,95,81,95,40,40,55
-21-2021.00,"Directors, Religious Activities and Education",95,86,94,13,13,48
-23-1011.00,Lawyers,92,73,98,14,14,34
-23-1012.00,Judicial Law Clerks,65,37,92,3,3,33
-23-1021.00,"Administrative Law Judges, Adjudicators, and Hearing Officers",90,87,94,37,37,58
-23-1022.00,"Arbitrators, Mediators, and Conciliators",80,53,87,3,3,64
-23-1023.00,"Judges, Magistrate Judges, and Magistrates",94,90,99,34,34,52
-23-2011.00,Paralegals and Legal Assistants,89,67,95,1,1,39
-23-2091.00,Court Reporters,75,65,87,13,13,61
-23-2093.00,"Title Examiners, Abstractors, and Searchers",66,80,93,1,1,50
-25-1011.00,"Business Teachers, Postsecondary",78,45,79,3,3,48
-25-1021.00,"Computer Science Teachers, Postsecondary",87,60,91,12,12,49
-25-1022.00,"Mathematical Science Teachers, Postsecondary",83,56,90,15,15,58
-25-1031.00,"Architecture Teachers, Postsecondary",82,48,89,6,6,76
-25-1032.00,"Engineering Teachers, Postsecondary",81,37,95,9,9,33
-25-1041.00,"Agricultural Sciences Teachers, Postsecondary",79,50,97,14,14,40
-25-1042.00,"Biological Science Teachers, Postsecondary",85,64,97,30,30,47
-25-1043.00,"Forestry and Conservation Science Teachers, Postsecondary",84,49,91,6,6,32
-25-1051.00,"Atmospheric, Earth, Marine, and Space Sciences Teachers, Postsecondary",82,56,91,30,30,57
-25-1052.00,"Chemistry Teachers, Postsecondary",83,39,94,7,7,37
-25-1053.00,"Environmental Science Teachers, Postsecondary",82,50,91,20,20,49
-25-1054.00,"Physics Teachers, Postsecondary",85,68,89,7,7,44
-25-1061.00,"Anthropology and Archeology Teachers, Postsecondary",82,55,88,23,23,48
-25-1062.00,"Area, Ethnic, and Cultural Studies Teachers, Postsecondary",87,54,92,12,12,43
-25-1063.00,"Economics Teachers, Postsecondary",81,60,86,11,11,53
-25-1064.00,"Geography Teachers, Postsecondary",84,49,95,11,11,43
-25-1065.00,"Political Science Teachers, Postsecondary",78,64,87,5,5,44
-25-1066.00,"Psychology Teachers, Postsecondary",84,57,99,14,14,40
-25-1067.00,"Sociology Teachers, Postsecondary",81,45,91,9,9,46
-25-1071.00,"Health Specialties Teachers, Postsecondary",94,67,98,29,29,54
-25-1072.00,"Nursing Instructors and Teachers, Postsecondary",91,88,90,62,62,66
-25-1081.00,"Education Teachers, Postsecondary",88,76,93,10,10,41
-25-1082.00,"Library Science Teachers, Postsecondary",84,56,80,2,2,44
-25-1111.00,"Criminal Justice and Law Enforcement Teachers, Postsecondary",87,80,87,20,20,57
-25-1112.00,"Law Teachers, Postsecondary",88,51,86,6,6,41
-25-1113.00,"Social Work Teachers, Postsecondary",83,55,77,12,12,34
-25-1121.00,"Art, Drama, and Music Teachers, Postsecondary",93,54,86,17,17,74
-25-1122.00,"Communications Teachers, Postsecondary",88,47,90,12,12,51
-25-1123.00,"English Language and Literature Teachers, Postsecondary",86,57,80,9,9,50
-25-1124.00,"Foreign Language and Literature Teachers, Postsecondary",75,22,78,12,12,52
-25-1125.00,"History Teachers, Postsecondary",77,41,86,8,8,36
-25-1126.00,"Philosophy and Religion Teachers, Postsecondary",83,37,82,3,3,46
-25-1191.00,Graduate Teaching Assistants,90,43,91,6,6,61
-25-1192.00,"Home Economics Teachers, Postsecondary",94,66,82,10,10,47
-25-1193.00,"Recreation and Fitness Studies Teachers, Postsecondary",94,65,95,18,18,59
-25-1194.00,"Vocational Education Teachers, Postsecondary",91,70,85,17,17,76
-25-2011.00,"Preschool Teachers, Except Special Education",95,56,82,52,52,76
-25-2012.00,"Kindergarten Teachers, Except Special Education",91,84,90,68,68,86
-25-2021.00,"Elementary School Teachers, Except Special Education",95,66,95,46,46,79
-25-2022.00,"Middle School Teachers, Except Special and Career/Technical Education",97,77,97,54,54,70
-25-2023.00,"Career/Technical Education Teachers, Middle School",91,71,89,23,23,78
-25-2031.00,"Secondary School Teachers, Except Special and Career/Technical Education",93,64,93,17,17,70
-25-2032.00,"Career/Technical Education Teachers, Secondary School",92,55,97,31,31,77
-25-2051.00,"Special Education Teachers, Preschool",100,48,100,52,52,87
-25-2052.00,"Special Education Teachers, Kindergarten and Elementary School",98,78,97,49,49,83
-25-2053.00,"Special Education Teachers, Middle School",98,76,95,55,55,81
-25-2054.00,"Special Education Teachers, Secondary School",98,68,97,32,32,74
-25-2059.01,Adapted Physical Education Specialists,83,49,86,56,56,90
-25-3011.00,Adult Basic and Secondary Education and Literacy Teachers and Instructors,82,56,85,19,19,80
-25-3021.00,Self-Enrichment Education Teachers,94,56,92,8,8,76
-25-3099.02,Tutors,89,53,90,7,7,81
-25-4011.00,Archivists,74,78,92,2,2,44
-25-4012.00,Curators,83,77,89,5,5,44
-25-4013.00,Museum Technicians and Conservators,69,62,88,0,0,55
-25-4021.00,Librarians,82,74,89,29,29,52
-25-4031.00,Library Technicians,76,68,95,16,16,62
-25-9011.00,Audio-Visual and Multimedia Collections Specialists,86,57,90,5,5,59
-25-9021.00,Farm and Home Management Advisors,88,85,90,14,14,43
-25-9031.00,Instructional Coordinators,96,65,99,16,16,55
-25-9031.01,Instructional Designers and Technologists,75,46,84,1,1,48
-25-9041.00,Teacher Assistants,91,51,91,36,36,88
-27-1011.00,Art Directors,87,58,99,0,0,59
-27-1012.00,Craft Artists,53,63,64,2,2,34
-27-1013.00,"Fine Artists, Including Painters, Sculptors, and Illustrators",51,42,56,0,0,9
-27-1014.00,Multimedia Artists and Animators,77,66,90,0,0,53
-27-1021.00,Commercial and Industrial Designers,85,75,100,0,0,49
-27-1022.00,Fashion Designers,94,70,77,0,0,48
-27-1023.00,Floral Designers,88,95,94,25,25,73
-27-1024.00,Graphic Designers,76,50,91,0,0,34
-27-1025.00,Interior Designers,87,80,98,7,7,53
-27-1026.00,Merchandise Displayers and Window Trimmers,89,74,91,2,2,67
-27-1027.00,Set and Exhibit Designers,85,40,89,1,1,53
-27-2011.00,Actors,93,66,85,5,5,95
-27-2012.01,Producers,94,62,99,2,2,64
-27-2012.02,"Directors- Stage, Motion Pictures, Television, and Radio",91,69,93,0,0,70
-27-2012.03,Program Directors,98,93,95,0,0,42
-27-2012.04,Talent Directors,89,74,86,5,5,40
-27-2012.05,Technical Directors/Managers,99,59,92,1,1,67
-27-2021.00,Athletes and Sports Competitors,83,58,94,6,6,59
-27-2022.00,Coaches and Scouts,94,49,81,9,9,74
-27-2023.00,"Umpires, Referees, and Other Sports Officials",79,57,82,11,11,71
-27-2031.00,Dancers,94,51,92,21,21,98
-27-2032.00,Choreographers,87,41,91,3,3,100
-27-2041.01,Music Directors,87,82,92,17,17,61
-27-2041.04,Music Composers and Arrangers,50,40,66,0,0,32
-27-2042.01,Singers,85,53,75,29,29,94
-27-2042.02,"Musicians, Instrumental",88,54,64,7,7,82
-27-3011.00,Radio and Television Announcers,90,75,94,10,10,54
-27-3012.00,Public Address System and Other Announcers,85,67,83,2,2,71
-27-3021.00,Broadcast News Analysts,90,69,84,10,10,65
-27-3022.00,Reporters and Correspondents,92,67,91,9,9,55
-27-3031.00,Public Relations Specialists,90,75,94,4,4,46
-27-3041.00,Editors,89,68,95,0,0,54
-27-3042.00,Technical Writers,78,55,85,0,0,42
-27-3043.04,Copy Writers,97,82,97,7,7,49
-27-3043.05,"Poets, Lyricists and Creative Writers",44,30,39,0,0,14
-27-3091.00,Interpreters and Translators,97,51,80,56,56,66
-27-4011.00,Audio and Video Equipment Technicians,72,70,96,5,5,60
-27-4012.00,Broadcast Technicians,80,50,95,3,3,51
-27-4013.00,Radio Operators,99,92,77,21,21,62
-27-4014.00,Sound Engineering Technicians,82,48,97,7,7,69
-27-4021.00,Photographers,78,72,78,4,4,68
-27-4031.00,"Camera Operators, Television, Video, and Motion Picture",93,64,99,4,4,68
-27-4032.00,Film and Video Editors,81,47,93,2,2,49
-29-1011.00,Chiropractors,100,65,100,53,53,96
-29-1021.00,"Dentists, General",94,87,100,95,95,99
-29-1022.00,Oral and Maxillofacial Surgeons,96,86,99,99,99,99
-29-1023.00,Orthodontists,99,89,98,78,78,92
-29-1024.00,Prosthodontists,92,91,100,88,88,98
-29-1031.00,Dietitians and Nutritionists,87,84,98,79,79,69
-29-1041.00,Optometrists,91,90,98,75,75,90
-29-1051.00,Pharmacists,97,86,99,76,76,72
-29-1061.00,Anesthesiologists,95,68,98,90,90,94
-29-1062.00,Family and General Practitioners,96,91,95,100,100,91
-29-1063.00,"Internists, General",93,63,100,100,100,89
-29-1064.00,Obstetricians and Gynecologists,100,84,100,94,94,97
-29-1065.00,"Pediatricians, General",94,84,92,92,92,89
-29-1066.00,Psychiatrists,87,70,98,70,70,67
-29-1067.00,Surgeons,94,83,98,86,86,97
-29-1069.01,Allergists and Immunologists,100,83,88,95,95,84
-29-1069.02,Dermatologists,100,93,96,93,93,98
-29-1069.03,Hospitalists,94,83,100,99,99,92
-29-1069.04,Neurologists,98,81,100,77,77,79
-29-1069.05,Nuclear Medicine Physicians,80,75,98,81,81,69
-29-1069.06,Ophthalmologists,100,98,100,92,92,92
-29-1069.07,Pathologists,76,29,93,76,76,32
-29-1069.08,Physical Medicine and Rehabilitation Physicians,91,90,95,90,90,91
-29-1069.09,Preventive Medicine Physicians,85,83,96,61,61,55
-29-1069.10,Radiologists,81,70,90,85,85,63
-29-1069.11,Sports Medicine Physicians,99,75,99,94,94,100
-29-1069.12,Urologists,93,82,100,96,96,99
-29-1071.00,Physician Assistants,98,83,100,93,93,88
-29-1071.01,Anesthesiologist Assistants,82,74,93,97,97,88
-29-1081.00,Podiatrists,92,82,93,87,87,95
-29-1122.00,Occupational Therapists,95,82,99,92,92,95
-29-1122.01,"Low Vision Therapists, Orientation and Mobility Specialists, and Vision Rehabilitation Therapists",87,56,94,35,35,86
-29-1123.00,Physical Therapists,100,91,100,67,67,100
-29-1124.00,Radiation Therapists,99,60,93,95,95,98
-29-1125.00,Recreational Therapists,93,73,100,77,77,84
-29-1125.01,Art Therapists,92,64,95,40,40,73
-29-1125.02,Music Therapists,91,64,94,73,73,88
-29-1126.00,Respiratory Therapists,96,81,98,98,98,93
-29-1127.00,Speech-Language Pathologists,96,58,94,52,52,79
-29-1128.00,Exercise Physiologists,94,73,99,55,55,93
-29-1131.00,Veterinarians,93,93,94,89,89,91
-29-1141.00,Registered Nurses,98,78,93,95,95,94
-29-1141.01,Acute Care Nurses,95,88,99,100,100,95
-29-1141.02,Advanced Practice Psychiatric Nurses,90,73,99,80,80,77
-29-1141.03,Critical Care Nurses,93,75,99,99,99,94
-29-1141.04,Clinical Nurse Specialists,88,77,96,91,91,80
-29-1151.00,Nurse Anesthetists,93,76,100,96,96,87
-29-1161.00,Nurse Midwives,95,84,99,89,89,97
-29-1171.00,Nurse Practitioners,85,67,94,87,87,85
-29-1181.00,Audiologists,92,90,98,68,68,67
-29-1199.01,Acupuncturists,95,68,86,85,85,91
-29-1199.04,Naturopathic Physicians,99,79,98,91,91,88
-29-1199.05,Orthoptists,100,84,97,75,75,91
-29-2011.00,Medical and Clinical Laboratory Technologists,88,76,87,96,96,72
-29-2011.01,Cytogenetic Technologists,75,30,91,83,83,63
-29-2011.02,Cytotechnologists,58,44,91,80,80,49
-29-2011.03,Histotechnologists and Histologic Technicians,74,44,95,75,75,63
-29-2012.00,Medical and Clinical Laboratory Technicians,86,45,98,77,77,65
-29-2021.00,Dental Hygienists,100,73,97,100,100,100
-29-2031.00,Cardiovascular Technologists and Technicians,99,81,94,74,74,97
-29-2032.00,Diagnostic Medical Sonographers,96,81,83,87,87,95
-29-2033.00,Nuclear Medicine Technologists,96,91,91,93,93,86
-29-2034.00,Radiologic Technologists,99,84,91,92,92,89
-29-2035.00,Magnetic Resonance Imaging Technologists,85,75,94,84,84,76
-29-2041.00,Emergency Medical Technicians and Paramedics,90,95,93,89,89,97
-29-2051.00,Dietetic Technicians,92,76,84,61,61,65
-29-2052.00,Pharmacy Technicians,95,85,94,72,72,83
-29-2053.00,Psychiatric Technicians,91,75,90,93,93,85
-29-2054.00,Respiratory Therapy Technicians,100,75,97,98,98,98
-29-2055.00,Surgical Technologists,92,76,88,82,82,99
-29-2056.00,Veterinary Technologists and Technicians,98,81,85,67,67,92
-29-2057.00,Ophthalmic Medical Technicians,97,78,94,69,69,90
-29-2061.00,Licensed Practical and Licensed Vocational Nurses,97,71,98,94,94,90
-29-2071.00,Medical Records and Health Information Technicians,74,53,82,24,24,50
-29-2081.00,"Opticians, Dispensing",95,94,96,40,40,83
-29-2091.00,Orthotists and Prosthetists,90,85,100,79,79,88
-29-2092.00,Hearing Aid Specialists,98,97,97,49,49,79
-29-2099.01,Neurodiagnostic Technologists,94,77,97,81,81,94
-29-2099.05,Ophthalmic Medical Technologists,93,85,98,83,83,94
-29-2099.06,Radiologic Technicians,96,89,94,91,91,96
-29-2099.07,Surgical Assistants,94,75,86,87,87,97
-29-9011.00,Occupational Health and Safety Specialists,80,67,96,18,18,65
-29-9012.00,Occupational Health and Safety Technicians,86,54,93,29,29,55
-29-9091.00,Athletic Trainers,96,60,100,69,69,93
-29-9092.00,Genetic Counselors,89,79,100,38,38,47
-29-9099.01,Midwives,94,67,95,73,73,94
-31-1011.00,Home Health Aides,84,58,80,63,63,84
-31-1013.00,Psychiatric Aides,84,48,94,91,91,89
-31-1014.00,Nursing Assistants,89,59,93,83,83,91
-31-1015.00,Orderlies,98,60,86,97,97,97
-31-2011.00,Occupational Therapy Assistants,97,70,94,88,88,82
-31-2012.00,Occupational Therapy Aides,96,68,99,97,97,91
-31-2021.00,Physical Therapist Assistants,100,84,87,76,76,94
-31-2022.00,Physical Therapist Aides,98,51,99,86,86,95
-31-9011.00,Massage Therapists,85,73,83,35,35,89
-31-9091.00,Dental Assistants,97,81,92,96,96,99
-31-9092.00,Medical Assistants,96,78,85,83,83,88
-31-9093.00,Medical Equipment Preparers,89,76,92,92,92,77
-31-9094.00,Medical Transcriptionists,66,33,73,21,21,42
-31-9095.00,Pharmacy Aides,96,88,84,78,78,82
-31-9096.00,Veterinary Assistants and Laboratory Animal Caretakers,99,92,97,87,87,88
-31-9097.00,Phlebotomists,96,82,96,88,88,76
-31-9099.01,Speech-Language Pathology Assistants,100,60,94,51,51,78
-31-9099.02,Endoscopy Technicians,86,59,93,87,87,83
-33-1011.00,First-Line Supervisors of Correctional Officers,89,75,82,85,85,71
-33-1012.00,First-Line Supervisors of Police and Detectives,97,95,97,57,57,77
-33-1021.01,Municipal Fire Fighting and Prevention Supervisors,95,84,92,71,71,76
-33-1021.02,Forest Fire Fighting and Prevention Supervisors,84,80,91,23,23,73
-33-2011.01,Municipal Firefighters,92,87,96,77,77,89
-33-2011.02,Forest Firefighters,89,85,91,44,44,74
-33-2021.01,Fire Inspectors,98,85,100,35,35,60
-33-2021.02,Fire Investigators,98,98,96,63,63,74
-33-2022.00,Forest Fire Inspectors and Prevention Specialists,95,84,97,36,36,54
-33-3011.00,Bailiffs,93,98,98,40,40,80
-33-3012.00,Correctional Officers and Jailers,98,78,86,72,72,81
-33-3021.01,Police Detectives,96,96,97,58,58,71
-33-3021.02,Police Identification and Records Officers,90,92,89,60,60,76
-33-3021.03,Criminal Investigators and Special Agents,94,87,93,54,54,68
-33-3021.05,Immigration and Customs Inspectors,96,95,91,63,63,80
-33-3021.06,Intelligence Analysts,85,63,97,2,2,49
-33-3031.00,Fish and Game Wardens,92,96,92,31,31,76
-33-3041.00,Parking Enforcement Workers,73,86,77,10,10,37
-33-3051.01,Police Patrol Officers,98,97,99,61,61,73
-33-3051.03,Sheriffs and Deputy Sheriffs,95,97,88,77,77,79
-33-3052.00,Transit and Railroad Police,93,93,82,56,56,79
-33-9011.00,Animal Control Workers,93,95,86,79,79,54
-33-9021.00,Private Detectives and Investigators,83,80,79,8,8,51
-33-9031.00,Gaming Surveillance Officers and Gaming Investigators,91,58,93,28,28,78
-33-9032.00,Security Guards,86,76,86,16,16,68
-33-9091.00,Crossing Guards,78,87,68,18,18,78
-33-9092.00,"Lifeguards, Ski Patrol, and Other Recreational Protective Service Workers",92,87,89,38,38,56
-33-9093.00,Transportation Security Screeners,89,81,85,55,55,86
-33-9099.02,Retail Loss Prevention Specialists,94,81,89,12,12,73
-35-1011.00,Chefs and Head Cooks,93,69,97,15,15,81
-35-1012.00,First-Line Supervisors of Food Preparation and Serving Workers,96,94,87,26,26,95
-35-2011.00,"Cooks, Fast Food",57,64,98,11,11,65
-35-2012.00,"Cooks, Institution and Cafeteria",91,55,95,43,43,70
-35-2013.00,"Cooks, Private Household",64,42,65,6,6,21
-35-2014.00,"Cooks, Restaurant",67,53,76,10,10,81
-35-2015.00,"Cooks, Short Order",93,81,82,7,7,66
-35-2021.00,Food Preparation Workers,81,81,81,6,6,69
-35-3011.00,Bartenders,93,81,80,4,4,79
-35-3021.00,"Combined Food Preparation and Serving Workers, Including Fast Food",93,80,89,7,7,74
-35-3022.00,"Counter Attendants, Cafeteria, Food Concession, and Coffee Shop",96,87,90,3,3,73
-35-3022.01,Baristas,92,84,82,8,8,75
-35-3031.00,Waiters and Waitresses,95,72,76,16,16,78
-35-3041.00,"Food Servers, Nonrestaurant",95,73,88,39,39,72
-35-9011.00,Dining Room and Cafeteria Attendants and Bartender Helpers,93,73,88,15,15,82
-35-9021.00,Dishwashers,65,46,62,30,30,63
-35-9031.00,"Hosts and Hostesses, Restaurant, Lounge, and Coffee Shop",95,73,87,16,16,79
-37-1011.00,First-Line Supervisors of Housekeeping and Janitorial Workers,86,71,92,47,47,51
-37-1012.00,"First-Line Supervisors of Landscaping, Lawn Service, and Groundskeeping Workers",74,81,90,13,13,72
-37-2011.00,"Janitors and Cleaners, Except Maids and Housekeeping Cleaners",70,46,81,47,47,48
-37-2012.00,Maids and Housekeeping Cleaners,87,35,77,52,52,42
-37-2021.00,Pest Control Workers,85,75,93,26,26,47
-37-3011.00,Landscaping and Groundskeeping Workers,55,32,75,9,9,76
-37-3012.00,"Pesticide Handlers, Sprayers, and Applicators, Vegetation",66,75,81,9,9,29
-37-3013.00,Tree Trimmers and Pruners,81,61,93,1,1,59
-39-1011.00,Gaming Supervisors,97,96,98,19,19,84
-39-1012.00,Slot Supervisors,93,95,78,42,42,80
-39-1021.00,First-Line Supervisors of Personal Service Workers,99,82,92,29,29,87
-39-1021.01,Spa Managers,100,91,99,11,11,82
-39-2011.00,Animal Trainers,81,73,88,18,18,62
-39-2021.00,Nonfarm Animal Caretakers,94,66,97,64,64,66
-39-3011.00,Gaming Dealers,91,85,88,27,27,88
-39-3012.00,Gaming and Sports Book Writers and Runners,91,79,80,12,12,85
-39-3021.00,Motion Picture Projectionists,67,52,76,2,2,37
-39-3031.00,"Ushers, Lobby Attendants, and Ticket Takers",97,89,92,16,16,82
-39-3091.00,Amusement and Recreation Attendants,97,87,88,25,25,84
-39-3092.00,Costume Attendants,87,44,93,8,8,76
-39-3093.00,"Locker Room, Coatroom, and Dressing Room Attendants",93,86,86,13,13,64
-39-4011.00,Embalmers,97,80,82,83,83,64
-39-4021.00,Funeral Attendants,83,83,77,54,54,79
-39-4031.00,"Morticians, Undertakers, and Funeral Directors",94,93,91,79,79,72
-39-5011.00,Barbers,95,59,82,59,59,95
-39-5012.00,"Hairdressers, Hairstylists, and Cosmetologists",96,87,96,32,32,92
-39-5091.00,"Makeup Artists, Theatrical and Performance",90,51,90,20,20,86
-39-5092.00,Manicurists and Pedicurists,88,35,71,27,27,90
-39-5093.00,Shampooers,98,76,89,10,10,91
-39-5094.00,Skincare Specialists,81,69,92,36,36,99
-39-6011.00,Baggage Porters and Bellhops,85,84,79,10,10,78
-39-6012.00,Concierges,96,96,89,7,7,65
-39-7011.00,Tour Guides and Escorts,87,87,86,19,19,72
-39-7012.00,Travel Guides,88,95,91,4,4,53
-39-9011.00,Childcare Workers,94,60,89,45,45,82
-39-9011.01,Nannies,73,23,93,35,35,68
-39-9021.00,Personal Care Aides,83,49,76,62,62,86
-39-9031.00,Fitness Trainers and Aerobics Instructors,84,57,87,22,22,83
-39-9032.00,Recreation Workers,95,64,90,37,37,72
-39-9041.00,Residential Advisors,89,61,87,24,24,62
-41-1011.00,First-Line Supervisors of Retail Sales Workers,96,89,99,10,10,66
-41-1012.00,First-Line Supervisors of Non-Retail Sales Workers,96,76,97,4,4,43
-41-2011.00,Cashiers,96,88,87,28,28,75
-41-2012.00,Gaming Change Persons and Booth Cashiers,97,82,93,27,27,70
-41-2021.00,Counter and Rental Clerks,98,86,100,10,10,68
-41-2022.00,Parts Salespersons,99,99,83,0,0,67
-41-2031.00,Retail Salespersons,97,90,97,19,19,69
-41-3011.00,Advertising Sales Agents,95,95,93,3,3,55
-41-3021.00,Insurance Sales Agents,93,99,98,10,10,61
-41-3031.01,"Sales Agents, Securities and Commodities",89,81,87,0,0,43
-41-3031.02,"Sales Agents, Financial Services",97,87,93,7,7,47
-41-3031.03,Securities and Commodities Traders,97,63,99,0,0,67
-41-3041.00,Travel Agents,86,86,76,0,0,55
-41-3099.01,Energy Brokers,83,87,94,9,9,52
-41-4011.00,"Sales Representatives, Wholesale and Manufacturing, Technical and Scientific Products",89,70,89,6,6,46
-41-4011.07,Solar Sales Representatives and Assessors,93,92,93,6,6,47
-41-4012.00,"Sales Representatives, Wholesale and Manufacturing, Except Technical and Scientific Products",95,85,88,3,3,52
-41-9011.00,Demonstrators and Product Promoters,96,86,82,0,0,67
-41-9012.00,Models,79,33,60,1,1,64
-41-9021.00,Real Estate Brokers,92,87,95,6,6,54
-41-9022.00,Real Estate Sales Agents,99,72,93,4,4,71
-41-9031.00,Sales Engineers,91,92,90,0,0,36
-41-9041.00,Telemarketers,100,69,80,5,5,77
-41-9091.00,"Door-To-Door Sales Workers, News and Street Vendors, and Related Workers",87,93,79,7,7,67
-43-1011.00,First-Line Supervisors of Office and Administrative Support Workers,93,75,98,9,9,47
-43-2011.00,"Switchboard Operators, Including Answering Service",98,93,79,30,30,63
-43-2021.00,Telephone Operators,98,95,55,12,12,68
-43-3011.00,Bill and Account Collectors,98,74,70,8,8,45
-43-3021.01,Statement Clerks,97,58,89,0,0,72
-43-3021.02,"Billing, Cost, and Rate Clerks",91,64,82,29,29,46
-43-3031.00,"Bookkeeping, Accounting, and Auditing Clerks",87,65,89,4,4,44
-43-3041.00,Gaming Cage Workers,99,89,94,16,16,77
-43-3051.00,Payroll and Timekeeping Clerks,82,52,90,7,7,37
-43-3061.00,Procurement Clerks,97,84,90,10,10,51
-43-3071.00,Tellers,99,77,97,34,34,76
-43-4011.00,Brokerage Clerks,96,86,92,1,1,68
-43-4021.00,Correspondence Clerks,93,87,95,3,3,43
-43-4031.01,Court Clerks,96,84,92,13,13,62
-43-4031.02,Municipal Clerks,95,85,98,6,6,44
-43-4031.03,License Clerks,96,81,96,14,14,70
-43-4041.01,Credit Authorizers,95,93,100,1,1,55
-43-4041.02,Credit Checkers,99,90,85,0,0,69
-43-4051.00,Customer Service Representatives,96,76,86,5,5,58
-43-4051.03,Patient Representatives,98,89,98,77,77,76
-43-4061.00,"Eligibility Interviewers, Government Programs",94,86,87,30,30,56
-43-4071.00,File Clerks,87,72,73,19,19,47
-43-4081.00,"Hotel, Motel, and Resort Desk Clerks",99,93,96,3,3,64
-43-4111.00,"Interviewers, Except Eligibility and Loan",98,68,72,23,23,73
-43-4121.00,"Library Assistants, Clerical",89,71,96,34,34,73
-43-4131.00,Loan Interviewers and Clerks,99,93,91,17,17,45
-43-4141.00,New Accounts Clerks,98,92,95,17,17,59
-43-4151.00,Order Clerks,96,83,89,3,3,56
-43-4161.00,"Human Resources Assistants, Except Payroll and Timekeeping",98,75,88,14,14,53
-43-4171.00,Receptionists and Information Clerks,100,91,93,31,31,52
-43-4181.00,Reservation and Transportation Ticket Agents and Travel Clerks,100,91,90,12,12,81
-43-5011.00,Cargo and Freight Agents,96,83,88,4,4,65
-43-5011.01,Freight Forwarders,93,68,81,1,1,60
-43-5021.00,Couriers and Messengers,92,59,93,73,73,45
-43-5031.00,"Police, Fire, and Ambulance Dispatchers",99,98,85,11,11,60
-43-5032.00,"Dispatchers, Except Police, Fire, and Ambulance",97,88,89,9,9,58
-43-5041.00,"Meter Readers, Utilities",69,77,65,27,27,37
-43-5051.00,Postal Service Clerks,90,86,68,17,17,82
-43-5052.00,Postal Service Mail Carriers,70,76,81,8,8,57
-43-5053.00,"Postal Service Mail Sorters, Processors, and Processing Machine Operators",70,10,81,5,5,63
-43-5061.00,"Production, Planning, and Expediting Clerks",93,49,93,3,3,52
-43-5071.00,"Shipping, Receiving, and Traffic Clerks",87,80,97,4,4,46
-43-5081.01,"Stock Clerks, Sales Floor",96,88,95,20,20,84
-43-5081.02,Marking Clerks,90,66,97,16,16,71
-43-5081.03,"Stock Clerks- Stockroom, Warehouse, or Storage Yard",77,32,99,2,2,58
-43-5081.04,"Order Fillers, Wholesale and Retail Sales",83,66,95,15,15,63
-43-5111.00,"Weighers, Measurers, Checkers, and Samplers, Recordkeeping",86,56,90,1,1,58
-43-6011.00,Executive Secretaries and Executive Administrative Assistants,93,72,91,8,8,39
-43-6012.00,Legal Secretaries,90,81,95,0,0,41
-43-6013.00,Medical Secretaries,100,75,91,53,53,71
-43-6014.00,"Secretaries and Administrative Assistants, Except Legal, Medical, and Executive",97,75,91,29,29,43
-43-9011.00,Computer Operators,94,46,86,7,7,42
-43-9021.00,Data Entry Keyers,81,34,86,11,11,57
-43-9022.00,Word Processors and Typists,92,87,90,22,22,47
-43-9031.00,Desktop Publishers,81,71,88,2,2,45
-43-9041.01,Insurance Claims Clerks,84,68,63,1,1,46
-43-9041.02,Insurance Policy Processing Clerks,86,67,83,0,0,52
-43-9051.00,"Mail Clerks and Mail Machine Operators, Except Postal Service",91,66,87,1,1,73
-43-9061.00,"Office Clerks, General",93,82,91,28,28,64
-43-9071.00,"Office Machine Operators, Except Computer",77,67,71,4,4,56
-43-9081.00,Proofreaders and Copy Markers,93,40,81,0,0,53
-43-9111.00,Statistical Assistants,76,50,93,7,7,45
-43-9111.01,Bioinformatics Technicians,72,46,80,11,11,59
-45-1011.05,First-Line Supervisors of Logging Workers,88,59,97,3,3,32
-45-1011.06,First-Line Supervisors of Aquacultural Workers,83,66,99,14,14,66
-45-1011.07,First-Line Supervisors of Agricultural Crop and Horticultural Workers,71,50,82,7,7,43
-45-1011.08,First-Line Supervisors of Animal Husbandry and Animal Care Workers,92,49,80,35,35,41
-45-2011.00,Agricultural Inspectors,90,82,84,18,18,68
-45-2021.00,Animal Breeders,58,47,54,27,27,33
-45-2041.00,"Graders and Sorters, Agricultural Products",65,19,89,7,7,84
-45-2091.00,Agricultural Equipment Operators,67,22,79,4,4,39
-45-2092.01,Nursery Workers,65,38,78,1,1,39
-45-2092.02,"Farmworkers and Laborers, Crop",40,22,87,1,1,24
-45-2093.00,"Farmworkers, Farm, Ranch, and Aquacultural Animals",78,52,80,38,38,64
-45-3011.00,Fishers and Related Fishing Workers,73,22,92,22,22,70
-45-3021.00,Hunters and Trappers,56,42,61,67,67,17
-45-4011.00,Forest and Conservation Workers,93,83,94,17,17,67
-45-4021.00,Fallers,46,21,70,1,1,7
-45-4022.00,Logging Equipment Operators,78,37,86,0,0,14
-45-4023.00,Log Graders and Scalers,70,57,89,1,1,48
-47-1011.00,First-Line Supervisors of Construction Trades and Extraction Workers,89,67,96,5,5,71
-47-1011.03,Solar Energy Installation Managers,85,61,97,9,9,78
-47-2011.00,Boilermakers,79,45,83,15,15,69
-47-2021.00,Brickmasons and Blockmasons,73,44,76,4,4,83
-47-2022.00,Stonemasons,85,36,87,6,6,80
-47-2031.01,Construction Carpenters,84,59,97,13,13,81
-47-2031.02,Rough Carpenters,94,56,94,5,5,79
-47-2041.00,Carpet Installers,83,59,90,14,14,59
-47-2042.00,"Floor Layers, Except Carpet, Wood, and Hard Tiles",91,58,100,8,8,70
-47-2043.00,Floor Sanders and Finishers,58,55,85,1,1,62
-47-2044.00,Tile and Marble Setters,79,63,88,12,12,64
-47-2051.00,Cement Masons and Concrete Finishers,74,42,84,5,5,86
-47-2053.00,Terrazzo Workers and Finishers,64,29,82,7,7,67
-47-2061.00,Construction Laborers,91,40,88,10,10,73
-47-2071.00,"Paving, Surfacing, and Tamping Equipment Operators",72,59,77,5,5,55
-47-2072.00,Pile-Driver Operators,88,36,90,8,8,73
-47-2073.00,Operating Engineers and Other Construction Equipment Operators,77,47,90,2,2,57
-47-2081.00,Drywall and Ceiling Tile Installers,67,49,88,6,6,61
-47-2082.00,Tapers,59,31,89,9,9,55
-47-2111.00,Electricians,90,51,91,11,11,75
-47-2121.00,Glaziers,85,65,97,18,18,69
-47-2131.00,"Insulation Workers, Floor, Ceiling, and Wall",68,48,81,2,2,58
-47-2132.00,"Insulation Workers, Mechanical",89,55,92,24,24,59
-47-2141.00,"Painters, Construction and Maintenance",84,38,91,4,4,64
-47-2142.00,Paperhangers,71,37,71,11,11,44
-47-2151.00,Pipelayers,92,56,94,36,36,87
-47-2152.01,Pipe Fitters and Steamfitters,87,37,92,21,21,73
-47-2152.02,Plumbers,79,48,88,58,58,60
-47-2161.00,Plasterers and Stucco Masons,78,28,91,6,6,61
-47-2171.00,Reinforcing Iron and Rebar Workers,86,41,80,13,13,71
-47-2181.00,Roofers,88,59,91,4,4,77
-47-2211.00,Sheet Metal Workers,82,56,93,10,10,67
-47-2221.00,Structural Iron and Steel Workers,85,51,83,10,10,87
-47-2231.00,Solar Photovoltaic Installers,74,52,82,2,2,68
-47-3011.00,"Helpers--Brickmasons, Blockmasons, Stonemasons, and Tile and Marble Setters",65,57,97,9,9,66
-47-3012.00,Helpers--Carpenters,84,39,92,12,12,77
-47-3013.00,Helpers--Electricians,83,55,100,12,12,67
-47-3014.00,"Helpers--Painters, Paperhangers, Plasterers, and Stucco Masons",86,38,94,3,3,61
-47-3015.00,"Helpers--Pipelayers, Plumbers, Pipefitters, and Steamfitters",79,60,81,45,45,67
-47-3016.00,Helpers--Roofers,63,50,84,5,5,62
-47-4011.00,Construction and Building Inspectors,77,76,96,11,11,64
-47-4021.00,Elevator Installers and Repairers,77,68,95,50,50,64
-47-4031.00,Fence Erectors,84,67,93,9,9,74
-47-4041.00,Hazardous Materials Removal Workers,74,59,95,18,18,67
-47-4051.00,Highway Maintenance Workers,81,68,95,26,26,68
-47-4061.00,Rail-Track Laying and Maintenance Equipment Operators,89,40,97,14,14,85
-47-4071.00,Septic Tank Servicers and Sewer Pipe Cleaners,90,86,93,65,65,77
-47-4091.00,Segmental Pavers,91,93,99,8,8,63
-47-4099.02,Solar Thermal Installers and Technicians,76,80,78,2,2,60
-47-4099.03,Weatherization Installers and Technicians,85,73,97,20,20,68
-47-5011.00,"Derrick Operators, Oil and Gas",89,50,83,0,0,87
-47-5012.00,"Rotary Drill Operators, Oil and Gas",84,57,99,7,7,80
-47-5013.00,"Service Unit Operators, Oil, Gas, and Mining",96,51,92,11,11,79
-47-5021.00,"Earth Drillers, Except Oil and Gas",75,40,88,8,8,42
-47-5031.00,"Explosives Workers, Ordnance Handling Experts, and Blasters",85,49,95,4,4,66
-47-5041.00,Continuous Mining Machine Operators,86,6,96,6,6,59
-47-5042.00,Mine Cutting and Channeling Machine Operators,94,6,93,1,1,53
-47-5051.00,"Rock Splitters, Quarry",55,29,62,,,43
-47-5061.00,"Roof Bolters, Mining",88,2,99,26,26,77
-47-5071.00,"Roustabouts, Oil and Gas",87,60,98,6,6,89
-47-5081.00,Helpers--Extraction Workers,83,44,96,4,4,80
-49-1011.00,"First-Line Supervisors of Mechanics, Installers, and Repairers",95,84,98,19,19,69
-49-2011.00,"Computer, Automated Teller, and Office Machine Repairers",78,80,84,5,5,63
-49-2021.00,"Radio, Cellular, and Tower Equipment Installers and Repairers",82,86,91,23,23,76
-49-2021.01,Radio Mechanics,86,70,92,5,5,63
-49-2022.00,"Telecommunications Equipment Installers and Repairers, Except Line Installers",89,81,82,22,22,62
-49-2091.00,Avionics Technicians,77,49,90,3,3,66
-49-2092.00,"Electric Motor, Power Tool, and Related Repairers",73,54,92,26,26,60
-49-2093.00,"Electrical and Electronics Installers and Repairers, Transportation Equipment",76,28,87,4,4,54
-49-2094.00,"Electrical and Electronics Repairers, Commercial and Industrial Equipment",89,36,94,2,2,64
-49-2095.00,"Electrical and Electronics Repairers, Powerhouse, Substation, and Relay",93,38,97,16,16,88
-49-2096.00,"Electronic Equipment Installers and Repairers, Motor Vehicles",67,61,84,3,3,58
-49-2097.00,Electronic Home Entertainment Equipment Installers and Repairers,80,49,67,6,6,40
-49-2098.00,Security and Fire Alarm Systems Installers,89,83,94,20,20,63
-49-3011.00,Aircraft Mechanics and Service Technicians,61,58,81,4,4,54
-49-3021.00,Automotive Body and Related Repairers,64,33,86,0,0,46
-49-3022.00,Automotive Glass Installers and Repairers,88,70,97,1,1,50
-49-3023.01,Automotive Master Mechanics,85,61,88,8,8,53
-49-3023.02,Automotive Specialty Technicians,75,49,92,5,5,55
-49-3031.00,Bus and Truck Mechanics and Diesel Engine Specialists,82,59,87,9,9,62
-49-3041.00,Farm Equipment Mechanics and Service Technicians,79,61,97,20,20,53
-49-3042.00,"Mobile Heavy Equipment Mechanics, Except Engines",82,60,92,15,15,48
-49-3043.00,Rail Car Repairers,75,46,88,3,3,65
-49-3051.00,Motorboat Mechanics and Service Technicians,83,71,93,18,18,64
-49-3052.00,Motorcycle Mechanics,78,67,90,0,0,43
-49-3053.00,Outdoor Power Equipment and Other Small Engine Mechanics,86,64,67,3,3,53
-49-3091.00,Bicycle Repairers,85,96,83,0,0,65
-49-3092.00,Recreational Vehicle Service Technicians,72,73,80,31,31,53
-49-3093.00,Tire Repairers and Changers,88,79,90,16,16,65
-49-9011.00,Mechanical Door Repairers,85,72,87,7,7,73
-49-9012.00,"Control and Valve Installers and Repairers, Except Mechanical Door",88,68,99,19,19,65
-49-9021.01,Heating and Air Conditioning Mechanics and Installers,84,69,91,15,15,66
-49-9021.02,Refrigeration Mechanics and Installers,93,74,89,19,19,56
-49-9031.00,Home Appliance Repairers,96,91,93,12,12,67
-49-9041.00,Industrial Machinery Mechanics,83,30,95,15,15,72
-49-9043.00,"Maintenance Workers, Machinery",82,35,90,11,11,73
-49-9044.00,Millwrights,83,40,99,30,30,77
-49-9045.00,"Refractory Materials Repairers, Except Brickmasons",81,16,67,21,21,80
-49-9051.00,Electrical Power-Line Installers and Repairers,82,62,100,10,10,73
-49-9052.00,Telecommunications Line Installers and Repairers,95,75,86,34,34,64
-49-9061.00,Camera and Photographic Equipment Repairers,61,53,85,0,0,38
-49-9062.00,Medical Equipment Repairers,74,66,83,33,33,52
-49-9063.00,Musical Instrument Repairers and Tuners,75,84,93,7,7,48
-49-9064.00,Watch Repairers,67,57,84,1,1,66
-49-9071.00,"Maintenance and Repair Workers, General",83,51,95,44,44,69
-49-9081.00,Wind Turbine Service Technicians,90,47,92,5,5,79
-49-9091.00,"Coin, Vending, and Amusement Machine Servicers and Repairers",78,65,67,7,7,58
-49-9092.00,Commercial Divers,90,50,89,12,12,75
-49-9093.00,"Fabric Menders, Except Garment",64,28,91,26,26,58
-49-9094.00,Locksmiths and Safe Repairers,91,83,99,10,10,62
-49-9095.00,Manufactured Building and Mobile Home Installers,69,37,69,1,1,73
-49-9096.00,Riggers,85,48,91,15,15,77
-49-9097.00,Signal and Track Switch Repairers,81,39,83,8,8,73
-49-9098.00,"Helpers--Installation, Maintenance, and Repair Workers",84,49,97,15,15,68
-49-9099.01,Geothermal Technicians,80,33,88,7,7,50
-51-1011.00,First-Line Supervisors of Production and Operating Workers,91,51,91,1,1,65
-51-2011.00,"Aircraft Structure, Surfaces, Rigging, and Systems Assemblers",74,32,95,9,9,60
-51-2021.00,"Coil Winders, Tapers, and Finishers",66,26,83,2,2,58
-51-2022.00,Electrical and Electronic Equipment Assemblers,60,32,75,3,3,59
-51-2023.00,Electromechanical Equipment Assemblers,76,34,99,7,7,59
-51-2031.00,Engine and Other Machine Assemblers,79,45,93,0,0,69
-51-2041.00,Structural Metal Fabricators and Fitters,80,56,93,6,6,60
-51-2091.00,Fiberglass Laminators and Fabricators,76,21,88,3,3,83
-51-2092.00,Team Assemblers,81,13,95,0,0,66
-51-2093.00,Timing Device Assemblers and Adjusters,80,11,91,,,45
-51-3011.00,Bakers,86,60,81,7,7,55
-51-3021.00,Butchers and Meat Cutters,88,87,83,3,3,77
-51-3022.00,"Meat, Poultry, and Fish Cutters and Trimmers",46,61,71,25,25,85
-51-3023.00,Slaughterers and Meat Packers,73,58,78,18,18,73
-51-3091.00,"Food and Tobacco Roasting, Baking, and Drying Machine Operators and Tenders",74,38,85,6,6,35
-51-3092.00,Food Batchmakers,76,36,78,4,4,56
-51-3093.00,Food Cooking Machine Operators and Tenders,87,39,84,14,14,73
-51-4011.00,"Computer-Controlled Machine Tool Operators, Metal and Plastic",72,28,89,1,1,51
-51-4012.00,"Computer Numerically Controlled Machine Tool Programmers, Metal and Plastic",71,41,90,1,1,57
-51-4021.00,"Extruding and Drawing Machine Setters, Operators, and Tenders, Metal and Plastic",61,8,75,12,12,51
-51-4022.00,"Forging Machine Setters, Operators, and Tenders, Metal and Plastic",83,26,93,1,1,65
-51-4023.00,"Rolling Machine Setters, Operators, and Tenders, Metal and Plastic",84,55,89,1,1,59
-51-4031.00,"Cutting, Punching, and Press Machine Setters, Operators, and Tenders, Metal and Plastic",60,13,80,1,1,50
-51-4032.00,"Drilling and Boring Machine Tool Setters, Operators, and Tenders, Metal and Plastic",67,19,89,2,2,48
-51-4033.00,"Grinding, Lapping, Polishing, and Buffing Machine Tool Setters, Operators, and Tenders, Metal and Plastic",62,37,72,5,5,55
-51-4034.00,"Lathe and Turning Machine Tool Setters, Operators, and Tenders, Metal and Plastic",54,22,78,8,8,48
-51-4035.00,"Milling and Planing Machine Setters, Operators, and Tenders, Metal and Plastic",63,18,92,1,1,53
-51-4041.00,Machinists,74,29,93,4,4,52
-51-4051.00,Metal-Refining Furnace Operators and Tenders,62,17,76,2,2,43
-51-4052.00,"Pourers and Casters, Metal",47,23,76,7,7,57
-51-4061.00,"Model Makers, Metal and Plastic",66,48,100,16,16,71
-51-4062.00,"Patternmakers, Metal and Plastic",87,27,100,1,1,64
-51-4071.00,Foundry Mold and Coremakers,69,20,67,8,8,69
-51-4072.00,"Molding, Coremaking, and Casting Machine Setters, Operators, and Tenders, Metal and Plastic",73,4,91,3,3,68
-51-4081.00,"Multiple Machine Tool Setters, Operators, and Tenders, Metal and Plastic",68,27,86,13,13,58
-51-4111.00,Tool and Die Makers,61,33,94,0,0,57
-51-4121.06,"Welders, Cutters, and Welder Fitters",67,37,81,1,1,46
-51-4121.07,Solderers and Brazers,65,22,78,0,0,52
-51-4122.00,"Welding, Soldering, and Brazing Machine Setters, Operators, and Tenders",53,11,75,0,0,42
-51-4191.00,"Heat Treating Equipment Setters, Operators, and Tenders, Metal and Plastic",75,16,78,3,3,61
-51-4192.00,"Layout Workers, Metal and Plastic",69,30,90,13,13,57
-51-4193.00,"Plating and Coating Machine Setters, Operators, and Tenders, Metal and Plastic",73,29,90,3,3,59
-51-4194.00,"Tool Grinders, Filers, and Sharpeners",66,28,87,0,0,47
-51-5111.00,Prepress Technicians and Workers,78,40,92,0,0,56
-51-5112.00,Printing Press Operators,78,33,78,0,0,42
-51-5113.00,Print Binding and Finishing Workers,64,38,93,0,0,55
-51-6011.00,Laundry and Dry-Cleaning Workers,56,37,71,55,55,53
-51-6021.00,"Pressers, Textile, Garment, and Related Materials",61,40,77,4,4,35
-51-6031.00,Sewing Machine Operators,64,12,63,0,0,62
-51-6041.00,Shoe and Leather Workers and Repairers,86,52,77,3,3,55
-51-6042.00,Shoe Machine Operators and Tenders,50,6,62,1,1,61
-51-6051.00,"Sewers, Hand",51,60,74,1,1,37
-51-6052.00,"Tailors, Dressmakers, and Custom Sewers",82,66,87,12,12,63
-51-6061.00,Textile Bleaching and Dyeing Machine Operators and Tenders,78,4,91,0,0,46
-51-6062.00,"Textile Cutting Machine Setters, Operators, and Tenders",59,14,93,0,0,54
-51-6063.00,"Textile Knitting and Weaving Machine Setters, Operators, and Tenders",53,19,64,4,4,44
-51-6064.00,"Textile Winding, Twisting, and Drawing Out Machine Setters, Operators, and Tenders",67,16,70,5,5,64
-51-6091.00,"Extruding and Forming Machine Setters, Operators, and Tenders, Synthetic and Glass Fibers",86,30,98,3,3,55
-51-6092.00,Fabric and Apparel Patternmakers,88,39,95,1,1,49
-51-6093.00,Upholsterers,66,40,70,2,2,62
-51-7011.00,Cabinetmakers and Bench Carpenters,76,56,97,0,0,55
-51-7021.00,Furniture Finishers,58,11,72,2,2,54
-51-7031.00,"Model Makers, Wood",81,26,94,15,15,51
-51-7032.00,"Patternmakers, Wood",66,27,93,0,0,56
-51-7041.00,"Sawing Machine Setters, Operators, and Tenders, Wood",74,5,83,6,6,57
-51-7042.00,"Woodworking Machine Setters, Operators, and Tenders, Except Sawing",66,32,96,1,1,51
-51-8011.00,Nuclear Power Reactor Operators,92,28,100,3,3,73
-51-8012.00,Power Distributors and Dispatchers,88,77,91,1,1,66
-51-8013.00,Power Plant Operators,88,36,93,6,6,51
-51-8021.00,Stationary Engineers and Boiler Operators,89,30,81,26,26,60
-51-8031.00,Water and Wastewater Treatment Plant and System Operators,78,51,93,27,27,50
-51-8091.00,Chemical Plant and System Operators,84,17,100,8,8,64
-51-8092.00,Gas Plant Operators,74,45,89,17,17,54
-51-8093.00,"Petroleum Pump System Operators, Refinery Operators, and Gaugers",89,37,96,2,2,69
-51-8099.01,Biofuels Processing Technicians,93,41,97,5,5,49
-51-8099.03,Biomass Plant Technicians,84,25,98,5,5,57
-51-8099.04,Hydroelectric Plant Technicians,79,46,90,25,25,77
-51-9011.00,Chemical Equipment Operators and Tenders,79,17,93,15,15,51
-51-9012.00,"Separating, Filtering, Clarifying, Precipitating, and Still Machine Setters, Operators, and Tenders",55,10,89,5,5,48
-51-9021.00,"Crushing, Grinding, and Polishing Machine Setters, Operators, and Tenders",78,31,91,1,1,35
-51-9022.00,"Grinding and Polishing Workers, Hand",65,23,73,3,3,61
-51-9023.00,"Mixing and Blending Machine Setters, Operators, and Tenders",87,35,93,4,4,40
-51-9031.00,"Cutters and Trimmers, Hand",60,4,47,1,1,34
-51-9032.00,"Cutting and Slicing Machine Setters, Operators, and Tenders",69,20,89,6,6,57
-51-9041.00,"Extruding, Forming, Pressing, and Compacting Machine Setters, Operators, and Tenders",76,29,84,17,17,66
-51-9051.00,"Furnace, Kiln, Oven, Drier, and Kettle Operators and Tenders",66,12,85,14,14,61
-51-9061.00,"Inspectors, Testers, Sorters, Samplers, and Weighers",85,36,83,4,4,65
-51-9071.01,Jewelers,66,64,91,0,0,60
-51-9071.06,Gem and Diamond Workers,94,86,95,0,0,42
-51-9071.07,Precious Metal Workers,61,50,85,0,0,61
-51-9081.00,Dental Laboratory Technicians,66,42,89,72,72,53
-51-9082.00,Medical Appliance Technicians,82,69,85,48,48,71
-51-9083.00,Ophthalmic Laboratory Technicians,60,58,80,29,29,63
-51-9111.00,Packaging and Filling Machine Operators and Tenders,85,24,80,4,4,59
-51-9121.00,"Coating, Painting, and Spraying Machine Setters, Operators, and Tenders",74,28,83,16,16,74
-51-9122.00,"Painters, Transportation Equipment",46,32,81,0,0,48
-51-9123.00,"Painting, Coating, and Decorating Workers",69,55,94,1,1,58
-51-9141.00,Semiconductor Processors,68,18,73,0,0,60
-51-9151.00,Photographic Process Workers and Processing Machine Operators,82,76,97,41,41,58
-51-9191.00,Adhesive Bonding Machine Operators and Tenders,90,33,86,9,9,70
-51-9192.00,"Cleaning, Washing, and Metal Pickling Equipment Operators and Tenders",67,6,81,13,13,32
-51-9193.00,Cooling and Freezing Equipment Operators and Tenders,71,24,92,0,0,49
-51-9194.00,Etchers and Engravers,60,44,98,0,0,46
-51-9195.03,"Stone Cutters and Carvers, Manufacturing",60,42,84,2,2,54
-51-9195.04,"Glass Blowers, Molders, Benders, and Finishers",57,35,81,4,4,63
-51-9195.05,"Potters, Manufacturing",49,74,65,1,1,45
-51-9195.07,Molding and Casting Workers,75,32,70,4,4,61
-51-9196.00,"Paper Goods Machine Setters, Operators, and Tenders",86,30,93,3,3,61
-51-9197.00,Tire Builders,66,8,39,3,3,57
-51-9198.00,Helpers--Production Workers,71,25,83,1,1,54
-51-9199.01,Recycling and Reclamation Workers,76,33,74,23,23,58
-53-1011.00,Aircraft Cargo Handling Supervisors,97,81,99,10,10,68
-53-1021.00,"First-Line Supervisors of Helpers, Laborers, and Material Movers, Hand",98,67,99,2,2,65
-53-1021.01,Recycling Coordinators,92,83,97,27,27,52
-53-1031.00,First-Line Supervisors of Transportation and Material-Moving Machine and Vehicle Operators,98,75,95,16,16,66
-53-2011.00,"Airline Pilots, Copilots, and Flight Engineers",99,78,87,28,28,83
-53-2012.00,Commercial Pilots,92,80,91,25,25,81
-53-2021.00,Air Traffic Controllers,93,81,78,7,7,82
-53-2022.00,Airfield Operations Specialists,90,83,99,24,24,66
-53-2031.00,Flight Attendants,97,89,84,77,77,96
-53-3011.00,"Ambulance Drivers and Attendants, Except Emergency Medical Technicians",92,77,83,72,72,90
-53-3021.00,"Bus Drivers, Transit and Intercity",88,72,73,47,47,78
-53-3022.00,"Bus Drivers, School or Special Client",90,63,81,67,67,84
-53-3031.00,Driver/Sales Workers,92,57,89,11,11,77
-53-3032.00,Heavy and Tractor-Trailer Truck Drivers,73,67,75,7,7,42
-53-3033.00,Light Truck or Delivery Services Drivers,92,72,80,13,13,67
-53-3041.00,Taxi Drivers and Chauffeurs,86,77,90,25,25,79
-53-4011.00,Locomotive Engineers,90,56,95,13,13,50
-53-4012.00,Locomotive Firers,80,30,100,10,10,45
-53-4013.00,"Rail Yard Engineers, Dinkey Operators, and Hostlers",93,50,96,3,3,51
-53-4021.00,"Railroad Brake, Signal, and Switch Operators",84,50,85,15,15,41
-53-4031.00,Railroad Conductors and Yardmasters,88,57,98,15,15,63
-53-4041.00,Subway and Streetcar Operators,87,80,68,43,43,67
-53-5011.00,Sailors and Marine Oilers,85,45,83,19,19,69
-53-5021.01,Ship and Boat Captains,91,68,98,22,22,69
-53-5021.02,"Mates- Ship, Boat, and Barge",82,48,88,10,10,74
-53-5021.03,"Pilots, Ship",91,53,93,24,24,71
-53-5022.00,Motorboat Operators,93,95,97,8,8,79
-53-5031.00,Ship Engineers,91,28,91,16,16,72
-53-6011.00,Bridge and Lock Tenders,73,61,77,7,7,28
-53-6021.00,Parking Lot Attendants,90,81,82,15,15,73
-53-6031.00,Automotive and Watercraft Service Attendants,88,85,99,4,4,60
-53-6041.00,Traffic Technicians,71,71,82,0,0,48
-53-6051.01,Aviation Inspectors,73,72,90,2,2,54
-53-6051.07,"Transportation Vehicle, Equipment and Systems Inspectors, Except Aviation",93,42,98,10,10,71
-53-6051.08,Freight and Cargo Inspectors,87,67,78,8,8,59
-53-6061.00,"Transportation Attendants, Except Flight Attendants",79,56,66,27,27,93
-53-7011.00,Conveyor Operators and Tenders,61,19,62,5,5,37
-53-7021.00,Crane and Tower Operators,89,30,89,2,2,48
-53-7031.00,Dredge Operators,82,13,98,1,1,27
-53-7032.00,Excavating and Loading Machine and Dragline Operators,85,30,88,5,5,40
-53-7033.00,"Loading Machine Operators, Underground Mining",65,28,78,4,4,59
-53-7041.00,Hoist and Winch Operators,77,38,94,0,0,58
-53-7051.00,Industrial Truck and Tractor Operators,81,50,88,4,4,34
-53-7061.00,Cleaners of Vehicles and Equipment,59,32,90,16,16,55
-53-7062.00,"Laborers and Freight, Stock, and Material Movers, Hand",75,55,96,3,3,70
-53-7063.00,Machine Feeders and Offbearers,72,22,77,2,2,47
-53-7064.00,"Packers and Packagers, Hand",79,36,88,5,5,70
-53-7071.00,Gas Compressor and Gas Pumping Station Operators,77,34,86,4,4,66
-53-7072.00,"Pump Operators, Except Wellhead Pumpers",93,24,95,6,6,52
-53-7073.00,Wellhead Pumpers,78,61,84,6,6,19
-53-7081.00,Refuse and Recyclable Material Collectors,56,50,62,63,63,31
-53-7111.00,Mine Shuttle Car Operators,67,2,82,7,7,49
-53-7121.00,"Tank Car, Truck, and Ship Loaders",87,51,96,3,3,62
+SOCCode,Description,proximity,infections,group,face2face,customers,contact
+11-1011,Chief executives,46,11,11,97,76,90
+11-1021,General and operations managers,55,14,14,99,78,95
+11-2011,Advertising and promotions managers,46,1,1,97,80,92
+11-2021,Marketing managers,47,2,2,94,81,90
+11-2022,Sales managers,48,3,3,83,82,96
+11-2031,Public relations and fundraising managers,38,13,13,100,90,97
+11-3011,Administrative services managers,45,23,23,98,78,88
+11-3021,Computer and information systems managers,41,1,1,91,51,90
+11-3031,Financial managers,44,6,6,99,67,88
+11-3051,Industrial production managers,48,8,8,98,67,91
+11-3061,Purchasing managers,41,1,1,90,69,89
+11-3071,"Transportation, storage, and distribution managers",47,5,5,95,68,91
+11-3111,Compensation and benefits managers,32,1,1,98,30,91
+11-3121,Human resources managers,41,5,5,99,47,91
+11-3131,Training and development managers,46,7,7,84,56,91
+11-9013,"Farmers, ranchers, and other agricultural managers",56,5,5,96,57,82
+11-9021,Construction managers,50,4,4,91,66,92
+11-9031,"Education administrators, preschool and childcare center/program",75,40,40,97,69,100
+11-9032,"Education administrators, elementary and secondary school",52,21,21,95,88,93
+11-9033,"Education administrators, postsecondary",38,21,21,94,66,88
+11-9039,"Education administrators, all other",57,8,8,87,67,90
+11-9041,Architectural and engineering managers,45,3,3,97,54,79
+11-9051,Food service managers,78,10,10,95,81,97
+11-9061,Funeral service managers,60,56,56,81,84,92
+11-9071,Gaming managers,76,17,17,99,84,90
+11-9081,Lodging managers,49,4,4,96,87,97
+11-9111,Medical and health services managers,45,34,34,98,66,87
+11-9121,Natural sciences managers,43,16,16,92,63,82
+11-9131,Postmasters and mail superintendents,56,17,17,98,89,99
+11-9141,"Property, real estate, and community association managers",51,2,2,93,67,88
+11-9151,Social and community service managers,42,26,26,97,78,92
+11-9161,Emergency management directors,52,15,15,90,86,91
+11-9199,"Managers, all other",49,9,9,92,69,87
+13-1011,"Agents and business managers of artists, performers, and athletes",43,0,0,89,73,99
+13-1020,Buyers and purchasing agents,49,4,4,96,74,92
+13-1031,"Claims adjusters, examiners, and investigators",50,3,3,83,84,93
+13-1032,"Insurance appraisers, auto damage",41,12,12,82,98,99
+13-1041,Compliance officers,60,29,29,90,74,86
+13-1051,Cost estimators,44,2,2,90,61,81
+13-1071,Human resources specialists,41,5,5,98,68,94
+13-1074,Farm labor contractors,66,1,1,89,40,87
+13-1075,Labor relations specialists,51,1,1,90,54,90
+13-1081,Logisticians,53,5,5,93,62,85
+13-1111,Management analysts,41,2,2,85,44,82
+13-1121,"Meeting, convention, and event planners",72,0,0,98,93,98
+13-1131,Fundraisers,39,7,7,97,92,89
+13-1141,"Compensation, benefits, and job analysis specialists",32,3,3,85,33,88
+13-1151,Training and development specialists,59,2,2,92,49,89
+13-1161,Market research analysts and marketing specialists,36,0,0,81,64,81
+13-1199,"Business operations specialists, all other",52,4,4,85,68,85
+13-2011,Accountants and auditors,46,1,1,93,70,89
+13-2021,Appraisers and assessors of real estate,46,2,2,84,72,81
+13-2031,Budget analysts,43,6,6,94,42,88
+13-2041,Credit analysts,49,2,2,86,56,87
+13-2051,Financial analysts,47,0,0,94,59,83
+13-2052,Personal financial advisors,37,2,2,82,75,85
+13-2053,Insurance underwriters,52,1,1,85,64,88
+13-2061,Financial examiners,57,1,1,98,59,83
+13-2071,Credit counselors,44,8,8,92,83,95
+13-2072,Loan officers,42,4,4,88,78,94
+13-2081,"Tax examiners and collectors, and revenue agents",57,5,5,88,91,95
+13-2082,Tax preparers,55,4,4,85,70,80
+13-2099,"Financial specialists, all other",47,4,4,90,56,78
+15-1111,Computer and information research scientists,33,0,0,92,67,86
+15-1121,Computer systems analysts,54,26,26,90,59,81
+15-1122,Information security analysts,52,1,1,87,47,83
+15-1131,Computer programmers,39,0,0,90,32,79
+15-1132,"Software developers, applications",50,0,0,96,36,70
+15-1133,"Software developers, systems software",45,0,0,89,42,75
+15-1134,Web developers,44,1,1,83,37,72
+15-1141,Database administrators,52,4,4,83,44,86
+15-1142,Network and computer systems administrators,54,3,3,88,20,87
+15-1143,Computer network architects,46,2,2,87,52,77
+15-1151,Computer user support specialists,64,8,8,95,59,97
+15-1152,Computer network support specialists,55,13,13,95,63,93
+15-1199,"Computer occupations, all other",46,2,2,88,44,75
+15-2011,Actuaries,35,0,0,90,42,66
+15-2021,Mathematicians,40,1,1,79,36,59
+15-2031,Operations research analysts,41,3,3,90,38,67
+15-2041,Statisticians,39,4,4,84,37,73
+15-2090,Miscellaneous mathematical science occupations,,6,6,,10,25
+17-1011,"Architects, except landscape and naval",53,2,2,92,61,84
+17-1012,Landscape architects,47,0,0,89,71,82
+17-1021,Cartographers and photogrammetrists,54,0,0,90,81,80
+17-1022,Surveyors,44,7,7,89,61,77
+17-2011,Aerospace engineers,50,0,0,98,61,81
+17-2021,Agricultural engineers,45,5,5,88,60,76
+17-2031,Biomedical engineers,49,32,32,91,43,76
+17-2041,Chemical engineers,45,11,11,96,40,74
+17-2051,Civil engineers,47,5,5,94,59,79
+17-2061,Computer hardware engineers,44,0,0,93,38,61
+17-2071,Electrical engineers,48,1,1,92,59,78
+17-2072,"Electronics engineers, except computer",48,5,5,93,67,80
+17-2081,Environmental engineers,44,18,18,94,72,85
+17-2111,"Health and safety engineers, except mining safety engineers and inspectors",48,12,12,91,63,80
+17-2112,Industrial engineers,52,4,4,92,50,78
+17-2121,Marine engineers and naval architects,57,3,3,93,59,77
+17-2131,Materials engineers,45,2,2,90,47,71
+17-2141,Mechanical engineers,51,2,2,93,50,79
+17-2151,"Mining and geological engineers, including mining safety engineers",48,7,7,95,41,74
+17-2161,Nuclear engineers,46,1,1,95,43,75
+17-2171,Petroleum engineers,30,1,1,91,44,87
+17-2199,"Engineers, all other",50,6,6,90,50,77
+17-3011,Architectural and civil drafters,48,4,4,97,52,75
+17-3012,Electrical and electronics drafters,48,1,1,96,57,78
+17-3013,Mechanical drafters,50,0,0,91,42,68
+17-3021,Aerospace engineering and operations technicians,52,0,0,92,67,76
+17-3022,Civil engineering technicians,57,22,22,99,75,89
+17-3023,Electrical and electronics engineering technicians,57,5,5,93,46,78
+17-3024,Electro-mechanical technicians,58,13,13,93,45,78
+17-3025,Environmental engineering technicians,47,17,17,93,64,86
+17-3026,Industrial engineering technicians,52,0,0,93,45,88
+17-3027,Mechanical engineering technicians,62,3,3,98,55,86
+17-3029,"Engineering technicians, except drafters, all other",55,5,5,95,49,77
+17-3031,Surveying and mapping technicians,54,7,7,90,50,76
+19-1011,Animal scientists,46,32,32,91,67,84
+19-1012,Food scientists and technologists,52,29,29,91,58,85
+19-1013,Soil and plant scientists,41,5,5,92,62,68
+19-1020,,51,8,8,92,50,84
+19-1021,Biochemists and biophysicists,41,24,24,91,15,68
+19-1022,Microbiologists,61,82,82,93,40,72
+19-1023,Zoologists and wildlife biologists,39,19,19,93,70,81
+19-1029,"Biological scientists, all other",44,30,30,93,31,67
+19-1031,Conservation scientists,56,13,13,96,86,87
+19-1032,Foresters,41,3,3,89,71,73
+19-1041,Epidemiologists,38,23,23,93,64,76
+19-1042,"Medical scientists, except epidemiologists",43,33,33,95,40,82
+19-2011,Astronomers,31,1,1,85,33,61
+19-2012,Physicists,47,5,5,93,56,77
+19-2021,Atmospheric and space scientists,46,1,1,89,50,69
+19-2031,Chemists,57,23,23,92,51,81
+19-2032,Materials scientists,46,2,2,90,37,71
+19-2041,"Environmental scientists and specialists, including health",42,2,2,87,61,78
+19-2042,"Geoscientists, except hydrologists and geographers",40,7,7,91,38,67
+19-2043,Hydrologists,39,6,6,89,51,73
+19-2099,"Physical scientists, all other",40,0,0,82,42,68
+19-3011,Economists,31,3,3,86,35,60
+19-3022,Survey researchers,40,0,0,89,54,77
+19-3031,"Clinical, counseling, and school psychologists",55,37,37,99,71,89
+19-3032,Industrial-organizational psychologists,40,1,1,90,71,82
+19-3039,"Psychologists, all other",71,50,50,99,64,82
+19-3041,Sociologists,40,7,7,89,48,71
+19-3051,Urban and regional planners,54,6,6,96,88,83
+19-3091,Anthropologists and archeologists,59,15,15,89,53,79
+19-3092,Geographers,47,4,4,93,45,74
+19-3093,Historians,56,7,7,88,71,79
+19-3094,Political scientists,31,7,7,85,52,73
+19-3099,"Social scientists and related workers, all other",42,0,0,93,76,81
+19-4011,Agricultural and food science technicians,57,14,14,90,48,80
+19-4021,Biological technicians,51,39,39,96,23,79
+19-4031,Chemical technicians,58,8,8,93,34,77
+19-4041,Geological and petroleum technicians,44,2,2,88,44,65
+19-4051,Nuclear technicians,71,12,12,100,32,84
+19-4061,Social science research assistants,47,0,0,90,61,76
+19-4091,"Environmental science and protection technicians, including health",51,26,26,97,69,79
+19-4092,Forensic science technicians,68,66,66,95,79,74
+19-4093,Forest and conservation technicians,68,15,15,100,71,85
+19-4099,"Life, physical, and social science technicians, all other",53,4,4,89,52,81
+21-1012,"Educational, guidance, school, and vocational counselors",64,36,36,100,66,99
+21-1013,Marriage and family therapists,58,30,30,99,76,96
+21-1015,Rehabilitation counselors,60,26,26,82,59,83
+21-1018,"Substance abuse, behavioral disorder, and mental health counselors",63,50,50,94,72,93
+21-1021,"Child, family, and school social workers",56,37,37,99,82,99
+21-1022,Healthcare social workers,76,88,88,100,88,92
+21-1023,Mental health and substance abuse social workers,50,39,39,96,70,94
+21-1091,Health educators,64,50,50,97,73,93
+21-1092,Probation officers and correctional treatment specialists,57,52,52,96,74,97
+21-1093,Social and human service assistants,79,58,58,97,82,99
+21-1094,Community health workers,76,53,53,94,72,90
+21-2011,Clergy,55,40,40,95,81,95
+21-2021,"Directors, religious activities and education",48,13,13,94,86,95
+23-1011,Lawyers,34,14,14,98,73,92
+23-1012,Judicial law clerks,33,3,3,92,37,65
+23-1021,"Administrative law judges, adjudicators, and hearing officers",58,37,37,94,87,90
+23-1022,"Arbitrators, mediators, and conciliators",64,3,3,87,53,80
+23-1023,"Judges, magistrate judges, and magistrates",52,34,34,99,90,94
+23-2011,Paralegals and legal assistants,39,1,1,95,67,89
+23-2091,Court reporters,61,13,13,87,65,75
+23-2093,"Title examiners, abstractors, and searchers",50,1,1,93,80,66
+25-1011,"Business teachers, postsecondary",48,3,3,79,45,78
+25-1021,"Computer science teachers, postsecondary",49,12,12,91,60,87
+25-1022,"Mathematical science teachers, postsecondary",58,15,15,90,56,83
+25-1031,"Architecture teachers, postsecondary",76,6,6,89,48,82
+25-1032,"Engineering teachers, postsecondary",33,9,9,95,37,81
+25-1041,"Agricultural sciences teachers, postsecondary",40,14,14,97,50,79
+25-1042,"Biological science teachers, postsecondary",47,30,30,97,64,85
+25-1043,"Forestry and conservation science teachers, postsecondary",32,6,6,91,49,84
+25-1051,"Atmospheric, earth, marine, and space sciences teachers, postsecondary",57,30,30,91,56,82
+25-1052,"Chemistry teachers, postsecondary",37,7,7,94,39,83
+25-1053,"Environmental science teachers, postsecondary",49,20,20,91,50,82
+25-1054,"Physics teachers, postsecondary",44,7,7,89,68,85
+25-1061,"Anthropology and archeology teachers, postsecondary",48,23,23,88,55,82
+25-1062,"Area, ethnic, and cultural studies teachers, postsecondary",43,12,12,92,54,87
+25-1063,"Economics teachers, postsecondary",53,11,11,86,60,81
+25-1064,"Geography teachers, postsecondary",43,11,11,95,49,84
+25-1065,"Political science teachers, postsecondary",44,5,5,87,64,78
+25-1066,"Psychology teachers, postsecondary",40,14,14,99,57,84
+25-1067,"Sociology teachers, postsecondary",46,9,9,91,45,81
+25-1071,"Health specialties teachers, postsecondary",54,29,29,98,67,94
+25-1072,"Nursing instructors and teachers, postsecondary",66,62,62,90,88,91
+25-1081,"Education teachers, postsecondary",41,10,10,93,76,88
+25-1082,"Library science teachers, postsecondary",44,2,2,80,56,84
+25-1111,"Criminal justice and law enforcement teachers, postsecondary",57,20,20,87,80,87
+25-1112,"Law teachers, postsecondary",41,6,6,86,51,88
+25-1113,"Social work teachers, postsecondary",34,12,12,77,55,83
+25-1121,"Art, drama, and music teachers, postsecondary",74,17,17,86,54,93
+25-1122,"Communications teachers, postsecondary",51,12,12,90,47,88
+25-1123,"English language and literature teachers, postsecondary",50,9,9,80,57,86
+25-1124,"Foreign language and literature teachers, postsecondary",52,12,12,78,22,75
+25-1125,"History teachers, postsecondary",36,8,8,86,41,77
+25-1126,"Philosophy and religion teachers, postsecondary",46,3,3,82,37,83
+25-1191,Graduate teaching assistants,61,6,6,91,43,90
+25-1192,"Home economics teachers, postsecondary",47,10,10,82,66,94
+25-1193,"Recreation and fitness studies teachers, postsecondary",59,18,18,95,65,94
+25-1194,"Vocational education teachers, postsecondary",76,17,17,85,70,91
+25-2011,"Preschool teachers, except special education",76,52,52,82,56,95
+25-2012,"Kindergarten teachers, except special education",86,68,68,90,84,91
+25-2021,"Elementary school teachers, except special education",79,46,46,95,66,95
+25-2022,"Middle school teachers, except special and career/technical education",70,54,54,97,77,97
+25-2023,"Career/technical education teachers, middle school",78,23,23,89,71,91
+25-2031,"Secondary school teachers, except special and career/technical education",70,17,17,93,64,93
+25-2032,"Career/technical education teachers, secondary school",77,31,31,97,55,92
+25-2051,"Special education teachers, preschool",87,52,52,100,48,100
+25-2052,"Special education teachers, kindergarten and elementary school",83,49,49,97,78,98
+25-2053,"Special education teachers, middle school",81,55,55,95,76,98
+25-2054,"Special education teachers, secondary school",74,32,32,97,68,98
+25-2059,"Special education teachers, all other",90,56,56,86,49,83
+25-3011,Adult basic and secondary education and literacy teachers and instructors,80,19,19,85,56,82
+25-3021,Self-enrichment education teachers,76,8,8,92,56,94
+25-3097,"Teachers and instructors, all other, except substitute teachers",81,7,7,90,53,89
+25-4011,Archivists,44,2,2,92,78,74
+25-4012,Curators,44,5,5,89,77,83
+25-4013,Museum technicians and conservators,55,0,0,88,62,69
+25-4021,Librarians,52,29,29,89,74,82
+25-4031,Library technicians,62,16,16,95,68,76
+25-9011,Audio-visual and multimedia collections specialists,59,5,5,90,57,86
+25-9021,Farm and home management advisors,43,14,14,90,85,88
+25-9031,Instructional coordinators,52,9,9,92,56,86
+25-9041,Teacher assistants,88,36,36,91,51,91
+27-1011,Art directors,59,0,0,99,58,87
+27-1012,Craft artists,34,2,2,64,63,53
+27-1013,"Fine artists, including painters, sculptors, and illustrators",9,0,0,56,42,51
+27-1014,Multimedia artists and animators,53,0,0,90,66,77
+27-1021,Commercial and industrial designers,49,0,0,100,75,85
+27-1022,Fashion designers,48,0,0,77,70,94
+27-1023,Floral designers,73,25,25,94,95,88
+27-1024,Graphic designers,34,0,0,91,50,76
+27-1025,Interior designers,53,7,7,98,80,87
+27-1026,Merchandise displayers and window trimmers,67,2,2,91,74,89
+27-1027,Set and exhibit designers,53,1,1,89,40,85
+27-2011,Actors,95,5,5,85,66,93
+27-2012,Producers and directors,57,2,2,93,71,94
+27-2021,Athletes and sports competitors,59,6,6,94,58,83
+27-2022,Coaches and scouts,74,9,9,81,49,94
+27-2023,"Umpires, referees, and other sports officials",71,11,11,82,57,79
+27-2031,Dancers,98,21,21,92,51,94
+27-2032,Choreographers,100,3,3,91,41,87
+27-2041,Music directors and composers,47,9,9,79,61,69
+27-2042,Musicians and singers,88,18,18,70,54,87
+27-3011,Radio and television announcers,54,10,10,94,75,90
+27-3012,Public address system and other announcers,71,2,2,83,67,85
+27-3021,Broadcast news analysts,65,10,10,84,69,90
+27-3022,Reporters and correspondents,55,9,9,91,67,92
+27-3031,Public relations specialists,46,4,4,94,75,90
+27-3041,Editors,54,0,0,95,68,89
+27-3042,Technical writers,42,0,0,85,55,78
+27-3043,Writers and authors,32,4,4,68,56,71
+27-3091,Interpreters and translators,66,56,56,80,51,97
+27-4011,Audio and video equipment technicians,60,5,5,96,70,72
+27-4012,Broadcast technicians,51,3,3,95,50,80
+27-4013,Radio operators,62,21,21,77,92,99
+27-4014,Sound engineering technicians,69,7,7,97,48,82
+27-4021,Photographers,68,4,4,78,72,78
+27-4031,"Camera operators, television, video, and motion picture",68,4,4,99,64,93
+27-4032,Film and video editors,49,2,2,93,47,81
+29-1011,Chiropractors,96,53,53,100,65,100
+29-1021,"Dentists, general",99,95,95,100,87,94
+29-1022,Oral and maxillofacial surgeons,99,99,99,99,86,96
+29-1023,Orthodontists,92,78,78,98,89,99
+29-1024,Prosthodontists,98,88,88,100,91,92
+29-1031,Dietitians and nutritionists,69,79,79,98,84,87
+29-1041,Optometrists,90,75,75,98,90,91
+29-1051,Pharmacists,72,76,76,99,86,97
+29-1061,Anesthesiologists,94,90,90,98,68,95
+29-1062,Family and general practitioners,91,100,100,95,91,96
+29-1063,"Internists, general",89,100,100,100,63,93
+29-1064,Obstetricians and gynecologists,97,94,94,100,84,100
+29-1065,"Pediatricians, general",89,92,92,92,84,94
+29-1066,Psychiatrists,67,70,70,98,70,87
+29-1067,Surgeons,97,86,86,98,83,94
+29-1069,"Physicians and surgeons, all other",80,87,87,96,79,91
+29-1071,Physician assistants,88,95,95,97,79,90
+29-1081,Podiatrists,95,87,87,93,82,92
+29-1122,Occupational therapists,91,64,64,97,69,91
+29-1123,Physical therapists,100,67,67,100,91,100
+29-1124,Radiation therapists,98,95,95,93,60,99
+29-1125,Recreational therapists,82,63,63,96,67,92
+29-1126,Respiratory therapists,93,98,98,98,81,96
+29-1127,Speech-language pathologists,79,52,52,94,58,96
+29-1128,Exercise physiologists,93,55,55,99,73,94
+29-1131,Veterinarians,91,89,89,94,93,93
+29-1141,Registered nurses,88,93,93,97,78,93
+29-1151,Nurse anesthetists,87,96,96,100,76,93
+29-1161,Nurse midwives,97,89,89,99,84,95
+29-1171,Nurse practitioners,85,87,87,94,67,85
+29-1181,Audiologists,67,68,68,98,90,92
+29-1199,"Health diagnosing and treating practitioners, all other",90,84,84,94,77,98
+29-2010,Clinical laboratory technologists and technicians,62,82,82,92,48,76
+29-2021,Dental hygienists,100,100,100,97,73,100
+29-2031,Cardiovascular technologists and technicians,97,74,74,94,81,99
+29-2032,Diagnostic medical sonographers,95,87,87,83,81,96
+29-2033,Nuclear medicine technologists,86,93,93,91,91,96
+29-2034,Radiologic technologists,89,92,92,91,84,99
+29-2035,Magnetic resonance imaging technologists,76,84,84,94,75,85
+29-2041,Emergency medical technicians and paramedics,97,89,89,93,95,90
+29-2051,Dietetic technicians,65,61,61,84,76,92
+29-2052,Pharmacy technicians,83,72,72,94,85,95
+29-2053,Psychiatric technicians,85,93,93,90,75,91
+29-2054,Respiratory therapy technicians,98,98,98,97,75,100
+29-2055,Surgical technologists,99,82,82,88,76,92
+29-2056,Veterinary technologists and technicians,92,67,67,85,81,98
+29-2057,Ophthalmic medical technicians,90,69,69,94,78,97
+29-2061,Licensed practical and licensed vocational nurses,90,94,94,98,71,97
+29-2071,Medical records and health information technicians,50,24,24,82,53,74
+29-2081,"Opticians, dispensing",83,40,40,96,94,95
+29-2091,Orthotists and prosthetists,88,79,79,100,85,90
+29-2092,Hearing aid specialists,79,49,49,97,97,98
+29-2099,"Health technologists and technicians, all other",95,86,86,94,82,94
+29-9011,Occupational health and safety specialists,65,18,18,96,67,80
+29-9012,Occupational health and safety technicians,55,29,29,93,54,86
+29-9091,Athletic trainers,93,69,69,100,60,96
+29-9092,Genetic counselors,47,38,38,100,79,89
+29-9099,"Healthcare practitioners and technical workers, all other",94,73,73,95,67,94
+31-1011,Home health aides,84,63,63,80,58,84
+31-1013,Psychiatric aides,89,91,91,94,48,84
+31-1014,Nursing assistants,91,83,83,93,59,89
+31-1015,Orderlies,97,97,97,86,60,98
+31-2011,Occupational therapy assistants,82,88,88,94,70,97
+31-2012,Occupational therapy aides,91,97,97,99,68,96
+31-2021,Physical therapist assistants,94,76,76,87,84,100
+31-2022,Physical therapist aides,95,86,86,99,51,98
+31-9011,Massage therapists,89,35,35,83,73,85
+31-9091,Dental assistants,99,96,96,92,81,97
+31-9092,Medical assistants,88,83,83,85,78,96
+31-9093,Medical equipment preparers,77,92,92,92,76,89
+31-9094,Medical transcriptionists,42,21,21,73,33,66
+31-9095,Pharmacy aides,82,78,78,84,88,96
+31-9096,Veterinary assistants and laboratory animal caretakers,88,87,87,97,92,99
+31-9097,Phlebotomists,76,88,88,96,82,96
+31-9099,"Healthcare support workers, all other",81,69,69,94,60,93
+33-1011,First-line supervisors of correctional officers,71,85,85,82,75,89
+33-1012,First-line supervisors of police and detectives,77,57,57,97,95,97
+33-1021,First-line supervisors of fire fighting and prevention workers,75,47,47,92,82,90
+33-2011,Firefighters,82,61,61,94,86,91
+33-2021,Fire inspectors and investigators,67,49,49,98,92,98
+33-2022,Forest fire inspectors and prevention specialists,54,36,36,97,84,95
+33-3011,Bailiffs,80,40,40,98,98,93
+33-3012,Correctional officers and jailers,81,72,72,86,78,98
+33-3021,Detectives and criminal investigators,69,47,47,93,87,92
+33-3031,Fish and game wardens,76,31,31,92,96,92
+33-3041,Parking enforcement workers,37,10,10,77,86,73
+33-3051,Police and sheriff's patrol officers,76,69,69,94,97,97
+33-3052,Transit and railroad police,79,56,56,82,93,93
+33-9011,Animal control workers,54,79,79,86,95,93
+33-9021,Private detectives and investigators,51,8,8,79,80,83
+33-9031,Gaming surveillance officers and gaming investigators,78,28,28,93,58,91
+33-9032,Security guards,68,16,16,86,76,86
+33-9091,Crossing guards,78,18,18,68,87,78
+33-9092,"Lifeguards, ski patrol, and other recreational protective service workers",56,38,38,89,87,92
+33-9093,Transportation security screeners,86,55,55,85,81,89
+33-9099,"Protective service workers, all other",73,12,12,89,81,94
+35-1011,Chefs and head cooks,81,15,15,97,69,93
+35-1012,First-line supervisors of food preparation and serving workers,95,26,26,87,94,96
+35-2011,"Cooks, fast food",65,11,11,98,64,57
+35-2012,"Cooks, institution and cafeteria",70,43,43,95,55,91
+35-2013,"Cooks, private household",21,6,6,65,42,64
+35-2014,"Cooks, restaurant",81,10,10,76,53,67
+35-2015,"Cooks, short order",66,7,7,82,81,93
+35-2021,Food preparation workers,69,6,6,81,81,81
+35-3011,Bartenders,79,4,4,80,81,93
+35-3021,"Combined food preparation and serving workers, including fast food",74,7,7,89,80,93
+35-3022,"Counter attendants, cafeteria, food concession, and coffee shop",74,6,6,86,86,94
+35-3031,Waiters and waitresses,78,16,16,76,72,95
+35-3041,"Food servers, nonrestaurant",72,39,39,88,73,95
+35-9011,Dining room and cafeteria attendants and bartender helpers,82,15,15,88,73,93
+35-9021,Dishwashers,63,30,30,62,46,65
+35-9031,"Hosts and hostesses, restaurant, lounge, and coffee shop",79,16,16,87,73,95
+37-1011,First-line supervisors of housekeeping and janitorial workers,51,47,47,92,71,86
+37-1012,"First-line supervisors of landscaping, lawn service, and groundskeeping workers",72,13,13,90,81,74
+37-2011,"Janitors and cleaners, except maids and housekeeping cleaners",48,47,47,81,46,70
+37-2012,Maids and housekeeping cleaners,42,52,52,77,35,87
+37-2021,Pest control workers,47,26,26,93,75,85
+37-3011,Landscaping and groundskeeping workers,76,9,9,75,32,55
+37-3012,"Pesticide handlers, sprayers, and applicators, vegetation",29,9,9,81,75,66
+37-3013,Tree trimmers and pruners,59,1,1,93,61,81
+39-1010,First-line supervisors of gaming workers,82,31,31,88,96,95
+39-1021,First-line supervisors of personal service workers,85,20,20,96,87,100
+39-2011,Animal trainers,62,18,18,88,73,81
+39-2021,Nonfarm animal caretakers,66,64,64,97,66,94
+39-3011,Gaming dealers,88,27,27,88,85,91
+39-3012,Gaming and sports book writers and runners,85,12,12,80,79,91
+39-3021,Motion picture projectionists,37,2,2,76,52,67
+39-3031,"Ushers, lobby attendants, and ticket takers",82,16,16,92,89,97
+39-3091,Amusement and recreation attendants,84,25,25,88,87,97
+39-3092,Costume attendants,76,8,8,93,44,87
+39-3093,"Locker room, coatroom, and dressing room attendants",64,13,13,86,86,93
+39-4011,Embalmers,64,83,83,82,80,97
+39-4021,Funeral attendants,79,54,54,77,83,83
+39-4031,"Morticians, undertakers, and funeral directors",72,79,79,91,93,94
+39-5011,Barbers,95,59,59,82,59,95
+39-5012,"Hairdressers, hairstylists, and cosmetologists",92,32,32,96,87,96
+39-5091,"Makeup artists, theatrical and performance",86,20,20,90,51,90
+39-5092,Manicurists and pedicurists,90,27,27,71,35,88
+39-5093,Shampooers,91,10,10,89,76,98
+39-5094,Skincare specialists,99,36,36,92,69,81
+39-6011,Baggage porters and bellhops,78,10,10,79,84,85
+39-6012,Concierges,65,7,7,89,96,96
+39-7010,Tour and travel guides,63,12,12,89,91,88
+39-9011,Childcare workers,75,40,40,91,42,84
+39-9021,Personal care aides,86,62,62,76,49,83
+39-9031,Fitness trainers and aerobics instructors,83,22,22,87,57,84
+39-9032,Recreation workers,72,37,37,90,64,95
+39-9041,Residential advisors,62,24,24,87,61,89
+41-1011,First-line supervisors of retail sales workers,66,10,10,99,89,96
+41-1012,First-line supervisors of non-retail sales workers,43,4,4,97,76,96
+41-2011,Cashiers,75,28,28,87,88,96
+41-2012,Gaming change persons and booth cashiers,70,27,27,93,82,97
+41-2021,Counter and rental clerks,68,10,10,100,86,98
+41-2022,Parts salespersons,67,0,0,83,99,99
+41-2031,Retail salespersons,69,19,19,97,90,97
+41-3011,Advertising sales agents,55,3,3,93,95,95
+41-3021,Insurance sales agents,61,10,10,98,99,93
+41-3031,"Securities, commodities, and financial services sales agents",52,2,2,93,77,94
+41-3041,Travel agents,55,0,0,76,86,86
+41-3099,"Sales representatives, services, all other",52,9,9,94,87,83
+41-4011,"Sales representatives, wholesale and manufacturing, technical and scientific products",47,6,6,91,81,91
+41-4012,"Sales representatives, wholesale and manufacturing, except technical and scientific products",52,3,3,88,85,95
+41-9011,Demonstrators and product promoters,67,0,0,82,86,96
+41-9012,Models,64,1,1,60,33,79
+41-9021,Real estate brokers,54,6,6,95,87,92
+41-9022,Real estate sales agents,71,4,4,93,72,99
+41-9031,Sales engineers,36,0,0,90,92,91
+41-9041,Telemarketers,77,5,5,80,69,100
+41-9091,"Door-to-door sales workers, news and street vendors, and related workers",67,7,7,79,93,87
+43-1011,First-line supervisors of office and administrative support workers,47,9,9,98,75,93
+43-2011,"Switchboard operators, including answering service",63,30,30,79,93,98
+43-2021,Telephone operators,68,12,12,55,95,98
+43-3011,Bill and account collectors,45,8,8,70,74,98
+43-3021,Billing and posting clerks,59,15,15,86,61,94
+43-3031,"Bookkeeping, accounting, and auditing clerks",44,4,4,89,65,87
+43-3041,Gaming cage workers,77,16,16,94,89,99
+43-3051,Payroll and timekeeping clerks,37,7,7,90,52,82
+43-3061,Procurement clerks,51,10,10,90,84,97
+43-3071,Tellers,76,34,34,97,77,99
+43-4011,Brokerage clerks,68,1,1,92,86,96
+43-4021,Correspondence clerks,43,3,3,95,87,93
+43-4031,"Court, municipal, and license clerks",59,11,11,95,83,96
+43-4041,"Credit authorizers, checkers, and clerks",62,1,1,93,92,97
+43-4051,Customer service representatives,67,41,41,92,83,97
+43-4061,"Eligibility interviewers, government programs",56,30,30,87,86,94
+43-4071,File clerks,47,19,19,73,72,87
+43-4081,"Hotel, motel, and resort desk clerks",64,3,3,96,93,99
+43-4111,"Interviewers, except eligibility and loan",73,23,23,72,68,98
+43-4121,"Library assistants, clerical",73,34,34,96,71,89
+43-4131,Loan interviewers and clerks,45,17,17,91,93,99
+43-4141,New accounts clerks,59,17,17,95,92,98
+43-4151,Order clerks,56,3,3,89,83,96
+43-4161,"Human resources assistants, except payroll and timekeeping",53,14,14,88,75,98
+43-4171,Receptionists and information clerks,52,31,31,93,91,100
+43-4181,Reservation and transportation ticket agents and travel clerks,81,12,12,90,91,100
+43-5011,Cargo and freight agents,63,3,3,85,76,95
+43-5021,Couriers and messengers,45,73,73,93,59,92
+43-5031,"Police, fire, and ambulance dispatchers",60,11,11,85,98,99
+43-5032,"Dispatchers, except police, fire, and ambulance",58,9,9,89,88,97
+43-5041,"Meter readers, utilities",37,27,27,65,77,69
+43-5051,Postal service clerks,82,17,17,68,86,90
+43-5052,Postal service mail carriers,57,8,8,81,76,70
+43-5053,"Postal service mail sorters, processors, and processing machine operators",63,5,5,81,10,70
+43-5061,"Production, planning, and expediting clerks",52,3,3,93,49,93
+43-5071,"Shipping, receiving, and traffic clerks",46,4,4,97,80,87
+43-5081,Stock clerks and order fillers,69,13,13,97,63,87
+43-5111,"Weighers, measurers, checkers, and samplers, recordkeeping",58,1,1,90,56,86
+43-6011,Executive secretaries and executive administrative assistants,39,8,8,91,72,93
+43-6012,Legal secretaries,41,0,0,95,81,90
+43-6013,Medical secretaries,71,53,53,91,75,100
+43-6014,"Secretaries and administrative assistants, except legal, medical, and executive",43,29,29,91,75,97
+43-9011,Computer operators,42,7,7,86,46,94
+43-9021,Data entry keyers,57,11,11,86,34,81
+43-9022,Word processors and typists,47,22,22,90,87,92
+43-9031,Desktop publishers,45,2,2,88,71,81
+43-9041,Insurance claims and policy processing clerks,49,1,1,73,68,85
+43-9051,"Mail clerks and mail machine operators, except postal service",73,1,1,87,66,91
+43-9061,"Office clerks, general",64,28,28,91,82,93
+43-9071,"Office machine operators, except computer",56,4,4,71,67,77
+43-9081,Proofreaders and copy markers,53,0,0,81,40,93
+43-9111,Statistical assistants,52,9,9,87,48,74
+45-1011,"First-line supervisors of farming, fishing, and forestry workers",46,15,15,90,56,84
+45-2011,Agricultural inspectors,68,18,18,84,82,90
+45-2021,Animal breeders,33,27,27,54,47,58
+45-2041,"Graders and sorters, agricultural products",84,7,7,89,19,65
+45-2091,Agricultural equipment operators,39,4,4,79,22,67
+45-2092,"Farmworkers and laborers, crop, nursery, and greenhouse",32,1,1,83,30,53
+45-2093,"Farmworkers, farm, ranch, and aquacultural animals",64,38,38,80,52,78
+45-3000,Fishing and hunting workers,44,45,45,77,32,65
+45-4011,Forest and conservation workers,67,17,17,94,83,93
+45-4021,Fallers,7,1,1,70,21,46
+45-4022,Logging equipment operators,14,0,0,86,37,78
+45-4023,Log graders and scalers,48,1,1,89,57,70
+47-1011,First-line supervisors of construction trades and extraction workers,75,7,7,97,64,87
+47-2011,Boilermakers,69,15,15,83,45,79
+47-2021,Brickmasons and blockmasons,83,4,4,76,44,73
+47-2022,Stonemasons,80,6,6,87,36,85
+47-2031,Carpenters,80,9,9,96,58,89
+47-2041,Carpet installers,59,14,14,90,59,83
+47-2042,"Floor layers, except carpet, wood, and hard tiles",70,8,8,100,58,91
+47-2043,Floor sanders and finishers,62,1,1,85,55,58
+47-2044,Tile and marble setters,64,12,12,88,63,79
+47-2051,Cement masons and concrete finishers,86,5,5,84,42,74
+47-2053,Terrazzo workers and finishers,67,7,7,82,29,64
+47-2061,Construction laborers,73,10,10,88,40,91
+47-2071,"Paving, surfacing, and tamping equipment operators",55,5,5,77,59,72
+47-2072,Pile-driver operators,73,8,8,90,36,88
+47-2073,Operating engineers and other construction equipment operators,57,2,2,90,47,77
+47-2081,Drywall and ceiling tile installers,61,6,6,88,49,67
+47-2082,Tapers,55,9,9,89,31,59
+47-2111,Electricians,75,11,11,91,51,90
+47-2121,Glaziers,69,18,18,97,65,85
+47-2131,"Insulation workers, floor, ceiling, and wall",58,2,2,81,48,68
+47-2132,"Insulation workers, mechanical",59,24,24,92,55,89
+47-2141,"Painters, construction and maintenance",64,4,4,91,38,84
+47-2142,Paperhangers,44,11,11,71,37,71
+47-2151,Pipelayers,87,36,36,94,56,92
+47-2152,"Plumbers, pipefitters, and steamfitters",67,40,40,90,43,83
+47-2161,Plasterers and stucco masons,61,6,6,91,28,78
+47-2171,Reinforcing iron and rebar workers,71,13,13,80,41,86
+47-2181,Roofers,77,4,4,91,59,88
+47-2211,Sheet metal workers,67,10,10,93,56,82
+47-2221,Structural iron and steel workers,87,10,10,83,51,85
+47-2231,Solar photovoltaic installers,68,2,2,82,52,74
+47-3011,"Helpers--brickmasons, blockmasons, stonemasons, and tile and marble setters",66,9,9,97,57,65
+47-3012,Helpers--carpenters,77,12,12,92,39,84
+47-3013,Helpers--electricians,67,12,12,100,55,83
+47-3014,"Helpers--painters, paperhangers, plasterers, and stucco masons",61,3,3,94,38,86
+47-3015,"Helpers--pipelayers, plumbers, pipefitters, and steamfitters",67,45,45,81,60,79
+47-3016,Helpers--roofers,62,5,5,84,50,63
+47-4011,Construction and building inspectors,64,11,11,96,76,77
+47-4021,Elevator installers and repairers,64,50,50,95,68,77
+47-4031,Fence erectors,74,9,9,93,67,84
+47-4041,Hazardous materials removal workers,67,18,18,95,59,74
+47-4051,Highway maintenance workers,68,26,26,95,68,81
+47-4061,Rail-track laying and maintenance equipment operators,85,14,14,97,40,89
+47-4071,Septic tank servicers and sewer pipe cleaners,77,65,65,93,86,90
+47-4090,Miscellaneous construction and related workers,64,10,10,91,82,84
+47-5011,"Derrick operators, oil and gas",87,0,0,83,50,89
+47-5012,"Rotary drill operators, oil and gas",80,7,7,99,57,84
+47-5013,"Service unit operators, oil, gas, and mining",79,11,11,92,51,96
+47-5021,"Earth drillers, except oil and gas",42,8,8,88,40,75
+47-5031,"Explosives workers, ordnance handling experts, and blasters",66,4,4,95,49,85
+47-5041,Continuous mining machine operators,59,6,6,96,6,86
+47-5042,Mine cutting and channeling machine operators,53,1,1,93,6,94
+47-5051,"Rock splitters, quarry",43,,,62,29,55
+47-5061,"Roof bolters, mining",77,26,26,99,2,88
+47-5071,"Roustabouts, oil and gas",89,6,6,98,60,87
+47-5081,Helpers--extraction workers,80,4,4,96,44,83
+49-1011,"First-line supervisors of mechanics, installers, and repairers",69,19,19,98,84,95
+49-2011,"Computer, automated teller, and office machine repairers",63,5,5,84,80,78
+49-2021,"Radio, cellular, and tower equipment installers and repairers",70,14,14,92,78,84
+49-2022,"Telecommunications equipment installers and repairers, except line installers",62,22,22,82,81,89
+49-2091,Avionics technicians,66,3,3,90,49,77
+49-2092,"Electric motor, power tool, and related repairers",60,26,26,92,54,73
+49-2093,"Electrical and electronics installers and repairers, transportation equipment",54,4,4,87,28,76
+49-2094,"Electrical and electronics repairers, commercial and industrial equipment",64,2,2,94,36,89
+49-2095,"Electrical and electronics repairers, powerhouse, substation, and relay",88,16,16,97,38,93
+49-2096,"Electronic equipment installers and repairers, motor vehicles",58,3,3,84,61,67
+49-2097,Electronic home entertainment equipment installers and repairers,40,6,6,67,49,80
+49-2098,Security and fire alarm systems installers,63,20,20,94,83,89
+49-3011,Aircraft mechanics and service technicians,54,4,4,81,58,61
+49-3021,Automotive body and related repairers,46,0,0,86,33,64
+49-3022,Automotive glass installers and repairers,50,1,1,97,70,88
+49-3023,Automotive service technicians and mechanics,54,7,7,90,55,80
+49-3031,Bus and truck mechanics and diesel engine specialists,62,9,9,87,59,82
+49-3041,Farm equipment mechanics and service technicians,53,20,20,97,61,79
+49-3042,"Mobile heavy equipment mechanics, except engines",48,15,15,92,60,82
+49-3043,Rail car repairers,65,3,3,88,46,75
+49-3051,Motorboat mechanics and service technicians,64,18,18,93,71,83
+49-3052,Motorcycle mechanics,43,0,0,90,67,78
+49-3053,Outdoor power equipment and other small engine mechanics,53,3,3,67,64,86
+49-3091,Bicycle repairers,65,0,0,83,96,85
+49-3092,Recreational vehicle service technicians,53,31,31,80,73,72
+49-3093,Tire repairers and changers,65,16,16,90,79,88
+49-9011,Mechanical door repairers,73,7,7,87,72,85
+49-9012,"Control and valve installers and repairers, except mechanical door",65,19,19,99,68,88
+49-9021,"Heating, air conditioning, and refrigeration mechanics and installers",61,17,17,90,72,89
+49-9031,Home appliance repairers,67,12,12,93,91,96
+49-9041,Industrial machinery mechanics,72,15,15,95,30,83
+49-9043,"Maintenance workers, machinery",73,11,11,90,35,82
+49-9044,Millwrights,77,30,30,99,40,83
+49-9045,"Refractory materials repairers, except brickmasons",80,21,21,67,16,81
+49-9051,Electrical power-line installers and repairers,73,10,10,100,62,82
+49-9052,Telecommunications line installers and repairers,64,34,34,86,75,95
+49-9061,Camera and photographic equipment repairers,38,0,0,85,53,61
+49-9062,Medical equipment repairers,52,33,33,83,66,74
+49-9063,Musical instrument repairers and tuners,48,7,7,93,84,75
+49-9064,Watch repairers,66,1,1,84,57,67
+49-9071,"Maintenance and repair workers, general",69,44,44,95,51,83
+49-9081,Wind turbine service technicians,79,5,5,92,47,90
+49-9091,"Coin, vending, and amusement machine servicers and repairers",58,7,7,67,65,78
+49-9092,Commercial divers,75,12,12,89,50,90
+49-9093,"Fabric menders, except garment",58,26,26,91,28,64
+49-9094,Locksmiths and safe repairers,62,10,10,99,83,91
+49-9095,Manufactured building and mobile home installers,73,1,1,69,37,69
+49-9096,Riggers,77,15,15,91,48,85
+49-9097,Signal and track switch repairers,73,8,8,83,39,81
+49-9098,"Helpers--installation, maintenance, and repair workers",68,15,15,97,49,84
+49-9099,"Installation, maintenance, and repair workers, all other",50,7,7,88,33,80
+51-1011,First-line supervisors of production and operating workers,65,1,1,91,51,91
+51-2011,"Aircraft structure, surfaces, rigging, and systems assemblers",60,9,9,95,32,74
+51-2021,"Coil winders, tapers, and finishers",58,2,2,83,26,66
+51-2028,"Electrical, electronic, and electromechanical assemblers, except coil winders, tapers, and finishers",59,5,5,87,33,68
+51-2031,Engine and other machine assemblers,69,0,0,93,45,79
+51-2041,Structural metal fabricators and fitters,60,6,6,93,56,80
+51-2091,Fiberglass laminators and fabricators,83,3,3,88,21,76
+51-2093,Timing device assemblers and adjusters,45,,,91,11,80
+51-2098,"Assemblers and fabricators, all other, including team assemblers",66,0,0,95,13,81
+51-3011,Bakers,55,7,7,81,60,86
+51-3021,Butchers and meat cutters,77,3,3,83,87,88
+51-3022,"Meat, poultry, and fish cutters and trimmers",85,25,25,71,61,46
+51-3023,Slaughterers and meat packers,73,18,18,78,58,73
+51-3091,"Food and tobacco roasting, baking, and drying machine operators and tenders",35,6,6,85,38,74
+51-3092,Food batchmakers,56,4,4,78,36,76
+51-3093,Food cooking machine operators and tenders,73,14,14,84,39,87
+51-4011,"Computer-controlled machine tool operators, metal and plastic",51,1,1,89,28,72
+51-4012,"Computer numerically controlled machine tool programmers, metal and plastic",57,1,1,90,41,71
+51-4021,"Extruding and drawing machine setters, operators, and tenders, metal and plastic",51,12,12,75,8,61
+51-4022,"Forging machine setters, operators, and tenders, metal and plastic",65,1,1,93,26,83
+51-4023,"Rolling machine setters, operators, and tenders, metal and plastic",59,1,1,89,55,84
+51-4031,"Cutting, punching, and press machine setters, operators, and tenders, metal and plastic",50,1,1,80,13,60
+51-4032,"Drilling and boring machine tool setters, operators, and tenders, metal and plastic",48,2,2,89,19,67
+51-4033,"Grinding, lapping, polishing, and buffing machine tool setters, operators, and tenders, metal and plastic",55,5,5,72,37,62
+51-4034,"Lathe and turning machine tool setters, operators, and tenders, metal and plastic",48,8,8,78,22,54
+51-4035,"Milling and planing machine setters, operators, and tenders, metal and plastic",53,1,1,92,18,63
+51-4041,Machinists,52,4,4,93,29,74
+51-4051,Metal-refining furnace operators and tenders,43,2,2,76,17,62
+51-4052,"Pourers and casters, metal",57,7,7,76,23,47
+51-4061,"Model makers, metal and plastic",71,16,16,100,48,66
+51-4062,"Patternmakers, metal and plastic",64,1,1,100,27,87
+51-4071,Foundry mold and coremakers,69,8,8,67,20,69
+51-4072,"Molding, coremaking, and casting machine setters, operators, and tenders, metal and plastic",68,3,3,91,4,73
+51-4081,"Multiple machine tool setters, operators, and tenders, metal and plastic",58,13,13,86,27,68
+51-4111,Tool and die makers,57,0,0,94,33,61
+51-4121,"Welders, cutters, solderers, and brazers",49,1,1,80,30,66
+51-4122,"Welding, soldering, and brazing machine setters, operators, and tenders",42,0,0,75,11,53
+51-4191,"Heat treating equipment setters, operators, and tenders, metal and plastic",61,3,3,78,16,75
+51-4192,"Layout workers, metal and plastic",57,13,13,90,30,69
+51-4193,"Plating and coating machine setters, operators, and tenders, metal and plastic",59,3,3,90,29,73
+51-4194,"Tool grinders, filers, and sharpeners",47,0,0,87,28,66
+51-5111,Prepress technicians and workers,56,0,0,92,40,78
+51-5112,Printing press operators,42,0,0,78,33,78
+51-5113,Print binding and finishing workers,55,0,0,93,38,64
+51-6011,Laundry and dry-cleaning workers,53,55,55,71,37,56
+51-6021,"Pressers, textile, garment, and related materials",35,4,4,77,40,61
+51-6031,Sewing machine operators,62,0,0,63,12,64
+51-6041,Shoe and leather workers and repairers,55,3,3,77,52,86
+51-6042,Shoe machine operators and tenders,61,1,1,62,6,50
+51-6051,"Sewers, hand",37,1,1,74,60,51
+51-6052,"Tailors, dressmakers, and custom sewers",63,12,12,87,66,82
+51-6061,Textile bleaching and dyeing machine operators and tenders,46,0,0,91,4,78
+51-6062,"Textile cutting machine setters, operators, and tenders",54,0,0,93,14,59
+51-6063,"Textile knitting and weaving machine setters, operators, and tenders",44,4,4,64,19,53
+51-6064,"Textile winding, twisting, and drawing out machine setters, operators, and tenders",64,5,5,70,16,67
+51-6091,"Extruding and forming machine setters, operators, and tenders, synthetic and glass fibers",55,3,3,98,30,86
+51-6092,Fabric and apparel patternmakers,49,1,1,95,39,88
+51-6093,Upholsterers,62,2,2,70,40,66
+51-7011,Cabinetmakers and bench carpenters,55,0,0,97,56,76
+51-7021,Furniture finishers,54,2,2,72,11,58
+51-7031,"Model makers, wood",51,15,15,94,26,81
+51-7032,"Patternmakers, wood",56,0,0,93,27,66
+51-7041,"Sawing machine setters, operators, and tenders, wood",57,6,6,83,5,74
+51-7042,"Woodworking machine setters, operators, and tenders, except sawing",51,1,1,96,32,66
+51-8011,Nuclear power reactor operators,73,3,3,100,28,92
+51-8012,Power distributors and dispatchers,66,1,1,91,77,88
+51-8013,Power plant operators,51,6,6,93,36,88
+51-8021,Stationary engineers and boiler operators,60,26,26,81,30,89
+51-8031,Water and wastewater treatment plant and system operators,50,27,27,93,51,78
+51-8091,Chemical plant and system operators,64,8,8,100,17,84
+51-8092,Gas plant operators,54,17,17,89,45,74
+51-8093,"Petroleum pump system operators, refinery operators, and gaugers",69,2,2,96,37,89
+51-8099,"Plant and system operators, all other",61,12,12,95,37,85
+51-9011,Chemical equipment operators and tenders,51,15,15,93,17,79
+51-9012,"Separating, filtering, clarifying, precipitating, and still machine setters, operators, and tenders",48,5,5,89,10,55
+51-9021,"Crushing, grinding, and polishing machine setters, operators, and tenders",35,1,1,91,31,78
+51-9022,"Grinding and polishing workers, hand",61,3,3,73,23,65
+51-9023,"Mixing and blending machine setters, operators, and tenders",40,4,4,93,35,87
+51-9031,"Cutters and trimmers, hand",34,1,1,47,4,60
+51-9032,"Cutting and slicing machine setters, operators, and tenders",57,6,6,89,20,69
+51-9041,"Extruding, forming, pressing, and compacting machine setters, operators, and tenders",66,17,17,84,29,76
+51-9051,"Furnace, kiln, oven, drier, and kettle operators and tenders",61,14,14,85,12,66
+51-9061,"Inspectors, testers, sorters, samplers, and weighers",65,4,4,83,36,85
+51-9071,Jewelers and precious stone and metal workers,54,0,0,90,67,74
+51-9081,Dental laboratory technicians,53,72,72,89,42,66
+51-9082,Medical appliance technicians,71,48,48,85,69,82
+51-9083,Ophthalmic laboratory technicians,63,29,29,80,58,60
+51-9111,Packaging and filling machine operators and tenders,59,4,4,80,24,85
+51-9121,"Coating, painting, and spraying machine setters, operators, and tenders",74,16,16,83,28,74
+51-9122,"Painters, transportation equipment",48,0,0,81,32,46
+51-9123,"Painting, coating, and decorating workers",58,1,1,94,55,69
+51-9141,Semiconductor processors,60,0,0,73,18,68
+51-9151,Photographic process workers and processing machine operators,58,41,41,97,76,82
+51-9191,Adhesive bonding machine operators and tenders,70,9,9,86,33,90
+51-9192,"Cleaning, washing, and metal pickling equipment operators and tenders",32,13,13,81,6,67
+51-9193,Cooling and freezing equipment operators and tenders,49,0,0,92,24,71
+51-9194,Etchers and engravers,46,0,0,98,44,60
+51-9195,"Molders, shapers, and casters, except metal and plastic",56,3,3,75,46,60
+51-9196,"Paper goods machine setters, operators, and tenders",61,3,3,93,30,86
+51-9197,Tire builders,57,3,3,39,8,66
+51-9198,Helpers--production workers,54,1,1,83,25,71
+51-9199,"Production workers, all other",58,23,23,74,33,76
+53-1011,Aircraft cargo handling supervisors,68,10,10,99,81,97
+53-1048,"First-Line supervisors of transportation and material moving workers, except aircraft cargo handling supervisors",61,15,15,97,75,96
+53-2011,"Airline pilots, copilots, and flight engineers",83,28,28,87,78,99
+53-2012,Commercial pilots,81,25,25,91,80,92
+53-2021,Air traffic controllers,82,7,7,78,81,93
+53-2022,Airfield operations specialists,66,24,24,99,83,90
+53-2031,Flight attendants,96,77,77,84,89,97
+53-3011,"Ambulance drivers and attendants, except emergency medical technicians",90,72,72,83,77,92
+53-3021,"Bus drivers, transit and intercity",78,47,47,73,72,88
+53-3022,"Bus drivers, school or special client",84,67,67,81,63,90
+53-3031,Driver/sales workers,77,11,11,89,57,92
+53-3032,Heavy and tractor-trailer truck drivers,42,7,7,75,67,73
+53-3033,Light truck or delivery services drivers,67,13,13,80,72,92
+53-3041,Taxi drivers and chauffeurs,79,25,25,90,77,86
+53-4011,Locomotive engineers,50,13,13,95,56,90
+53-4012,Locomotive firers,45,10,10,100,30,80
+53-4013,"Rail yard engineers, dinkey operators, and hostlers",51,3,3,96,50,93
+53-4021,"Railroad brake, signal, and switch operators",41,15,15,85,50,84
+53-4031,Railroad conductors and yardmasters,63,15,15,98,57,88
+53-4041,Subway and streetcar operators,67,43,43,68,80,87
+53-5011,Sailors and marine oilers,69,19,19,83,45,85
+53-5021,"Captains, mates, and pilots of water vessels",71,19,19,93,56,88
+53-5022,Motorboat operators,79,8,8,97,95,93
+53-5031,Ship engineers,72,16,16,91,28,91
+53-6011,Bridge and lock tenders,28,7,7,77,61,73
+53-6021,Parking lot attendants,73,15,15,82,81,90
+53-6031,Automotive and watercraft service attendants,60,4,4,99,85,88
+53-6041,Traffic technicians,48,0,0,82,71,71
+53-6051,Transportation inspectors,61,7,7,89,60,84
+53-6061,"Transportation attendants, except flight attendants",93,27,27,66,56,79
+53-7011,Conveyor operators and tenders,37,5,5,62,19,61
+53-7021,Crane and tower operators,48,2,2,89,30,89
+53-7031,Dredge operators,27,1,1,98,13,82
+53-7032,Excavating and loading machine and dragline operators,40,5,5,88,30,85
+53-7033,"Loading machine operators, underground mining",59,4,4,78,28,65
+53-7041,Hoist and winch operators,58,0,0,94,38,77
+53-7051,Industrial truck and tractor operators,34,4,4,88,50,81
+53-7061,Cleaners of vehicles and equipment,55,16,16,90,32,59
+53-7062,"Laborers and freight, stock, and material movers, hand",70,3,3,96,55,75
+53-7063,Machine feeders and offbearers,47,2,2,77,22,72
+53-7064,"Packers and packagers, hand",70,5,5,88,36,79
+53-7071,Gas compressor and gas pumping station operators,66,4,4,86,34,77
+53-7072,"Pump operators, except wellhead pumpers",52,6,6,95,24,93
+53-7073,Wellhead pumpers,19,6,6,84,61,78
+53-7081,Refuse and recyclable material collectors,31,63,63,62,50,56
+53-7111,Mine shuttle car operators,49,7,7,82,2,67
+53-7121,"Tank car, truck, and ship loaders",62,3,3,96,51,87
