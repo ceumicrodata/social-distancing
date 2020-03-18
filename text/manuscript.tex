@@ -217,14 +217,7 @@ Rita Pető\textsuperscript{2\ddag}
 \end{flushleft}
 % Please keep the abstract below 300 words
 \section*{Abstract}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eget porta erat. Morbi consectetur est vel gravida pretium. Suspendisse ut dui eu ante cursus gravida non sed sem. Nullam sapien tellus, commodo id velit id, eleifend volutpat quam. Phasellus mauris velit, dapibus finibus elementum vel, pulvinar non tellus. Nunc pellentesque pretium diam, quis maximus dolor faucibus id. Nunc convallis sodales ante, ut ullamcorper est egestas vitae. Nam sit amet enim ultrices, ultrices elit pulvinar, volutpat risus.
-
-
-% Please keep the Author Summary between 150 and 200 words
-% Use first person. PLOS ONE authors please skip this step. 
-% Author Summary not valid for PLOS ONE submissions.   
-\section*{Author summary}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eget porta erat. Morbi consectetur est vel gravida pretium. Suspendisse ut dui eu ante cursus gravida non sed sem. Nullam sapien tellus, commodo id velit id, eleifend volutpat quam. Phasellus mauris velit, dapibus finibus elementum vel, pulvinar non tellus. Nunc pellentesque pretium diam, quis maximus dolor faucibus id. Nunc convallis sodales ante, ut ullamcorper est egestas vitae. Nam sit amet enim ultrices, ultrices elit pulvinar, volutpat risus.
+Social distancing interventions can be effective against epidemics, but little is known about their economic effects. We develop a model of communication and production to study the effects of a policy that limits face-to-face interactions. This policy results in the highest cost increases in sectors with high division of labor and hence high need for communication and those that are located in urban centers with high population density. We measure the prevalence of communication-related tasks and the urban density of workers for each detailed industry in the U.S. We predict that XX, XX and XX will suffer the biggest employment losses in response to the 2019--20 coronavirus pandemic. Overall, XX people work in the most affected sectors.
 
 \linenumbers
 
@@ -232,8 +225,13 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eget porta er
 \section*{Introduction}
 Social distancing measures are effective non-pharmaceutical interventions against the rapid spread of epidemics (REFs). Many countries have implemented or are considering measures such as school closures, prohibition of large gatherings and transportation to slow down the spread of the coronavirus (REFs). What are the economic effects of such social distancing interventions? Which are the firms and industries most affected by the restrictions?
 
-Past research has analyzed the efficacy of social distancing interventions on reducing the spread of epidemics using the 1918 Spanish Flu in the US (REF) and seasonal viral infections in France (REF) [add more REFs]. Our knowledge of economic impacts, however, is limited. For this question, the case of the Spanish Flu pandemic is less relevant, as the importance of face-to-face communication has increased in the last 100 years through urbanization (REF) and XXX services (REF).
+Past research has analyzed the efficacy of social distancing interventions on reducing the spread of epidemics using the 1918 Spanish Flu in the U.S. (REF) and seasonal viral infections in France (REF). Our knowledge of economic impacts, however, is limited. For this question, the case of the Spanish Flu pandemic is less relevant, as the importance of face-to-face communication has increased in the last 100 years through urbanization (REF) and an increased specialization in business services (REF).
 
+We build a model of communication within the production process to understand how limiting face-to-face interaction increases costs. Without social distancing, workers specialize in a narrow range tasks and interact with other workers completing other tasks. This division of labor reduces production costs but requires frequent contact between workers. In the model, the number of contacts per worker are the most frequent in high population density areas in sectors where division of labor is important. When face-to-face interaction is limited, these are the locations and sectors that suffer the largest cost increases. Our model can also explain when telecommunication is a low-cost substitute for face-to-face interaction.
+
+To measure sensitivity to social distancing, we turn to recent data on the task descriptions of each occupation (REF) and the precise geographic location of non-farm businesses (REF). We classify workers as affected if their occupation requires frequent communication with others (inside or outside the firm). The most affected group of workers includes healthcare professionals, teachers, and managers. Sectors are affected if they employ most of their workers in high-density ZIP-code areas. The most affected sectors are apparel manufacturing, information and business services, and performing arts. Both measures are necessary to understand exposure to social distancing. Firms may also locate in urban centers to minimize shipping costs with respect to suppliers and customers. But if they also have a high prevalence of communication-related tasks, we conclude that they are heavily relying on face-to-face communication, and will be particularly hurt by social distancing.
+
+For completeness, we also compute, for each industry, the fraction of workers who work with many coworkers in enclosed space or subject to potential infections, or working in large plants. These additional measures are highly correlated with our two preferred indicators (CHECK). We report our four index of exposure to social distancing for each 5-digit occupation, each 3-digit NAICS industry, and each 5-digit ZIP-Code Tabulation Area. Industries that are in the top quartile of both  communication exposure and urban density altogether employ XX workers in the U.S.
 \section{A model of communication}
 
 Production involves sequentally completing tasks indexed by $z\in[0,1]$. A single worker can do a range of tasks, but there is benefit to specialization and division of labor (Adam Smith and Acemogul> REF). The labor cost of a worker completing $Z<1$ measure of tasks is $wZ^{1+\gamma}/\gamma$, where $w$ is the wage rate, and $\gamma>0$ captures the benefits to division of labor. As we show below, the higher the $\gamma$, the more specialized each worker will be in a narrower set of tasks.
@@ -304,24 +302,9 @@ ONET
 CBP density
 CBP plant size
 
-## Cross walks
-## Construction of communication index
-## Worker density
-
-
-Lorem ipsum dolor sit~\cite{bib1} amet, consectetur adipiscing elit. Curabitur eget porta erat. Morbi consectetur est vel gravida pretium. Suspendisse ut dui eu ante cursus gravida non sed sem. Nullam Eq~(\ref{eq:schemeP}) sapien tellus, commodo id velit id, eleifend volutpat quam. Phasellus mauris velit, dapibus finibus elementum vel, pulvinar non tellus. Nunc pellentesque pretium diam, quis maximus dolor faucibus id.~\cite{bib2} Nunc convallis sodales ante, ut ullamcorper est egestas vitae. Nam sit amet enim ultrices, ultrices elit pulvinar, volutpat risus.
-
-\begin{eqnarray}
-\label{eq:schemeP}
-	\mathrm{P_Y} = \underbrace{H(Y_n) - H(Y_n|\mathbf{V}^{Y}_{n})}_{S_Y} + \underbrace{H(Y_n|\mathbf{V}^{Y}_{n})- H(Y_n|\mathbf{V}^{X,Y}_{n})}_{T_{X\rightarrow Y}},
-\end{eqnarray}
-
-\section*{Materials and methods}
-\subsection*{Etiam eget sapien nibh}
-
-% For figure citations, please use "Fig" instead of "Figure".
-Nulla mi mi, Fig~\ref{fig1} venenatis sed ipsum varius, volutpat euismod diam. Proin rutrum vel massa non gravida. Quisque tempor sem et dignissim rutrum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi at justo vitae nulla elementum commodo eu id massa. In vitae diam ac augue semper tincidunt eu ut eros. Fusce fringilla erat porttitor lectus cursus, \nameref{S1_Video} vel sagittis arcu lobortis. Aliquam in enim semper, aliquam massa id, cursus neque. Praesent faucibus semper libero.
-
+Cross walks
+Construction of communication index
+Worker density
 % Place figure captions after the first paragraph in which they are cited.
 \begin{figure}[!h]
 \caption{{\bf Bold the figure title.}
@@ -331,7 +314,6 @@ Figure caption text here, please use this space for the figure panel description
 
 % Results and Discussion can be combined.
 \section*{Results}
-Nulla mi mi, venenatis sed ipsum varius, Table~\ref{table1} volutpat euismod diam. Proin rutrum vel massa non gravida. Quisque tempor sem et dignissim rutrum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi at justo vitae nulla elementum commodo eu id massa. In vitae diam ac augue semper tincidunt eu ut eros. Fusce fringilla erat porttitor lectus cursus, vel sagittis arcu lobortis. Aliquam in enim semper, aliquam massa id, cursus neque. Praesent faucibus semper libero.
 
 % Place tables after the first paragraph in which they are cited.
 \begin{table}[!ht]
@@ -352,28 +334,6 @@ $cell1 row3$ & cell2 row 3 & cell3 row 3 & cell4 row 3 & cell5 row 3 & cell6 row
 \end{adjustwidth}
 \end{table}
 
-
-%PLOS does not support heading levels beyond the 3rd (no 4th level headings).
-\subsection*{\lorem\ and \ipsum\ nunc blandit a tortor}
-\subsubsection*{3rd level heading} 
-Maecenas convallis mauris sit amet sem ultrices gravida. Etiam eget sapien nibh. Sed ac ipsum eget enim egestas ullamcorper nec euismod ligula. Curabitur fringilla pulvinar lectus consectetur pellentesque. Quisque augue sem, tincidunt sit amet feugiat eget, ullamcorper sed velit. Sed non aliquet felis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris commodo justo ac dui pretium imperdiet. Sed suscipit iaculis mi at feugiat. 
-
-\begin{enumerate}
-	\item{react}
-	\item{diffuse free particles}
-	\item{increment time by dt and go to 1}
-\end{enumerate}
-
-
-\subsection*{Sed ac quam id nisi malesuada congue}
-
-Nulla mi mi, venenatis sed ipsum varius, volutpat euismod diam. Proin rutrum vel massa non gravida. Quisque tempor sem et dignissim rutrum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi at justo vitae nulla elementum commodo eu id massa. In vitae diam ac augue semper tincidunt eu ut eros. Fusce fringilla erat porttitor lectus cursus, vel sagittis arcu lobortis. Aliquam in enim semper, aliquam massa id, cursus neque. Praesent faucibus semper libero.
-
-\begin{itemize}
-	\item First bulleted item.
-	\item Second bulleted item.
-	\item Third bulleted item.
-\end{itemize}
 
 \section*{Discussion}
 Nulla mi mi, venenatis sed ipsum varius, Table~\ref{table1} volutpat euismod diam. Proin rutrum vel massa non gravida. Quisque tempor sem et dignissim rutrum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi at justo vitae nulla elementum commodo eu id massa. In vitae diam ac augue semper tincidunt eu ut eros. Fusce fringilla erat porttitor lectus cursus, vel sagittis arcu lobortis. Aliquam in enim semper, aliquam massa id, cursus neque. Praesent faucibus semper libero~\cite{bib3}.
