@@ -234,7 +234,63 @@ Social distancing measures are effective non-pharmaceutical interventions agains
 
 Past research has analyzed the efficacy of social distancing interventions on reducing the spread of epidemics using the 1918 Spanish Flu in the US (REF) and seasonal viral infections in France (REF) [add more REFs]. Our knowledge of economic impacts, however, is limited. For this question, the case of the Spanish Flu pandemic is less relevant, as the importance of face-to-face communication has increased in the last 100 years through urbanization (REF) and XXX services (REF).
 
-\section{A model of }
+\section{A model of communication}
+
+Production involves sequentally completing tasks indexed by $z\in[0,1]$. A single worker can do a range of tasks, but there is benefit to specialization and division of labor (Adam Smith and Acemogul> REF). The labor cost of a worker completing $Z<1$ measure of tasks is $wZ^{1+\gamma}/\gamma$, where $w$ is the wage rate, and $\gamma>0$ captures the benefits to division of labor. As we show below, the higher the $\gamma$, the more specialized each worker will be in a narrower set of tasks.
+
+Once the range of tasks $Z$ is completed, the worker passes the unfinished product on to another worker. This has a cost $c$, which can capture the cost of communication either face-to-face or online. The determinants of communication cost will parametrized later. 
+
+The firm will optimally decide how to share tasks between workers. The key trade-off is economizing on the cost of communication while exploiting the division of labor. Let $n$ denote the number of workers involved in the production process. Because workers are symmetric, each works on $Z=1/n$ range of tasks before passing the work to the next worker. The process involves $n-1$ ``contacts'' (instances of communication), which can be approximated by $n$ if $n$ is sufficiently large.
+
+The firm's cost minimization problem can then be written as a function of the number of contacts alone,
+\begin{equation}
+	\min_n nc + \frac w\gamma n^{-\gamma},
+\end{equation}
+where total communication costs are $nc$ and production costs are $w n Z^{1+\gamma}/\gamma$ with $Z=1/n$.
+
+Given the strict convexity of this cost function, the first-order condition is necessary and sufficient for the optimum,
+\begin{equation}
+	n^*(c) = (c/w)^{-1/(1+\gamma)}.
+\end{equation}
+The number of worker contacts is decreasing in the cost of communication, expressed relative to worker wage. When the division of labor is important, $\gamma$ is high, and the number of contacts does not depend very strongly on communication costs.
+
+The total cost of producing one good can be calculated by substituting in \eqref{} into \eqref{},
+\begin{equation}
+	\frac1\chi c^{\chi}w^{1-\chi},
+\end{equation}
+where $\chi=\gamma/(1+\gamma)\in(0,1)$ measures the importance of division of labor. This unit cost function is the same as if workers and communication were substitutable in the production function in a Cobb-Douglas fashion. Here $\chi$ captures the share of costs associated with communication. [NB: and could hence be calibrated to the share of non-production workers]
+\subsection{The cost of communication}
+Firms can chose between two ways of organizing communication. First, they can ask workers to meet face to face, in which case communication costs depends inversely on the population density in the neighborhood of the firm, $c=d^{-\tau}$. This captures the Marshallian externality of knowledge spillovers (REF), which happen more easily in densely populated areas. Second, they can ask workers to  interact with one another through telecommunication, in which case $c=T$. In sectors where telecommunication is not feasible, we can take $T$ to be prohibitively large.
+
+The firm will chose the cheaper of the two forms of communcation,
+\begin{equation}
+	c = \min \{d^{-\tau}, T\}.
+\end{equation}
+The unit cost of production can be calculated by substituting in \eqref{} into \eqref{},
+\begin{equation}
+\frac {w^{1-\chi}}{\chi}
+\min \{
+	d^{-\tau\chi},T^\chi
+\}.
+\end{equation}
+Because both wages and land rents are higher in places with high population density (REF), a firm will only move to such location when either the communication benefits $\tau\chi$ are high, or the cost of telecommunication $T$ is high. In spatial equilibrium (not modeled here), firms with high communication needs will choose to locate in high-density areas.
+
+\subsection{Social distancing measures}
+We study the effect of a of social distancing intervention that introduces an upper bound $N$ on the number of face-to-face contacts, but places no restriction on telecommunication.
+
+Take a firm that is using face-to-face communication, such that $d>T^{-1/\tau}$. (If the firm is already relying on telecommunication, they are unaffected by social distancing.) The optimal number of contacts without social distancing would be $n^* = d^{\tau(1-\chi)}w^{1-\chi}$. The firm is affected by the first type of social distancing if $n^*>N$, that is, 
+\begin{equation}
+	d > N^{1/\tau(1-\chi)} w^{-1/\tau}.
+\end{equation}
+This is more likely to hold for firms in high-density areas (high $d$) and those with high division of labor ($\chi$ close to one). These are both contributors to a high number of face-to-face contacts. Density and the prevalence of communication are positive predictors to sensitivity to social distancing.
+
+How do these firms react to social distancing? They can limit face-to-face communication and decrease worker productivity (because each worker has to work on a wider range of tasks than they used to). [NB: cite digital education as an example in the introduction] Or they can mandate telecommuting and avoid face-to-face communication this way. The firm will chose the strategy that leads to the least increase in costs. They will switch to telecommuting if
+\begin{equation}
+	T < w N^{\chi-1}.
+\end{equation}
+Firms with low telecommunication costs $T$, high worker wages $w$ and low communication intensity $\chi$ are more likely to switch to telecommuting. Telecommuting is also more likely for more stringent social distancing measures (low $N$). Firms with high communication intensity are hurt the most by social distancing, because for them telecommuting is not a viable option.
+
+\subsection{Discussion}
 
 \section{Methodology}
 We compute two measures of exposure to social distancing interventions. The first is the share of workers whose job requires personal communications. This is high for sectors like XX and low for sectors like XX. The idea is that when workers in communication-intensive occupations stay at home, their productivity decreases. A challenge to this assumption is that, in some occupations, online communication can partly substitute face-to-face communication.
