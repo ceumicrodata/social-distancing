@@ -31,7 +31,7 @@ Notes:
 . tempfile sector_risk
 
 . save  `sector_risk'
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St05826.000001 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St05942.000001 saved
 
 . 
 . use "../data/clean/cbp/zip_code_business_patterns.dta", clear
@@ -47,16 +47,15 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St05826.000001 saved
     -----------------------------------------
 
 . 
-. collapse (first) employment_density (mean) communication_share infection_shar
-> e [fw=employment], by(zip)
+. collapse (first) population_density employment_density (mean) communication_s
+> hare infection_share [fw=employment], by(zip)
 
-. 
 . *drop rural areas, CBP is not representative for these
-. drop if employment_density<10
-(11,471 observations deleted)
+. drop if population_density<5
+(2,396 observations deleted)
 
 . 
-. generate ln_density = ln(employment_density)
+. generate ln_density = ln(population_density)
 (2,428 missing values generated)
 
 . foreach X of var *_share {
@@ -64,8 +63,8 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St05826.000001 saved
   3. }
 
 . 
-. line communication_share_hat infection_share_hat employment_density, sort ///
-> ytitle("Average occupation index of industries") xtitle("Employment density (
+. line communication_share_hat infection_share_hat population_density, sort ///
+> ytitle("Average occupation index of industries") xtitle("Population density (
 > person/km2, log scale)") ///
 > scheme(s2mono) graphregion(color(white)) xscale(log) xlabel(10 100 1000 10000
 >  100000) ///
