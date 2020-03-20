@@ -1,38 +1,38 @@
 naics_3d,industry_code,industry_label
-211 ,211 ,Oil and gas extraction 
-212 ,212 ,"Mining, except oil and gas "
-213 ,213 ,Support activities for mining 
+211,211,Oil and gas extraction 
+212,212,"Mining, except oil and gas "
+213,213,Support activities for mining 
 221,221,"Electric power generation, transmission and distribution, Natural gas distribution, Water, sewage and other systems "
 236,23,Construction 
 237,23,Construction 
 238,23,Construction 
-311 ,311,Food manufacturing 
-312 ,312,Beverage and tobacco product 
+311,311,Food manufacturing 
+312,312,Beverage and tobacco product 
 313,313,Textile mills and textile product mills 
 314,313,Textile mills and textile product mills 
 315,315,"Apparel, leather and allied product manufacturing "
 316,315,"Apparel, leather and allied product manufacturing "
-321 ,321,Wood product manufacturing 
-322 ,322,Paper manufacturing 
-323 ,323,Printing and related support activities 
-324 ,324,Petroleum and coal products manufacturing 
-325 ,325,Chemical manufacturing 
-326 ,326,Plastics and rubber products manufacturing 
-327 ,327 ,Nonmetallic mineral product manufacturing 
-331 ,331 ,Primary metal manufacturing 
-332 ,332 ,Fabricated metal product manufacturing 
-333 ,333 ,Machinery manufacturing 
-334 ,334 ,Computer and electronic product manufacturing 
-335 ,335 ,"Electrical equipment, appliance, and component manufacturing "
-336 ,336 ,Transportation equipment manufacturing 
-337 ,337 ,Furniture and related product manufacturing 
-339 ,339 ,Miscellaneous manufacturing 
-423,42 ,Wholesale trade 
-424,42 ,Wholesale trade 
-425,42 ,Wholesale trade 
-441 ,441 ,Motor vehicle and parts dealers 
-445 ,445 ,Food and beverage stores 
-452 ,452 ,General Merchandise stores 
+321,321,Wood product manufacturing 
+322,322,Paper manufacturing 
+323,323,Printing and related support activities 
+324,324,Petroleum and coal products manufacturing 
+325,325,Chemical manufacturing 
+326,326,Plastics and rubber products manufacturing 
+327,327,Nonmetallic mineral product manufacturing 
+331,331,Primary metal manufacturing 
+332,332,Fabricated metal product manufacturing 
+333,333,Machinery manufacturing 
+334,334,Computer and electronic product manufacturing 
+335,335,"Electrical equipment, appliance, and component manufacturing "
+336,336,Transportation equipment manufacturing 
+337,337,Furniture and related product manufacturing 
+339,339,Miscellaneous manufacturing 
+423,42,Wholesale trade 
+424,42,Wholesale trade 
+425,42,Wholesale trade 
+441,441,Motor vehicle and parts dealers 
+445,445,Food and beverage stores 
+452,452,General Merchandise stores 
 442,442,All other retail 
 443,442,All other retail 
 446,442,All other retail 
@@ -41,56 +41,55 @@ naics_3d,industry_code,industry_label
 451,442,All other retail 
 453,442,All other retail 
 454,442,All other retail 
-481 ,481 ,Air transportation 
-482 ,482 ,Rail transportation 
-483 ,483 ,Water transportation 
-484 ,484 ,Truck transportation 
-485 ,485 ,Transit and ground passenger transportation 
-486 ,486 ,Pipeline transportation 
+481,481,Air transportation 
+482,482,Rail transportation 
+483,483,Water transportation 
+484,484,Truck transportation 
+485,485,Transit and ground passenger transportation 
+486,486,Pipeline transportation 
 487,487,Scenic and sightseeing transportation and support activities for transportation 
 488,487,Scenic and sightseeing transportation and support activities for transportation 
-491 ,491 ,Postal Service 
-492 ,492 ,Couriers and messengers 
-493 ,493 ,Warehousing and storage 
-511 ,511 ,Publishing industries 
-512 ,512 ,"Motion picture, video, and sound recording industries "
-515 ,515 ,Broadcasting (except Internet) 
-517 ,517 ,Telecommunications 
-518 ,518 ,"Data processing, hosting, and related services "
-519 ,519 ,Other information services 
+491,491,Postal Service 
+492,492,Couriers and messengers 
+493,493,Warehousing and storage 
+511,511,Publishing industries 
+512,512,"Motion picture, video, and sound recording industries "
+515,515,Broadcasting (except Internet) 
+517,517,Telecommunications 
+518,518,"Data processing, hosting, and related services "
+519,519,Other information services 
 521,521,"Monetary authorities, credit intermediation, and related activities "
 522,521,"Monetary authorities, credit intermediation, and related activities "
 523,523,"Securities, commodity contracts, funds, trusts and other financial investments and related activities "
 525,523,"Securities, commodity contracts, funds, trusts and other financial investments and related activities "
-524 ,524 ,Insurance carriers and related activities 
-531 ,531 ,Real estate 
+524,524,Insurance carriers and related activities 
+531,531,Real estate 
 532,532,"Automotive equipment rental and leasing, Consumer goods rental and general rental centers, Commercial and industrial machinery and equipment rental and leasing "
-533 ,533 ,Lessors of nonfinancial intangible assets (except copyrighted works) 
+533,533,Lessors of nonfinancial intangible assets (except copyrighted works) 
 541,541,"Professional, scientific, and technical services "
-551,55 ,Management of companies and enterprises 
-561 ,561 ,Administrative and support services 
-562 ,562 ,Waste management and remediation services 
+551,55,Management of companies and enterprises 
+561,561,Administrative and support services 
+562,562,Waste management and remediation services 
 611,611,Education services 
-621 ,621 ,Ambulatory health care services 
-622 ,622 ,Hospitals 
-623 ,623 ,Nursing and residential care facilities 
-624 ,624 ,Social assistance 
-711 ,711 ,"Performing arts, spectator sports, and related industries "
-712 ,712 ,"Museums, historical sites, and similar institutions "
-713 ,713 ,"Amusement, gambling, and recreation industries "
-721 ,721 ,Accomodation 
-722 ,722 ,Food services and drinking places 
-811 ,811 ,Repair and mantenance 
-812 ,812 ,Personal and laundry services 
+621,621,Ambulatory health care services 
+622,622,Hospitals 
+623,623,Nursing and residential care facilities 
+624,624,Social assistance 
+711,711,"Performing arts, spectator sports, and related industries "
+712,712,"Museums, historical sites, and similar institutions "
+713,713,"Amusement, gambling, and recreation industries "
+721,721,Accomodation 
+722,722,Food services and drinking places 
+811,811,Repair and mantenance 
+812,812,Personal and laundry services 
 813,813,"Religious, grantmaking, civic, professional, and similar organizatons "
-814 ,814 ,Private households 
-111 ,111 ,Crop production 
-112 ,112 ,Animal production 
+814,814,Private households 
+111,111,Crop production 
+112,112,Animal production 
 113,113,Forestry and Logging
-1133 ,113,Forestry and Logging
-114 ,114 ,"Fishing, hunting and trapping "
-115 ,115 ,Support activities for agriculture and forestry 
-444,444,Building material and garden equipment and supplies dealersUS
+114,114,"Fishing, hunting and trapping "
+115,115,Support activities for agriculture and forestry 
+444,442,All other retail 
 921,921,"Executive, Legislative, and Other General Government Support"
 922,922,"Justice, Public Order, and Safety Activities"
 923,923,Administration of Human Resource Programs

@@ -29,22 +29,22 @@ Notes:
 
 . 
 . generate average_density = ln(employment_density) * employment
-(5,661 missing values generated)
+(5,654 missing values generated)
 
 . replace employment = 0 if missing(employment_density)
-(5,661 real changes made)
+(5,654 real changes made)
 
 . 
 . collapse (sum) employment average_density, by(industry_code)
 
 . replace average_density = exp(average_density/employment)
-(70 real changes made)
+(69 real changes made)
 
 . rename employment cbp_employment
 
 . compress
   variable cbp_employment was double now long
-  (280 bytes saved)
+  (276 bytes saved)
 
 . 
 . label variable average_density "Average employment density (person/km2)"

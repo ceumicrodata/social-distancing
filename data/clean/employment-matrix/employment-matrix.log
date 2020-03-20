@@ -28,14 +28,14 @@ Notes:
 
 . import delimited "../../derived/crosswalk/naics2industry.csv", varnames(1) cl
 > ear
-(3 vars, 100 obs)
+(3 vars, 99 obs)
 
 . tempfile naics
 
 . save `naics', replace
-(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St04740.000001 no
+(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St05479.000001 no
 > t found)
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St04740.000001 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St05479.000001 saved
 
 . 
 . clear all
