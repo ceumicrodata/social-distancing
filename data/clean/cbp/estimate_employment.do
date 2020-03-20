@@ -1,4 +1,4 @@
-rename naics NAICS
+rename industry_code NAICS
 reshape long n, i(NAICS zip) j(size) string
 mvencode n, mv(0) override
 
@@ -39,4 +39,4 @@ foreach X of var n employment large_plant_employment {
 }
 rename n establishments
 compress
-rename NAICS naics
+rename NAICS industry_code

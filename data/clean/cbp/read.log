@@ -26,10 +26,24 @@ Notes:
 . clear all
 
 . 
+. * read industry aggregator
+. import delimited "../../derived/crosswalk/naics2industry.csv", varnames(1) cl
+> ear
+(3 vars, 100 obs)
+
+. tempfile naics2industry
+
+. save `naics2industry', replace
+(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St04300.000001 no
+> t found)
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St04300.000001 saved
+
+. 
 . * read zip-level population
 . tempfile zippop
 
-. import delimited "../../raw/census/cbp/zcta_county_rel_10.txt", varnames(1)
+. import delimited "../../raw/census/cbp/zcta_county_rel_10.txt", varnames(1) c
+> lear
 (24 vars, 44,410 obs)
 
 . collapse (mean) zpop zarealand, by(zcta5)
@@ -46,9 +60,9 @@ Notes:
 . sort zip 
 
 . save `zippop', replace
-(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St77412.000001 no
+(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St04300.000002 no
 > t found)
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St77412.000001 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St04300.000002 saved
 
 . 
 . import delimited "../../raw/census/cbp/zbp17detail.txt", varnames(1) clear
@@ -79,16 +93,39 @@ n1000: contains nonnumeric characters; replaced as int
 (499392 missing values generated)
 
 . 
+. * aggregate by industry
+. generate naics_3d = real(substr(naics, 1, 3)) if regexm(naics, "[0-9][0-9][0-
+> 9]///")
+(35,279 missing values generated)
+
+. 
+. merge m:1 naics_3d using `naics2industry', keep(master match) nogen
+
+    Result                           # of obs.
+    -----------------------------------------
+    not matched                        35,279
+        from master                    35,279  
+        from using                          0  
+
+    matched                           464,843  
+    -----------------------------------------
+
+. replace industry_code = 0 if naics=="------"
+(35,279 real changes made)
+
+. collapse (sum) n5-n1000 est, by(zip industry_code)
+
+.  
 . do estimate_employment
 
-. rename naics NAICS
+. rename industry_code NAICS
 
 . reshape long n, i(NAICS zip) j(size) string
 (note: j = 1000 100_249 10_19 20_49 250_499 5 500_999 50_99 5_9)
 
 Data                               wide   ->   long
 -----------------------------------------------------------------------------
-Number of obs.                   500122   -> 4.5e+06
+Number of obs.                   420504   -> 3.8e+06
 Number of variables                  12   ->       5
 j variable (9 values)                     ->   size
 xij variables:
@@ -96,7 +133,6 @@ xij variables:
 -----------------------------------------------------------------------------
 
 . mvencode n, mv(0) override
-           n: 3722462 missing values recoded
 
 . 
 . * estimate number of plants that are left out for confidentiality reasons
@@ -113,7 +149,6 @@ xij variables:
 . tempvar share total_share
 
 . egen `share' = mean(cond(`missing'==0, n/`total', .)), by(NAICS size)
-(27 missing values generated)
 
 . summarize `share', detail
 
@@ -122,15 +157,15 @@ xij variables:
       Percentiles      Smallest
  1%            0              0
  5%            0              0
-10%            0              0       Obs           4,501,071
-25%     .0000248              0       Sum of Wgt.   4,501,071
+10%            0              0       Obs           3,784,536
+25%     .0000225              0       Sum of Wgt.   3,784,536
 
 50%     .0057899                      Mean           .1111111
-                        Largest       Std. Dev.      .2332713
-75%     .0731237              1
-90%     .4494775              1       Variance       .0544155
-95%     .8046166              1       Skewness       2.469178
-99%     .9323274              1       Kurtosis       7.859199
+                        Largest       Std. Dev.      .2374519
+75%     .0716813              1
+90%     .4985994              1       Variance       .0563834
+95%     .8105646              1       Skewness       2.490914
+99%     .9399012              1       Kurtosis       7.904302
 
 . egen `total_share' = sum(cond(`missing'>0 & (n==0), `share', .)), by(NAICS zi
 > p)
@@ -142,19 +177,19 @@ xij variables:
       Percentiles      Smallest
  1%            0              0
  5%            0              0
-10%            0              0       Obs           4,501,098
-25%     .0199832              0       Sum of Wgt.   4,501,098
+10%            0              0       Obs           3,784,536
+25%     .0151086              0       Sum of Wgt.   3,784,536
 
-50%     .1723586                      Mean            .377204
-                        Largest       Std. Dev.      .4116847
-75%     .9761904              1
-90%            1              1       Variance       .1694843
-95%            1              1       Skewness       .6608446
-99%            1              1       Kurtosis       1.655606
+50%     .1498056                      Mean           .3611469
+                        Largest       Std. Dev.       .413396
+75%     .9508423              1
+90%            1              1       Variance       .1708962
+95%            1              1       Skewness       .7255469
+99%            1              1       Kurtosis       1.724228
 
 . 
 . generate n_ip = `missing' * `share' / `total_share' if (`missing' > 0)&(n==0)
-(1,306,362 missing values generated)
+(1,118,715 missing values generated)
 
 . summarize n_ip, detail
 
@@ -163,19 +198,18 @@ xij variables:
       Percentiles      Smallest
  1%            0              0
  5%            0              0
-10%            0              0       Obs           3,194,736
-25%     .0000115              0       Sum of Wgt.   3,194,736
+10%            0              0       Obs           2,665,821
+25%     .0000448              0       Sum of Wgt.   2,665,821
 
-50%      .021797                      Mean           .3800086
-                        Largest       Std. Dev.      .7805925
-75%      .348724       10.75934
-90%     1.301869       11.04976       Variance       .6093247
-95%     2.197066       11.34551       Skewness       3.081453
-99%     3.637389       13.24226       Kurtosis       14.46246
+50%     .0250616                      Mean           .4377713
+                        Largest       Std. Dev.      1.092908
+75%     .3599512             33
+90%     1.410552             35       Variance       1.194447
+95%      2.41385             35       Skewness       7.223562
+99%     4.475913             35       Kurtosis       101.1203
 
 . replace n = n_ip if (`missing' > 0)&(n==0)
-variable n was int now float
-(2,404,577 real changes made, 774 to missing)
+(2,041,086 real changes made, 13,989 to missing)
 
 . 
 . * estimate employment as mid-point of bin
@@ -186,16 +220,16 @@ size1  size2
 . destring size?, force replace
 size1: all characters numeric; replaced as int
 size2: all characters numeric; replaced as int
-(1000244 missing values generated)
+(841008 missing values generated)
 
 . generate employment = 2.5 if size1==5 & missing(size2)
-(4,000,976 missing values generated)
+(3,364,032 missing values generated)
 
 . replace employment = 2000 if size1==1000 & missing(size2)
-(500,122 real changes made)
+(420,504 real changes made)
 
 . replace employment = (size1 + size2)/2 if missing(employment)
-(3,500,854 real changes made)
+(2,943,528 real changes made)
 
 . 
 . * number of people working at large plants
@@ -206,17 +240,17 @@ size2: all characters numeric; replaced as int
 . foreach X of var *employment {
   2.         replace `X' = `X' * n
   3. }
-(4,499,542 real changes made, 774 to missing)
-(1,999,682 real changes made, 774 to missing)
+(3,783,297 real changes made, 13,989 to missing)
+(1,683,381 real changes made, 13,989 to missing)
 
 . collapse (sum) n employment large_plant_employment, by(NAICS zip)
 
 . foreach X of var n employment large_plant_employment {
   2.         replace `X' = round(`X')
   3. }
-(414,531 real changes made)
-(466,660 real changes made)
-(378,945 real changes made)
+(345,849 real changes made)
+(391,744 real changes made)
+(334,383 real changes made)
 
 . rename n establishments
 
@@ -224,9 +258,9 @@ size2: all characters numeric; replaced as int
   variable establishments was double now int
   variable employment was double now long
   variable large_plant_employment was double now long
-  (7,001,708 bytes saved)
+  (5,887,056 bytes saved)
 
-. rename NAICS naics
+. rename NAICS industry_code
 
 . 
 end of do-file
@@ -237,38 +271,32 @@ end of do-file
 
     Result                           # of obs.
     -----------------------------------------
-    not matched                        10,509
-        from master                    10,509  
+    not matched                        10,346
+        from master                    10,346  
         from using                          0  
 
-    matched                           489,613  
+    matched                           410,158  
     -----------------------------------------
 
 . 
-. egen total_employment = sum(cond(naics=="------", employment, 0)), by(zip)
+. egen total_employment = sum(cond(industry_code==0, employment, 0)), by(zip)
 
-. drop if naics=="------"
+. drop if industry_code==0
 (35,279 observations deleted)
-
-. replace naics = substr(naics, 1, 3)
-(464,843 real changes made)
-
-. destring naics, force replace
-naics: all characters numeric; replaced as int
 
 . 
 . generate population_density = population/area
-(5,824 missing values generated)
+(5,661 missing values generated)
 
 . generate employment_density = total_employment/area
-(5,824 missing values generated)
+(5,661 missing values generated)
 
 . 
-. keep naics zip establishments employment large_plant_employment population_de
-> nsity employment_density
+. keep industry_code zip establishments employment large_plant_employment popul
+> ation_density employment_density
 
 . 
-. label variable naics "3-digit NAICS 2017 code"
+. label variable industry_code "Industry code (based on NAICS 2017)"
 
 . label variable zip "2010 Zip-code Tabulation Area"
 

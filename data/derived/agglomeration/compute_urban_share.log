@@ -28,38 +28,26 @@ Notes:
 . use "../../clean/cbp/zip_code_business_patterns.dta"
 
 . 
-. local density_cutoff 1000
+. generate average_density = ln(employment_density) * employment
+(5,661 missing values generated)
 
-. generate byte high_density = (population_density>`density_cutoff' & !missing(
-> population_density)) | (employment_density>`density_cutoff' & !missing(employ
-> ment_density))
-
-. 
-. generate high_density_employment = high_density * employment
+. replace employment = 0 if missing(employment_density)
+(5,661 real changes made)
 
 . 
-. collapse (sum) employment large_plant_employment high_density_employment, by(
-> naics)
+. collapse (sum) employment average_density, by(industry_code)
 
-. foreach X of var *_employment {
-  2.         replace `X' = int(`X' / employment * 100)
-  3. }
-(76 real changes made, 1 to missing)
-(86 real changes made, 1 to missing)
+. replace average_density = exp(average_density/employment)
+(70 real changes made)
 
-. drop employment
+. rename employment cbp_employment
 
 . compress
-  variable large_plant_employment was double now byte
-  variable high_density_employment was double now byte
-  (1,204 bytes saved)
+  variable cbp_employment was double now long
+  (280 bytes saved)
 
 . 
-. label variable large_plant_employment "Share of workers in plants larger than
->  99 (percent)"
-
-. label variable high_density_employment "Share of workers in ZIP codes above `
-> density_cutoff' person/km2 density (percent)"
+. label variable average_density "Average employment density (person/km2)"
 
 . 
 . export delimited "high_density_employment.csv", replace
