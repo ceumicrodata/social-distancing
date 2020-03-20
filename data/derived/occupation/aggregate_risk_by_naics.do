@@ -13,7 +13,7 @@ foreach X of var communication infection {
 	generate double high_`X' = (`X' > r(p75)) * Employment
 }
 
-collapse (sum) Employment high_communication high_infection, by(naics)
+collapse (sum) Employment high_communication high_infection, by(industry_code)
 foreach X in communication infection {
 	replace high_`X' = round(high_`X' / Employment * 100)
 }
