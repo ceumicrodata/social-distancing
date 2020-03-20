@@ -1,0 +1,82 @@
+
+  ___  ____  ____  ____  ____ (R)
+ /__    /   ____/   /   ____/
+___/   /   /___/   /   /___/   15.1   Copyright 1985-2017 StataCorp LLC
+  Statistics/Data Analysis            StataCorp
+                                      4905 Lakeway Drive
+     MP - Parallel Edition            College Station, Texas 77845 USA
+                                      800-STATA-PC        http://www.stata.com
+                                      979-696-4600        stata@stata.com
+                                      979-696-4601 (fax)
+
+Single-user 2-core Stata perpetual license:
+       Serial number:  501506203290
+         Licensed to:  Miklos Koren
+                       CEU MicroData
+
+
+Notes:
+      1.  Stata is running in batch mode.
+      2.  Unicode is supported; see help unicode_advice.
+      3.  More than 2 billion observations are allowed; see help obs_advice.
+      4.  Maximum number of variables is set to 5000; see help set_maxvar.
+
+. do risk-by-density.do 
+
+. clear all
+
+. use "../data/derived/industry-index.dta", clear
+
+. 
+. tempfile sector_risk
+
+. save  `sector_risk'
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St05826.000001 saved
+
+. 
+. use "../data/clean/cbp/zip_code_business_patterns.dta", clear
+
+. merge m:1 industry_code using  `sector_risk', keep(match) nogen
+(note: variable employment was long, now double to accommodate using data's
+       values)
+
+    Result                           # of obs.
+    -----------------------------------------
+    not matched                             0
+    matched                           376,589  
+    -----------------------------------------
+
+. 
+. collapse (first) employment_density (mean) communication_share infection_shar
+> e [fw=employment], by(zip)
+
+. 
+. *drop rural areas, CBP is not representative for these
+. drop if employment_density<10
+(11,471 observations deleted)
+
+. 
+. generate ln_density = ln(employment_density)
+(2,428 missing values generated)
+
+. foreach X of var *_share {
+  2.         lowess `X' ln_density, bw(0.5) generate(`X'_hat)
+  3. }
+
+. 
+. line communication_share_hat infection_share_hat employment_density, sort ///
+> ytitle("Average occupation index of industries") xtitle("Employment density (
+> person/km2, log scale)") ///
+> scheme(s2mono) graphregion(color(white)) xscale(log) xlabel(10 100 1000 10000
+>  100000) ///
+> legend(order(1 "Communication" 2 "Infection"))
+
+. 
+. graph export "../text/overleaf/fig4.eps", replace
+(file ../text/overleaf/fig4.eps written in EPS format)
+
+. graph export "../text/overleaf/fig4.pdf", replace
+(file ../text/overleaf/fig4.pdf written in PDF format)
+
+. 
+end of do-file
