@@ -1,0 +1,89 @@
+
+  ___  ____  ____  ____  ____ (R)
+ /__    /   ____/   /   ____/
+___/   /   /___/   /   /___/   15.1   Copyright 1985-2017 StataCorp LLC
+  Statistics/Data Analysis            StataCorp
+                                      4905 Lakeway Drive
+     MP - Parallel Edition            College Station, Texas 77845 USA
+                                      800-STATA-PC        http://www.stata.com
+                                      979-696-4600        stata@stata.com
+                                      979-696-4601 (fax)
+
+Single-user 2-core Stata perpetual license:
+       Serial number:  501506203290
+         Licensed to:  Miklos Koren
+                       CEU MicroData
+
+
+Notes:
+      1.  Stata is running in batch mode.
+      2.  Unicode is supported; see help unicode_advice.
+      3.  More than 2 billion observations are allowed; see help obs_advice.
+      4.  Maximum number of variables is set to 5000; see help set_maxvar.
+
+. do scatter-communication-infection.do 
+
+. clear all
+
+. use "../data/derived/occupation/risks.dta", clear
+
+. 
+. 
+. cap drop label_occup2
+
+. gen label_occup2=""
+(764 missing values generated)
+
+. *replace label_occup2="Shoe machine operator" if SOCCode=="51-6042"
+. replace label_occup=Description if SOCCode=="35-2013"
+variable label_occup2 was str1 now str24
+(1 real change made)
+
+. replace label_occup2="Fine artists" if SOCCode=="27-1013"
+(1 real change made)
+
+. replace label_occup2="Physicians" if SOCCode=="29-1062"
+(1 real change made)
+
+. *replace label_occup2="Psychiatric aides" if SOCCode=="31-1013"
+. *replace label_occup2="Personal care aides" if SOCCode=="39-9021"
+. replace label_occup2="PR managers" if SOCCode=="11-2031"
+(1 real change made)
+
+. replace label_occup2="Meat cutters" if SOCCode=="51-3022"
+(1 real change made)
+
+. replace label_occup2="Dental hygienists" if SOCCode=="29-2021"
+(1 real change made)
+
+. replace label_occup2="Logging equipment operators" if SOCCode=="45-4022"
+variable label_occup2 was str24 now str27
+(1 real change made)
+
+. replace label_occup2="Fire inspectors" if SOCCode=="33-2021"
+(1 real change made)
+
+. replace label_occup2="Police officers" if SOCCode=="33-3051"
+(1 real change made)
+
+. replace label_occup2="Dancers" if SOCCode=="27-2031"
+(1 real change made)
+
+. replace label_occup2="Manicurists" if SOCCode=="39-5092"
+(1 real change made)
+
+. 
+. 
+. scatter  infection communication, graphregion(color(white)) msymbol(circle_ho
+> llow) ///
+> ytitle("Infection Index") xtitle("Communication Index") mlabel(label_occup2) 
+> graphregion(margin(3 15 1 3))
+
+. graph export "../text/overleaf/fig3.eps", replace
+(file ../text/overleaf/fig3.eps written in EPS format)
+
+. graph export "../text/overleaf/fig3.pdf", replace
+(file ../text/overleaf/fig3.pdf written in PDF format)
+
+. 
+end of do-file
