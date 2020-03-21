@@ -31,7 +31,7 @@ Notes:
 . tempfile sector_risk
 
 . save  `sector_risk'
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St06641.000001 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St06673.000001 saved
 
 . 
 . use "../data/clean/cbp/zip_code_business_patterns.dta", clear
