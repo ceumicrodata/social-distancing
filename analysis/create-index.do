@@ -24,27 +24,30 @@ assert r(rho)>0.95
 summarize average_density if industry_code>=311 & industry_code<=339 [aw=ces_employment], d
 scalar median_density = r(p50)
 
-generate social_distancing_exposure = (average_density / median_density) ^ (high_communication/100)
-
-local vars industry_code industry_label high_communication high_infection average_density social_distancing_exposure ces_employment
-keep `vars'
-order `vars'
+* save median in dataset
+generate median_density = median_density
 
 * trim variables for presentation
-replace social_distancing_exposure = round(social_distancing_exposure*100)
 replace average_density = round(average_density)
 rename high_communication communication_share
 rename high_infection infection_share
-rename average_density average_employment_density
+rename average_density average_population_density
 rename ces_employment employment
+
+do "calculate-exposure.do"
+
+local vars industry_code industry_label communication_share infection_share average_population_density social_distancing_exposure employment
+keep `vars' median_density
+order `vars'
 
 label variable communication_share "Share of workers in communication-intensive occupations (percent)"
 label variable infection_share "Share of workers in infection-prone occupations (percent)"
-label variable average_employment_density "Employment density in the average ZIP code of business (person/km2)"
-label variable social_distancing_exposure "Combined index of social distancing exposure (manufacturing=100)"
+label variable average_population_density "Population density in the average ZIP code of business (person/km2)"
 label variable employment "Industry employment (thousand persons)"
 
 gsort -social_distancing_exposure
 
 save "../data/derived/industry-index.dta", replace
+
+drop median_density
 export delimited "../data/derived/industry-index.csv", replace

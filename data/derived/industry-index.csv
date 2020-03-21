@@ -1,4 +1,4 @@
-industry_code,industry_label,communication_share,infection_share,average_employment_density,social_distancing_exposure,employment
+industry_code,industry_label,communication_share,infection_share,average_population_density,social_distancing_exposure,employment
 622,Hospitals,74,75,2106,181,5145.1
 485,Transit and ground passenger transportation,42,59,3466,173,487.5
 512,"Motion picture, video, and sound recording industries",27,18,5730,163,436.3

@@ -32,9 +32,9 @@ Notes:
 . tempfile industry
 
 . save `industry', replace
-(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St06671.000001 no
+(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St08475.000001 no
 > t found)
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St06671.000001 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St08475.000001 saved
 
 . 
 . import delimited "../data/derived/occupation/naics_risk.csv", varnames(1) cle
@@ -44,9 +44,9 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St06671.000001 saved
 . tempfile occupation
 
 . save `occupation', replace
-(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St06671.000002 no
+(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St08475.000002 no
 > t found)
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St06671.000002 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St08475.000002 saved
 
 . 
 . import delimited "../data/derived/agglomeration/high_density_employment.csv",
@@ -128,23 +128,11 @@ ces_employ~t |   0.9653   1.0000
 . scalar median_density = r(p50)
 
 . 
-. generate social_distancing_exposure = (average_density / median_density) ^ (h
-> igh_communication/100)
-(5 missing values generated)
-
-. 
-. local vars industry_code industry_label high_communication high_infection ave
-> rage_density social_distancing_exposure ces_employment
-
-. keep `vars'
-
-. order `vars'
+. * save median in dataset
+. generate median_density = median_density
 
 . 
 . * trim variables for presentation
-. replace social_distancing_exposure = round(social_distancing_exposure*100)
-(69 real changes made)
-
 . replace average_density = round(average_density)
 (69 real changes made)
 
@@ -152,9 +140,33 @@ ces_employ~t |   0.9653   1.0000
 
 . rename high_infection infection_share
 
-. rename average_density average_employment_density
+. rename average_density average_population_density
 
 . rename ces_employment employment
+
+. 
+. do "calculate-exposure.do"
+
+. generate social_distancing_exposure = (average_population_density / median_de
+> nsity) ^ (communication_share/100)
+(5 missing values generated)
+
+. replace social_distancing_exposure = round(social_distancing_exposure*100)
+(69 real changes made)
+
+. label variable social_distancing_exposure "Combined index of social distancin
+> g exposure (manufacturing=100)"
+
+. 
+end of do-file
+
+. 
+. local vars industry_code industry_label communication_share infection_share a
+> verage_population_density social_distancing_exposure employment
+
+. keep `vars' median_density
+
+. order `vars'
 
 . 
 . label variable communication_share "Share of workers in communication-intensi
@@ -163,11 +175,8 @@ ces_employ~t |   0.9653   1.0000
 . label variable infection_share "Share of workers in infection-prone occupatio
 > ns (percent)"
 
-. label variable average_employment_density "Employment density in the average 
+. label variable average_population_density "Population density in the average 
 > ZIP code of business (person/km2)"
-
-. label variable social_distancing_exposure "Combined index of social distancin
-> g exposure (manufacturing=100)"
 
 . label variable employment "Industry employment (thousand persons)"
 
@@ -177,6 +186,9 @@ ces_employ~t |   0.9653   1.0000
 . 
 . save "../data/derived/industry-index.dta", replace
 file ../data/derived/industry-index.dta saved
+
+. 
+. drop median_density
 
 . export delimited "../data/derived/industry-index.csv", replace
 file ../data/derived/industry-index.csv saved

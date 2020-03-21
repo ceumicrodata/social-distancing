@@ -31,7 +31,7 @@ Notes:
 . tempfile sector_risk
 
 . save  `sector_risk'
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St06673.000001 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St08494.000001 saved
 
 . 
 . use "../data/clean/cbp/zip_code_business_patterns.dta", clear
@@ -47,28 +47,50 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St06673.000001 saved
     -----------------------------------------
 
 . 
-. collapse (first) population_density employment_density (mean) communication_s
-> hare infection_share [fw=employment], by(zip)
+. collapse (first) population_density employment_density median_density (mean) 
+> communication_share infection_share [fw=employment], by(zip)
 
 . *drop rural areas, CBP is not representative for these
 . drop if population_density<5
 (2,396 observations deleted)
 
 . 
+. * compute zip-level exposure index
+. clonevar average_population_density = population_density
+(2,428 missing values generated)
+
+. do "calculate-exposure.do"
+
+. generate social_distancing_exposure = (average_population_density / median_de
+> nsity) ^ (communication_share/100)
+(2,428 missing values generated)
+
+. replace social_distancing_exposure = round(social_distancing_exposure*100)
+(21,987 real changes made)
+
+. label variable social_distancing_exposure "Combined index of social distancin
+> g exposure (manufacturing=100)"
+
+. 
+end of do-file
+
+. 
 . generate ln_density = ln(population_density)
 (2,428 missing values generated)
 
-. foreach X of var *_share {
+. foreach X of var *_share social_distancing_exposure {
   2.         lowess `X' ln_density, bw(0.5) generate(`X'_hat)
   3. }
 
 . 
-. line communication_share_hat infection_share_hat population_density, sort ///
-> ytitle("Average occupation index of industries") xtitle("Population density (
-> person/km2, log scale)") ///
+. line communication_share_hat infection_share_hat social_distancing_exposure_h
+> at population_density, sort ///
+> ytitle("Average occupation index (log scale)") xtitle("Population density (pe
+> rson/km2, log scale)") ///
 > scheme(s2mono) graphregion(color(white)) xscale(log) xlabel(10 100 1000 10000
 >  100000) ///
-> legend(order(1 "Communication" 2 "Infection"))
+> yscale(log) ylabel(10 20 40 80 160 320) ///
+> legend(order(1 "Communication" 2 "Infection" 3 "Social distancing"))
 
 . 
 . graph export "../text/overleaf/fig4.eps", replace
