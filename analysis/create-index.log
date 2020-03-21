@@ -32,9 +32,9 @@ Notes:
 . tempfile industry
 
 . save `industry', replace
-(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St05608.000001 no
+(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St06639.000001 no
 > t found)
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St05608.000001 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St06639.000001 saved
 
 . 
 . import delimited "../data/derived/occupation/naics_risk.csv", varnames(1) cle
@@ -44,9 +44,9 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St05608.000001 saved
 . tempfile occupation
 
 . save `occupation', replace
-(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St05608.000002 no
+(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St06639.000002 no
 > t found)
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St05608.000002 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St06639.000002 saved
 
 . 
 . import delimited "../data/derived/agglomeration/high_density_employment.csv",
@@ -113,17 +113,17 @@ ces_employ~t |   0.9606   1.0000
                        average_density
 -------------------------------------------------------------
       Percentiles      Smallest
- 1%     42.83066       42.83066
- 5%     96.03396       96.03396
-10%     195.9472       139.7932       Obs                  18
-25%     212.2241       195.9472       Sum of Wgt.    12,459.8
+ 1%      99.0634        99.0634
+ 5%     148.8793       148.8793
+10%     297.5827       267.1158       Obs                  18
+25%     351.7141       297.5827       Sum of Wgt.    12,459.8
 
-50%     285.9398                      Mean           374.5692
-                        Largest       Std. Dev.      423.1683
-75%     371.4427       640.5076
-90%     681.2455       681.2455       Variance       179071.4
-95%     741.5516       741.5516       Skewness       6.553168
-99%     3807.548       3807.548       Kurtosis       54.51225
+50%     421.9674                      Mean           497.8187
+                        Largest       Std. Dev.      325.9789
+75%     571.4909       779.5942
+90%     779.5942        788.111       Variance       106262.3
+95%     816.3232       816.3232       Skewness       4.915329
+99%     2906.629       2906.629       Kurtosis       37.73444
 
 . scalar median_density = r(p50)
 
