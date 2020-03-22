@@ -8,12 +8,31 @@ use "../data/clean/cbp/zip_code_business_patterns.dta", clear
 merge m:1 industry_code using  `sector_risk', keep(match) nogen
 
 collapse (first) population_density employment_density median_density (mean) communication_share infection_share [fw=employment], by(zip)
+
+* merge coordinates
+merge 1:1 zip using "../data/clean/geonames/us-zip-codes.dta", nogen keep(master match)
+
 *drop rural areas, CBP is not representative for these
 drop if population_density<5
 
 * compute zip-level exposure index
 clonevar average_population_density = population_density
 do "calculate-exposure.do"
+
+local vars zip latitude longitude population_density employment_density communication_share infection_share social_distancing_exposure
+keep `vars'
+order `vars'
+* round values for presentation
+foreach X of var population_density employment_density communication_share infection_share social_distancing {
+	replace `X' = round(`X')
+}
+foreach X of var latitude longitude {
+	replace `X' = round(`X'*10000)/10000
+}
+
+gsort -social_distancing_exposure
+list in 1/10
+export delimited "../data/derived/location-index.csv", replace
 
 generate ln_density = ln(population_density)
 foreach X of var *_share social_distancing_exposure {

@@ -31,7 +31,7 @@ Notes:
 . tempfile sector_risk
 
 . save  `sector_risk'
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St08773.000001 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St11744.000001 saved
 
 . 
 . use "../data/clean/cbp/zip_code_business_patterns.dta", clear
@@ -50,6 +50,21 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St08773.000001 saved
 . collapse (first) population_density employment_density median_density (mean) 
 > communication_share infection_share [fw=employment], by(zip)
 
+. 
+. * merge coordinates
+. merge 1:1 zip using "../data/clean/geonames/us-zip-codes.dta", nogen keep(mas
+> ter match)
+
+    Result                           # of obs.
+    -----------------------------------------
+    not matched                             1
+        from master                         1  
+        from using                          0  
+
+    matched                            26,810  
+    -----------------------------------------
+
+. 
 . *drop rural areas, CBP is not representative for these
 . drop if population_density<5
 (2,396 observations deleted)
@@ -73,6 +88,119 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St08773.000001 saved
 
 . 
 end of do-file
+
+. 
+. local vars zip latitude longitude population_density employment_density commu
+> nication_share infection_share social_distancing_exposure
+
+. keep `vars'
+
+. order `vars'
+
+. * round values for presentation
+. foreach X of var population_density employment_density communication_share in
+> fection_share social_distancing {
+  2.         replace `X' = round(`X')
+  3. }
+(21,987 real changes made)
+(21,986 real changes made)
+(20,700 real changes made)
+(20,701 real changes made)
+(0 real changes made)
+
+. foreach X of var latitude longitude {
+  2.         replace `X' = round(`X'*10000)/10000
+  3. }
+(0 real changes made)
+(0 real changes made)
+
+. 
+. gsort -social_distancing_exposure
+
+. list in 1/10
+
+     +--------------------------------------------------------------+
+  1. |   zip | latitude | longit~e | popula~y | employ~y | commun~e |
+     | 10029 |  40.7918 | -73.9447 |    35566 |    10401 |       46 |
+     |--------------------------------------------------------------|
+     |           infect~e           |           social~e            |
+     |                 55           |                529            |
+     +--------------------------------------------------------------+
+
+     +--------------------------------------------------------------+
+  2. |   zip | latitude | longit~e | popula~y | employ~y | commun~e |
+     | 47306 |  40.2023 | -85.4082 |    10508 |      290 |       68 |
+     |--------------------------------------------------------------|
+     |           infect~e           |           social~e            |
+     |                 74           |                516            |
+     +--------------------------------------------------------------+
+
+     +--------------------------------------------------------------+
+  3. |   zip | latitude | longit~e | popula~y | employ~y | commun~e |
+     | 23507 |  36.8645 | -76.3004 |    11225 |     1642 |       64 |
+     |--------------------------------------------------------------|
+     |           infect~e           |           social~e            |
+     |                 67           |                493            |
+     +--------------------------------------------------------------+
+
+     +--------------------------------------------------------------+
+  4. |   zip | latitude | longit~e | popula~y | employ~y | commun~e |
+     | 10021 |  40.7685 | -73.9588 |    43518 |    49967 |       38 |
+     |--------------------------------------------------------------|
+     |           infect~e           |           social~e            |
+     |                 39           |                426            |
+     +--------------------------------------------------------------+
+
+     +--------------------------------------------------------------+
+  5. |   zip | latitude | longit~e | popula~y | employ~y | commun~e |
+     | 11203 |  40.6505 | -73.9349 |    13708 |     3025 |       50 |
+     |--------------------------------------------------------------|
+     |           infect~e           |           social~e            |
+     |                 53           |                377            |
+     +--------------------------------------------------------------+
+
+     +--------------------------------------------------------------+
+  6. |   zip | latitude | longit~e | popula~y | employ~y | commun~e |
+     | 10462 |  40.8434 | -73.8602 |    19771 |     5444 |       43 |
+     |--------------------------------------------------------------|
+     |           infect~e           |           social~e            |
+     |                 44           |                371            |
+     +--------------------------------------------------------------+
+
+     +--------------------------------------------------------------+
+  7. |   zip | latitude | longit~e | popula~y | employ~y | commun~e |
+     | 10453 |   40.852 | -73.9129 |    33008 |     2802 |       36 |
+     |--------------------------------------------------------------|
+     |           infect~e           |           social~e            |
+     |                 41           |                361            |
+     +--------------------------------------------------------------+
+
+     +--------------------------------------------------------------+
+  8. |   zip | latitude | longit~e | popula~y | employ~y | commun~e |
+     | 11230 |  40.6225 |  -73.965 |    18134 |     6756 |       43 |
+     |--------------------------------------------------------------|
+     |           infect~e           |           social~e            |
+     |                 48           |                353            |
+     +--------------------------------------------------------------+
+
+     +--------------------------------------------------------------+
+  9. |   zip | latitude | longit~e | popula~y | employ~y | commun~e |
+     | 20010 |  38.9327 | -77.0322 |    10734 |     4927 |       50 |
+     |--------------------------------------------------------------|
+     |           infect~e           |           social~e            |
+     |                 53           |                337            |
+     +--------------------------------------------------------------+
+
+     +--------------------------------------------------------------+
+ 10. |   zip | latitude | longit~e | popula~y | employ~y | commun~e |
+     | 10040 |  40.8583 | -73.9296 |    42928 |     4624 |       31 |
+     |--------------------------------------------------------------|
+     |           infect~e           |           social~e            |
+     |                 26           |                324            |
+     +--------------------------------------------------------------+
+
+. export delimited "../data/derived/location-index.csv", replace
+file ../data/derived/location-index.csv saved
 
 . 
 . generate ln_density = ln(population_density)
