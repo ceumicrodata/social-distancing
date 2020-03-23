@@ -1,4 +1,16 @@
 download:
+	wget "https://www.onetonline.org/find/descriptor/result/4.A.4.b.5/Coaching_and_Developing_Others.csv?fmt=csv&a=1" -O Coaching_and_Developing_Others.csv
+	wget "https://www.onetonline.org/find/descriptor/result/4.C.1.a.2.l/Face-to-Face_Discussions.csv?fmt=csv&a=1" -O Face-to-Face_Discussions.csv
+	wget "https://www.onetonline.org/find/descriptor/result/4.A.4.a.4/Establishing_and_Maintaining_Interpersonal_Relationships.csv?fmt=csv&a=1" -O Establishing_and_Maintaining_Interpersonal_Relationships.csv	
+	wget "https://www.onetonline.org/find/descriptor/result/4.A.4.a.5/Assisting_and_Caring_for_Others.csv?fmt=csv&a=1" -O Assisting_and_Caring_for_Others.csv
+	wget "https://www.onetonline.org/find/descriptor/result/4.A.4.a.8/Performing_for_or_Working_Directly_with_the_Public.csv?fmt=csv&a=1" -O Performing_for_or_Working_Directly_with_the_Public.csv
+	wget "https://www.onetonline.org/find/descriptor/result/4.A.4.b.6/Provide_Consultation_and_Advice_to_Others.csv?fmt=csv&a=1" -O Provide_Consultation_and_Advice_to_Others.csv
+	wget "https://www.onetonline.org/find/descriptor/result/4.A.3.a.2/Handling_and_Moving_Objects.csv?fmt=csv&a=1" -O Handling_and_Moving_Objects.csv
+	wget "https://www.onetonline.org/find/descriptor/result/4.A.3.a.3/Controlling_Machines_and_Processes.csv?fmt=csv&a=1" -O Controlling_Machines_and_Processes.csv	
+	wget "https://www.onetonline.org/find/descriptor/result/4.A.3.a.4/Operating_Vehicles_Mechanized_Devices_or_Equipment.csv?fmt=csv&a=1" -O Operating_Vehicles_Mechanized_Devices_or_Equipment.csv
+	wget "https://www.onetonline.org/find/descriptor/result/4.A.3.b.5/Repairing_and_Maintaining_Electronic_Equipment.csv?fmt=csv&a=1" -O Repairing_and_Maintaining_Electronic_Equipment.csv
+	wget "https://www.onetonline.org/find/descriptor/result/4.A.3.b.4/Repairing_and_Maintaining_Mechanical_Equipment.csv?fmt=csv&a=1" -O Repairing_and_Maintaining_Mechanical_Equipment.csv 
+	wget "https://www.onetonline.org/find/descriptor/result/4.A.1.b.2/Inspecting_Equipment_Structures_or_Material.csv?fmt=csv&a=1" -O Inspecting_Equipment_Structures_or_Material.csv		
 	wget "https://www.onetonline.org/find/descriptor/result/4.C.1.a.4/Contact_With_Others.csv?fmt=csv&a=1" -O Contact_With_Others.csv
 	wget "https://www.onetonline.org/find/descriptor/result/4.C.1.b.1.f/Deal_With_External_Customers.csv?fmt=csv&a=1" -O Deal_With_External_Customers.csv
 	wget "https://www.onetonline.org/find/descriptor/result/4.C.1.a.2.l/Face-to-Face_Discussions.csv?fmt=csv&a=1" -O Face-to-Face_Discussions.csv

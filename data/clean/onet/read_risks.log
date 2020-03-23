@@ -26,13 +26,15 @@ Notes:
 . clear all
 
 . * introduce short names for all risk factors
-. local risks proximity infections group face2face customers contact
+. local risks proximity infections group face2face customers contact move contr
+> ol operate repair_elect repair_mechanic inspect coach interpersonal care publ
+> ic consult
 
 . local proximity Physical_Proximity
 
 . local infections Exposed_to_Disease_or_Infections
 
-. local group Exposed_to_Disease_or_Infections
+. local group Work_With_Work_Group_or_Team
 
 . local face2face Face-to-Face_Discussions
 
@@ -41,24 +43,60 @@ Notes:
 . local contact Contact_With_Others
 
 . 
+. * proxies for onsite work
+. local move Handling_and_Moving_Objects
+
+. local control Controlling_Machines_and_Processes
+
+. local operate Operating_Vehicles_Mechanized_Devices_or_Equipment
+
+. local repair_elect Repairing_and_Maintaining_Electronic_Equipment
+
+. local repair_mechanic Repairing_and_Maintaining_Mechanical_Equipment
+
+. local inspect Inspecting_Equipment_Structures_or_Material
+
+. 
+. * proxies for interpersonal skills
+. local coach Coaching_and_Developing_Others
+
+. local interpersonal Establishing_and_Maintaining_Interpersonal_Relationships
+
+. local care Assisting_and_Caring_for_Others
+
+. local public Performing_for_or_Working_Directly_with_the_Public
+
+. local consult Provide_Consultation_and_Advice_to_Others
+
+. 
+. 
 . tempfile rsk
 
 . generate str Code = ""
 
 . save `rsk', replace emptyok
 (note: dataset contains 0 observations)
-(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St61964.000001 no
+(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St19148.000001 no
 > t found)
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St61964.000001 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St19148.000001 saved
 
 . 
 . foreach risk in `risks' {
   2.         import delimited "../../raw/onet/``risk''.csv", clear case(preserv
 > e) varnames(1) numericcols(1)
-  3.         rename Context `risk'
-  4.         merge 1:1 Code using `rsk', nogen
-  5.         save `rsk', replace
-  6. }
+  3.         capture confirm variable Context
+  4.         if (_rc==0) {
+  5.                 rename Context `risk'
+  6.         }
+  7.         else {
+  8.                 * Importance and Level are highly correlated, only keep Im
+> portance
+.                 rename Importance `risk'
+  9.                 drop Level
+ 10.         }
+ 11.         merge 1:1 Code using `rsk', nogen
+ 12.         save `rsk', replace
+ 13. }
 (3 vars, 967 obs)
 
     Result                           # of obs.
@@ -69,7 +107,7 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St61964.000001 saved
 
     matched                                 0  
     -----------------------------------------
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St61964.000001 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St19148.000001 saved
 (3 vars, 968 obs)
 
     Result                           # of obs.
@@ -80,15 +118,7 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St61964.000001 saved
 
     matched                               967  
     -----------------------------------------
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St61964.000001 saved
-(3 vars, 968 obs)
-
-    Result                           # of obs.
-    -----------------------------------------
-    not matched                             0
-    matched                               968  
-    -----------------------------------------
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St61964.000001 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St19148.000001 saved
 (3 vars, 967 obs)
 
     Result                           # of obs.
@@ -99,7 +129,18 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St61964.000001 saved
 
     matched                               967  
     -----------------------------------------
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St61964.000001 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St19148.000001 saved
+(3 vars, 967 obs)
+
+    Result                           # of obs.
+    -----------------------------------------
+    not matched                             1
+        from master                         0  
+        from using                          1  
+
+    matched                               967  
+    -----------------------------------------
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St19148.000001 saved
 (3 vars, 968 obs)
 
     Result                           # of obs.
@@ -107,7 +148,7 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St61964.000001 saved
     not matched                             0
     matched                               968  
     -----------------------------------------
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St61964.000001 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St19148.000001 saved
 (3 vars, 968 obs)
 
     Result                           # of obs.
@@ -115,7 +156,95 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St61964.000001 saved
     not matched                             0
     matched                               968  
     -----------------------------------------
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St61964.000001 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St19148.000001 saved
+(4 vars, 968 obs)
+
+    Result                           # of obs.
+    -----------------------------------------
+    not matched                             0
+    matched                               968  
+    -----------------------------------------
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St19148.000001 saved
+(4 vars, 968 obs)
+
+    Result                           # of obs.
+    -----------------------------------------
+    not matched                             0
+    matched                               968  
+    -----------------------------------------
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St19148.000001 saved
+(4 vars, 968 obs)
+
+    Result                           # of obs.
+    -----------------------------------------
+    not matched                             0
+    matched                               968  
+    -----------------------------------------
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St19148.000001 saved
+(4 vars, 968 obs)
+
+    Result                           # of obs.
+    -----------------------------------------
+    not matched                             0
+    matched                               968  
+    -----------------------------------------
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St19148.000001 saved
+(4 vars, 968 obs)
+
+    Result                           # of obs.
+    -----------------------------------------
+    not matched                             0
+    matched                               968  
+    -----------------------------------------
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St19148.000001 saved
+(4 vars, 968 obs)
+
+    Result                           # of obs.
+    -----------------------------------------
+    not matched                             0
+    matched                               968  
+    -----------------------------------------
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St19148.000001 saved
+(4 vars, 968 obs)
+
+    Result                           # of obs.
+    -----------------------------------------
+    not matched                             0
+    matched                               968  
+    -----------------------------------------
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St19148.000001 saved
+(4 vars, 968 obs)
+
+    Result                           # of obs.
+    -----------------------------------------
+    not matched                             0
+    matched                               968  
+    -----------------------------------------
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St19148.000001 saved
+(4 vars, 968 obs)
+
+    Result                           # of obs.
+    -----------------------------------------
+    not matched                             0
+    matched                               968  
+    -----------------------------------------
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St19148.000001 saved
+(4 vars, 968 obs)
+
+    Result                           # of obs.
+    -----------------------------------------
+    not matched                             0
+    matched                               968  
+    -----------------------------------------
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St19148.000001 saved
+(4 vars, 968 obs)
+
+    Result                           # of obs.
+    -----------------------------------------
+    not matched                             0
+    matched                               968  
+    -----------------------------------------
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St19148.000001 saved
 
 . 
 . merge 1:1 Code using "crosswalk.dta", nogen keep(master match)
@@ -142,16 +271,26 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St61964.000001 saved
   3. }
 (55 real changes made)
 (63 real changes made)
-(63 real changes made)
+(59 real changes made)
 (64 real changes made)
 (63 real changes made)
 (54 real changes made)
+(69 real changes made)
+(58 real changes made)
+(61 real changes made)
+(59 real changes made)
+(59 real changes made)
+(58 real changes made)
+(68 real changes made)
+(62 real changes made)
+(56 real changes made)
+(61 real changes made)
+(59 real changes made)
 
 . 
 . order SOCCode Description
 
 . export delimited "risks.csv", replace
-(note: file risks.csv not found)
 file risks.csv saved
 
 . 
