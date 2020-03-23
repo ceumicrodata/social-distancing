@@ -29,19 +29,21 @@ generate median_density = median_density
 
 * trim variables for presentation
 replace average_density = round(average_density)
-rename high_communication communication_share
-rename high_infection infection_share
+foreach X in group customer presence {
+	rename high_`X' `X'_share
+}
 rename average_density average_population_density
 rename ces_employment employment
 
 do "calculate-exposure.do"
 
-local vars industry_code industry_label communication_share infection_share average_population_density social_distancing_exposure employment
+local vars industry_code industry_label group_share customer_share presence_share average_population_density social_distancing_exposure employment
 keep `vars' median_density
 order `vars'
 
-label variable communication_share "Share of workers in communication-intensive occupations (percent)"
-label variable infection_share "Share of workers in infection-prone occupations (percent)"
+label variable group_share "Workers in communication-intensive occupations (percent)"
+label variable customer_share "Workers in customer-facing occupations (percent)"
+label variable presence_share "Workers in occupations requiring physical presence (percent)"
 label variable average_population_density "Population density in the average ZIP code of business (person/km2)"
 label variable employment "Industry employment (thousand persons)"
 

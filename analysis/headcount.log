@@ -61,7 +61,7 @@ urban_population =  2.280e+08
      +----------+
      | sum_em~t |
      |----------|
- 10. |  22901.1 |
+ 10. |  18456.6 |
      +----------+
 
 . 
@@ -90,35 +90,34 @@ urban_population =  2.280e+08
 . * urban and communicative
 . scalar cutoff = 1000
 
-. summarize communication_share if (average_population_density>=cutoff)
+. summarize group_share if (average_population_density>=cutoff)
 
     Variable |        Obs        Mean    Std. Dev.       Min        Max
 -------------+---------------------------------------------------------
-communicat~e |         47    14.02128    16.47988          0         62
+ group_share |         47    20.91489    14.55997          1         54
 
 . 
-. generate exposed = (average_population_density>=cutoff) & (communication_shar
-> e>=25)
+. generate exposed = (average_population_density>=cutoff) & (group_share>=25)
 
 . summarize employment if exposed==1, detail
 
            Industry employment (thousand persons)
 -------------------------------------------------------------
       Percentiles      Smallest
- 1%        436.3          436.3
- 5%        436.3          487.5
-10%        461.9         1509.5       Obs                  10
-25%       1509.5         2666.6       Sum of Wgt.          10
+ 1%         23.3           23.3
+ 5%         23.3          270.5
+10%        270.5          307.8       Obs                  14
+25%        329.8          329.8       Sum of Wgt.          14
 
-50%      2888.75                      Mean            2869.19
-                        Largest       Std. Dev.      2032.109
-75%       3362.2         3104.9
-90%       5673.7         3362.2       Variance        4129468
-95%       7619.9         3727.5       Skewness       1.082479
-99%       7619.9         7619.9       Kurtosis       4.203497
+50%      1006.15                      Mean           2061.529
+                        Largest       Std. Dev.      2439.586
+75%       3005.8         3005.8
+90%       3727.5         3362.2       Variance        5951579
+95%       9300.1         3727.5       Skewness       1.954152
+99%       9300.1         9300.1       Kurtosis       6.575344
 
 . display r(sum)
-28691.9
+28861.4
 
 . 
 . generate naics_2d = industry_code if industry_code<100
@@ -133,21 +132,25 @@ communicat~e |         47    14.02128    16.47988          0         62
   2.         replace `X' = `X' * employment
   3.         replace employment = . if missing(`X')
   4. }
-variable communication_share was byte now float
-(67 real changes made, 2 to missing)
+variable group_share was byte now float
+(72 real changes made, 2 to missing)
 (0 real changes made)
-variable infection_share was byte now float
-(71 real changes made, 2 to missing)
+variable customer_share was byte now float
+(72 real changes made, 2 to missing)
+(0 real changes made)
+variable presence_share was byte now float
+(68 real changes made, 2 to missing)
 (0 real changes made)
 (67 real changes made, 2 to missing)
 (5 real changes made, 5 to missing)
 
-. collapse (sum) employment (sum) communication_share infection_share social_di
-> stancing (firstnm) industry_label, by(naics_2d)
+. collapse (sum) employment (sum) group_share customer_share presence_share soc
+> ial_distancing (firstnm) industry_label, by(naics_2d)
 
 . foreach X of var *_share social {
   2.         replace `X' = `X' / employment
   3. }
+(23 real changes made)
 (23 real changes made)
 (23 real changes made)
 (23 real changes made)
@@ -160,42 +163,42 @@ variable infection_share was byte now float
 
      +------------------------------------------------------------------------+
   1. | industry_label                                                         |
-     | Education services                                                     |
+     | Other information services                                             |
      |------------------------------------------------------------------------|
      |                                sum_em~t                                |
-     |                                  3727.5                                |
+     |                                  2828.1                                |
      +------------------------------------------------------------------------+
 
      +------------------------------------------------------------------------+
   2. | industry_label                                                         |
-     | Food and beverage stores                                               |
+     | Education services                                                     |
      |------------------------------------------------------------------------|
      |                                sum_em~t                                |
-     |                                 16455.7                                |
+     |                                  6555.6                                |
      +------------------------------------------------------------------------+
 
      +------------------------------------------------------------------------+
   3. | industry_label                                                         |
-     | Securities, commodity contracts, funds, trusts and other financial i.. |
+     | Management of companies and enterprises                                |
      |------------------------------------------------------------------------|
      |                                sum_em~t                                |
-     |                                 22769.6                                |
+     |                                  8927.4                                |
      +------------------------------------------------------------------------+
 
      +------------------------------------------------------------------------+
   4. | industry_label                                                         |
-     | Religious, grantmaking, civic, professional, and similar organizatons  |
+     | Professional, scientific, and technical services                       |
      |------------------------------------------------------------------------|
      |                                sum_em~t                                |
-     |                                 28614.2                                |
+     |                                 18227.5                                |
      +------------------------------------------------------------------------+
 
      +------------------------------------------------------------------------+
   5. | industry_label                                                         |
-     | Other information services                                             |
+     | Securities, commodity contracts, funds, trusts and other financial i.. |
      |------------------------------------------------------------------------|
      |                                sum_em~t                                |
-     |                                 31442.3                                |
+     |                                 24541.4                                |
      +------------------------------------------------------------------------+
 
 . 

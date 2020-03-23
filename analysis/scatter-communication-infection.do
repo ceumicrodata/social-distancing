@@ -20,7 +20,7 @@ replace label_occup2="Dancers" if SOCCode=="27-2031"
 replace label_occup2="Manicurists" if SOCCode=="39-5092"
 
 
-scatter  infection communication, graphregion(color(white)) msymbol(circle_hollow) ///
-ytitle("Infection Index") xtitle("Communication Index") mlabel(label_occup2) graphregion(margin(3 15 1 3))
+scatter  customer group, graphregion(color(white)) msymbol(circle_hollow) ///
+ytitle("Customer contact") xtitle("Coworker contact") mlabel(label_occup2) graphregion(margin(3 15 1 3))
 graph export "../text/overleaf/fig3.eps", replace
 graph export "../text/overleaf/fig3.pdf", replace

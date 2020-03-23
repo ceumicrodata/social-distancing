@@ -32,21 +32,21 @@ Notes:
 . tempfile industry
 
 . save `industry', replace
-(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St08475.000001 no
+(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St19450.000001 no
 > t found)
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St08475.000001 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St19450.000001 saved
 
 . 
 . import delimited "../data/derived/occupation/naics_risk.csv", varnames(1) cle
 > ar
-(3 vars, 74 obs)
+(4 vars, 74 obs)
 
 . tempfile occupation
 
 . save `occupation', replace
-(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St08475.000002 no
+(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St19450.000002 no
 > t found)
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St08475.000002 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St19450.000002 saved
 
 . 
 . import delimited "../data/derived/agglomeration/high_density_employment.csv",
@@ -136,9 +136,9 @@ ces_employ~t |   0.9653   1.0000
 . replace average_density = round(average_density)
 (69 real changes made)
 
-. rename high_communication communication_share
-
-. rename high_infection infection_share
+. foreach X in group customer presence {
+  2.         rename high_`X' `X'_share
+  3. }
 
 . rename average_density average_population_density
 
@@ -148,7 +148,7 @@ ces_employ~t |   0.9653   1.0000
 . do "calculate-exposure.do"
 
 . generate social_distancing_exposure = (average_population_density / median_de
-> nsity) ^ (communication_share/100)
+> nsity) ^ (group_share/100)
 (5 missing values generated)
 
 . replace social_distancing_exposure = round(social_distancing_exposure*100)
@@ -161,19 +161,22 @@ ces_employ~t |   0.9653   1.0000
 end of do-file
 
 . 
-. local vars industry_code industry_label communication_share infection_share a
-> verage_population_density social_distancing_exposure employment
+. local vars industry_code industry_label group_share customer_share presence_s
+> hare average_population_density social_distancing_exposure employment
 
 . keep `vars' median_density
 
 . order `vars'
 
 . 
-. label variable communication_share "Share of workers in communication-intensi
-> ve occupations (percent)"
+. label variable group_share "Workers in communication-intensive occupations (p
+> ercent)"
 
-. label variable infection_share "Share of workers in infection-prone occupatio
-> ns (percent)"
+. label variable customer_share "Workers in customer-facing occupations (percen
+> t)"
+
+. label variable presence_share "Workers in occupations requiring physical pres
+> ence (percent)"
 
 . label variable average_population_density "Population density in the average 
 > ZIP code of business (person/km2)"

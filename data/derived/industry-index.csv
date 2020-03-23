@@ -1,75 +1,75 @@
-industry_code,industry_label,communication_share,infection_share,average_population_density,social_distancing_exposure,employment
-622,Hospitals,74,75,2106,181,5145.1
-485,Transit and ground passenger transportation,42,59,3466,173,487.5
-512,"Motion picture, video, and sound recording industries",27,18,5730,163,436.3
-621,Ambulatory health care services,68,74,1686,149,7498.9
-812,Personal and laundry services,41,60,2407,147,1509.5
-445,Food and beverage stores,44,7,2081,142,3087.1
-611,Education services,25,36,3580,140,3727.5
-442,All other retail,61,9,1582,137,7619.9
-712,"Museums, historical sites, and similar institutions",17,16,4836,132,170.3
-521,"Monetary authorities, credit intermediation, and related activities",36,26,1820,127,2666.6
-711,"Performing arts, spectator sports, and related industries",11,13,6706,124,506
-524,Insurance carriers and related activities,34,17,1664,121,2690.4
-623,Nursing and residential care facilities,51,78,1302,118,3362.2
-813,"Religious, grantmaking, civic, professional, and similar organizatons",17,28,2423,117,3005.8
-624,Social assistance,13,80,2369,113,3933.1
-713,"Amusement, gambling, and recreation industries",20,54,1661,112,1717.5
-519,Other information services,6,8,6318,112,307.8
-518,"Data processing, hosting, and related services",9,9,3361,112,329.8
-721,Accomodation,12,28,2089,110,2028.4
-523,"Securities, commodity contracts, funds, trusts and other financial investments and related activities",5,4,5187,109,956.9
-55,Management of companies and enterprises,9,8,2377,109,2371.8
-541,"Professional, scientific, and technical services",8,6,2389,108,9300.1
-515,Broadcasting (except Internet),4,3,5300,107,270.5
-315,"Apparel, leather and allied product manufacturing",3,3,5633,106,139.6
-511,Publishing industries,4,3,3600,106,732.6
-517,Telecommunications,11,10,1641,106,751.1
-452,General Merchandise stores,62,6,1041,106,3104.9
-722,Food services and drinking places,7,6,1826,105,11926.3
-533,Lessors of nonfinancial intangible assets (except copyrighted works),4,4,3031,105,23.3
-531,Real estate,4,21,3033,105,1661.1
-339,Miscellaneous manufacturing,5,16,1971,104,607.9
-42,Wholesale trade,6,5,1433,103,5852.5
-492,Couriers and messengers,8,9,1346,103,725.4
-323,Printing and related support activities,6,6,1545,103,430.9
-561,Administrative and support services,12,12,1202,103,8890
-532,"Automotive equipment rental and leasing, Consumer goods rental and general rental centers, Commercial and industrial machinery and equipment rental and leasing",8,8,1250,102,570.5
-311,Food manufacturing,3,11,2036,102,1619.8
-487,Scenic and sightseeing transportation and support activities for transportation,4,7,1304,101,
-811,Repair and mantenance,3,2,1171,101,1329.3
-483,Water transportation,3,8,1381,101,64.8
-337,Furniture and related product manufacturing,2,2,1284,101,394.6
-486,Pipeline transportation,0,3,582,100,48.5
-336,Transportation equipment manufacturing,1,3,686,100,1702.4
-562,Waste management and remediation services,6,7,940,100,437.6
-221,"Electric power generation, transmission and distribution, Natural gas distribution, Water, sewage and other systems",5,9,877,100,554.6
-213,Support activities for mining,0,1,217,100,346.1
-327,Nonmetallic mineral product manufacturing,1,3,706,100,414.9
-331,Primary metal manufacturing,1,4,942,100,378
-334,Computer and electronic product manufacturing,2,2,1199,100,1055.4
-332,Fabricated metal product manufacturing,1,3,951,100,1466.8
-333,Machinery manufacturing,1,3,762,100,1120.1
-113,Forestry and Logging,0,0,32,100,82.7
-23,Construction,1,8,1098,100,7289.3
-322,Paper manufacturing,2,5,931,100,366.9
-484,Truck transportation,1,2,826,100,1491.9
-326,Plastics and rubber products manufacturing,1,4,815,100,730.9
-212,"Mining, except oil and gas",0,2,111,100,192.1
-335,"Electrical equipment, appliance, and component manufacturing",2,3,1183,100,399
-313,Textile mills and textile product mills,2,3,967,100,
-325,Chemical manufacturing,2,4,906,100,837.8
-324,Petroleum and coal products manufacturing,1,3,935,100,115.6
-493,Warehousing and storage,2,3,865,100,1139.6
-211,Oil and gas extraction,1,1,953,100,145.1
-441,Motor vehicle and parts dealers,23,2,886,99,2021.2
-321,Wood product manufacturing,1,3,464,99,406.4
-114,"Fishing, hunting and trapping",5,8,655,98,52.7
-312,Beverage and tobacco product,6,3,584,97,272.8
-481,Air transportation,29,48,818,96,501.3
-115,Support activities for agriculture and forestry,3,5,201,95,170.1
-112,Animal production,1,3,,,794.2
-482,Rail transportation,2,4,,,214.1
-111,Crop production,0,1,,,1210.3
-491,Postal Service,2,1,,,608.6
-814,Private households,2,44,,,777.8
+industry_code,industry_label,group_share,customer_share,presence_share,average_population_density,social_distancing_exposure,employment
+519,Other information services,49,19,0,6318,254,307.8
+515,Broadcasting (except Internet),38,23,7,5300,193,270.5
+533,Lessors of nonfinancial intangible assets (except copyrighted works),53,21,0,3031,186,23.3
+511,Publishing industries,45,13,3,3600,183,732.6
+518,"Data processing, hosting, and related services",45,16,1,3361,177,329.8
+611,Education services,37,30,7,3580,164,3727.5
+55,Management of companies and enterprises,47,20,5,2377,155,2371.8
+622,Hospitals,54,60,59,2106,154,5145.1
+523,"Securities, commodity contracts, funds, trusts and other financial investments and related activities",25,11,0,5187,153,956.9
+541,"Professional, scientific, and technical services",44,13,5,2389,151,9300.1
+512,"Motion picture, video, and sound recording industries",22,17,6,5730,149,436.3
+711,"Performing arts, spectator sports, and related industries",19,15,11,6706,145,506
+813,"Religious, grantmaking, civic, professional, and similar organizatons",39,35,5,2423,145,3005.8
+521,"Monetary authorities, credit intermediation, and related activities",54,38,0,1820,143,2666.6
+712,"Museums, historical sites, and similar institutions",21,22,8,4836,141,170.3
+531,Real estate,23,26,24,3033,131,1661.1
+621,Ambulatory health care services,47,56,48,1686,131,7498.9
+517,Telecommunications,29,18,33,1641,117,751.1
+339,Miscellaneous manufacturing,18,8,27,1971,114,607.9
+524,Insurance carriers and related activities,23,25,2,1664,114,2690.4
+315,"Apparel, leather and allied product manufacturing",7,7,12,5633,113,139.6
+624,Social assistance,13,15,10,2369,113,3933.1
+721,Accomodation,14,20,16,2089,112,2028.4
+812,Personal and laundry services,9,40,32,2407,109,1509.5
+623,Nursing and residential care facilities,28,31,49,1302,109,3362.2
+442,All other retail,17,54,10,1582,109,7619.9
+445,Food and beverage stores,10,20,12,2081,108,3087.1
+42,Wholesale trade,18,15,18,1433,108,5852.5
+485,Transit and ground passenger transportation,5,7,78,3466,107,487.5
+334,Computer and electronic product manufacturing,27,6,12,1199,107,1055.4
+713,"Amusement, gambling, and recreation industries",12,25,5,1661,107,1717.5
+311,Food manufacturing,7,5,32,2036,106,1619.8
+492,Couriers and messengers,16,15,4,1346,106,725.4
+487,Scenic and sightseeing transportation and support activities for transportation,17,15,32,1304,106,
+532,"Automotive equipment rental and leasing, Consumer goods rental and general rental centers, Commercial and industrial machinery and equipment rental and leasing",19,38,23,1250,106,570.5
+323,Printing and related support activities,11,11,15,1545,106,430.9
+483,Water transportation,11,10,66,1381,104,64.8
+335,"Electrical equipment, appliance, and component manufacturing",16,6,27,1183,104,399
+337,Furniture and related product manufacturing,9,5,29,1284,103,394.6
+561,Administrative and support services,14,16,32,1202,103,8890
+23,Construction,17,6,65,1098,103,7289.3
+811,Repair and mantenance,13,13,43,1171,103,1329.3
+452,General Merchandise stores,11,46,6,1041,101,3104.9
+722,Food services and drinking places,2,2,27,1826,101,11926.3
+313,Textile mills and textile product mills,8,6,16,967,100,
+331,Primary metal manufacturing,10,4,38,942,100,378
+332,Fabricated metal product manufacturing,11,5,27,951,100,1466.8
+562,Waste management and remediation services,16,9,33,940,100,437.6
+324,Petroleum and coal products manufacturing,18,6,46,935,100,115.6
+322,Paper manufacturing,10,6,53,931,100,366.9
+211,Oil and gas extraction,36,9,26,953,100,145.1
+481,Air transportation,10,24,64,818,99,501.3
+493,Warehousing and storage,11,9,39,865,99,1139.6
+114,"Fishing, hunting and trapping",3,4,13,655,99,52.7
+441,Motor vehicle and parts dealers,15,34,36,886,99,2021.2
+325,Chemical manufacturing,21,7,18,906,99,837.8
+484,Truck transportation,9,7,13,826,99,1491.9
+326,Plastics and rubber products manufacturing,11,5,50,815,98,730.9
+221,"Electric power generation, transmission and distribution, Natural gas distribution, Water, sewage and other systems",24,15,33,877,98,554.6
+327,Nonmetallic mineral product manufacturing,10,6,36,706,97,414.9
+333,Machinery manufacturing,16,5,31,762,97,1120.1
+312,Beverage and tobacco product,11,10,15,584,95,272.8
+321,Wood product manufacturing,7,4,38,464,95,406.4
+336,Transportation equipment manufacturing,16,3,45,686,95,1702.4
+113,Forestry and Logging,2,1,9,32,93,82.7
+486,Pipeline transportation,20,7,43,582,91,48.5
+115,Support activities for agriculture and forestry,8,4,17,201,88,170.1
+212,"Mining, except oil and gas",14,6,52,111,74,192.1
+213,Support activities for mining,34,6,58,217,61,346.1
+482,Rail transportation,16,10,27,,,214.1
+814,Private households,1,1,3,,,777.8
+111,Crop production,3,1,6,,,1210.3
+491,Postal Service,7,6,3,,,608.6
+112,Animal production,2,1,53,,,794.2

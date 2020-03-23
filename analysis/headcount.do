@@ -26,9 +26,9 @@ list industry_label in 1/10
 
 * urban and communicative
 scalar cutoff = 1000
-summarize communication_share if (average_population_density>=cutoff)
+summarize group_share if (average_population_density>=cutoff)
 
-generate exposed = (average_population_density>=cutoff) & (communication_share>=25)
+generate exposed = (average_population_density>=cutoff) & (group_share>=25)
 summarize employment if exposed==1, detail
 display r(sum)
 
@@ -40,7 +40,7 @@ foreach X of var *_share social {
 	replace `X' = `X' * employment
 	replace employment = . if missing(`X')
 }
-collapse (sum) employment (sum) communication_share infection_share social_distancing (firstnm) industry_label, by(naics_2d)
+collapse (sum) employment (sum) group_share customer_share presence_share social_distancing (firstnm) industry_label, by(naics_2d)
 foreach X of var *_share social {
 	replace `X' = `X' / employment
 }
