@@ -18,6 +18,7 @@ foreach X of var CES* {
 duplicates drop CES_label CES_industry, force
 
 destring employment, force replace
+
 merge 1:1 CES_label CES_industry using `ces', nogen keep(match)
 
 
