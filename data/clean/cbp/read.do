@@ -38,13 +38,14 @@ drop if industry_code==0
 generate population_density = population/area
 generate employment_density = total_employment/area
 
-keep industry_code zip establishments employment large_plant_employment population_density employment_density
+keep industry_code zip establishments employment large_plant_employment population population_density employment_density
 
 label variable industry_code "Industry code (based on NAICS 2017)"
 label variable zip "2010 Zip-code Tabulation Area"
 label variable establishments "Number of establishments"
 label variable employment "Total employment"
 label variable large_plant_employment "Employment in plants larger than 99 workers"
+label variable population "Population of ZIP-code"
 label variable population_density "Population density of ZIP-code (person/km2)"
 label variable employment_density "Employment density of ZIP-code (person/km2)"
 

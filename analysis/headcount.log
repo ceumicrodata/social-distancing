@@ -25,7 +25,24 @@ Notes:
 
 . clear all
 
-. use "../data/derived/industry-index.dta"
+. * calculate urban density cutoff
+. 
+. * https://www.census.gov/library/publications/2012/dec/cph-2.html, Table 8
+. * For Metropolitan Areas only
+. scalar urban_population = 228004779
+
+. scalar urban_area = 91697.21 * (1.61)^2
+
+. scalar urban_density = urban_population / urban_area
+
+. 
+. scalar list
+urban_density =  959.25943
+urban_area =  237688.34
+urban_population =  2.280e+08
+
+. 
+. use "../data/derived/industry-index.dta", clear
 
 . 
 . * drop hospitals and clinics
@@ -46,6 +63,62 @@ Notes:
      |----------|
  10. |  22901.1 |
      +----------+
+
+. 
+. * most dense
+. gsort -average_population_density
+
+. list industry_label in 1/10
+
+     +------------------------------------------------------------------------+
+     | industry_label                                                         |
+     |------------------------------------------------------------------------|
+  1. | Performing arts, spectator sports, and related industries              |
+  2. | Other information services                                             |
+  3. | Motion picture, video, and sound recording industries                  |
+  4. | Apparel, leather and allied product manufacturing                      |
+  5. | Broadcasting (except Internet)                                         |
+     |------------------------------------------------------------------------|
+  6. | Securities, commodity contracts, funds, trusts and other financial i.. |
+  7. | Museums, historical sites, and similar institutions                    |
+  8. | Publishing industries                                                  |
+  9. | Education services                                                     |
+ 10. | Transit and ground passenger transportation                            |
+     +------------------------------------------------------------------------+
+
+. 
+. * urban and communicative
+. scalar cutoff = 1000
+
+. summarize communication_share if (average_population_density>=cutoff)
+
+    Variable |        Obs        Mean    Std. Dev.       Min        Max
+-------------+---------------------------------------------------------
+communicat~e |         47    14.02128    16.47988          0         62
+
+. 
+. generate exposed = (average_population_density>=cutoff) & (communication_shar
+> e>=25)
+
+. summarize employment if exposed==1, detail
+
+           Industry employment (thousand persons)
+-------------------------------------------------------------
+      Percentiles      Smallest
+ 1%        436.3          436.3
+ 5%        436.3          487.5
+10%        461.9         1509.5       Obs                  10
+25%       1509.5         2666.6       Sum of Wgt.          10
+
+50%      2888.75                      Mean            2869.19
+                        Largest       Std. Dev.      2032.109
+75%       3362.2         3104.9
+90%       5673.7         3362.2       Variance        4129468
+95%       7619.9         3727.5       Skewness       1.082479
+99%       7619.9         7619.9       Kurtosis       4.203497
+
+. display r(sum)
+28691.9
 
 . 
 . generate naics_2d = industry_code if industry_code<100
@@ -83,31 +156,47 @@ variable infection_share was byte now float
 
 . generate sum_employment = sum(employment)
 
-. list industry_label sum_employment in 1/3
+. list industry_label sum_employment in 1/5
 
-     +---------------------------------------------------------------------+
-  1. |                                                      industry_label |
-     |                                                  Education services |
-     |---------------------------------------------------------------------|
-     |                              sum_em~t                               |
-     |                                3727.5                               |
-     +---------------------------------------------------------------------+
+     +------------------------------------------------------------------------+
+  1. | industry_label                                                         |
+     | Education services                                                     |
+     |------------------------------------------------------------------------|
+     |                                sum_em~t                                |
+     |                                  3727.5                                |
+     +------------------------------------------------------------------------+
 
-     +---------------------------------------------------------------------+
-  2. |                                                      industry_label |
-     |                                            Food and beverage stores |
-     |---------------------------------------------------------------------|
-     |                              sum_em~t                               |
-     |                               16455.7                               |
-     +---------------------------------------------------------------------+
+     +------------------------------------------------------------------------+
+  2. | industry_label                                                         |
+     | Food and beverage stores                                               |
+     |------------------------------------------------------------------------|
+     |                                sum_em~t                                |
+     |                                 16455.7                                |
+     +------------------------------------------------------------------------+
 
-     +---------------------------------------------------------------------+
-  3. |                                                      industry_label |
-     | Monetary authorities, credit intermediation, and related activities |
-     |---------------------------------------------------------------------|
-     |                              sum_em~t                               |
-     |                               22769.6                               |
-     +---------------------------------------------------------------------+
+     +------------------------------------------------------------------------+
+  3. | industry_label                                                         |
+     | Securities, commodity contracts, funds, trusts and other financial i.. |
+     |------------------------------------------------------------------------|
+     |                                sum_em~t                                |
+     |                                 22769.6                                |
+     +------------------------------------------------------------------------+
+
+     +------------------------------------------------------------------------+
+  4. | industry_label                                                         |
+     | Religious, grantmaking, civic, professional, and similar organizatons  |
+     |------------------------------------------------------------------------|
+     |                                sum_em~t                                |
+     |                                 28614.2                                |
+     +------------------------------------------------------------------------+
+
+     +------------------------------------------------------------------------+
+  5. | industry_label                                                         |
+     | Other information services                                             |
+     |------------------------------------------------------------------------|
+     |                                sum_em~t                                |
+     |                                 31442.3                                |
+     +------------------------------------------------------------------------+
 
 . 
 end of do-file
