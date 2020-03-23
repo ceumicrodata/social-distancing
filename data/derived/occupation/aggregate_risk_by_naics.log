@@ -28,6 +28,9 @@ Notes:
 . use "../../clean/employment-matrix/matrix.dta"
 
 . 
+. local indexes group customer presence
+
+. 
 . merge m:1 SOCCode using "risks.dta", keep(master match) nogen
 
     Result                           # of obs.
@@ -40,9 +43,10 @@ Notes:
     -----------------------------------------
 
 . * a few cases are missing the risk, take these to be low risk
-. mvencode communication infection, mv(0) override
-communicat~n: 579 missing values recoded
-   infection: 579 missing values recoded
+. mvencode `indexes', mv(0) override
+       group: 582 missing values recoded
+    customer: 582 missing values recoded
+    presence: 582 missing values recoded
 
 . 
 . replace Employment = round(Employment*1000)
@@ -53,49 +57,65 @@ communicat~n: 579 missing values recoded
   (51,296 bytes saved)
 
 . 
-. foreach X of var communication infection {
+. foreach X of var `indexes' {
   2.         summarize `X' [fw=Employment], detail
   3.         generate double high_`X' = (`X' > r(p75)) * Employment
   4. }
 
-                 Communication index [0,100]
+              Group communication index [0,100]
 -------------------------------------------------------------
       Percentiles      Smallest
  1%            0              0
- 5%           47              0
-10%           51              0       Obs         121,347,700
-25%           58              0       Sum of Wgt. 121,347,700
+ 5%           38              0
+10%           42              0       Obs         121,347,700
+25%           51              0       Sum of Wgt. 121,347,700
 
-50%           66                      Mean           65.67987
-                        Largest       Std. Dev.      13.46946
-75%           74             96
-90%           80             96       Variance       181.4263
-95%           88             96       Skewness      -1.421078
-99%           92             96       Kurtosis       9.172941
+50%           57                      Mean           57.33202
+                        Largest       Std. Dev.      13.16771
+75%           66             87
+90%           74             87       Variance       173.3885
+95%           76             87       Skewness      -1.032139
+99%           81             87       Kurtosis       6.331392
 
-                Infection risk index [0,100]
+            Customer communication index [0,100]
 -------------------------------------------------------------
       Percentiles      Smallest
  1%            0              0
- 5%           22              0
-10%           24              0       Obs         121,347,700
-25%           29              0       Sum of Wgt. 121,347,700
+ 5%           35              0
+10%           38              0       Obs         121,347,700
+25%           47              0       Sum of Wgt. 121,347,700
 
-50%           41                      Mean           43.63649
-                        Largest       Std. Dev.      19.15877
-75%           52            100
-90%           74            100       Variance       367.0584
-95%           87            100       Skewness       .8936041
-99%           92            100       Kurtosis       3.652464
+50%           55                      Mean           55.58012
+                        Largest       Std. Dev.      14.21306
+75%           66             86
+90%           73             86       Variance       202.0111
+95%           77             86       Skewness      -.7034038
+99%           82             89       Kurtosis       4.684272
+
+               Physical presence index [0,100]
+-------------------------------------------------------------
+      Percentiles      Smallest
+ 1%            0              0
+ 5%            5              0
+10%            5              0       Obs         121,347,700
+25%           13              0       Sum of Wgt. 121,347,700
+
+50%           23                      Mean           22.33092
+                        Largest       Std. Dev.      12.24158
+75%           31             70
+90%           38             70       Variance       149.8563
+95%           42             70       Skewness       .3191207
+99%           53             70       Kurtosis       2.648195
 
 . 
-. collapse (sum) Employment high_communication high_infection, by(industry_code
-> )
+. collapse (sum) Employment high_group high_customer high_presence, by(industry
+> _code)
 
-. foreach X in communication infection {
+. foreach X in `indexes' {
   2.         replace high_`X' = round(high_`X' / Employment * 100)
   3. }
-(73 real changes made)
+(74 real changes made)
+(74 real changes made)
 (74 real changes made)
 
 . drop Employment
