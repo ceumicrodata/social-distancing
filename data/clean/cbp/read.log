@@ -34,9 +34,9 @@ Notes:
 . tempfile naics2industry
 
 . save `naics2industry', replace
-(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St13777.000001 no
+(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St22386.000001 no
 > t found)
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St13777.000001 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St22386.000001 saved
 
 . 
 . * read zip-level population
@@ -60,9 +60,9 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St13777.000001 saved
 . sort zip 
 
 . save `zippop', replace
-(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St13777.000002 no
+(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St22386.000002 no
 > t found)
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St13777.000002 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St22386.000002 saved
 
 . 
 . import delimited "../../raw/census/cbp/zbp17detail.txt", varnames(1) clear
@@ -291,9 +291,11 @@ end of do-file
 . generate employment_density = total_employment/area
 (5,654 missing values generated)
 
+. generate plant_size = employment/establishments
+
 . 
-. keep industry_code zip establishments employment large_plant_employment popul
-> ation population_density employment_density
+. keep industry_code zip establishments employment population population_densit
+> y employment_density plant_size
 
 . 
 . label variable industry_code "Industry code (based on NAICS 2017)"
@@ -304,10 +306,9 @@ end of do-file
 
 . label variable employment "Total employment"
 
-. label variable large_plant_employment "Employment in plants larger than 99 wo
-> rkers"
-
 . label variable population "Population of ZIP-code"
+
+. label variable plant_size "Average plant size (person)"
 
 . label variable population_density "Population density of ZIP-code (person/km2
 > )"
