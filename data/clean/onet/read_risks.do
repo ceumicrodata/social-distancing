@@ -1,28 +1,32 @@
 clear all
 * introduce short names for all risk factors
-local risks proximity infections group face2face customers contact move control operate repair_elect repair_mechanic inspect coach interpersonal care public consult
-local proximity Physical_Proximity
-local infections Exposed_to_Disease_or_Infections
-local group Work_With_Work_Group_or_Team
+local risks proximity group face2face customers contact move control operate repair_elect repair_mechanic inspect coach interpersonal care public consult peers coordinate team guide
+
+* face2face context
 local face2face Face-to-Face_Discussions
-local customers Deal_With_External_Customers
+* measures of teamwork
+local group Work_With_Work_Group_or_Team
+local interpersonal Establishing_and_Maintaining_Interpersonal_Relationships
+local consult Provide_Consultation_and_Advice_to_Others
+local peers Communicating_with_Supervisors_Peers_or_Subordinates
+local coordinate Coordinating_the_Work_and_Activities_of_Others
+local team Developing_and_Building_Teams
+local guide Guiding_Directing_and_Motivating_Subordinates
+* measures of customer contact
 local contact Contact_With_Others
+local customers Deal_With_External_Customers
+local coach Coaching_and_Developing_Others
+local care Assisting_and_Caring_for_Others
+local public Performing_for_or_Working_Directly_with_the_Public
 
 * proxies for onsite work
+local proximity Physical_Proximity
 local move Handling_and_Moving_Objects
 local control Controlling_Machines_and_Processes
 local operate Operating_Vehicles_Mechanized_Devices_or_Equipment
 local repair_elect Repairing_and_Maintaining_Electronic_Equipment
 local repair_mechanic Repairing_and_Maintaining_Mechanical_Equipment
 local inspect Inspecting_Equipment_Structures_or_Material
-
-* proxies for interpersonal skills
-local coach Coaching_and_Developing_Others
-local interpersonal Establishing_and_Maintaining_Interpersonal_Relationships
-local care Assisting_and_Caring_for_Others
-local public Performing_for_or_Working_Directly_with_the_Public
-local consult Provide_Consultation_and_Advice_to_Others
-
 
 tempfile rsk
 generate str Code = ""

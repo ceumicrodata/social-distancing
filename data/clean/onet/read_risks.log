@@ -26,24 +26,44 @@ Notes:
 . clear all
 
 . * introduce short names for all risk factors
-. local risks proximity infections group face2face customers contact move contr
-> ol operate repair_elect repair_mechanic inspect coach interpersonal care publ
-> ic consult
+. local risks proximity group face2face customers contact move control operate 
+> repair_elect repair_mechanic inspect coach interpersonal care public consult 
+> peers coordinate team guide
 
-. local proximity Physical_Proximity
+. 
+. * face2face context
+. local face2face Face-to-Face_Discussions
 
-. local infections Exposed_to_Disease_or_Infections
-
+. * measures of teamwork
 . local group Work_With_Work_Group_or_Team
 
-. local face2face Face-to-Face_Discussions
+. local interpersonal Establishing_and_Maintaining_Interpersonal_Relationships
+
+. local consult Provide_Consultation_and_Advice_to_Others
+
+. local peers Communicating_with_Supervisors_Peers_or_Subordinates
+
+. local coordinate Coordinating_the_Work_and_Activities_of_Others
+
+. local team Developing_and_Building_Teams
+
+. local guide Guiding_Directing_and_Motivating_Subordinates
+
+. * measures of customer contact
+. local contact Contact_With_Others
 
 . local customers Deal_With_External_Customers
 
-. local contact Contact_With_Others
+. local coach Coaching_and_Developing_Others
+
+. local care Assisting_and_Caring_for_Others
+
+. local public Performing_for_or_Working_Directly_with_the_Public
 
 . 
 . * proxies for onsite work
+. local proximity Physical_Proximity
+
 . local move Handling_and_Moving_Objects
 
 . local control Controlling_Machines_and_Processes
@@ -57,28 +77,15 @@ Notes:
 . local inspect Inspecting_Equipment_Structures_or_Material
 
 . 
-. * proxies for interpersonal skills
-. local coach Coaching_and_Developing_Others
-
-. local interpersonal Establishing_and_Maintaining_Interpersonal_Relationships
-
-. local care Assisting_and_Caring_for_Others
-
-. local public Performing_for_or_Working_Directly_with_the_Public
-
-. local consult Provide_Consultation_and_Advice_to_Others
-
-. 
-. 
 . tempfile rsk
 
 . generate str Code = ""
 
 . save `rsk', replace emptyok
 (note: dataset contains 0 observations)
-(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St19148.000001 no
+(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St22275.000001 no
 > t found)
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St19148.000001 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St22275.000001 saved
 
 . 
 . foreach risk in `risks' {
@@ -107,7 +114,23 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St19148.000001 saved
 
     matched                                 0  
     -----------------------------------------
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St19148.000001 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St22275.000001 saved
+(3 vars, 967 obs)
+
+    Result                           # of obs.
+    -----------------------------------------
+    not matched                             0
+    matched                               967  
+    -----------------------------------------
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St22275.000001 saved
+(3 vars, 967 obs)
+
+    Result                           # of obs.
+    -----------------------------------------
+    not matched                             0
+    matched                               967  
+    -----------------------------------------
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St22275.000001 saved
 (3 vars, 968 obs)
 
     Result                           # of obs.
@@ -118,29 +141,7 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St19148.000001 saved
 
     matched                               967  
     -----------------------------------------
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St19148.000001 saved
-(3 vars, 967 obs)
-
-    Result                           # of obs.
-    -----------------------------------------
-    not matched                             1
-        from master                         0  
-        from using                          1  
-
-    matched                               967  
-    -----------------------------------------
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St19148.000001 saved
-(3 vars, 967 obs)
-
-    Result                           # of obs.
-    -----------------------------------------
-    not matched                             1
-        from master                         0  
-        from using                          1  
-
-    matched                               967  
-    -----------------------------------------
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St19148.000001 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St22275.000001 saved
 (3 vars, 968 obs)
 
     Result                           # of obs.
@@ -148,15 +149,7 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St19148.000001 saved
     not matched                             0
     matched                               968  
     -----------------------------------------
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St19148.000001 saved
-(3 vars, 968 obs)
-
-    Result                           # of obs.
-    -----------------------------------------
-    not matched                             0
-    matched                               968  
-    -----------------------------------------
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St19148.000001 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St22275.000001 saved
 (4 vars, 968 obs)
 
     Result                           # of obs.
@@ -164,7 +157,7 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St19148.000001 saved
     not matched                             0
     matched                               968  
     -----------------------------------------
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St19148.000001 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St22275.000001 saved
 (4 vars, 968 obs)
 
     Result                           # of obs.
@@ -172,7 +165,7 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St19148.000001 saved
     not matched                             0
     matched                               968  
     -----------------------------------------
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St19148.000001 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St22275.000001 saved
 (4 vars, 968 obs)
 
     Result                           # of obs.
@@ -180,7 +173,7 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St19148.000001 saved
     not matched                             0
     matched                               968  
     -----------------------------------------
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St19148.000001 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St22275.000001 saved
 (4 vars, 968 obs)
 
     Result                           # of obs.
@@ -188,7 +181,7 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St19148.000001 saved
     not matched                             0
     matched                               968  
     -----------------------------------------
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St19148.000001 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St22275.000001 saved
 (4 vars, 968 obs)
 
     Result                           # of obs.
@@ -196,7 +189,7 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St19148.000001 saved
     not matched                             0
     matched                               968  
     -----------------------------------------
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St19148.000001 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St22275.000001 saved
 (4 vars, 968 obs)
 
     Result                           # of obs.
@@ -204,7 +197,7 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St19148.000001 saved
     not matched                             0
     matched                               968  
     -----------------------------------------
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St19148.000001 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St22275.000001 saved
 (4 vars, 968 obs)
 
     Result                           # of obs.
@@ -212,7 +205,7 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St19148.000001 saved
     not matched                             0
     matched                               968  
     -----------------------------------------
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St19148.000001 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St22275.000001 saved
 (4 vars, 968 obs)
 
     Result                           # of obs.
@@ -220,7 +213,7 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St19148.000001 saved
     not matched                             0
     matched                               968  
     -----------------------------------------
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St19148.000001 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St22275.000001 saved
 (4 vars, 968 obs)
 
     Result                           # of obs.
@@ -228,7 +221,7 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St19148.000001 saved
     not matched                             0
     matched                               968  
     -----------------------------------------
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St19148.000001 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St22275.000001 saved
 (4 vars, 968 obs)
 
     Result                           # of obs.
@@ -236,7 +229,7 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St19148.000001 saved
     not matched                             0
     matched                               968  
     -----------------------------------------
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St19148.000001 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St22275.000001 saved
 (4 vars, 968 obs)
 
     Result                           # of obs.
@@ -244,7 +237,39 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St19148.000001 saved
     not matched                             0
     matched                               968  
     -----------------------------------------
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St19148.000001 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St22275.000001 saved
+(4 vars, 968 obs)
+
+    Result                           # of obs.
+    -----------------------------------------
+    not matched                             0
+    matched                               968  
+    -----------------------------------------
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St22275.000001 saved
+(4 vars, 968 obs)
+
+    Result                           # of obs.
+    -----------------------------------------
+    not matched                             0
+    matched                               968  
+    -----------------------------------------
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St22275.000001 saved
+(4 vars, 968 obs)
+
+    Result                           # of obs.
+    -----------------------------------------
+    not matched                             0
+    matched                               968  
+    -----------------------------------------
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St22275.000001 saved
+(4 vars, 968 obs)
+
+    Result                           # of obs.
+    -----------------------------------------
+    not matched                             0
+    matched                               968  
+    -----------------------------------------
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St22275.000001 saved
 
 . 
 . merge 1:1 Code using "crosswalk.dta", nogen keep(master match)
@@ -270,7 +295,6 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St19148.000001 saved
   2.         replace `X' = round(`X')
   3. }
 (55 real changes made)
-(63 real changes made)
 (59 real changes made)
 (64 real changes made)
 (63 real changes made)
@@ -285,6 +309,10 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St19148.000001 saved
 (62 real changes made)
 (56 real changes made)
 (61 real changes made)
+(59 real changes made)
+(60 real changes made)
+(61 real changes made)
+(56 real changes made)
 (59 real changes made)
 
 . 

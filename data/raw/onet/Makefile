@@ -17,3 +17,7 @@ download:
 	wget "https://www.onetonline.org/find/descriptor/result/4.C.1.b.1.e/Work_With_Work_Group_or_Team.csv?fmt=csv&a=1" -O Work_With_Work_Group_or_Team.csv
 	wget "https://www.onetonline.org/find/descriptor/result/4.C.2.c.1.b/Exposed_to_Disease_or_Infections.csv?fmt=csv&a=1" -O Exposed_to_Disease_or_Infections.csv
 	wget "https://www.onetonline.org/find/descriptor/result/4.C.2.a.3/Physical_Proximity.csv?fmt=csv&a=1" -O Physical_Proximity.csv 
+	wget "https://www.onetonline.org/find/descriptor/result/4.A.4.a.2/Communicating_with_Supervisors_Peers_or_Subordinates.csv?fmt=csv&a=1" -O Communicating_with_Supervisors_Peers_or_Subordinates.csv
+	wget "https://www.onetonline.org/find/descriptor/result/4.A.4.b.1/Coordinating_the_Work_and_Activities_of_Others.csv?fmt=csv&a=1" -O Coordinating_the_Work_and_Activities_of_Others.csv
+	wget "https://www.onetonline.org/find/descriptor/result/4.A.4.b.2/Developing_and_Building_Teams.csv?fmt=csv&a=1" -O Developing_and_Building_Teams.csv
+	wget "https://www.onetonline.org/find/descriptor/result/4.A.4.b.4/Guiding_Directing_and_Motivating_Subordinates.csv?fmt=csv&a=1" -O Guiding_Directing_and_Motivating_Subordinates.csv	

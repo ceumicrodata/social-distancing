@@ -26,37 +26,36 @@ Notes:
 . clear
 
 . import delimited "../../clean/onet/risks.csv", case(preserve) varnames(1)
-(19 vars, 764 obs)
+(22 vars, 764 obs)
 
 . 
 . **************
 . *generating summery indexes: communication and infection measures
 . *************
 . 
-. * within-firm group interaction
-. rename group group1
-
-. egen group = rowmean(group1 consult interpersonal)
+. * interaction for teamwork
+. egen teamwork = rowmean(group consult interpersonal peers coordinate team gui
+> de)
 
 . * customer communication
 . egen customer = rowmean(contact customers public care coach interpersonal)
 
 . * are these contacts face to face? This is a multiplier because if F2F=0, the
 > n none of the above is relevant
-. foreach X of var group customer {
+. foreach X of var teamwork customer {
   2.         replace `X' = round(`X' * face2face / 100)
   3. }
-(753 real changes made, 1 to missing)
+(760 real changes made, 1 to missing)
 (759 real changes made, 1 to missing)
 
 . 
 . * require physical presence in close proximity to others
-. egen presence = rowmean(infections move control operate repair* inspect)
+. egen presence = rowmean(move control operate repair* inspect)
 
 . * Does this require proximity to others? Otherwise not subject to social dist
 > ancing 
 . replace presence = round(presence * proximity / 100)
-(764 real changes made, 1 to missing)
+(762 real changes made, 1 to missing)
 
 . 
 . label variable group "Group communication index [0,100]"
@@ -66,10 +65,10 @@ Notes:
 . label variable presence "Physical presence index [0,100]"
 
 . 
-. keep SOCCode Description group customer presence
+. keep SOCCode Description teamwork customer presence
 
 . compress
-  variable group was float now byte
+  variable teamwork was float now byte
   variable customer was float now byte
   variable presence was float now byte
   (6,876 bytes saved)
