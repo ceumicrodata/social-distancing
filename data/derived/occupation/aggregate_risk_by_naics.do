@@ -12,8 +12,7 @@ compress
 
 foreach X of var `indexes' {
 	summarize `X' [fw=Employment], detail
-	* use absolute cutoff: high if task/context is used "most of the time"
-	generate double `X'_share = (`X' >= 75) * Employment
+	generate double `X'_share = (`X' >= r(p75)) * Employment
 }
 
 collapse (sum) Employment teamwork_share customer_share presence_share, by(industry_code)

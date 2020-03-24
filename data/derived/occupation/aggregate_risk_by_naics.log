@@ -59,9 +59,7 @@ Notes:
 . 
 . foreach X of var `indexes' {
   2.         summarize `X' [fw=Employment], detail
-  3.         * use absolute cutoff: high if task/context is used "most of the t
-> ime"
-.         generate double `X'_share = (`X' >= 75) * Employment
+  3.         generate double `X'_share = (`X' >= r(p75)) * Employment
   4. }
 
                           teamwork
@@ -117,8 +115,8 @@ Notes:
   2.         replace `X'_share = round(`X'_share / Employment * 100)
   3. }
 (74 real changes made)
-(57 real changes made)
-(0 real changes made)
+(74 real changes made)
+(74 real changes made)
 
 . drop Employment
 
