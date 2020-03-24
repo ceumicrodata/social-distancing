@@ -61,7 +61,7 @@ Notes:
   2.         summarize `X' [fw=Employment], detail
   3.         * use absolute cutoff: high if task/context is used "most of the t
 > ime"
-.         generate double high_`X' = (`X' >= 75) * Employment
+.         generate double `X'_share = (`X' >= 75) * Employment
   4. }
 
                           teamwork
@@ -110,11 +110,11 @@ Notes:
 99%           52             69       Kurtosis       2.377236
 
 . 
-. collapse (sum) Employment high_teamwork high_customer high_presence, by(indus
-> try_code)
+. collapse (sum) Employment teamwork_share customer_share presence_share, by(in
+> dustry_code)
 
 . foreach X in `indexes' {
-  2.         replace high_`X' = round(high_`X' / Employment * 100)
+  2.         replace `X'_share = round(`X'_share / Employment * 100)
   3. }
 (74 real changes made)
 (57 real changes made)

@@ -13,12 +13,12 @@ compress
 foreach X of var `indexes' {
 	summarize `X' [fw=Employment], detail
 	* use absolute cutoff: high if task/context is used "most of the time"
-	generate double high_`X' = (`X' >= 75) * Employment
+	generate double `X'_share = (`X' >= 75) * Employment
 }
 
-collapse (sum) Employment high_teamwork high_customer high_presence, by(industry_code)
+collapse (sum) Employment teamwork_share customer_share presence_share, by(industry_code)
 foreach X in `indexes' {
-	replace high_`X' = round(high_`X' / Employment * 100)
+	replace `X'_share = round(`X'_share / Employment * 100)
 }
 drop Employment
 
