@@ -7,3 +7,9 @@ all: ../data/derived/industry-index.dta ../text/overleaf/fig3.eps ../text/overle
 	stata -b do $<
 headcount.log: headcount.do ../data/derived/industry-index.dta
 	stata -b do $<
+
+# Derived data
+../data/derived/occupation/naics_risk.csv:
+	cd $(dir $@) && make
+../data/derived/agglomeration/high_density_employment.csv:
+	cd $(dir $@) && make
