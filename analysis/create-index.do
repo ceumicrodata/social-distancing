@@ -1,55 +1,55 @@
 clear all
+
 import delimited "../data/derived/crosswalk/industry.csv", varnames(1) clear case(preserve)
+merge 1:1 industry_code using "../data/clean/industry-employment/industry-employment.dta", nogen keep(master match)
+rename employment ces_employment
 tempfile industry
 save `industry', replace
 
-import delimited "../data/derived/occupation/naics_risk.csv", varnames(1) clear
-tempfile occupation
-save `occupation', replace
 
-import delimited "../data/derived/agglomeration/high_density_employment.csv", varnames(1) clear
-
-merge 1:1 industry_code using `occupation', nogen
-merge 1:1 industry_code using `industry', nogen keep(master match)
-merge 1:1 industry_code using "../data/clean/industry-employment/industry-employment.dta", nogen keep(master match)
-
-* check correlation betwen CES and CBP employment estimates
-replace cbp_employment = cbp_employment / 1000
-rename employment ces_employment
-
-corr cbp_employment ces_employment 
-assert r(rho)>0.95
-
-* median employment density in manufacturing
-summarize average_density if industry_code>=311 & industry_code<=339 [aw=ces_employment], d
-scalar median_density = r(p50)
-
-* save median in dataset
-generate median_density = median_density
-
-* trim variables for presentation
-replace average_density = round(average_density)
-foreach X in group customer presence {
-	rename high_`X' `X'_share
-}
-rename average_density average_population_density
-rename ces_employment employment
-
+do "industry_location_panel.do"
 do "calculate-exposure.do"
 
-local vars industry_code industry_label group_share customer_share presence_share average_population_density social_distancing_exposure employment
-keep `vars' median_density
-order `vars'
+merge m:1 industry_code using `industry', nogen keep(master match)
 
-label variable group_share "Workers in communication-intensive occupations (percent)"
+* check correlation betwen CES and CBP employment estimates
+egen cbp_employment = sum(employment / 1000), by(industry_code)
+
+corr cbp_employment ces_employment 
+assert r(rho)>0.98
+
+local vars  teamwork_share customer_share presence_share teamwork_exposure customer_exposure presence_exposure population_density employment_density plant_size
+keep industry_code industry_label `vars'
+order industry_code industry_label `vars'
+
+collapse (mean) `vars' [aw=employment], by(industry_code industry_label)
+
+* merge on CES employment to be able to calculate weighted statistics
+merge 1:1 industry_code using `industry', nogen keep(master match) keepusing(ces_employment)
+
+foreach X of var *_share *_exposure {
+	replace `X' = round(`X')
+	format `X' %10.0f
+}
+foreach X of var *_density plant_size ces_employment {
+	replace `X' = round(`X'*10)/10
+	format `X' %11.1f
+}
+
+label variable teamwork_share "Workers in teamwork-intensive occupations (percent)"
 label variable customer_share "Workers in customer-facing occupations (percent)"
 label variable presence_share "Workers in occupations requiring physical presence (percent)"
-label variable average_population_density "Population density in the average ZIP code of business (person/km2)"
-label variable employment "Industry employment (thousand persons)"
 
-gsort -social_distancing_exposure
+label variable teamwork_exposure "Teamwork exposure to social distancing"
+label variable customer_exposure "Customer contact exposure to social distancing"
+label variable presence_exposure "Physical presence exposure to social distancing"
+
+label variable population_density "Population density in the average ZIP code of business (person/km2)"
+label variable employment_density "Employment density in the average ZIP code of business (person/km2)"
+label variable plant_size "Average plant size (person)"
+label variable ces_employment "Industry employment (thousand persons)"
+
+gsort -teamwork_exposure
 
 save "../data/derived/industry-index.dta", replace
-
-drop median_density
 export delimited "../data/derived/industry-index.csv", replace

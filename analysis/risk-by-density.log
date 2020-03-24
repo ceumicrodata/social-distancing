@@ -25,23 +25,13 @@ Notes:
 
 . clear all
 
-. use "../data/derived/industry-index.dta", clear
-
-. 
 . local indexes group_share customer_share presence_share
-
-. 
-. tempfile sector_risk
-
-. save  `sector_risk'
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St19507.000001 saved
 
 . 
 . use "../data/clean/cbp/zip_code_business_patterns.dta", clear
 
-. merge m:1 industry_code using  `sector_risk', keep(match) nogen
-(note: variable employment was long, now double to accommodate using data's
-       values)
+. merge m:1 industry_code using  "../data/derived/industry-index.dta", keep(mat
+> ch) nogen
 
     Result                           # of obs.
     -----------------------------------------
@@ -52,183 +42,8 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St19507.000001 saved
 . 
 . collapse (first) population_density employment_density median_density (mean) 
 > `indexes' [fw=employment], by(zip)
+variable median_density not found
+r(111);
 
-. 
-. * merge coordinates
-. merge 1:1 zip using "../data/clean/geonames/us-zip-codes.dta", nogen keep(mas
-> ter match)
-
-    Result                           # of obs.
-    -----------------------------------------
-    not matched                             1
-        from master                         1  
-        from using                          0  
-
-    matched                            26,810  
-    -----------------------------------------
-
-. 
-. *drop rural areas, CBP is not representative for these
-. drop if population_density<5
-(2,396 observations deleted)
-
-. 
-. * compute zip-level exposure index
-. clonevar average_population_density = population_density
-(2,428 missing values generated)
-
-. do "calculate-exposure.do"
-
-. generate social_distancing_exposure = (average_population_density / median_de
-> nsity) ^ (group_share/100)
-(2,428 missing values generated)
-
-. replace social_distancing_exposure = round(social_distancing_exposure*100)
-(21,987 real changes made)
-
-. label variable social_distancing_exposure "Combined index of social distancin
-> g exposure (manufacturing=100)"
-
-. 
 end of do-file
-
-. 
-. local vars zip latitude longitude population_density employment_density `inde
-> xes' social_distancing_exposure
-
-. keep `vars'
-
-. order `vars'
-
-. * round values for presentation
-. foreach X of var population_density employment_density `indexes' social_dista
-> ncing {
-  2.         replace `X' = round(`X')
-  3. }
-(21,987 real changes made)
-(21,986 real changes made)
-(20,750 real changes made)
-(20,780 real changes made)
-(20,662 real changes made)
-(0 real changes made)
-
-. foreach X of var latitude longitude {
-  2.         replace `X' = round(`X'*10000)/10000
-  3. }
-(0 real changes made)
-(0 real changes made)
-
-. 
-. gsort -social_distancing_exposure
-
-. list in 1/10
-
-     +---------------------------------------------------------------+
-  1. |   zip | latitude | longitude | popula~y | employ~y | group_~e |
-     | 10162 |  40.7699 |  -73.9511 |    57231 |     3057 |       42 |
-     |-----------------------------------------+---------------------|
-     |      custom~e      |      presen~e      |      social~e       |
-     |            21      |             5      |           563       |
-     +---------------------------------------------------------------+
-
-     +---------------------------------------------------------------+
-  2. |   zip | latitude | longitude | popula~y | employ~y | group_~e |
-     | 10029 |  40.7918 |  -73.9447 |    35566 |    10401 |       35 |
-     |-----------------------------------------+---------------------|
-     |      custom~e      |      presen~e      |      social~e       |
-     |            39      |            37      |           356       |
-     +---------------------------------------------------------------+
-
-     +---------------------------------------------------------------+
-  3. |   zip | latitude | longitude | popula~y | employ~y | group_~e |
-     | 98164 |   47.606 |  -122.332 |    15385 |   314021 |       44 |
-     |-----------------------------------------+---------------------|
-     |      custom~e      |      presen~e      |      social~e       |
-     |            14      |             5      |           341       |
-     +---------------------------------------------------------------+
-
-     +---------------------------------------------------------------+
-  4. |   zip | latitude | longitude | popula~y | employ~y | group_~e |
-     | 10021 |  40.7685 |  -73.9588 |    43518 |    49967 |       31 |
-     |-----------------------------------------+---------------------|
-     |      custom~e      |      presen~e      |      social~e       |
-     |            36      |            28      |           334       |
-     +---------------------------------------------------------------+
-
-     +---------------------------------------------------------------+
-  5. |   zip | latitude | longitude | popula~y | employ~y | group_~e |
-     | 23507 |  36.8645 |  -76.3004 |    11225 |     1642 |       48 |
-     |-----------------------------------------+---------------------|
-     |      custom~e      |      presen~e      |      social~e       |
-     |            53      |            52      |           329       |
-     +---------------------------------------------------------------+
-
-     +---------------------------------------------------------------+
-  6. |   zip | latitude | longitude | popula~y | employ~y | group_~e |
-     | 10005 |  40.7056 |  -74.0083 |    37471 |   256733 |       32 |
-     |-----------------------------------------+---------------------|
-     |      custom~e      |      presen~e      |      social~e       |
-     |            19      |             8      |           321       |
-     +---------------------------------------------------------------+
-
-     +---------------------------------------------------------------+
-  7. |   zip | latitude | longitude | popula~y | employ~y | group_~e |
-     | 79920 |  31.8214 | -106.4614 |    11986 |     5719 |       45 |
-     |-----------------------------------------+---------------------|
-     |      custom~e      |      presen~e      |      social~e       |
-     |            32      |            24      |           317       |
-     +---------------------------------------------------------------+
-
-     +---------------------------------------------------------------+
-  8. |   zip | latitude | longitude | popula~y | employ~y | group_~e |
-     | 47306 |  40.2023 |  -85.4082 |    10508 |      290 |       47 |
-     |-----------------------------------------+---------------------|
-     |      custom~e      |      presen~e      |      social~e       |
-     |            56      |            48      |           311       |
-     +---------------------------------------------------------------+
-
-     +---------------------------------------------------------------+
-  9. |   zip | latitude | longitude | popula~y | employ~y | group_~e |
-     | 10016 |  40.7443 |  -73.9781 |    39311 |    77972 |       30 |
-     |-----------------------------------------+---------------------|
-     |      custom~e      |      presen~e      |      social~e       |
-     |            22      |            20      |           308       |
-     +---------------------------------------------------------------+
-
-     +---------------------------------------------------------------+
- 10. |   zip | latitude | longitude | popula~y | employ~y | group_~e |
-     | 11549 |  40.7172 |  -73.6027 |    15593 |      491 |       37 |
-     |-----------------------------------------+---------------------|
-     |      custom~e      |      presen~e      |      social~e       |
-     |            30      |             7      |           283       |
-     +---------------------------------------------------------------+
-
-. export delimited "../data/derived/location-index.csv", replace
-file ../data/derived/location-index.csv saved
-
-. 
-. generate ln_density = ln(population_density)
-(2,428 missing values generated)
-
-. foreach X of var *_share social_distancing_exposure {
-  2.         lowess `X' ln_density, bw(0.5) generate(`X'_hat)
-  3. }
-
-. 
-. line group_share_hat customer_share_hat presence_share_hat population_density
-> , sort ///
-> ytitle("Share of workers (percent)") xtitle("Population density (person/km2, 
-> log scale)") ///
-> scheme(s2mono) graphregion(color(white)) xscale(log) xlabel(10 100 1000 10000
->  100000) ///
-> legend(order(1 "Communication" 2 "Customer contact" 3 "Physical presence"))
-
-. 
-. graph export "../text/overleaf/fig4.eps", replace
-(file ../text/overleaf/fig4.eps written in EPS format)
-
-. graph export "../text/overleaf/fig4.pdf", replace
-(file ../text/overleaf/fig4.pdf written in PDF format)
-
-. 
-end of do-file
+r(111);

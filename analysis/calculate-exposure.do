@@ -1,3 +1,13 @@
-generate social_distancing_exposure = (average_population_density / median_density) ^ (group_share/100)
-replace social_distancing_exposure = round(social_distancing_exposure*100)
-label variable social_distancing_exposure "Combined index of social distancing exposure (manufacturing=100)"
+generate teamwork_exposure = teamwork_share/100 * ln(employment_density)
+generate customer_exposure = customer_share/100 * ln(population_density)
+generate presence_exposure = presence_share/100 * ln(plant_size)
+
+foreach X of var *_exposure {
+	summarize `X'
+	replace `X' = round(`X'/r(max)*100)
+}
+
+label variable teamwork_exposure "Social distancing effect on teamwork [0,100]"
+label variable customer_exposure "Social distancing effect on customer contact [0,100]"
+label variable presence_exposure "Social distancing effect on physical presence [0,100]"
+

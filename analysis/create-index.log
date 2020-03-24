@@ -25,18 +25,36 @@ Notes:
 
 . clear all
 
+. 
 . import delimited "../data/derived/crosswalk/industry.csv", varnames(1) clear 
 > case(preserve)
 (3 vars, 82 obs)
 
+. merge 1:1 industry_code using "../data/clean/industry-employment/industry-emp
+> loyment.dta", nogen keep(master match)
+
+    Result                           # of obs.
+    -----------------------------------------
+    not matched                            10
+        from master                        10  
+        from using                          0  
+
+    matched                                72  
+    -----------------------------------------
+
+. rename employment ces_employment
+
 . tempfile industry
 
 . save `industry', replace
-(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St19450.000001 no
+(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St22838.000001 no
 > t found)
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St19450.000001 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St22838.000001 saved
 
 . 
+. 
+. do "industry_location_panel.do"
+
 . import delimited "../data/derived/occupation/naics_risk.csv", varnames(1) cle
 > ar
 (4 vars, 74 obs)
@@ -44,133 +62,141 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St19450.000001 saved
 . tempfile occupation
 
 . save `occupation', replace
-(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St19450.000002 no
+(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St22838.000002 no
 > t found)
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St19450.000002 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St22838.000002 saved
 
 . 
-. import delimited "../data/derived/agglomeration/high_density_employment.csv",
->  varnames(1) clear
-(3 vars, 69 obs)
+. use "../data/clean/cbp/zip_code_business_patterns.dta", clear
 
-. 
-. merge 1:1 industry_code using `occupation', nogen
-
-    Result                           # of obs.
-    -----------------------------------------
-    not matched                             5
-        from master                         0  
-        from using                          5  
-
-    matched                                69  
-    -----------------------------------------
-
-. merge 1:1 industry_code using `industry', nogen keep(master match)
+. merge m:1 industry_code using `occupation', keep(match) nogen
 
     Result                           # of obs.
     -----------------------------------------
     not matched                             0
-    matched                                74  
+    matched                           376,589  
     -----------------------------------------
-
-. merge 1:1 industry_code using "../data/clean/industry-employment/industry-emp
-> loyment.dta", nogen keep(master match)
-
-    Result                           # of obs.
-    -----------------------------------------
-    not matched                             2
-        from master                         2  
-        from using                          0  
-
-    matched                                72  
-    -----------------------------------------
-
-. 
-. * check correlation betwen CES and CBP employment estimates
-. replace cbp_employment = cbp_employment / 1000
-variable cbp_employment was long now double
-(69 real changes made)
-
-. rename employment ces_employment
-
-. 
-. corr cbp_employment ces_employment 
-(obs=67)
-
-             | cbp_em~t ces_em~t
--------------+------------------
-cbp_employ~t |   1.0000
-ces_employ~t |   0.9653   1.0000
-
-
-. assert r(rho)>0.95
-
-. 
-. * median employment density in manufacturing
-. summarize average_density if industry_code>=311 & industry_code<=339 [aw=ces_
-> employment], d
-
-                       average_density
--------------------------------------------------------------
-      Percentiles      Smallest
- 1%     463.7357       463.7357
- 5%     583.5406       583.5406
-10%     686.4526       686.4526       Obs                  18
-25%     761.8204        705.946       Sum of Wgt.    12,459.8
-
-50%     941.6421                      Mean           1156.484
-                        Largest       Std. Dev.      695.2006
-75%     1283.776        1545.23
-90%     2035.996       1970.544       Variance       483303.9
-95%     2035.996       2035.996       Skewness       3.498148
-99%     5632.579       5632.579       Kurtosis       22.16964
-
-. scalar median_density = r(p50)
-
-. 
-. * save median in dataset
-. generate median_density = median_density
-
-. 
-. * trim variables for presentation
-. replace average_density = round(average_density)
-(69 real changes made)
-
-. foreach X in group customer presence {
-  2.         rename high_`X' `X'_share
-  3. }
-
-. rename average_density average_population_density
-
-. rename ces_employment employment
-
-. 
-. do "calculate-exposure.do"
-
-. generate social_distancing_exposure = (average_population_density / median_de
-> nsity) ^ (group_share/100)
-(5 missing values generated)
-
-. replace social_distancing_exposure = round(social_distancing_exposure*100)
-(69 real changes made)
-
-. label variable social_distancing_exposure "Combined index of social distancin
-> g exposure (manufacturing=100)"
 
 . 
 end of do-file
 
+. do "calculate-exposure.do"
+
+. generate teamwork_exposure = teamwork_share/100 * ln(employment_density)
+(5,654 missing values generated)
+
+. generate customer_exposure = customer_share/100 * ln(population_density)
+(6,099 missing values generated)
+
+. generate presence_exposure = presence_share/100 * ln(plant_size)
+
 . 
-. local vars industry_code industry_label group_share customer_share presence_s
-> hare average_population_density social_distancing_exposure employment
+. foreach X of var *_exposure {
+  2.         summarize `X'
+  3.         replace `X' = round(`X'/r(max)*100)
+  4. }
 
-. keep `vars' median_density
+    Variable |        Obs        Mean    Std. Dev.       Min        Max
+-------------+---------------------------------------------------------
+teamwork_e~e |    370,935    .9963522     .837975  -1.878518   7.197967
+(370,935 real changes made)
 
-. order `vars'
+    Variable |        Obs        Mean    Std. Dev.       Min        Max
+-------------+---------------------------------------------------------
+customer_e~e |    370,490    1.224261    .9931743  -2.476431   6.991176
+(370,490 real changes made)
+
+    Variable |        Obs        Mean    Std. Dev.       Min        Max
+-------------+---------------------------------------------------------
+presence_e~e |    376,589    .5376535    .4661916          0   4.625771
+(357,212 real changes made)
 
 . 
-. label variable group_share "Workers in communication-intensive occupations (p
-> ercent)"
+. label variable teamwork_exposure "Social distancing effect on teamwork [0,100
+> ]"
+
+. label variable customer_exposure "Social distancing effect on customer contac
+> t [0,100]"
+
+. label variable presence_exposure "Social distancing effect on physical presen
+> ce [0,100]"
+
+. 
+. 
+end of do-file
+
+. 
+. merge m:1 industry_code using `industry', nogen keep(master match)
+
+    Result                           # of obs.
+    -----------------------------------------
+    not matched                             0
+    matched                           376,589  
+    -----------------------------------------
+
+. 
+. * check correlation betwen CES and CBP employment estimates
+. egen cbp_employment = sum(employment / 1000), by(industry_code)
+
+. 
+. corr cbp_employment ces_employment 
+(obs=371,090)
+
+             | cbp_em~t ces_em~t
+-------------+------------------
+cbp_employ~t |   1.0000
+ces_employ~t |   0.9808   1.0000
+
+
+. assert r(rho)>0.98
+
+. 
+. local vars  teamwork_share customer_share presence_share teamwork_exposure cu
+> stomer_exposure presence_exposure population_density employment_density plant
+> _size
+
+. keep industry_code industry_label `vars'
+
+. order industry_code industry_label `vars'
+
+. 
+. collapse (mean) `vars' [aw=employment], by(industry_code industry_label)
+
+. 
+. * merge on CES employment to be able to calculate weighted statistics
+. merge 1:1 industry_code using `industry', nogen keep(master match) keepusing(
+> ces_employment)
+
+    Result                           # of obs.
+    -----------------------------------------
+    not matched                             0
+    matched                                69  
+    -----------------------------------------
+
+. 
+. foreach X of var *_share *_exposure {
+  2.         replace `X' = round(`X')
+  3.         format `X' %10.0f
+  4. }
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(69 real changes made)
+(69 real changes made)
+(67 real changes made)
+
+. foreach X of var *_density plant_size ces_employment {
+  2.         replace `X' = round(`X'*10)/10
+  3.         format `X' %11.1f
+  4. }
+(69 real changes made)
+(64 real changes made)
+(69 real changes made)
+(0 real changes made)
+
+. 
+. label variable teamwork_share "Workers in teamwork-intensive occupations (per
+> cent)"
 
 . label variable customer_share "Workers in customer-facing occupations (percen
 > t)"
@@ -178,20 +204,32 @@ end of do-file
 . label variable presence_share "Workers in occupations requiring physical pres
 > ence (percent)"
 
-. label variable average_population_density "Population density in the average 
-> ZIP code of business (person/km2)"
+. 
+. label variable teamwork_exposure "Teamwork exposure to social distancing"
 
-. label variable employment "Industry employment (thousand persons)"
+. label variable customer_exposure "Customer contact exposure to social distanc
+> ing"
+
+. label variable presence_exposure "Physical presence exposure to social distan
+> cing"
 
 . 
-. gsort -social_distancing_exposure
+. label variable population_density "Population density in the average ZIP code
+>  of business (person/km2)"
+
+. label variable employment_density "Employment density in the average ZIP code
+>  of business (person/km2)"
+
+. label variable plant_size "Average plant size (person)"
+
+. label variable ces_employment "Industry employment (thousand persons)"
+
+. 
+. gsort -teamwork_exposure
 
 . 
 . save "../data/derived/industry-index.dta", replace
 file ../data/derived/industry-index.dta saved
-
-. 
-. drop median_density
 
 . export delimited "../data/derived/industry-index.csv", replace
 file ../data/derived/industry-index.csv saved
