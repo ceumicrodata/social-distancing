@@ -1,0 +1,969 @@
+Context,Code,Occupation
+100,39-5012.00,"Hairdressers, Hairstylists, and Cosmetologists"
+100,45-4022.00,Logging Equipment Operators
+100,53-7081.00,Refuse and Recyclable Material Collectors
+100,47-5061.00,"Roof Bolters, Mining"
+100,49-9064.00,Watch Repairers
+99,49-3021.00,Automotive Body and Related Repairers
+99,49-3091.00,Bicycle Repairers
+99,51-9121.00,"Coating, Painting, and Spraying Machine Setters, Operators, and Tenders"
+99,29-2021.00,Dental Hygienists
+99,47-5042.00,Mine Cutting and Channeling Machine Operators
+99,47-2151.00,Pipelayers
+98,49-3023.01,Automotive Master Mechanics
+98,39-5011.00,Barbers
+98,47-2051.00,Cement Masons and Concrete Finishers
+98,51-4033.00,"Grinding, Lapping, Polishing, and Buffing Machine Tool Setters, Operators, and Tenders, Metal and Plastic"
+98,53-7111.00,Mine Shuttle Car Operators
+98,49-3052.00,Motorcycle Mechanics
+98,51-9122.00,"Painters, Transportation Equipment"
+98,47-2161.00,Plasterers and Stucco Masons
+98,29-1024.00,Prosthodontists
+98,51-2092.00,Team Assemblers
+98,51-9197.00,Tire Builders
+98,51-4194.00,"Tool Grinders, Filers, and Sharpeners"
+97,51-2011.00,"Aircraft Structure, Surfaces, Rigging, and Systems Assemblers"
+97,53-2011.00,"Airline Pilots, Copilots, and Flight Engineers"
+97,47-5041.00,Continuous Mining Machine Operators
+97,39-3092.00,Costume Attendants
+97,47-2042.00,"Floor Layers, Except Carpet, Wood, and Hard Tiles"
+97,53-7041.00,Hoist and Winch Operators
+97,49-3043.00,Rail Car Repairers
+97,51-4111.00,Tool and Die Makers
+97,51-6093.00,Upholsterers
+96,51-9081.00,Dental Laboratory Technicians
+96,45-4021.00,Fallers
+96,47-2043.00,Floor Sanders and Finishers
+96,51-7021.00,Furniture Finishers
+96,47-2132.00,"Insulation Workers, Mechanical"
+96,51-9071.01,Jewelers
+96,47-2152.01,Pipe Fitters and Steamfitters
+96,47-5071.00,"Roustabouts, Oil and Gas"
+95,49-3031.00,Bus and Truck Mechanics and Diesel Engine Specialists
+95,51-3021.00,Butchers and Meat Cutters
+95,51-2021.00,"Coil Winders, Tapers, and Finishers"
+95,29-2032.00,Diagnostic Medical Sonographers
+95,29-2011.00,Medical and Clinical Laboratory Technologists
+95,47-2141.00,"Painters, Construction and Maintenance"
+95,51-6042.00,Shoe Machine Operators and Tenders
+95,47-2053.00,Terrazzo Workers and Finishers
+95,51-6063.00,"Textile Knitting and Weaving Machine Setters, Operators, and Tenders"
+95,49-3093.00,Tire Repairers and Changers
+95,51-7042.00,"Woodworking Machine Setters, Operators, and Tenders, Except Sawing"
+94,49-9061.00,Camera and Photographic Equipment Repairers
+94,51-4011.00,"Computer-Controlled Machine Tool Operators, Metal and Plastic"
+94,35-2013.00,"Cooks, Private Household"
+94,47-2081.00,Drywall and Ceiling Tile Installers
+94,49-2093.00,"Electrical and Electronics Installers and Repairers, Transportation Equipment"
+94,53-4012.00,Locomotive Firers
+94,51-7032.00,"Patternmakers, Wood"
+94,51-6051.00,"Sewers, Hand"
+94,51-9195.03,"Stone Cutters and Carvers, Manufacturing"
+94,47-2022.00,Stonemasons
+94,51-6052.00,"Tailors, Dressmakers, and Custom Sewers"
+93,53-6031.00,Automotive and Watercraft Service Attendants
+93,47-2041.00,Carpet Installers
+93,53-7032.00,Excavating and Loading Machine and Dragline Operators
+93,29-1069.06,Ophthalmologists
+93,47-2221.00,Structural Iron and Steel Workers
+93,47-2082.00,Tapers
+92,49-3023.02,Automotive Specialty Technicians
+92,47-2011.00,Boilermakers
+92,23-2091.00,Court Reporters
+92,51-9031.00,"Cutters and Trimmers, Hand"
+92,29-1021.00,"Dentists, General"
+92,53-7031.00,Dredge Operators
+92,51-4032.00,"Drilling and Boring Machine Tool Setters, Operators, and Tenders, Metal and Plastic"
+92,47-5021.00,"Earth Drillers, Except Oil and Gas"
+92,51-2031.00,Engine and Other Machine Assemblers
+92,49-3041.00,Farm Equipment Mechanics and Service Technicians
+92,51-2091.00,Fiberglass Laminators and Fabricators
+92,47-3013.00,Helpers--Electricians
+92,47-3016.00,Helpers--Roofers
+92,49-9071.00,"Maintenance and Repair Workers, General"
+92,49-9044.00,Millwrights
+92,49-9063.00,Musical Instrument Repairers and Tuners
+92,29-1023.00,Orthodontists
+92,33-3041.00,Parking Enforcement Workers
+92,51-9195.05,"Potters, Manufacturing"
+92,27-4013.00,Radio Operators
+92,51-6031.00,Sewing Machine Operators
+92,47-2211.00,Sheet Metal Workers
+92,51-3023.00,Slaughterers and Meat Packers
+92,29-2055.00,Surgical Technologists
+91,51-9191.00,Adhesive Bonding Machine Operators and Tenders
+91,47-5011.00,"Derrick Operators, Oil and Gas"
+91,49-2092.00,"Electric Motor, Power Tool, and Related Repairers"
+91,49-2096.00,"Electronic Equipment Installers and Repairers, Motor Vehicles"
+91,27-1013.00,"Fine Artists, Including Painters, Sculptors, and Illustrators"
+91,33-9031.00,Gaming Surveillance Officers and Gaming Investigators
+91,51-9071.06,Gem and Diamond Workers
+91,47-3012.00,Helpers--Carpenters
+91,49-9098.00,"Helpers--Installation, Maintenance, and Repair Workers"
+91,47-3015.00,"Helpers--Pipelayers, Plumbers, Pipefitters, and Steamfitters"
+91,51-9198.00,Helpers--Production Workers
+91,51-3022.00,"Meat, Poultry, and Fish Cutters and Trimmers"
+91,49-3042.00,"Mobile Heavy Equipment Mechanics, Except Engines"
+91,51-4081.00,"Multiple Machine Tool Setters, Operators, and Tenders, Metal and Plastic"
+91,31-1015.00,Orderlies
+91,49-3053.00,Outdoor Power Equipment and Other Small Engine Mechanics
+91,51-9196.00,"Paper Goods Machine Setters, Operators, and Tenders"
+91,51-6041.00,Shoe and Leather Workers and Repairers
+91,51-6064.00,"Textile Winding, Twisting, and Drawing Out Machine Setters, Operators, and Tenders"
+90,45-2092.02,"Farmworkers and Laborers, Crop"
+90,45-3011.00,Fishers and Related Fishing Workers
+90,51-4071.00,Foundry Mold and Coremakers
+90,49-9031.00,Home Appliance Repairers
+90,49-9041.00,Industrial Machinery Mechanics
+90,53-4011.00,Locomotive Engineers
+90,51-9195.07,Molding and Casting Workers
+90,51-9083.00,Ophthalmic Laboratory Technicians
+90,47-2171.00,Reinforcing Iron and Rebar Workers
+90,27-4014.00,Sound Engineering Technicians
+90,49-9052.00,Telecommunications Line Installers and Repairers
+89,35-3022.01,Baristas
+89,39-3011.00,Gaming Dealers
+89,47-3011.00,"Helpers--Brickmasons, Blockmasons, Stonemasons, and Tile and Marble Setters"
+89,53-7051.00,Industrial Truck and Tractor Operators
+89,53-7033.00,"Loading Machine Operators, Underground Mining"
+89,43-5041.00,"Meter Readers, Utilities"
+89,27-2042.02,"Musicians, Instrumental"
+89,51-9111.00,Packaging and Filling Machine Operators and Tenders
+89,47-2142.00,Paperhangers
+89,47-2071.00,"Paving, Surfacing, and Tamping Equipment Operators"
+89,47-2072.00,Pile-Driver Operators
+89,51-4052.00,"Pourers and Casters, Metal"
+89,29-2099.06,Radiologic Technicians
+89,53-4013.00,"Rail Yard Engineers, Dinkey Operators, and Hostlers"
+89,49-9096.00,Riggers
+89,39-5093.00,Shampooers
+89,53-5021.01,Ship and Boat Captains
+89,53-4041.00,Subway and Streetcar Operators
+88,27-4031.00,"Camera Operators, Television, Video, and Motion Picture"
+88,27-1012.00,Craft Artists
+88,31-9091.00,Dental Assistants
+88,47-2111.00,Electricians
+88,17-3024.00,Electro-Mechanical Technicians
+88,31-9099.02,Endoscopy Technicians
+88,47-5031.00,"Explosives Workers, Ordnance Handling Experts, and Blasters"
+88,27-1023.00,Floral Designers
+88,49-9021.01,Heating and Air Conditioning Mechanics and Installers
+88,47-3014.00,"Helpers--Painters, Paperhangers, Plasterers, and Stucco Masons"
+88,53-7062.00,"Laborers and Freight, Stock, and Material Movers, Hand"
+88,51-4034.00,"Lathe and Turning Machine Tool Setters, Operators, and Tenders, Metal and Plastic"
+88,47-2073.00,Operating Engineers and Other Construction Equipment Operators
+88,51-4062.00,"Patternmakers, Metal and Plastic"
+88,43-5053.00,"Postal Service Mail Sorters, Processors, and Processing Machine Operators"
+88,49-9021.02,Refrigeration Mechanics and Installers
+88,47-5012.00,"Rotary Drill Operators, Oil and Gas"
+88,51-4122.00,"Welding, Soldering, and Brazing Machine Setters, Operators, and Tenders"
+87,53-3021.00,"Bus Drivers, Transit and Intercity"
+87,47-2061.00,Construction Laborers
+87,51-2022.00,Electrical and Electronic Equipment Assemblers
+87,27-4032.00,Film and Video Editors
+87,45-2041.00,"Graders and Sorters, Agricultural Products"
+87,51-9022.00,"Grinding and Polishing Workers, Hand"
+87,51-4191.00,"Heat Treating Equipment Setters, Operators, and Tenders, Metal and Plastic"
+87,47-4051.00,Highway Maintenance Workers
+87,49-9094.00,Locksmiths and Safe Repairers
+87,51-4041.00,Machinists
+87,39-5091.00,"Makeup Artists, Theatrical and Performance"
+87,51-9082.00,Medical Appliance Technicians
+87,51-4051.00,Metal-Refining Furnace Operators and Tenders
+87,49-3051.00,Motorboat Mechanics and Service Technicians
+87,43-5031.00,"Police, Fire, and Ambulance Dispatchers"
+87,29-2034.00,Radiologic Technologists
+87,51-4121.07,Solderers and Brazers
+87,29-2099.07,Surgical Assistants
+86,27-4011.00,Audio and Video Equipment Technicians
+86,49-9012.00,"Control and Valve Installers and Repairers, Except Mechanical Door"
+86,51-4031.00,"Cutting, Punching, and Press Machine Setters, Operators, and Tenders, Metal and Plastic"
+86,47-4021.00,Elevator Installers and Repairers
+86,47-5081.00,Helpers--Extraction Workers
+86,29-2011.03,Histotechnologists and Histologic Technicians
+86,53-5021.02,"Mates- Ship, Boat, and Barge"
+86,47-2152.02,Plumbers
+86,29-1124.00,Radiation Therapists
+86,49-3092.00,Recreational Vehicle Service Technicians
+86,49-9045.00,"Refractory Materials Repairers, Except Brickmasons"
+86,51-7041.00,"Sawing Machine Setters, Operators, and Tenders, Wood"
+85,29-2031.00,Cardiovascular Technologists and Technicians
+85,51-9194.00,Etchers and Engravers
+85,35-1012.00,First-Line Supervisors of Food Preparation and Serving Workers
+85,29-2092.00,Hearing Aid Specialists
+85,49-9095.00,Manufactured Building and Mobile Home Installers
+85,51-9123.00,"Painting, Coating, and Decorating Workers"
+85,51-4193.00,"Plating and Coating Machine Setters, Operators, and Tenders, Metal and Plastic"
+85,47-2044.00,Tile and Marble Setters
+84,47-2021.00,Brickmasons and Blockmasons
+84,47-2031.01,Construction Carpenters
+84,53-7011.00,Conveyor Operators and Tenders
+84,35-2014.00,"Cooks, Restaurant"
+84,51-9032.00,"Cutting and Slicing Machine Setters, Operators, and Tenders"
+84,51-4035.00,"Milling and Planing Machine Setters, Operators, and Tenders, Metal and Plastic"
+84,29-1041.00,Optometrists
+84,49-2021.00,"Radio, Cellular, and Tower Equipment Installers and Repairers"
+84,47-4061.00,Rail-Track Laying and Maintenance Equipment Operators
+84,53-5011.00,Sailors and Marine Oilers
+84,51-2041.00,Structural Metal Fabricators and Fitters
+84,51-4121.06,"Welders, Cutters, and Welder Fitters"
+83,47-2121.00,Glaziers
+83,53-7063.00,Machine Feeders and Offbearers
+83,49-9011.00,Mechanical Door Repairers
+83,31-9093.00,Medical Equipment Preparers
+83,51-4072.00,"Molding, Coremaking, and Casting Machine Setters, Operators, and Tenders, Metal and Plastic"
+83,53-7121.00,"Tank Car, Truck, and Ship Loaders"
+83,49-2022.00,"Telecommunications Equipment Installers and Repairers, Except Line Installers"
+82,53-3022.00,"Bus Drivers, School or Special Client"
+82,51-7011.00,Cabinetmakers and Bench Carpenters
+82,53-2012.00,Commercial Pilots
+82,35-2012.00,"Cooks, Institution and Cafeteria"
+82,53-7021.00,Crane and Tower Operators
+82,51-2023.00,Electromechanical Equipment Assemblers
+82,51-9051.00,"Furnace, Kiln, Oven, Drier, and Kettle Operators and Tenders"
+82,51-9061.00,"Inspectors, Testers, Sorters, Samplers, and Weighers"
+82,47-2131.00,"Insulation Workers, Floor, Ceiling, and Wall"
+82,37-3011.00,Landscaping and Groundskeeping Workers
+82,51-4192.00,"Layout Workers, Metal and Plastic"
+82,45-4023.00,Log Graders and Scalers
+82,43-9051.00,"Mail Clerks and Mail Machine Operators, Except Postal Service"
+82,27-1014.00,Multimedia Artists and Animators
+82,29-1022.00,Oral and Maxillofacial Surgeons
+82,31-9097.00,Phlebotomists
+82,51-5113.00,Print Binding and Finishing Workers
+82,47-4071.00,Septic Tank Servicers and Sewer Pipe Cleaners
+82,29-1067.00,Surgeons
+82,51-6062.00,"Textile Cutting Machine Setters, Operators, and Tenders"
+82,33-9093.00,Transportation Security Screeners
+81,49-2091.00,Avionics Technicians
+81,35-1011.00,Chefs and Head Cooks
+81,29-1011.00,Chiropractors
+81,49-2011.00,"Computer, Automated Teller, and Office Machine Repairers"
+81,29-2011.01,Cytogenetic Technologists
+81,49-2094.00,"Electrical and Electronics Repairers, Commercial and Industrial Equipment"
+81,51-8099.04,Hydroelectric Plant Technicians
+81,45-2092.01,Nursery Workers
+81,29-2081.00,"Opticians, Dispensing"
+81,51-6021.00,"Pressers, Textile, Garment, and Related Materials"
+81,51-9199.01,Recycling and Reclamation Workers
+81,47-2031.02,Rough Carpenters
+81,47-5013.00,"Service Unit Operators, Oil, Gas, and Mining"
+81,47-2231.00,Solar Photovoltaic Installers
+80,49-9092.00,Commercial Divers
+80,51-3091.00,"Food and Tobacco Roasting, Baking, and Drying Machine Operators and Tenders"
+80,51-4022.00,"Forging Machine Setters, Operators, and Tenders, Metal and Plastic"
+80,45-3021.00,Hunters and Trappers
+80,49-9043.00,"Maintenance Workers, Machinery"
+80,29-2099.01,Neurodiagnostic Technologists
+80,53-6021.00,Parking Lot Attendants
+80,37-3012.00,"Pesticide Handlers, Sprayers, and Applicators, Vegetation"
+80,43-5052.00,Postal Service Mail Carriers
+80,51-9071.07,Precious Metal Workers
+80,47-4099.03,Weatherization Installers and Technicians
+80,43-5111.00,"Weighers, Measurers, Checkers, and Samplers, Recordkeeping"
+79,53-2021.00,Air Traffic Controllers
+79,47-4031.00,Fence Erectors
+79,45-1011.05,First-Line Supervisors of Logging Workers
+79,51-3092.00,Food Batchmakers
+79,37-2012.00,Maids and Housekeeping Cleaners
+79,27-2041.04,Music Composers and Arrangers
+79,29-1199.05,Orthoptists
+79,29-1081.00,Podiatrists
+79,51-4023.00,"Rolling Machine Setters, Operators, and Tenders, Metal and Plastic"
+79,43-2021.00,Telephone Operators
+78,17-3021.00,Aerospace Engineering and Operations Technicians
+78,27-1011.00,Art Directors
+78,49-3022.00,Automotive Glass Installers and Repairers
+78,17-1021.00,Cartographers and Photogrammetrists
+78,49-2095.00,"Electrical and Electronics Repairers, Powerhouse, Substation, and Relay"
+78,39-3021.00,Motion Picture Projectionists
+78,37-2021.00,Pest Control Workers
+78,53-4021.00,"Railroad Brake, Signal, and Switch Operators"
+78,43-3071.00,Tellers
+78,29-1131.00,Veterinarians
+77,29-2011.02,Cytotechnologists
+77,41-9011.00,Demonstrators and Product Promoters
+77,51-9041.00,"Extruding, Forming, Pressing, and Compacting Machine Setters, Operators, and Tenders"
+77,53-3032.00,Heavy and Tractor-Trailer Truck Drivers
+77,27-1026.00,Merchandise Displayers and Window Trimmers
+77,53-5022.00,Motorboat Operators
+77,47-2181.00,Roofers
+77,43-5081.03,"Stock Clerks- Stockroom, Warehouse, or Storage Yard"
+77,17-1022.00,Surveyors
+76,51-3011.00,Bakers
+76,49-9091.00,"Coin, Vending, and Amusement Machine Servicers and Repairers"
+76,35-2015.00,"Cooks, Short Order"
+76,27-1022.00,Fashion Designers
+76,39-5092.00,Manicurists and Pedicurists
+76,29-2052.00,Pharmacy Technicians
+76,29-1126.00,Respiratory Therapists
+76,17-3031.01,Surveying Technicians
+76,31-9096.00,Veterinary Assistants and Laboratory Animal Caretakers
+75,49-2097.00,Electronic Home Entertainment Equipment Installers and Repairers
+75,45-1011.08,First-Line Supervisors of Animal Husbandry and Animal Care Workers
+75,53-2031.00,Flight Attendants
+75,51-9195.04,"Glass Blowers, Molders, Benders, and Finishers"
+75,37-2011.00,"Janitors and Cleaners, Except Maids and Housekeeping Cleaners"
+75,51-6011.00,Laundry and Dry-Cleaning Workers
+75,47-5051.00,"Rock Splitters, Quarry"
+74,29-1071.01,Anesthesiologist Assistants
+74,53-6011.00,Bridge and Lock Tenders
+74,53-7061.00,Cleaners of Vehicles and Equipment
+74,39-3012.00,Gaming and Sports Book Writers and Runners
+74,39-3093.00,"Locker Room, Coatroom, and Dressing Room Attendants"
+74,31-9094.00,Medical Transcriptionists
+74,29-1125.02,Music Therapists
+74,29-2033.00,Nuclear Medicine Technologists
+74,29-2057.00,Ophthalmic Medical Technicians
+74,29-2091.00,Orthotists and Prosthetists
+74,51-9012.00,"Separating, Filtering, Clarifying, Precipitating, and Still Machine Setters, Operators, and Tenders"
+74,53-5031.00,Ship Engineers
+74,39-1012.00,Slot Supervisors
+74,51-8021.00,Stationary Engineers and Boiler Operators
+74,43-5081.01,"Stock Clerks, Sales Floor"
+73,51-8091.00,Chemical Plant and System Operators
+73,17-3011.02,Civil Drafters
+73,35-3021.00,"Combined Food Preparation and Serving Workers, Including Fast Food"
+73,29-1069.02,Dermatologists
+73,49-9051.00,Electrical Power-Line Installers and Repairers
+73,33-2011.02,Forest Firefighters
+73,29-2035.00,Magnetic Resonance Imaging Technologists
+73,19-1022.00,Microbiologists
+73,51-7031.00,"Model Makers, Wood"
+73,29-1151.00,Nurse Anesthetists
+73,51-9151.00,Photographic Process Workers and Processing Machine Operators
+73,51-8013.00,Power Plant Operators
+73,49-2021.01,Radio Mechanics
+73,29-2054.00,Respiratory Therapy Technicians
+73,51-9141.00,Semiconductor Processors
+73,47-4099.02,Solar Thermal Installers and Technicians
+73,29-1069.11,Sports Medicine Physicians
+73,53-3041.00,Taxi Drivers and Chauffeurs
+72,49-3011.00,Aircraft Mechanics and Service Technicians
+72,51-8099.03,Biomass Plant Technicians
+72,51-9192.00,"Cleaning, Washing, and Metal Pickling Equipment Operators and Tenders"
+72,43-9031.00,Desktop Publishers
+72,51-6091.00,"Extruding and Forming Machine Setters, Operators, and Tenders, Synthetic and Glass Fibers"
+72,51-3093.00,Food Cooking Machine Operators and Tenders
+72,27-1024.00,Graphic Designers
+72,53-7064.00,"Packers and Packagers, Hand"
+72,43-5051.00,Postal Service Clerks
+72,27-3012.00,Public Address System and Other Announcers
+72,53-7072.00,"Pump Operators, Except Wellhead Pumpers"
+72,15-1132.00,"Software Developers, Applications"
+72,53-6051.07,"Transportation Vehicle, Equipment and Systems Inspectors, Except Aviation"
+72,29-2056.00,Veterinary Technologists and Technicians
+71,53-3011.00,"Ambulance Drivers and Attendants, Except Emergency Medical Technicians"
+71,29-1061.00,Anesthesiologists
+71,15-1121.00,Computer Systems Analysts
+71,51-9193.00,Cooling and Freezing Equipment Operators and Tenders
+71,53-3031.00,Driver/Sales Workers
+71,17-3023.01,Electronics Engineering Technicians
+71,51-4021.00,"Extruding and Drawing Machine Setters, Operators, and Tenders, Metal and Plastic"
+71,47-4041.00,Hazardous Materials Removal Workers
+71,43-5081.02,Marking Clerks
+71,17-3024.01,Robotics Technicians
+71,49-9097.00,Signal and Track Switch Repairers
+71,39-5094.00,Skincare Specialists
+70,51-6092.00,Fabric and Apparel Patternmakers
+70,15-1199.05,Geographic Information Systems Technicians
+70,17-3029.12,Nanotechnology Engineering Technicians
+70,29-2099.05,Ophthalmic Medical Technologists
+70,17-3029.08,Photonics Technicians
+70,27-2012.05,Technical Directors/Managers
+70,51-6061.00,Textile Bleaching and Dyeing Machine Operators and Tenders
+70,35-3031.00,Waiters and Waitresses
+69,27-2021.00,Athletes and Sports Competitors
+69,51-4012.00,"Computer Numerically Controlled Machine Tool Programmers, Metal and Plastic"
+69,29-1141.03,Critical Care Nurses
+69,33-1021.02,Forest Fire Fighting and Prevention Supervisors
+69,51-9023.00,"Mixing and Blending Machine Setters, Operators, and Tenders"
+69,41-2022.00,Parts Salespersons
+69,31-2022.00,Physical Therapist Aides
+69,51-5112.00,Printing Press Operators
+69,43-9081.00,Proofreaders and Copy Markers
+69,49-2098.00,Security and Fire Alarm Systems Installers
+69,37-3013.00,Tree Trimmers and Pruners
+68,33-9091.00,Crossing Guards
+68,29-2051.00,Dietetic Technicians
+68,35-2021.00,Food Preparation Workers
+68,19-4093.00,Forest and Conservation Technicians
+68,29-2012.00,Medical and Clinical Laboratory Technicians
+68,49-9062.00,Medical Equipment Repairers
+68,43-4141.00,New Accounts Clerks
+68,43-5081.04,"Order Fillers, Wholesale and Retail Sales"
+68,29-1069.10,Radiologists
+68,41-3041.00,Travel Agents
+67,29-1199.01,Acupuncturists
+67,29-1181.00,Audiologists
+67,17-3027.01,Automotive Engineering Technicians
+67,35-3011.00,Bartenders
+67,51-9011.00,Chemical Equipment Operators and Tenders
+67,17-3029.04,Electronics Engineering Technologists
+67,43-4061.00,"Eligibility Interviewers, Government Programs"
+67,49-9093.00,"Fabric Menders, Except Garment"
+67,29-1064.00,Obstetricians and Gynecologists
+67,31-9095.00,Pharmacy Aides
+67,49-9081.00,Wind Turbine Service Technicians
+66,45-2011.00,Agricultural Inspectors
+66,51-8099.01,Biofuels Processing Technicians
+66,35-3022.00,"Counter Attendants, Cafeteria, Food Concession, and Coffee Shop"
+66,43-5021.00,Couriers and Messengers
+66,53-7071.00,Gas Compressor and Gas Pumping Station Operators
+66,31-9011.00,Massage Therapists
+66,33-2011.01,Municipal Firefighters
+66,29-1069.12,Urologists
+65,39-3091.00,Amusement and Recreation Attendants
+65,19-4031.00,Chemical Technicians
+65,17-3023.03,Electrical Engineering Technicians
+65,37-1011.00,First-Line Supervisors of Housekeeping and Janitorial Workers
+65,29-1123.00,Physical Therapists
+65,27-3011.00,Radio and Television Announcers
+65,33-3051.03,Sheriffs and Deputy Sheriffs
+64,29-9091.00,Athletic Trainers
+64,41-2011.00,Cashiers
+64,39-4011.00,Embalmers
+64,19-4011.02,Food Science Technicians
+64,19-4041.02,Geological Sample Test Technicians
+64,43-4111.00,"Interviewers, Except Eligibility and Loan"
+64,25-4013.00,Museum Technicians and Conservators
+64,19-4051.01,Nuclear Equipment Operation Technicians
+64,51-8093.00,"Petroleum Pump System Operators, Refinery Operators, and Gaugers"
+64,27-4021.00,Photographers
+64,29-1071.00,Physician Assistants
+64,51-5111.00,Prepress Technicians and Workers
+63,29-1125.01,Art Therapists
+63,27-4012.00,Broadcast Technicians
+63,51-9021.00,"Crushing, Grinding, and Polishing Machine Setters, Operators, and Tenders"
+63,35-9011.00,Dining Room and Cafeteria Attendants and Bartender Helpers
+63,47-1011.00,First-Line Supervisors of Construction Trades and Extraction Workers
+63,11-9051.00,Food Service Managers
+63,43-3041.00,Gaming Cage Workers
+63,17-1022.01,Geodetic Surveyors
+63,43-4121.00,"Library Assistants, Clerical"
+63,17-3029.01,Non-Destructive Testing Specialists
+63,29-1122.00,Occupational Therapists
+63,19-4099.03,Remote Sensing Technicians
+63,27-3042.00,Technical Writers
+63,41-9041.00,Telemarketers
+62,19-4011.01,Agricultural Technicians
+62,33-3012.00,Correctional Officers and Jailers
+62,41-1011.00,First-Line Supervisors of Retail Sales Workers
+62,35-3041.00,"Food Servers, Nonrestaurant"
+62,33-2022.00,Forest Fire Inspectors and Prevention Specialists
+62,13-1032.00,"Insurance Appraisers, Auto Damage"
+62,53-3033.00,Light Truck or Delivery Services Drivers
+62,17-3029.09,Manufacturing Production Technicians
+62,31-9092.00,Medical Assistants
+62,39-2021.00,Nonfarm Animal Caretakers
+62,31-2012.00,Occupational Therapy Aides
+62,31-2021.00,Physical Therapist Assistants
+61,43-6011.00,Executive Secretaries and Executive Administrative Assistants
+61,51-4061.00,"Model Makers, Metal and Plastic"
+61,19-1029.02,Molecular and Cellular Biologists
+61,31-2011.00,Occupational Therapy Assistants
+61,29-1069.08,Physical Medicine and Rehabilitation Physicians
+61,33-3051.01,Police Patrol Officers
+61,51-8012.00,Power Distributors and Dispatchers
+61,27-1027.00,Set and Exhibit Designers
+60,45-2091.00,Agricultural Equipment Operators
+60,53-2022.00,Airfield Operations Specialists
+60,19-4021.00,Biological Technicians
+60,43-9011.00,Computer Operators
+60,15-1141.00,Database Administrators
+60,17-3029.03,Electromechanical Engineering Technologists
+60,15-1199.04,Geospatial Information Scientists and Technologists
+60,49-9099.01,Geothermal Technicians
+60,13-1071.00,Human Resources Specialists
+60,17-3031.02,Mapping Technicians
+60,27-2012.03,Program Directors
+60,29-1141.00,Registered Nurses
+60,53-7073.00,Wellhead Pumpers
+59,11-9013.03,Aquacultural Managers
+59,19-2031.00,Chemists
+59,35-9021.00,Dishwashers
+59,29-2041.00,Emergency Medical Technicians and Paramedics
+59,27-2041.01,Music Directors
+59,17-3029.11,Nanotechnology Engineering Technologists
+59,51-8011.00,Nuclear Power Reactor Operators
+59,29-1051.00,Pharmacists
+59,11-3051.01,Quality Control Systems Managers
+58,53-1011.00,Aircraft Cargo Handling Supervisors
+58,17-3012.01,Electronic Drafters
+58,37-1012.00,"First-Line Supervisors of Landscaping, Lawn Service, and Groundskeeping Workers"
+58,33-3021.05,Immigration and Customs Inspectors
+58,25-4031.00,Library Technicians
+58,43-2011.00,"Switchboard Operators, Including Answering Service"
+58,15-1199.11,Video Game Designers
+57,45-1011.06,First-Line Supervisors of Aquacultural Workers
+57,33-3031.00,Fish and Game Wardens
+57,43-4081.00,"Hotel, Motel, and Resort Desk Clerks"
+57,33-1021.01,Municipal Fire Fighting and Prevention Supervisors
+57,29-1161.00,Nurse Midwives
+57,53-5021.03,"Pilots, Ship"
+56,19-3091.02,Archeologists
+56,15-1121.01,Informatics Nurse Specialists
+56,13-1031.02,"Insurance Adjusters, Examiners, and Investigators"
+56,29-1063.00,"Internists, General"
+56,15-2091.00,Mathematical Technicians
+55,43-4011.00,Brokerage Clerks
+55,17-2072.00,"Electronics Engineers, Except Computer"
+55,45-2093.00,"Farmworkers, Farm, Ranch, and Aquacultural Animals"
+55,19-4092.00,Forensic Science Technicians
+55,31-1014.00,Nursing Assistants
+55,33-9099.02,Retail Loss Prevention Specialists
+55,43-5071.00,"Shipping, Receiving, and Traffic Clerks"
+55,43-3021.01,Statement Clerks
+55,15-1134.00,Web Developers
+54,33-9011.00,Animal Control Workers
+54,39-2011.00,Animal Trainers
+54,17-1011.00,"Architects, Except Landscape and Naval"
+54,43-3021.02,"Billing, Cost, and Rate Clerks"
+54,19-1021.00,Biochemists and Biophysicists
+54,15-1131.00,Computer Programmers
+54,43-5032.00,"Dispatchers, Except Police, Fire, and Ambulance"
+54,33-2021.02,Fire Investigators
+54,41-2012.00,Gaming Change Persons and Booth Cashiers
+54,19-4099.02,Precision Agriculture Technicians
+54,53-4031.00,Railroad Conductors and Yardmasters
+54,41-3031.03,Securities and Commodities Traders
+54,15-1199.03,Web Administrators
+53,15-1152.00,Computer Network Support Specialists
+53,41-2021.00,Counter and Rental Clerks
+53,25-1081.00,"Education Teachers, Postsecondary"
+53,49-1011.00,"First-Line Supervisors of Mechanics, Installers, and Repairers"
+53,33-1012.00,First-Line Supervisors of Police and Detectives
+53,43-4031.03,License Clerks
+53,43-4031.02,Municipal Clerks
+53,19-4051.02,Nuclear Monitoring Technicians
+53,41-2031.00,Retail Salespersons
+53,15-1199.10,Search Marketing Strategists
+53,53-6041.00,Traffic Technicians
+53,33-3052.00,Transit and Railroad Police
+53,11-3071.01,Transportation Managers
+52,39-6011.00,Baggage Porters and Bellhops
+52,33-3011.00,Bailiffs
+52,11-9013.02,Farm and Ranch Managers
+52,17-3026.00,Industrial Engineering Technicians
+52,15-1122.00,Information Security Analysts
+52,17-2121.02,Marine Architects
+52,17-3013.00,Mechanical Drafters
+52,17-3029.07,Mechanical Engineering Technologists
+52,29-2071.00,Medical Records and Health Information Technicians
+52,41-9031.00,Sales Engineers
+52,53-6061.00,"Transportation Attendants, Except Flight Attendants"
+51,29-1141.01,Acute Care Nurses
+51,11-9199.02,Compliance Managers
+51,11-9039.01,Distance Learning Coordinators
+51,51-8092.00,Gas Plant Operators
+51,31-1011.00,Home Health Aides
+51,43-6013.00,Medical Secretaries
+51,43-9061.00,"Office Clerks, General"
+51,43-4181.00,Reservation and Transportation Ticket Agents and Travel Clerks
+51,27-2042.01,Singers
+51,13-2082.00,Tax Preparers
+50,23-1021.00,"Administrative Law Judges, Adjudicators, and Hearing Officers"
+50,19-1029.01,Bioinformatics Scientists
+50,13-2041.00,Credit Analysts
+50,19-4091.00,"Environmental Science and Protection Technicians, Including Health"
+50,29-2061.00,Licensed Practical and Licensed Vocational Nurses
+50,13-2071.01,Loan Counselors
+50,17-2121.01,Marine Engineers
+50,17-2141.00,Mechanical Engineers
+50,11-9013.01,Nursery and Greenhouse Managers
+50,43-9071.00,"Office Machine Operators, Except Computer"
+50,25-2011.00,"Preschool Teachers, Except Special Education"
+50,43-5061.00,"Production, Planning, and Expediting Clerks"
+50,47-1011.03,Solar Energy Installation Managers
+50,39-7012.00,Travel Guides
+49,25-2059.01,Adapted Physical Education Specialists
+49,43-3031.00,"Bookkeeping, Accounting, and Auditing Clerks"
+49,25-2032.00,"Career/Technical Education Teachers, Secondary School"
+49,27-1021.00,Commercial and Industrial Designers
+49,11-3021.00,Computer and Information Systems Managers
+49,43-4031.01,Court Clerks
+49,43-9021.00,Data Entry Keyers
+49,15-1199.06,Database Architects
+49,33-3021.06,Intelligence Analysts
+49,25-1072.00,"Nursing Instructors and Teachers, Postsecondary"
+49,33-3021.02,Police Identification and Records Officers
+49,31-1013.00,Psychiatric Aides
+49,31-9099.01,Speech-Language Pathology Assistants
+49,15-1143.01,Telecommunications Engineering Specialists
+49,39-3031.00,"Ushers, Lobby Attendants, and Ticket Takers"
+49,51-8031.00,Water and Wastewater Treatment Plant and System Operators
+48,11-3051.04,Biomass Power Plant Managers
+48,21-1094.00,Community Health Workers
+48,11-3111.00,Compensation and Benefits Managers
+48,17-3012.02,Electrical Drafters
+48,19-1042.00,"Medical Scientists, Except Epidemiologists"
+48,29-9099.01,Midwives
+48,29-1171.00,Nurse Practitioners
+48,27-3043.05,"Poets, Lyricists and Creative Writers"
+48,43-6014.00,"Secretaries and Administrative Assistants, Except Legal, Medical, and Executive"
+48,47-4091.00,Segmental Pavers
+48,25-3021.00,Self-Enrichment Education Teachers
+48,51-2093.00,Timing Device Assemblers and Adjusters
+48,25-1194.00,"Vocational Education Teachers, Postsecondary"
+47,43-4051.00,Customer Service Representatives
+47,27-3041.00,Editors
+47,13-1199.01,Energy Auditors
+47,45-1011.07,First-Line Supervisors of Agricultural Crop and Horticultural Workers
+47,43-9041.02,Insurance Policy Processing Clerks
+47,13-2053.00,Insurance Underwriters
+47,17-2199.06,Microsystems Engineers
+47,29-1069.05,Nuclear Medicine Physicians
+47,43-4151.00,Order Clerks
+47,33-3021.01,Police Detectives
+47,15-1199.01,Software Quality Assurance Engineers and Testers
+46,45-2021.00,Animal Breeders
+46,25-4011.00,Archivists
+46,11-9041.01,Biofuels/Biodiesel Technology and Product Development Managers
+46,15-1199.02,Computer Systems Engineers/Architects
+46,17-3025.00,Environmental Engineering Technicians
+46,53-1021.00,"First-Line Supervisors of Helpers, Laborers, and Material Movers, Hand"
+46,39-1011.00,Gaming Supervisors
+46,43-9041.01,Insurance Claims Clerks
+46,43-4131.00,Loan Interviewers and Clerks
+46,23-2093.00,"Title Examiners, Abstractors, and Searchers"
+45,53-1031.00,First-Line Supervisors of Transportation and Material-Moving Machine and Vehicle Operators
+45,39-9031.00,Fitness Trainers and Aerobics Instructors
+45,35-9031.00,"Hosts and Hostesses, Restaurant, Lounge, and Coffee Shop"
+45,43-6012.00,Legal Secretaries
+45,13-1041.02,Licensing Examiners and Inspectors
+45,39-4031.00,"Morticians, Undertakers, and Funeral Directors"
+45,17-2199.09,Nanosystems Engineers
+45,17-2199.08,Robotics Engineers
+45,11-3071.02,Storage and Distribution Managers
+44,25-2023.00,"Career/Technical Education Teachers, Middle School"
+44,29-1141.04,Clinical Nurse Specialists
+44,15-1111.00,Computer and Information Research Scientists
+44,47-4011.00,Construction and Building Inspectors
+44,15-1199.12,Document Management Specialists
+44,29-1128.00,Exercise Physiologists
+44,45-4011.00,Forest and Conservation Workers
+44,25-4021.00,Librarians
+44,17-3027.00,Mechanical Engineering Technicians
+44,23-2011.00,Paralegals and Legal Assistants
+44,17-2199.11,Solar Energy Systems Engineers
+44,43-9022.00,Word Processors and Typists
+43,13-1011.00,"Agents and Business Managers of Artists, Performers, and Athletes"
+43,11-9031.00,"Education Administrators, Preschool and Childcare Center/Program"
+43,29-1122.01,"Low Vision Therapists, Orientation and Mobility Specialists, and Vision Rehabilitation Therapists"
+43,11-9111.00,Medical and Health Services Managers
+43,13-1121.00,"Meeting, Convention, and Event Planners"
+43,29-1069.07,Pathologists
+43,29-2053.00,Psychiatric Technicians
+43,27-3022.00,Reporters and Correspondents
+43,25-2051.00,"Special Education Teachers, Preschool"
+42,25-1121.00,"Art, Drama, and Music Teachers, Postsecondary"
+42,33-1011.00,First-Line Supervisors of Correctional Officers
+42,19-1032.00,Foresters
+42,19-3093.00,Historians
+42,25-2012.00,"Kindergarten Teachers, Except Special Education"
+42,33-9092.00,"Lifeguards, Ski Patrol, and Other Recreational Protective Service Workers"
+42,43-3051.00,Payroll and Timekeeping Clerks
+42,33-9021.00,Private Detectives and Investigators
+42,19-4099.01,Quality Control Analysts
+41,19-2021.00,Atmospheric and Space Scientists
+41,17-3022.00,Civil Engineering Technicians
+41,13-1031.01,"Claims Examiners, Property and Casualty Insurance"
+41,17-2061.00,Computer Hardware Engineers
+41,43-4041.01,Credit Authorizers
+41,41-3099.01,Energy Brokers
+41,11-3031.02,"Financial Managers, Branch or Department"
+41,51-1011.00,First-Line Supervisors of Production and Operating Workers
+41,17-3029.05,Industrial Engineering Technologists
+41,19-2032.00,Materials Scientists
+41,29-1065.00,"Pediatricians, General"
+41,29-1125.00,Recreational Therapists
+41,41-3031.02,"Sales Agents, Financial Services"
+41,25-3099.02,Tutors
+40,25-1061.00,"Anthropology and Archeology Teachers, Postsecondary"
+40,17-3011.01,Architectural Drafters
+40,13-1041.06,Coroners
+40,13-2099.01,Financial Quantitative Analysts
+40,17-1012.00,Landscape Architects
+40,11-3071.03,Logistics Managers
+40,17-3029.06,Manufacturing Engineering Technologists
+40,39-9011.01,Nannies
+40,19-3039.01,Neuropsychologists and Clinical Neuropsychologists
+40,17-2072.01,Radio Frequency Identification Device Specialists
+40,41-4012.00,"Sales Representatives, Wholesale and Manufacturing, Except Technical and Scientific Products"
+40,13-2081.00,"Tax Examiners and Collectors, and Revenue Agents"
+40,17-2051.01,Transportation Engineers
+39,13-2021.01,Assessors
+39,15-2041.01,Biostatisticians
+39,27-3021.00,Broadcast News Analysts
+39,33-3021.03,Criminal Investigators and Special Agents
+39,11-3121.00,Human Resources Managers
+39,19-2099.01,Remote Sensing Scientists and Technologists
+39,11-9151.00,Social and Community Service Managers
+39,19-1013.00,Soil and Plant Scientists
+38,11-9041.00,Architectural and Engineering Managers
+38,25-9011.00,Audio-Visual and Multimedia Collections Specialists
+38,11-3051.03,Biofuels Production Managers
+38,17-3029.02,Electrical Engineering Technologists
+38,19-1012.00,Food Scientists and Technologists
+38,19-1029.03,Geneticists
+38,25-9031.01,Instructional Designers and Technologists
+38,23-1011.00,Lawyers
+38,17-2131.00,Materials Engineers
+38,27-2012.01,Producers
+38,53-1021.01,Recycling Coordinators
+38,11-9199.07,Security Managers
+37,25-1051.00,"Atmospheric, Earth, Marine, and Space Sciences Teachers, Postsecondary"
+37,25-1122.00,"Communications Teachers, Postsecondary"
+37,13-1041.03,Equal Opportunity Representatives and Officers
+37,19-3092.00,Geographers
+37,11-3051.06,Hydroelectric Production Managers
+37,17-2199.07,Photonics Engineers
+37,21-1092.00,Probation Officers and Correctional Treatment Specialists
+37,27-2023.00,"Umpires, Referees, and Other Sports Officials"
+36,17-2141.02,Automotive Engineers
+36,13-2031.00,Budget Analysts
+36,27-2022.00,Coaches and Scouts
+36,15-1151.00,Computer User Support Specialists
+36,25-4012.00,Curators
+36,41-9091.00,"Door-To-Door Sales Workers, News and Street Vendors, and Related Workers"
+36,13-1074.00,Farm Labor Contractors
+36,17-2141.01,Fuel Cell Engineers
+36,39-4021.00,Funeral Attendants
+36,11-1021.00,General and Operations Managers
+36,19-4041.01,Geophysical Data Technicians
+36,43-4161.00,"Human Resources Assistants, Except Payroll and Timekeeping"
+36,17-2111.01,Industrial Safety and Health Engineers
+36,17-2199.04,Manufacturing Engineers
+36,11-9121.00,Natural Sciences Managers
+36,15-1142.00,Network and Computer Systems Administrators
+36,25-2053.00,"Special Education Teachers, Middle School"
+36,13-1022.00,"Wholesale and Retail Buyers, Except Farm Products"
+36,11-9199.09,Wind Energy Operations Managers
+35,25-1031.00,"Architecture Teachers, Postsecondary"
+35,13-1141.00,"Compensation, Benefits, and Job Analysis Specialists"
+35,27-3043.04,Copy Writers
+35,27-2012.02,"Directors- Stage, Motion Pictures, Television, and Radio"
+35,11-9032.00,"Education Administrators, Elementary and Secondary School"
+35,19-2041.02,Environmental Restoration Planners
+35,43-1011.00,First-Line Supervisors of Office and Administrative Support Workers
+35,53-6051.08,Freight and Cargo Inspectors
+35,25-2022.00,"Middle School Teachers, Except Special and Career/Technical Education"
+35,17-2171.00,Petroleum Engineers
+35,39-1021.01,Spa Managers
+34,25-3011.00,Adult Basic and Secondary Education and Literacy Teachers and Instructors
+34,17-2021.00,Agricultural Engineers
+34,17-2031.00,Biomedical Engineers
+34,39-9011.00,Childcare Workers
+34,15-2041.02,Clinical Data Managers
+34,35-2011.00,"Cooks, Fast Food"
+34,43-4021.00,Correspondence Clerks
+34,27-2031.00,Dancers
+34,39-1021.00,First-Line Supervisors of Personal Service Workers
+34,25-1043.00,"Forestry and Conservation Science Teachers, Postsecondary"
+34,29-1069.03,Hospitalists
+34,19-1031.03,Park Naturalists
+34,13-2052.00,Personal Financial Advisors
+34,17-2111.03,Product Safety Engineers
+34,43-4171.00,Receptionists and Information Clerks
+34,15-1133.00,"Software Developers, Systems Software"
+34,39-7011.00,Tour Guides and Escorts
+34,11-9121.02,Water Resource Specialists
+34,19-1023.00,Zoologists and Wildlife Biologists
+33,29-1069.01,Allergists and Immunologists
+33,19-1011.00,Animal Scientists
+33,17-2051.00,Civil Engineers
+33,39-6012.00,Concierges
+33,43-5011.01,Freight Forwarders
+33,19-2043.00,Hydrologists
+33,11-2021.00,Marketing Managers
+33,29-9011.00,Occupational Health and Safety Specialists
+33,39-9021.00,Personal Care Aides
+33,43-3061.00,Procurement Clerks
+33,41-4011.00,"Sales Representatives, Wholesale and Manufacturing, Technical and Scientific Products"
+33,19-1031.01,Soil and Water Conservationists
+33,21-1011.00,Substance Abuse and Behavioral Disorder Counselors
+32,11-9161.00,Emergency Management Directors
+32,13-2051.00,Financial Analysts
+32,11-3051.00,Industrial Production Managers
+32,19-1031.02,Range Managers
+32,11-3031.01,Treasurers and Controllers
+31,11-3011.00,Administrative Services Managers
+31,25-1042.00,"Biological Science Teachers, Postsecondary"
+31,25-1123.00,"English Language and Literature Teachers, Postsecondary"
+31,19-2041.00,"Environmental Scientists and Specialists, Including Health"
+31,33-2021.01,Fire Inspectors
+31,25-1124.00,"Foreign Language and Literature Teachers, Postsecondary"
+31,19-3032.00,Industrial-Organizational Psychologists
+31,23-1023.00,"Judges, Magistrate Judges, and Magistrates"
+31,25-1022.00,"Mathematical Science Teachers, Postsecondary"
+31,17-2151.00,"Mining and Geological Engineers, Including Mining Safety Engineers"
+31,39-9032.00,Recreation Workers
+31,17-2199.02,Validation Engineers
+30,53-6051.01,Aviation Inspectors
+30,17-2199.01,Biochemical Engineers
+30,43-9111.01,Bioinformatics Technicians
+30,25-1032.00,"Engineering Teachers, Postsecondary"
+30,41-1012.00,First-Line Supervisors of Non-Retail Sales Workers
+30,19-2042.00,"Geoscientists, Except Hydrologists and Geographers"
+30,25-1191.00,Graduate Teaching Assistants
+30,25-1192.00,"Home Economics Teachers, Postsecondary"
+30,41-3031.01,"Sales Agents, Securities and Commodities"
+30,25-1113.00,"Social Work Teachers, Postsecondary"
+30,11-3131.00,Training and Development Managers
+29,25-1041.00,"Agricultural Sciences Teachers, Postsecondary"
+29,11-9199.11,Brownfield Redevelopment Specialists and Site Managers
+29,17-2041.00,Chemical Engineers
+29,13-2071.00,Credit Counselors
+29,13-1199.03,Customs Brokers
+29,15-1199.07,Data Warehousing Specialists
+29,25-2021.00,"Elementary School Teachers, Except Special Education"
+29,11-9071.00,Gaming Managers
+29,13-1041.04,Government Property Inspectors and Investigators
+29,17-2112.00,Industrial Engineers
+29,29-1199.04,Naturopathic Physicians
+29,25-2031.00,"Secondary School Teachers, Except Special and Career/Technical Education"
+29,21-1093.00,Social and Human Service Assistants
+28,13-2021.02,"Appraisers, Real Estate"
+28,43-3011.00,Bill and Account Collectors
+28,15-1199.08,Business Intelligence Analysts
+28,13-1021.00,"Buyers and Purchasing Agents, Farm Products"
+28,11-9121.01,Clinical Research Coordinators
+28,21-1012.00,"Educational, Guidance, School, and Vocational Counselors"
+28,25-1125.00,"History Teachers, Postsecondary"
+28,11-9199.03,Investment Fund Managers
+28,25-1082.00,"Library Science Teachers, Postsecondary"
+28,29-9012.00,Occupational Health and Safety Technicians
+28,13-1199.06,Online Merchants
+28,19-2012.00,Physicists
+28,25-1054.00,"Physics Teachers, Postsecondary"
+28,11-9141.00,"Property, Real Estate, and Community Association Managers"
+28,27-2012.04,Talent Directors
+27,27-2011.00,Actors
+27,11-2011.00,Advertising and Promotions Managers
+27,19-2011.00,Astronomers
+27,19-1020.01,Biologists
+27,43-4041.02,Credit Checkers
+27,25-1063.00,"Economics Teachers, Postsecondary"
+27,25-1053.00,"Environmental Science Teachers, Postsecondary"
+27,25-9021.00,Farm and Home Management Advisors
+27,29-1069.04,Neurologists
+27,25-2054.00,"Special Education Teachers, Secondary School"
+26,13-2011.02,Auditors
+26,21-1021.00,"Child, Family, and School Social Workers"
+26,25-1111.00,"Criminal Justice and Law Enforcement Teachers, Postsecondary"
+26,25-1071.00,"Health Specialties Teachers, Postsecondary"
+26,17-2112.01,Human Factors Engineers and Ergonomists
+26,25-2052.00,"Special Education Teachers, Kindergarten and Elementary School"
+25,41-3011.00,Advertising Sales Agents
+25,25-1052.00,"Chemistry Teachers, Postsecondary"
+25,19-2041.01,Climate Change Analysts
+25,15-1143.00,Computer Network Architects
+25,11-9021.00,Construction Managers
+25,29-1062.00,Family and General Practitioners
+25,13-2061.00,Financial Examiners
+25,11-9039.02,Fitness and Wellness Coordinators
+25,15-1199.09,Information Technology Project Managers
+25,13-2072.00,Loan Officers
+25,17-2161.00,Nuclear Engineers
+25,15-2031.00,Operations Research Analysts
+25,43-4051.03,Patient Representatives
+25,19-3031.01,School Psychologists
+25,13-1199.02,Security Management Specialists
+25,25-1067.00,"Sociology Teachers, Postsecondary"
+24,13-1051.00,Cost Estimators
+24,17-2081.00,Environmental Engineers
+24,27-1025.00,Interior Designers
+24,13-1081.02,Logistics Analysts
+24,11-9199.08,Loss Prevention Managers
+24,19-3094.00,Political Scientists
+24,25-1066.00,"Psychology Teachers, Postsecondary"
+24,11-3061.00,Purchasing Managers
+24,39-9041.00,Residential Advisors
+24,13-1151.00,Training and Development Specialists
+23,19-3091.01,Anthropologists
+23,13-1199.04,Business Continuity Planners
+23,25-1021.00,"Computer Science Teachers, Postsecondary"
+23,29-1031.00,Dietitians and Nutritionists
+23,17-2071.00,Electrical Engineers
+23,13-2099.04,"Fraud Examiners, Investigators and Analysts"
+23,41-3021.00,Insurance Sales Agents
+23,13-1081.00,Logisticians
+23,13-1081.01,Logistics Engineers
+23,41-9021.00,Real Estate Brokers
+23,41-9022.00,Real Estate Sales Agents
+23,13-1041.07,Regulatory Affairs Specialists
+23,15-2041.00,Statisticians
+23,19-3022.00,Survey Researchers
+23,11-9199.10,Wind Energy Project Managers
+22,17-2011.00,Aerospace Engineers
+22,11-1011.00,Chief Executives
+22,17-2199.03,Energy Engineers
+22,19-3011.01,Environmental Economists
+22,17-2111.02,Fire-Prevention and Protection Engineers
+22,25-1064.00,"Geography Teachers, Postsecondary"
+22,27-3031.00,Public Relations Specialists
+22,25-9041.00,Teacher Assistants
+21,15-2011.00,Actuaries
+21,43-4071.00,File Clerks
+21,11-9061.00,Funeral Service Managers
+21,25-1112.00,"Law Teachers, Postsecondary"
+21,29-1069.09,Preventive Medicine Physicians
+21,11-2031.00,Public Relations and Fundraising Managers
+21,11-9199.01,Regulatory Affairs Managers
+20,27-2032.00,Choreographers
+20,19-3011.00,Economists
+20,19-1041.00,Epidemiologists
+20,23-1012.00,Judicial Law Clerks
+20,11-9131.00,Postmasters and Mail Superintendents
+20,13-2099.02,Risk Management Specialists
+20,33-9032.00,Security Guards
+20,43-9111.00,Statistical Assistants
+20,11-9199.04,Supply Chain Managers
+20,19-3099.01,Transportation Planners
+19,13-2011.01,Accountants
+19,25-1062.00,"Area, Ethnic, and Cultural Studies Teachers, Postsecondary"
+19,11-1011.03,Chief Sustainability Officers
+19,19-2041.03,Industrial Ecologists
+19,13-1075.00,Labor Relations Specialists
+19,11-9081.00,Lodging Managers
+19,13-1023.00,"Purchasing Agents, Except Wholesale, Retail, and Farm Products"
+19,21-1015.00,Rehabilitation Counselors
+19,13-1199.05,Sustainability Specialists
+19,19-3051.00,Urban and Regional Planners
+19,17-2081.01,Water/Wastewater Engineers
+18,43-5011.00,Cargo and Freight Agents
+18,21-2011.00,Clergy
+18,11-9033.00,"Education Administrators, Postsecondary"
+18,13-1131.00,Fundraisers
+18,11-3051.02,Geothermal Production Managers
+18,21-1091.00,Health Educators
+18,21-1013.00,Marriage and Family Therapists
+18,15-2021.00,Mathematicians
+18,19-4061.00,Social Science Research Assistants
+18,41-4011.07,Solar Sales Representatives and Assessors
+17,25-1011.00,"Business Teachers, Postsecondary"
+17,13-1041.01,Environmental Compliance Inspectors
+17,29-1127.00,Speech-Language Pathologists
+17,17-2199.10,Wind Energy Engineers
+16,29-1141.02,Advanced Practice Psychiatric Nurses
+16,19-4061.01,City and Regional Planning Aides
+16,21-2021.00,"Directors, Religious Activities and Education"
+16,13-1161.00,Market Research Analysts and Marketing Specialists
+16,25-1193.00,"Recreation and Fitness Studies Teachers, Postsecondary"
+15,21-1022.00,Healthcare Social Workers
+15,25-9031.00,Instructional Coordinators
+15,19-3041.00,Sociologists
+14,17-2199.05,Mechatronics Engineers
+14,25-1126.00,"Philosophy and Religion Teachers, Postsecondary"
+13,19-3031.03,Counseling Psychologists
+13,29-9092.00,Genetic Counselors
+13,11-2022.00,Sales Managers
+12,21-1023.00,Mental Health and Substance Abuse Social Workers
+12,25-1065.00,"Political Science Teachers, Postsecondary"
+11,23-1022.00,"Arbitrators, Mediators, and Conciliators"
+11,21-1014.00,Mental Health Counselors
+8,27-3091.00,Interpreters and Translators
+8,13-1111.00,Management Analysts
+8,29-1066.00,Psychiatrists
+7,19-3031.02,Clinical Psychologists
+6,41-9012.00,Models

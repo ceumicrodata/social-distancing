@@ -21,3 +21,4 @@ download:
 	wget "https://www.onetonline.org/find/descriptor/result/4.A.4.b.1/Coordinating_the_Work_and_Activities_of_Others.csv?fmt=csv&a=1" -O Coordinating_the_Work_and_Activities_of_Others.csv
 	wget "https://www.onetonline.org/find/descriptor/result/4.A.4.b.2/Developing_and_Building_Teams.csv?fmt=csv&a=1" -O Developing_and_Building_Teams.csv
 	wget "https://www.onetonline.org/find/descriptor/result/4.A.4.b.4/Guiding_Directing_and_Motivating_Subordinates.csv?fmt=csv&a=1" -O Guiding_Directing_and_Motivating_Subordinates.csv	
+	wget "https://www.onetonline.org/find/descriptor/result/4.C.2.d.1.g/Spend_Time_Using_Your_Hands_to_Handle_Control_or_Feel_Objects_Tools_or_Controls.csv?fmt=csv&a=1" -O Spend_Time_Using_Your_Hands_to_Handle_Control_or_Feel_Objects_Tools_or_Controls.csv
