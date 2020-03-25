@@ -58,6 +58,16 @@ Millions of workers: 21.480918
 presence_s~e |113,049,400    7.431178    11.88543          0         65
 Millions of workers: 8.400902
 
+    Variable |        Obs        Mean    Std. Dev.       Min        Max
+-------------+---------------------------------------------------------
+communicat~e |113,049,400    28.75348    16.01613          3         61
+Millions of workers: 32.505633
+
+    Variable |        Obs        Mean    Std. Dev.       Min        Max
+-------------+---------------------------------------------------------
+affected_s~e |113,049,400    35.34991    17.46593          3         77
+Millions of workers: 39.962858
+
 . 
 . generate naics_2d = industry_code if industry_code<100
 (64 missing values generated)
@@ -77,9 +87,14 @@ Millions of workers: 8.400902
 (0 real changes made)
 (57 real changes made)
 (0 real changes made)
+(67 real changes made)
+(0 real changes made)
+(67 real changes made)
+(0 real changes made)
 
 . collapse (sum) employment (sum) teamwork_share customer_share presence_share 
-> customer_exposure (firstnm) industry_label, by(naics_2d)
+> communication_share affected_share customer_exposure (firstnm) industry_label
+> , by(naics_2d)
 
 . foreach X of var *_share {
   2.         replace `X' = `X' / employment
@@ -87,6 +102,8 @@ Millions of workers: 8.400902
 (23 real changes made)
 (23 real changes made)
 (21 real changes made)
+(23 real changes made)
+(23 real changes made)
 
 . gsort -customer_exposure
 
@@ -142,14 +159,14 @@ Millions of workers: 8.400902
 
 . import delimited "../data/derived/occupation/naics_risk.csv", varnames(1) cle
 > ar
-(4 vars, 74 obs)
+(6 vars, 74 obs)
 
 . tempfile occupation
 
 . save `occupation', replace
-(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St26299.000001 no
+(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St26383.000001 no
 > t found)
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St26299.000001 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St26383.000001 saved
 
 . 
 . use "../data/clean/cbp/zip_code_business_patterns.dta", clear
@@ -232,9 +249,15 @@ variable customer_share was byte now long
 variable presence_share was byte now long
 (81,693 real changes made)
 (0 real changes made)
+variable communication_share was byte now long
+(103,963 real changes made)
+(0 real changes made)
+variable affected_share was byte now long
+(103,963 real changes made)
+(0 real changes made)
 
-. collapse (sum) teamwork_share customer_share presence_share employment, by(in
-> dustry_code)
+. collapse (sum) teamwork_share customer_share presence_share communication_sha
+> re affected_share employment, by(industry_code)
 
 . foreach X of var *_share {
   2.         replace `X' = `X' / employment
@@ -242,6 +265,8 @@ variable presence_share was byte now long
 (67 real changes made)
 (67 real changes made)
 (57 real changes made)
+(67 real changes made)
+(67 real changes made)
 
 . replace employment = int(employment)
 (0 real changes made)
@@ -266,6 +291,16 @@ Millions of workers: 7.066313
 -------------+---------------------------------------------------------
 presence_s~e | 38,187,045    6.037439    10.28619          0         65
 Millions of workers: 2.3055194
+
+    Variable |        Obs        Mean    Std. Dev.       Min        Max
+-------------+---------------------------------------------------------
+communicat~e | 38,187,045    28.97909    16.33222          3         61
+Millions of workers: 11.066259
+
+    Variable |        Obs        Mean    Std. Dev.       Min        Max
+-------------+---------------------------------------------------------
+affected_s~e | 38,187,045     34.2961    17.92991          3         77
+Millions of workers: 13.096668
 
 . 
 end of do-file

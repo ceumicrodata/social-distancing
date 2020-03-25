@@ -18,7 +18,7 @@ egen cbp_employment = sum(employment / 1000), by(industry_code)
 corr cbp_employment ces_employment 
 assert r(rho)>0.98
 
-local vars  teamwork_share customer_share presence_share teamwork_exposure customer_exposure presence_exposure population_density employment_density plant_size
+local vars  teamwork_share customer_share presence_share communication_share affected_share teamwork_exposure customer_exposure presence_exposure population_density employment_density plant_size
 keep industry_code industry_label `vars'
 order industry_code industry_label `vars'
 
@@ -39,6 +39,8 @@ foreach X of var *_density plant_size ces_employment {
 label variable teamwork_share "Workers in teamwork-intensive occupations (percent)"
 label variable customer_share "Workers in customer-facing occupations (percent)"
 label variable presence_share "Workers in occupations requiring physical presence (percent)"
+label variable communication_share "Workers in communication-intensive occupations (percent)"
+label variable affected_share "Workers in any of the three groups (percent)"
 
 label variable teamwork_exposure "Teamwork exposure to social distancing"
 label variable customer_exposure "Customer contact exposure to social distancing"

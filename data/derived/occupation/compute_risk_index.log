@@ -39,6 +39,18 @@ Notes:
 . local presence move operate repair_elect repair_mechanic inspect
 
 . 
+. * face2face daily
+. local teamwork_context (face2face >= 87.5)
+
+. local customer_context (face2face >= 87.5)
+
+. * share office or more desne
+. local presence_context (proximity >= 37.5)
+
+. * for tasks
+. local cutoff = 62.5
+
+. 
 . * explore correlations between components with a group
 . foreach G in teamwork customer presence {
   2.         scalar corr_`G' = 0
@@ -75,28 +87,20 @@ Correlation within presence: .68581597
 
 . 
 . foreach X of var teamwork customer presence {
-  2.         replace `X' = round(`X')
+  2.         replace `X' = ``X'_context' * (`X' >= `cutoff')
   3. }
-(601 real changes made)
-(622 real changes made)
-(635 real changes made)
+(764 real changes made)
+(764 real changes made)
+(764 real changes made)
 
-. label variable teamwork "Group communication index [0,100]"
+. label variable teamwork "Teamwork communication (dummy)"
 
-. label variable customer "Customer communication index [0,100]"
+. label variable customer "Customer communication (dummy)"
 
-. label variable presence "Physical presence index [0,100]"
-
-. * are these contacts face to face? This is a multiplier because if F2F=0, the
-> n none of the above is relevant
-. * Does this require proximity to others? Otherwise not subject to social dist
-> ancing 
-. label variable face2face "Context: face-to-face [0,100]"
-
-. label variable proximity "Context: proximity to others [0,100]"
+. label variable presence "Physical presence (dummy)"
 
 . 
-. keep SOCCode Description teamwork customer presence face2face proximity
+. keep SOCCode Description teamwork customer presence
 
 . compress
   variable teamwork was float now byte

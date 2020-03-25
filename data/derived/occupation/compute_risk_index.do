@@ -8,6 +8,14 @@ local teamwork group consult coordinate team guide
 local customer customers public care interpersonal consult
 local presence move operate repair_elect repair_mechanic inspect
 
+* face2face daily
+local teamwork_context (face2face >= 87.5)
+local customer_context (face2face >= 87.5)
+* share office or more desne
+local presence_context (proximity >= 37.5)
+* for tasks
+local cutoff = 62.5
+
 * explore correlations between components with a group
 foreach G in teamwork customer presence {
 	scalar corr_`G' = 0
@@ -36,17 +44,13 @@ egen customer = rowmean(`customer')
 egen presence = rowmean(`presence')
 
 foreach X of var teamwork customer presence {
-	replace `X' = round(`X')
+	replace `X' = ``X'_context' * (`X' >= `cutoff')
 }
-label variable teamwork "Group communication index [0,100]"
-label variable customer "Customer communication index [0,100]"
-label variable presence "Physical presence index [0,100]"
-* are these contacts face to face? This is a multiplier because if F2F=0, then none of the above is relevant
-* Does this require proximity to others? Otherwise not subject to social distancing 
-label variable face2face "Context: face-to-face [0,100]"
-label variable proximity "Context: proximity to others [0,100]"
+label variable teamwork "Teamwork communication (dummy)"
+label variable customer "Customer communication (dummy)"
+label variable presence "Physical presence (dummy)"
 
-keep SOCCode Description teamwork customer presence face2face proximity
+keep SOCCode Description teamwork customer presence
 compress
 
 save "risks.dta", replace

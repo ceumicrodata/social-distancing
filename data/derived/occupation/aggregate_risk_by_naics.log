@@ -30,17 +30,6 @@ Notes:
 . 
 . local indexes teamwork customer presence
 
-. * face2face daily
-. local teamwork_context (face2face >= 0.5*(75+100))
-
-. local customer_context (face2face >= 0.5*(75+100))
-
-. * share office or more desne
-. local presence_context (proximity >= 0.5*(25+50))
-
-. * for tasks
-. local cutoff = 0.5*(50+75)
-
 . 
 . merge m:1 SOCCode using "risks.dta", keep(master match) nogen
 
@@ -68,18 +57,25 @@ Notes:
   (51,296 bytes saved)
 
 . 
-. foreach X of var `indexes' {
+. * both or all three
+. generate byte communication = teamwork|customer
+
+. generate byte affected = communication|presence
+
+. 
+. foreach X of var `indexes'  communication affected {
   2.         * index is high and context implies face2face
-.         generate double `X'_share = ``X'_context' * (`X' >= `cutoff') * Emplo
-> yment
+.         generate double `X'_share = `X' * Employment
   3. }
 
-. collapse (sum) Employment teamwork_share customer_share presence_share, by(in
-> dustry_code)
+. collapse (sum) Employment teamwork_share customer_share presence_share commun
+> ication_share affected_share, by(industry_code)
 
-. foreach X in `indexes' {
+. foreach X in `indexes'  communication affected {
   2.         replace `X'_share = round(`X'_share / Employment * 100)
   3. }
+(74 real changes made)
+(74 real changes made)
 (74 real changes made)
 (74 real changes made)
 (74 real changes made)
