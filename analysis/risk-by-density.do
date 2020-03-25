@@ -4,12 +4,12 @@ local indexes teamwork_share customer_share presence_share teamwork_exposure cus
 do "industry_location_panel.do"
 do "calculate-exposure.do"
 
-collapse (first) population_density employment_density (mean) `indexes' plant_size [aw=employment], by(zip)
-
+generate egy = 1
+collapse (first) population_density employment_density (mean) `indexes' plant_size (sum) employment=egy [aw=employment], by(zip)
 * merge coordinates
 merge 1:1 zip using "../data/clean/geonames/us-zip-codes.dta", nogen keep(master match)
 
-local vars zip latitude longitude population_density employment_density plant_size `indexes' 
+local vars zip latitude longitude population_density employment_density plant_size  `indexes' 
 keep `vars'
 order `vars'
 * round values for presentation
@@ -24,10 +24,13 @@ foreach X of var latitude longitude {
 
 gsort -teamwork_exposure
 list in 1/10
+generate zip_code = string(zip,"%05.0f")
+drop zip
+order zip_code
 export delimited "../data/derived/location-index.csv", replace
 
 *drop rural areas, CBP is not representative for these
-drop if population_density<5
+drop if population_density<10
 
 generate ln_density = ln(population_density)
 foreach X of var *_share *_exposure {

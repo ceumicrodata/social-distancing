@@ -25,13 +25,27 @@ Notes:
 
 . clear all
 
-. local indexes group_share customer_share presence_share
+. local indexes teamwork_share customer_share presence_share teamwork_exposure 
+> customer_exposure presence_exposure
+
+. 
+. do "industry_location_panel.do"
+
+. import delimited "../data/derived/occupation/naics_risk.csv", varnames(1) cle
+> ar
+(4 vars, 74 obs)
+
+. tempfile occupation
+
+. save `occupation', replace
+(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St26084.000001 no
+> t found)
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St26084.000001 saved
 
 . 
 . use "../data/clean/cbp/zip_code_business_patterns.dta", clear
 
-. merge m:1 industry_code using  "../data/derived/industry-index.dta", keep(mat
-> ch) nogen
+. merge m:1 industry_code using `occupation', keep(match) nogen
 
     Result                           # of obs.
     -----------------------------------------
@@ -40,10 +54,242 @@ Notes:
     -----------------------------------------
 
 . 
-. collapse (first) population_density employment_density median_density (mean) 
-> `indexes' [fw=employment], by(zip)
-variable median_density not found
-r(111);
-
 end of do-file
-r(111);
+
+. do "calculate-exposure.do"
+
+. generate teamwork_exposure = teamwork_share/100 * ln(employment_density)
+(5,654 missing values generated)
+
+. generate customer_exposure = customer_share/100 * ln(population_density)
+(6,099 missing values generated)
+
+. generate presence_exposure = presence_share/100 * ln(plant_size)
+
+. 
+. foreach X of var *_exposure {
+  2.         summarize `X'
+  3.         replace `X' = round(`X'/r(max)*100)
+  4. }
+
+    Variable |        Obs        Mean    Std. Dev.       Min        Max
+-------------+---------------------------------------------------------
+teamwork_e~e |    370,935    .8536221    .6850916  -1.523123   5.519412
+(370,935 real changes made)
+
+    Variable |        Obs        Mean    Std. Dev.       Min        Max
+-------------+---------------------------------------------------------
+customer_e~e |    370,490    1.192858     .985739  -2.095043   6.515367
+(370,490 real changes made)
+
+    Variable |        Obs        Mean    Std. Dev.       Min        Max
+-------------+---------------------------------------------------------
+presence_e~e |    376,589    .1934092    .2864322          0    3.19715
+(302,589 real changes made)
+
+. 
+. label variable teamwork_exposure "Social distancing effect on teamwork [0,100
+> ]"
+
+. label variable customer_exposure "Social distancing effect on customer contac
+> t [0,100]"
+
+. label variable presence_exposure "Social distancing effect on physical presen
+> ce [0,100]"
+
+. 
+. 
+end of do-file
+
+. 
+. generate egy = 1
+
+. collapse (first) population_density employment_density (mean) `indexes' plant
+> _size (sum) employment=egy [aw=employment], by(zip)
+
+. * merge coordinates
+. merge 1:1 zip using "../data/clean/geonames/us-zip-codes.dta", nogen keep(mas
+> ter match)
+
+    Result                           # of obs.
+    -----------------------------------------
+    not matched                             1
+        from master                         1  
+        from using                          0  
+
+    matched                            26,810  
+    -----------------------------------------
+
+. 
+. local vars zip latitude longitude population_density employment_density plant
+> _size  `indexes' 
+
+. keep `vars'
+
+. order `vars'
+
+. * round values for presentation
+. replace plant_size = plant_size*10
+(26,811 real changes made)
+
+. foreach X of var population_density employment_density plant_size `indexes' {
+  2.         replace `X' = round(`X')
+  3. }
+(24,293 real changes made)
+(24,380 real changes made)
+(25,123 real changes made)
+(22,249 real changes made)
+(22,249 real changes made)
+(22,076 real changes made)
+(20,565 real changes made)
+(20,833 real changes made)
+(21,927 real changes made)
+
+. replace plant_size = plant_size/10
+(26,811 real changes made)
+
+. foreach X of var latitude longitude {
+  2.         replace `X' = round(`X'*10000)/10000
+  3. }
+(0 real changes made)
+(0 real changes made)
+
+. 
+. gsort -teamwork_exposure
+
+. list in 1/10
+
+     +-----------------------------------------------------------------+
+  1. |   zip | latitude | longitude | popula~y | employ~y  | plant_~e  |
+     | 10271 |  40.7089 |  -74.0111 |        0 |   935979  |     40.5  |
+     |-----------------------------------------------------------------|
+     | team~are | cust~are | pres~are | team~ure | cust~ure | pres~ure |
+     |       36 |       24 |        1 |       89 |        . |        1 |
+     +-----------------------------------------------------------------+
+
+     +-----------------------------------------------------------------+
+  2. |   zip | latitude | longitude | popula~y | employ~y  | plant_~e  |
+     | 98164 |   47.606 |  -122.332 |    15385 |   314021  |     22.4  |
+     |-----------------------------------------------------------------|
+     | team~are | cust~are | pres~are | team~ure | cust~ure | pres~ure |
+     |       38 |       18 |        1 |       87 |       28 |        1 |
+     +-----------------------------------------------------------------+
+
+     +-----------------------------------------------------------------+
+  3. |   zip | latitude | longitude | popula~y | employ~y  | plant_~e  |
+     | 10279 |  40.7127 |  -74.0078 |        0 |   189634  |     17.9  |
+     |-----------------------------------------------------------------|
+     | team~are | cust~are | pres~are | team~ure | cust~ure | pres~ure |
+     |       39 |       19 |        2 |       85 |        . |        1 |
+     +-----------------------------------------------------------------+
+
+     +-----------------------------------------------------------------+
+  4. |   zip | latitude | longitude | popula~y | employ~y  | plant_~e  |
+     | 17822 |  40.9674 |  -76.6049 |        0 |    27867  |     1028  |
+     |-----------------------------------------------------------------|
+     | team~are | cust~are | pres~are | team~ure | cust~ure | pres~ure |
+     |       45 |       56 |        2 |       84 |        . |        4 |
+     +-----------------------------------------------------------------+
+
+     +-----------------------------------------------------------------+
+  5. |   zip | latitude | longitude | popula~y | employ~y  | plant_~e  |
+     | 19109 |  39.9496 |  -75.1637 |        0 |   210909  |     16.4  |
+     |-----------------------------------------------------------------|
+     | team~are | cust~are | pres~are | team~ure | cust~ure | pres~ure |
+     |       35 |       19 |        1 |       77 |        . |        1 |
+     +-----------------------------------------------------------------+
+
+     +-----------------------------------------------------------------+
+  6. |   zip | latitude | longitude | popula~y | employ~y  | plant_~e  |
+     | 10177 |  40.7553 |  -73.9761 |        0 |   469471  |     13.1  |
+     |-----------------------------------------------------------------|
+     | team~are | cust~are | pres~are | team~ure | cust~ure | pres~ure |
+     |       32 |       17 |        1 |       76 |        . |        1 |
+     +-----------------------------------------------------------------+
+
+     +-----------------------------------------------------------------+
+  7. |   zip | latitude | longitude | popula~y | employ~y  | plant_~e  |
+     | 70163 |    29.95 |  -90.0755 |        0 |   179706  |     15.2  |
+     |-----------------------------------------------------------------|
+     | team~are | cust~are | pres~are | team~ure | cust~ure | pres~ure |
+     |       34 |       19 |        1 |       75 |        . |        1 |
+     +-----------------------------------------------------------------+
+
+     +-----------------------------------------------------------------+
+  8. |   zip | latitude | longitude | popula~y | employ~y  | plant_~e  |
+     | 70139 |  29.9546 |  -90.0751 |        0 |   158857  |     25.2  |
+     |-----------------------------------------------------------------|
+     | team~are | cust~are | pres~are | team~ure | cust~ure | pres~ure |
+     |       35 |       18 |        1 |       75 |        . |        1 |
+     +-----------------------------------------------------------------+
+
+     +-----------------------------------------------------------------+
+  9. |   zip | latitude | longitude | popula~y | employ~y  | plant_~e  |
+     | 80290 |  39.7436 | -104.9876 |        0 |    41665  |     15.5  |
+     |-----------------------------------------------------------------|
+     | team~are | cust~are | pres~are | team~ure | cust~ure | pres~ure |
+     |       38 |       18 |        1 |       73 |        . |        1 |
+     +-----------------------------------------------------------------+
+
+     +-----------------------------------------------------------------+
+ 10. |   zip | latitude | longitude | popula~y | employ~y  | plant_~e  |
+     | 48243 |  42.3314 |  -83.0458 |        0 |   159543  |     48.2  |
+     |-----------------------------------------------------------------|
+     | team~are | cust~are | pres~are | team~ure | cust~ure | pres~ure |
+     |       33 |       18 |        1 |       72 |        . |        1 |
+     +-----------------------------------------------------------------+
+
+. generate zip_code = string(zip,"%05.0f")
+
+. drop zip
+
+. order zip_code
+
+. export delimited "../data/derived/location-index.csv", replace
+file ../data/derived/location-index.csv saved
+
+. 
+. *drop rural areas, CBP is not representative for these
+. drop if population_density<10
+(4,388 observations deleted)
+
+. 
+. generate ln_density = ln(population_density)
+(2,428 missing values generated)
+
+. foreach X of var *_share *_exposure {
+  2.         lowess `X' ln_density, bw(0.5) generate(`X'_hat)
+  3. }
+
+. 
+. line teamwork_share_hat customer_share_hat presence_share_hat population_dens
+> ity, sort ///
+> b1title("(A)") ytitle("Share of workers (percent)") xtitle("Population densit
+> y (person/km2, log scale)") ///
+> scheme(s2mono) graphregion(color(white)) xscale(log) xlabel(10 100 1000 10000
+>  100000) ///
+> legend(order(1 "Teamwork" 2 "Customer contact" 3 "Physical presence")) ///
+> name(fig4a)
+
+. 
+. line teamwork_exposure_hat customer_exposure_hat presence_exposure_hat popula
+> tion_density, sort ///
+> b1title("(B)") ytitle("Social distancing exposure (max=100)") xtitle("Populat
+> ion density (person/km2, log scale)") ///
+> scheme(s2mono) graphregion(color(white)) xscale(log) xlabel(10 100 1000 10000
+>  100000) ///
+> legend(order(1 "Teamwork" 2 "Customer contact" 3 "Physical presence")) ///
+> name(fig4b)
+
+. 
+. graph combine fig4a fig4b, scheme(s2mono) graphregion(color(white)) xsize(9)
+
+. 
+. graph export "../text/overleaf/fig4.eps", replace
+(file ../text/overleaf/fig4.eps written in EPS format)
+
+. graph export "../text/overleaf/fig4.pdf", replace
+(file ../text/overleaf/fig4.pdf written in PDF format)
+
+. 
+end of do-file

@@ -32,40 +32,71 @@ Notes:
 . **************
 . *generating summery indexes: communication and infection measures
 . *************
+. local teamwork group consult coordinate team guide
+
+. local customer customers public care interpersonal consult
+
+. local presence move operate repair_elect repair_mechanic inspect
+
+. 
+. * explore correlations between components with a group
+. foreach G in teamwork customer presence {
+  2.         scalar corr_`G' = 0
+  3.         scalar N_`G' = 0
+  4.         local I: word count ``G''
+  5.         forval i = 2/`I' {
+  6.                 local left: word `i' of ``G''
+  7.                 local J = `i'-1
+  8.                 forval j = 1/`J' {
+  9.                         local right: word `j' of ``G''
+ 10.                         quietly correlate `left' `right'
+ 11.                         
+.                         * cumulate average
+.                         scalar N_`G' = N_`G' + 1
+ 12.                         scalar corr_`G' = ( (corr_`G' * (N_`G'-1)) + r(rho
+> ) ) / N_`G'
+ 13.                 }
+ 14.         }
+ 15.         display "Correlation within `G': " corr_`G'
+ 16. }
+Correlation within teamwork: .60996774
+Correlation within customer: .42863131
+Correlation within presence: .68581597
+
 . 
 . * interaction for teamwork
-. egen teamwork = rowmean(group consult interpersonal peers coordinate team gui
-> de)
+. egen teamwork = rowmean(`teamwork')
 
 . * customer communication
-. egen customer = rowmean(contact customers public care coach interpersonal)
+. egen customer = rowmean(`customer')
 
-. * are these contacts face to face? This is a multiplier because if F2F=0, the
-> n none of the above is relevant
-. foreach X of var teamwork customer {
-  2.         replace `X' = round(`X' * face2face / 100)
-  3. }
-(760 real changes made, 1 to missing)
-(759 real changes made, 1 to missing)
-
-. 
 . * require physical presence in close proximity to others
-. egen presence = rowmean(move control operate repair* inspect)
-
-. * Does this require proximity to others? Otherwise not subject to social dist
-> ancing 
-. replace presence = round(presence * proximity / 100)
-(762 real changes made, 1 to missing)
+. egen presence = rowmean(`presence')
 
 . 
-. label variable group "Group communication index [0,100]"
+. foreach X of var teamwork customer presence {
+  2.         replace `X' = round(`X')
+  3. }
+(601 real changes made)
+(622 real changes made)
+(635 real changes made)
+
+. label variable teamwork "Group communication index [0,100]"
 
 . label variable customer "Customer communication index [0,100]"
 
 . label variable presence "Physical presence index [0,100]"
 
+. * are these contacts face to face? This is a multiplier because if F2F=0, the
+> n none of the above is relevant
+. * Does this require proximity to others? Otherwise not subject to social dist
+> ancing 
+. label variable face2face "Context: face-to-face [0,100]"
+
+. label variable proximity "Context: proximity to others [0,100]"
+
 . 
-. keep SOCCode Description teamwork customer presence
+. keep SOCCode Description teamwork customer presence face2face proximity
 
 . compress
   variable teamwork was float now byte

@@ -15,7 +15,7 @@ use "../data/derived/industry-index.dta", clear
 drop if inlist(industry_code, 621, 622)
 
 * cumulate employment
-gsort -social_distancing_exposure
+gsort -customer_exposure
 generate sum_employment = sum(employment)
 * the 10 most exposed sectors employ
 list sum_employment in 10
@@ -26,9 +26,9 @@ list industry_label in 1/10
 
 * urban and communicative
 scalar cutoff = 1000
-summarize group_share if (average_population_density>=cutoff)
+summarize teamwork_share if (average_population_density>=cutoff)
 
-generate exposed = (average_population_density>=cutoff) & (group_share>=25)
+generate exposed = (average_population_density>=cutoff) & (teamwork_share>=25)
 summarize employment if exposed==1, detail
 display r(sum)
 
@@ -40,10 +40,10 @@ foreach X of var *_share social {
 	replace `X' = `X' * employment
 	replace employment = . if missing(`X')
 }
-collapse (sum) employment (sum) group_share customer_share presence_share social_distancing (firstnm) industry_label, by(naics_2d)
+collapse (sum) employment (sum) teamwork_share customer_share presence_share social_distancing (firstnm) industry_label, by(naics_2d)
 foreach X of var *_share social {
 	replace `X' = `X' / employment
 }
-gsort -social_distancing_exposure
+gsort -customer_exposure
 generate sum_employment = sum(employment)
 list industry_label sum_employment in 1/5

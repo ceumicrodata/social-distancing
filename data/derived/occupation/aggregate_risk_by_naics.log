@@ -30,6 +30,17 @@ Notes:
 . 
 . local indexes teamwork customer presence
 
+. * face2face daily
+. local teamwork_context (face2face >= 0.5*(75+100))
+
+. local customer_context (face2face >= 0.5*(75+100))
+
+. * share office or more desne
+. local presence_context (proximity >= 0.5*(25+50))
+
+. * for tasks
+. local cutoff = 0.5*(50+75)
+
 . 
 . merge m:1 SOCCode using "risks.dta", keep(master match) nogen
 
@@ -44,9 +55,9 @@ Notes:
 
 . * a few cases are missing the risk, take these to be low risk
 . mvencode `indexes', mv(0) override
-    teamwork: 582 missing values recoded
-    customer: 582 missing values recoded
-    presence: 582 missing values recoded
+    teamwork: 579 missing values recoded
+    customer: 579 missing values recoded
+    presence: 579 missing values recoded
 
 . 
 . replace Employment = round(Employment*1000)
@@ -58,56 +69,11 @@ Notes:
 
 . 
 . foreach X of var `indexes' {
-  2.         summarize `X' [fw=Employment], detail
-  3.         generate double `X'_share = (`X' >= r(p75)) * Employment
-  4. }
+  2.         * index is high and context implies face2face
+.         generate double `X'_share = ``X'_context' * (`X' >= `cutoff') * Emplo
+> yment
+  3. }
 
-                          teamwork
--------------------------------------------------------------
-      Percentiles      Smallest
- 1%            0              0
- 5%           34              0
-10%           38              0       Obs         121,347,700
-25%           45              0       Sum of Wgt. 121,347,700
-
-50%           52                      Mean           52.87694
-                        Largest       Std. Dev.      13.14225
-75%           61             85
-90%           71             85       Variance       172.7188
-95%           74             85       Skewness      -.6164195
-99%           78             85       Kurtosis       5.217017
-
-            Customer communication index [0,100]
--------------------------------------------------------------
-      Percentiles      Smallest
- 1%            0              0
- 5%           35              0
-10%           38              0       Obs         121,347,700
-25%           47              0       Sum of Wgt. 121,347,700
-
-50%           55                      Mean           55.58012
-                        Largest       Std. Dev.      14.21306
-75%           66             86
-90%           73             86       Variance       202.0111
-95%           77             86       Skewness      -.7034038
-99%           82             89       Kurtosis       4.684272
-
-               Physical presence index [0,100]
--------------------------------------------------------------
-      Percentiles      Smallest
- 1%            0              0
- 5%            5              0
-10%            6              0       Obs         121,347,700
-25%           13              0       Sum of Wgt. 121,347,700
-
-50%           24                      Mean           23.09337
-                        Largest       Std. Dev.      12.77028
-75%           33             69
-90%           41             69       Variance       163.0799
-95%           44             69       Skewness       .2958237
-99%           52             69       Kurtosis       2.377236
-
-. 
 . collapse (sum) Employment teamwork_share customer_share presence_share, by(in
 > dustry_code)
 

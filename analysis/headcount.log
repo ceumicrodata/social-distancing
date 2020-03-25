@@ -51,7 +51,7 @@ urban_population =  2.280e+08
 
 . 
 . * cumulate employment
-. gsort -social_distancing_exposure
+. gsort -customer_exposure
 
 . generate sum_employment = sum(employment)
 
@@ -61,145 +61,14 @@ urban_population =  2.280e+08
      +----------+
      | sum_em~t |
      |----------|
- 10. |  18456.6 |
+ 10. | 949308.6 |
      +----------+
 
 . 
 . * most dense
 . gsort -average_population_density
+variable average_population_density not found
+r(111);
 
-. list industry_label in 1/10
-
-     +------------------------------------------------------------------------+
-     | industry_label                                                         |
-     |------------------------------------------------------------------------|
-  1. | Performing arts, spectator sports, and related industries              |
-  2. | Other information services                                             |
-  3. | Motion picture, video, and sound recording industries                  |
-  4. | Apparel, leather and allied product manufacturing                      |
-  5. | Broadcasting (except Internet)                                         |
-     |------------------------------------------------------------------------|
-  6. | Securities, commodity contracts, funds, trusts and other financial i.. |
-  7. | Museums, historical sites, and similar institutions                    |
-  8. | Publishing industries                                                  |
-  9. | Education services                                                     |
- 10. | Transit and ground passenger transportation                            |
-     +------------------------------------------------------------------------+
-
-. 
-. * urban and communicative
-. scalar cutoff = 1000
-
-. summarize group_share if (average_population_density>=cutoff)
-
-    Variable |        Obs        Mean    Std. Dev.       Min        Max
--------------+---------------------------------------------------------
- group_share |         47    20.91489    14.55997          1         54
-
-. 
-. generate exposed = (average_population_density>=cutoff) & (group_share>=25)
-
-. summarize employment if exposed==1, detail
-
-           Industry employment (thousand persons)
--------------------------------------------------------------
-      Percentiles      Smallest
- 1%         23.3           23.3
- 5%         23.3          270.5
-10%        270.5          307.8       Obs                  14
-25%        329.8          329.8       Sum of Wgt.          14
-
-50%      1006.15                      Mean           2061.529
-                        Largest       Std. Dev.      2439.586
-75%       3005.8         3005.8
-90%       3727.5         3362.2       Variance        5951579
-95%       9300.1         3727.5       Skewness       1.954152
-99%       9300.1         9300.1       Kurtosis       6.575344
-
-. display r(sum)
-28861.4
-
-. 
-. generate naics_2d = industry_code if industry_code<100
-(69 missing values generated)
-
-. replace naics_2d = int(industry_code/10) if industry_code>=100
-(69 real changes made)
-
-. 
-. * employment-weighted average
-. foreach X of var *_share social {
-  2.         replace `X' = `X' * employment
-  3.         replace employment = . if missing(`X')
-  4. }
-variable group_share was byte now float
-(72 real changes made, 2 to missing)
-(0 real changes made)
-variable customer_share was byte now float
-(72 real changes made, 2 to missing)
-(0 real changes made)
-variable presence_share was byte now float
-(68 real changes made, 2 to missing)
-(0 real changes made)
-(67 real changes made, 2 to missing)
-(5 real changes made, 5 to missing)
-
-. collapse (sum) employment (sum) group_share customer_share presence_share soc
-> ial_distancing (firstnm) industry_label, by(naics_2d)
-
-. foreach X of var *_share social {
-  2.         replace `X' = `X' / employment
-  3. }
-(23 real changes made)
-(23 real changes made)
-(23 real changes made)
-(23 real changes made)
-
-. gsort -social_distancing_exposure
-
-. generate sum_employment = sum(employment)
-
-. list industry_label sum_employment in 1/5
-
-     +------------------------------------------------------------------------+
-  1. | industry_label                                                         |
-     | Other information services                                             |
-     |------------------------------------------------------------------------|
-     |                                sum_em~t                                |
-     |                                  2828.1                                |
-     +------------------------------------------------------------------------+
-
-     +------------------------------------------------------------------------+
-  2. | industry_label                                                         |
-     | Education services                                                     |
-     |------------------------------------------------------------------------|
-     |                                sum_em~t                                |
-     |                                  6555.6                                |
-     +------------------------------------------------------------------------+
-
-     +------------------------------------------------------------------------+
-  3. | industry_label                                                         |
-     | Management of companies and enterprises                                |
-     |------------------------------------------------------------------------|
-     |                                sum_em~t                                |
-     |                                  8927.4                                |
-     +------------------------------------------------------------------------+
-
-     +------------------------------------------------------------------------+
-  4. | industry_label                                                         |
-     | Professional, scientific, and technical services                       |
-     |------------------------------------------------------------------------|
-     |                                sum_em~t                                |
-     |                                 18227.5                                |
-     +------------------------------------------------------------------------+
-
-     +------------------------------------------------------------------------+
-  5. | industry_label                                                         |
-     | Securities, commodity contracts, funds, trusts and other financial i.. |
-     |------------------------------------------------------------------------|
-     |                                sum_em~t                                |
-     |                                 24541.4                                |
-     +------------------------------------------------------------------------+
-
-. 
 end of do-file
+r(111);
