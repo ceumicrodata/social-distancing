@@ -27,21 +27,6 @@ Notes:
 
 . * calculate urban density cutoff
 . 
-. * https://www.census.gov/library/publications/2012/dec/cph-2.html, Table 8
-. * For Metropolitan Areas only
-. scalar urban_population = 228004779
-
-. scalar urban_area = 91697.21 * (1.61)^2
-
-. scalar urban_density = urban_population / urban_area
-
-. 
-. scalar list
-urban_density =  959.25943
-urban_area =  237688.34
-urban_population =  2.280e+08
-
-. 
 . use "../data/derived/industry-index.dta", clear
 
 . 
@@ -50,25 +35,237 @@ urban_population =  2.280e+08
 (2 observations deleted)
 
 . 
-. * cumulate employment
+. replace ces_employment = int(ces_employment*1000)
+(65 real changes made)
+
+. foreach X of var *_share {
+  2.         summarize `X' [fw=ces_employment]
+  3.         display "Millions of workers: " r(mean)/100 * r(sum_w) / 1e+6
+  4. }
+
+    Variable |        Obs        Mean    Std. Dev.       Min        Max
+-------------+---------------------------------------------------------
+teamwork_s~e |113,049,400    18.23309    10.94585          2         43
+Millions of workers: 20.612399
+
+    Variable |        Obs        Mean    Std. Dev.       Min        Max
+-------------+---------------------------------------------------------
+customer_s~e |113,049,400    19.00136    15.16974          1         53
+Millions of workers: 21.480918
+
+    Variable |        Obs        Mean    Std. Dev.       Min        Max
+-------------+---------------------------------------------------------
+presence_s~e |113,049,400    7.431178    11.88543          0         65
+Millions of workers: 8.400902
+
+. 
+. generate naics_2d = industry_code if industry_code<100
+(64 missing values generated)
+
+. replace naics_2d = int(industry_code/10) if industry_code>=100
+(64 real changes made)
+
+. 
+. * employment-weighted average
+. foreach X of var *_share {
+  2.         replace `X' = `X' * employment
+  3.         replace employment = . if missing(`X')
+  4. }
+(67 real changes made)
+(0 real changes made)
+(67 real changes made)
+(0 real changes made)
+(57 real changes made)
+(0 real changes made)
+
+. collapse (sum) employment (sum) teamwork_share customer_share presence_share 
+> customer_exposure (firstnm) industry_label, by(naics_2d)
+
+. foreach X of var *_share {
+  2.         replace `X' = `X' / employment
+  3. }
+(23 real changes made)
+(23 real changes made)
+(21 real changes made)
+
 . gsort -customer_exposure
 
 . generate sum_employment = sum(employment)
 
-. * the 10 most exposed sectors employ
-. list sum_employment in 10
+. list industry_label sum_employment in 1/5
 
-     +----------+
-     | sum_em~t |
-     |----------|
- 10. | 949308.6 |
-     +----------+
+     +-----------------------------------------------------------------------+
+  1. |                                                        industry_label |
+     |                                                 Publishing industries |
+     |-----------------------------------------------------------------------|
+     |                               sum_em~t                                |
+     |                               791081.6                                |
+     +-----------------------------------------------------------------------+
+
+     +-----------------------------------------------------------------------+
+  2. |                                                        industry_label |
+     |                                                      All other retail |
+     |-----------------------------------------------------------------------|
+     |                               sum_em~t                                |
+     |                                1027938                                |
+     +-----------------------------------------------------------------------+
+
+     +-----------------------------------------------------------------------+
+  3. |                                                        industry_label |
+     |                   Museums, historical sites, and similar institutions |
+     |-----------------------------------------------------------------------|
+     |                               sum_em~t                                |
+     |                                1277922                                |
+     +-----------------------------------------------------------------------+
+
+     +-----------------------------------------------------------------------+
+  4. |                                                        industry_label |
+     |  Lessors of nonfinancial intangible assets (except copyrighted works) |
+     |-----------------------------------------------------------------------|
+     |                               sum_em~t                                |
+     |                                1601562                                |
+     +-----------------------------------------------------------------------+
+
+     +-----------------------------------------------------------------------+
+  5. |                                                        industry_label |
+     | Religious, grantmaking, civic, professional, and similar organizatons |
+     |-----------------------------------------------------------------------|
+     |                               sum_em~t                                |
+     |                                1959038                                |
+     +-----------------------------------------------------------------------+
 
 . 
-. * most dense
-. gsort -average_population_density
-variable average_population_density not found
-r(111);
+. clear all
 
+. 
+. do "industry_location_panel.do"
+
+. import delimited "../data/derived/occupation/naics_risk.csv", varnames(1) cle
+> ar
+(4 vars, 74 obs)
+
+. tempfile occupation
+
+. save `occupation', replace
+(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St26299.000001 no
+> t found)
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St26299.000001 saved
+
+. 
+. use "../data/clean/cbp/zip_code_business_patterns.dta", clear
+
+. merge m:1 industry_code using `occupation', keep(match) nogen
+
+    Result                           # of obs.
+    -----------------------------------------
+    not matched                             0
+    matched                           376,589  
+    -----------------------------------------
+
+. 
 end of do-file
-r(111);
+
+. do "calculate-exposure.do"
+
+. generate teamwork_exposure = teamwork_share/100 * ln(employment_density)
+(5,654 missing values generated)
+
+. generate customer_exposure = customer_share/100 * ln(population_density)
+(6,099 missing values generated)
+
+. generate presence_exposure = presence_share/100 * ln(plant_size)
+
+. 
+. foreach X of var *_exposure {
+  2.         summarize `X'
+  3.         replace `X' = round(`X'/r(max)*100)
+  4. }
+
+    Variable |        Obs        Mean    Std. Dev.       Min        Max
+-------------+---------------------------------------------------------
+teamwork_e~e |    370,935    .8536221    .6850916  -1.523123   5.519412
+(370,935 real changes made)
+
+    Variable |        Obs        Mean    Std. Dev.       Min        Max
+-------------+---------------------------------------------------------
+customer_e~e |    370,490    1.192858     .985739  -2.095043   6.515367
+(370,490 real changes made)
+
+    Variable |        Obs        Mean    Std. Dev.       Min        Max
+-------------+---------------------------------------------------------
+presence_e~e |    376,589    .1934092    .2864322          0    3.19715
+(302,589 real changes made)
+
+. 
+. label variable teamwork_exposure "Social distancing effect on teamwork [0,100
+> ]"
+
+. label variable customer_exposure "Social distancing effect on customer contac
+> t [0,100]"
+
+. label variable presence_exposure "Social distancing effect on physical presen
+> ce [0,100]"
+
+. 
+. 
+end of do-file
+
+. 
+. * of which urban
+. drop if population_density < 1000
+(268,492 observations deleted)
+
+. * drop hospitals and clinics
+. drop if inlist(industry_code, 621, 622)
+(4,134 observations deleted)
+
+. foreach X of var *_share {
+  2.         replace `X' = `X' * employment
+  3.         replace employment = . if missing(`X')
+  4. }
+variable teamwork_share was byte now long
+(103,963 real changes made)
+(0 real changes made)
+variable customer_share was byte now long
+(103,963 real changes made)
+(0 real changes made)
+variable presence_share was byte now long
+(81,693 real changes made)
+(0 real changes made)
+
+. collapse (sum) teamwork_share customer_share presence_share employment, by(in
+> dustry_code)
+
+. foreach X of var *_share {
+  2.         replace `X' = `X' / employment
+  3. }
+(67 real changes made)
+(67 real changes made)
+(57 real changes made)
+
+. replace employment = int(employment)
+(0 real changes made)
+
+. 
+. foreach X of var *_share {
+  2.         summarize `X' [fw=employment]
+  3.         display "Millions of workers: " r(mean)/100 * r(sum_w) / 1e+6
+  4. }
+
+    Variable |        Obs        Mean    Std. Dev.       Min        Max
+-------------+---------------------------------------------------------
+teamwork_s~e | 38,187,045     18.8496    11.98966          2         43
+Millions of workers: 7.1981061
+
+    Variable |        Obs        Mean    Std. Dev.       Min        Max
+-------------+---------------------------------------------------------
+customer_s~e | 38,187,045    18.50448    13.88652          1         53
+Millions of workers: 7.066313
+
+    Variable |        Obs        Mean    Std. Dev.       Min        Max
+-------------+---------------------------------------------------------
+presence_s~e | 38,187,045    6.037439    10.28619          0         65
+Millions of workers: 2.3055194
+
+. 
+end of do-file
