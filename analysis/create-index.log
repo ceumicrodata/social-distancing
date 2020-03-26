@@ -47,9 +47,9 @@ Notes:
 . tempfile industry
 
 . save `industry', replace
-(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St28525.000001 no
+(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St29022.000001 no
 > t found)
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St28525.000001 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St29022.000001 saved
 
 . 
 . 
@@ -62,9 +62,9 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St28525.000001 saved
 . tempfile occupation
 
 . save `occupation', replace
-(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St28525.000002 no
+(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St29022.000002 no
 > t found)
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St28525.000002 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St29022.000002 saved
 
 . 
 . use "../data/clean/cbp/zip_code_business_patterns.dta", clear
@@ -101,22 +101,22 @@ end of do-file
 
     Variable |        Obs        Mean    Std. Dev.       Min        Max
 -------------+---------------------------------------------------------
-teamwork_e~e |    370,935    .8536221    .6850916  -1.523123   5.519412
+teamwork_e~e |    370,935     1.04078     .824821  -1.575394   6.560357
 (370,935 real changes made)
 
     Variable |        Obs        Mean    Std. Dev.       Min        Max
 -------------+---------------------------------------------------------
-customer_e~e |    370,490    1.192858     .985739  -2.095043   6.515367
+customer_e~e |    370,490    1.714174    1.326634  -2.846097   7.985538
 (370,490 real changes made)
 
     Variable |        Obs        Mean    Std. Dev.       Min        Max
 -------------+---------------------------------------------------------
-presence_e~e |    376,589    .1934092    .2864322          0    3.19715
-(302,589 real changes made)
+presence_e~e |    376,589    .2047561    .2952307          0   3.246337
+(309,596 real changes made)
 
     Variable |        Obs        Mean    Std. Dev.       Min        Max
 -------------+---------------------------------------------------------
-overall_ex~e |    370,490    2.213308    1.251919  -3.196601   8.290633
+overall_ex~e |    370,490    2.878717    1.348411   -3.37419   8.520495
 (370,490 real changes made)
 
 . 
@@ -195,7 +195,7 @@ ces_employ~t |   0.9808   1.0000
 (0 real changes made)
 (69 real changes made)
 (69 real changes made)
-(59 real changes made)
+(60 real changes made)
 (69 real changes made)
 
 . foreach X of var *_density plant_size ces_employment {

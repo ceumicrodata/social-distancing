@@ -45,28 +45,28 @@ Notes:
 
     Variable |        Obs        Mean    Std. Dev.       Min        Max
 -------------+---------------------------------------------------------
-teamwork_s~e |113,049,400    18.23309    10.94585          2         43
-Millions of workers: 20.612399
+teamwork_s~e |113,049,400    22.85383    12.35028          5         50
+Millions of workers: 25.836119
 
     Variable |        Obs        Mean    Std. Dev.       Min        Max
 -------------+---------------------------------------------------------
-customer_s~e |113,049,400    19.00136    15.16974          1         53
-Millions of workers: 21.480918
+customer_s~e |113,049,400    31.43124    20.93571          3         74
+Millions of workers: 35.532823
 
     Variable |        Obs        Mean    Std. Dev.       Min        Max
 -------------+---------------------------------------------------------
-presence_s~e |113,049,400    7.431178    11.88543          0         65
-Millions of workers: 8.400902
+presence_s~e |113,049,400    8.022725    12.29342          0         66
+Millions of workers: 9.069642
 
     Variable |        Obs        Mean    Std. Dev.       Min        Max
 -------------+---------------------------------------------------------
-communicat~e |113,049,400    28.75348    16.01613          3         61
-Millions of workers: 32.505633
+communicat~e |113,049,400    43.13084    17.89304          8         75
+Millions of workers: 48.759154
 
     Variable |        Obs        Mean    Std. Dev.       Min        Max
 -------------+---------------------------------------------------------
-affected_s~e |113,049,400    35.34991    17.46593          3         77
-Millions of workers: 39.962858
+affected_s~e |113,049,400    50.49341    15.14627         18         80
+Millions of workers: 57.082502
 
 . 
 . generate naics_2d = industry_code if industry_code<100
@@ -85,7 +85,7 @@ Millions of workers: 39.962858
 (0 real changes made)
 (67 real changes made)
 (0 real changes made)
-(57 real changes made)
+(58 real changes made)
 (0 real changes made)
 (67 real changes made)
 (0 real changes made)
@@ -101,7 +101,7 @@ Millions of workers: 39.962858
   3. }
 (23 real changes made)
 (23 real changes made)
-(21 real changes made)
+(22 real changes made)
 (23 real changes made)
 (23 real changes made)
 
@@ -114,11 +114,11 @@ Millions of workers: 39.962858
      +----------------------------------------------------------------+
      |                                      industry_label   sum_em~t |
      |----------------------------------------------------------------|
-  1. |                                  Telecommunications   791081.6 |
-  2. |                                    All other retail    1027938 |
+  1. |                                    All other retail   236856.1 |
+  2. |                                  Telecommunications    1027938 |
   3. | Museums, historical sites, and similar institutions    1277922 |
-  4. |                                         Real estate    1601562 |
-  5. |                               Repair and mantenance    1959038 |
+  4. |                               Repair and mantenance    1635397 |
+  5. |                                         Real estate    1959038 |
      +----------------------------------------------------------------+
 
 . 
@@ -134,9 +134,9 @@ Millions of workers: 39.962858
 . tempfile occupation
 
 . save `occupation', replace
-(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St28544.000001 no
+(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St29026.000001 no
 > t found)
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St28544.000001 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St29026.000001 saved
 
 . 
 . use "../data/clean/cbp/zip_code_business_patterns.dta", clear
@@ -173,22 +173,22 @@ end of do-file
 
     Variable |        Obs        Mean    Std. Dev.       Min        Max
 -------------+---------------------------------------------------------
-teamwork_e~e |    370,935    .8536221    .6850916  -1.523123   5.519412
+teamwork_e~e |    370,935     1.04078     .824821  -1.575394   6.560357
 (370,935 real changes made)
 
     Variable |        Obs        Mean    Std. Dev.       Min        Max
 -------------+---------------------------------------------------------
-customer_e~e |    370,490    1.192858     .985739  -2.095043   6.515367
+customer_e~e |    370,490    1.714174    1.326634  -2.846097   7.985538
 (370,490 real changes made)
 
     Variable |        Obs        Mean    Std. Dev.       Min        Max
 -------------+---------------------------------------------------------
-presence_e~e |    376,589    .1934092    .2864322          0    3.19715
-(302,589 real changes made)
+presence_e~e |    376,589    .2047561    .2952307          0   3.246337
+(309,596 real changes made)
 
     Variable |        Obs        Mean    Std. Dev.       Min        Max
 -------------+---------------------------------------------------------
-overall_ex~e |    370,490    2.213308    1.251919  -3.196601   8.290633
+overall_ex~e |    370,490    2.878717    1.348411   -3.37419   8.520495
 (370,490 real changes made)
 
 . 
@@ -227,7 +227,7 @@ variable customer_share was byte now long
 (103,963 real changes made)
 (0 real changes made)
 variable presence_share was byte now long
-(81,693 real changes made)
+(83,725 real changes made)
 (0 real changes made)
 variable communication_share was byte now long
 (103,963 real changes made)
@@ -244,7 +244,7 @@ variable affected_share was byte now long
   3. }
 (67 real changes made)
 (67 real changes made)
-(57 real changes made)
+(58 real changes made)
 (67 real changes made)
 (67 real changes made)
 
@@ -259,28 +259,28 @@ variable affected_share was byte now long
 
     Variable |        Obs        Mean    Std. Dev.       Min        Max
 -------------+---------------------------------------------------------
-teamwork_s~e | 38,187,045     18.8496    11.98966          2         43
-Millions of workers: 7.1981061
+teamwork_s~e | 38,187,045    24.73976    13.16483          5         50
+Millions of workers: 9.4473832
 
     Variable |        Obs        Mean    Std. Dev.       Min        Max
 -------------+---------------------------------------------------------
-customer_s~e | 38,187,045    18.50448    13.88652          1         53
-Millions of workers: 7.066313
+customer_s~e | 38,187,045    32.64106    18.29045          3         74
+Millions of workers: 12.464656
 
     Variable |        Obs        Mean    Std. Dev.       Min        Max
 -------------+---------------------------------------------------------
-presence_s~e | 38,187,045    6.037439    10.28619          0         65
-Millions of workers: 2.3055194
+presence_s~e | 38,187,045    6.378864    10.45405          0         66
+Millions of workers: 2.4358997
 
     Variable |        Obs        Mean    Std. Dev.       Min        Max
 -------------+---------------------------------------------------------
-communicat~e | 38,187,045    28.97909    16.33222          3         61
-Millions of workers: 11.066259
+communicat~e | 38,187,045    45.42835     15.1881          8         75
+Millions of workers: 17.347744
 
     Variable |        Obs        Mean    Std. Dev.       Min        Max
 -------------+---------------------------------------------------------
-affected_s~e | 38,187,045     34.2961    17.92991          3         77
-Millions of workers: 13.096668
+affected_s~e | 38,187,045    51.24741    12.89844         18         80
+Millions of workers: 19.569871
 
 . 
 end of do-file

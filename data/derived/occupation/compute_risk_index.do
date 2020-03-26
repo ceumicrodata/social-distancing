@@ -9,10 +9,10 @@ local customer customers public care interpersonal consult
 local presence move operate repair_elect repair_mechanic inspect
 
 * face2face daily
-local teamwork_context (face2face >= 87.5)
-local customer_context (face2face >= 87.5)
-* share office or more desne
-local presence_context (proximity >= 37.5)
+local teamwork_context (face2face > 75)
+local customer_context (face2face > 75)
+* share office or more dense
+local presence_context (proximity > 25)
 * for tasks
 local cutoff = 62.5
 
