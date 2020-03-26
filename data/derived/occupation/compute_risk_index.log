@@ -87,6 +87,20 @@ Correlation within presence: .68581597
 
 . 
 . foreach X of var teamwork customer presence {
+  2.         gen `X'_index = round(``X'_context' * (`X'))
+  3. }
+
+. label variable teamwork_index "Teamwork communication index [0,100] with cont
+> ext cutoff"
+
+. label variable customer_index "Customer communication index [0,100] with cont
+> ext cutoff"
+
+. label variable presence_index "Physical presence index [0,100] with context c
+> utoff"
+
+. 
+. foreach X of var teamwork customer presence {
   2.         replace `X' = ``X'_context' * (`X' >= `cutoff')
   3. }
 (764 real changes made)
@@ -100,13 +114,17 @@ Correlation within presence: .68581597
 . label variable presence "Physical presence (dummy)"
 
 . 
-. keep SOCCode Description teamwork customer presence
+. keep SOCCode Description teamwork customer presence teamwork_index* customer_
+> index* presence_index*
 
 . compress
   variable teamwork was float now byte
   variable customer was float now byte
   variable presence was float now byte
-  (6,876 bytes saved)
+  variable teamwork_index was float now byte
+  variable customer_index was float now byte
+  variable presence_index was float now byte
+  (13,752 bytes saved)
 
 . 
 . save "risks.dta", replace

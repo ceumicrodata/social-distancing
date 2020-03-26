@@ -1,6 +1,6 @@
 .PHONY: all data
 all: ../data/derived/industry-index.dta ../text/overleaf/fig3.eps ../text/overleaf/fig4.eps headcount.log
-../text/overleaf/fig3.eps: scatter-communication-infection.do ../data/derived/occupation/risks.dta
+../text/overleaf/fig3.eps: scatter_customers_teamwork_byoccupation.do ../data/derived/occupation/risks.dta
 	stata -b do $<
 ../text/overleaf/fig4.eps: risk-by-density.do fig4.do ../data/derived/industry-index.dta ../data/clean/cbp/zip_code_business_patterns.dta
 	stata -b do $<

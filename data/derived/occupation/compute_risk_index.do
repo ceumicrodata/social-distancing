@@ -44,13 +44,20 @@ egen customer = rowmean(`customer')
 egen presence = rowmean(`presence')
 
 foreach X of var teamwork customer presence {
+	gen `X'_index = round(``X'_context' * (`X'))
+}
+label variable teamwork_index "Teamwork communication index [0,100] with context cutoff"
+label variable customer_index "Customer communication index [0,100] with context cutoff"
+label variable presence_index "Physical presence index [0,100] with context cutoff"
+
+foreach X of var teamwork customer presence {
 	replace `X' = ``X'_context' * (`X' >= `cutoff')
 }
 label variable teamwork "Teamwork communication (dummy)"
 label variable customer "Customer communication (dummy)"
 label variable presence "Physical presence (dummy)"
 
-keep SOCCode Description teamwork customer presence
+keep SOCCode Description teamwork customer presence teamwork_index* customer_index* presence_index*
 compress
 
 save "risks.dta", replace
