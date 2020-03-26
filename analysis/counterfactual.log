@@ -1,0 +1,201 @@
+
+  ___  ____  ____  ____  ____ (R)
+ /__    /   ____/   /   ____/
+___/   /   /___/   /   /___/   15.1   Copyright 1985-2017 StataCorp LLC
+  Statistics/Data Analysis            StataCorp
+                                      4905 Lakeway Drive
+     MP - Parallel Edition            College Station, Texas 77845 USA
+                                      800-STATA-PC        http://www.stata.com
+                                      979-696-4600        stata@stata.com
+                                      979-696-4601 (fax)
+
+Single-user 2-core Stata perpetual license:
+       Serial number:  501506203290
+         Licensed to:  Miklos Koren
+                       CEU MicroData
+
+
+Notes:
+      1.  Stata is running in batch mode.
+      2.  Unicode is supported; see help unicode_advice.
+      3.  More than 2 billion observations are allowed; see help obs_advice.
+      4.  Maximum number of variables is set to 5000; see help set_maxvar.
+
+. do counterfactual.do 
+
+. clear all
+
+. 
+. do "industry_location_panel.do"
+
+. import delimited "../data/derived/occupation/naics_risk.csv", varnames(1) cle
+> ar
+(6 vars, 74 obs)
+
+. tempfile occupation
+
+. save `occupation', replace
+(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St29690.000001 no
+> t found)
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St29690.000001 saved
+
+. 
+. use "../data/clean/cbp/zip_code_business_patterns.dta", clear
+
+. merge m:1 industry_code using `occupation', keep(match) nogen
+
+    Result                           # of obs.
+    -----------------------------------------
+    not matched                             0
+    matched                           376,589  
+    -----------------------------------------
+
+. 
+end of do-file
+
+. do "calculate-exposure.do"
+
+. generate teamwork_exposure = teamwork_share/100 * ln(employment_density)
+(5,654 missing values generated)
+
+. generate customer_exposure = customer_share/100 * ln(population_density)
+(6,099 missing values generated)
+
+. generate presence_exposure = presence_share/100 * ln(plant_size)
+
+. generate overall_exposure  = affected_share/100 * ln(population_density)
+(6,099 missing values generated)
+
+. 
+. foreach X of var *_exposure {
+  2.         summarize `X'
+  3.         replace `X' = round(`X'/r(max)*100)
+  4. }
+
+    Variable |        Obs        Mean    Std. Dev.       Min        Max
+-------------+---------------------------------------------------------
+teamwork_e~e |    370,935     1.04078     .824821  -1.575394   6.560357
+(370,935 real changes made)
+
+    Variable |        Obs        Mean    Std. Dev.       Min        Max
+-------------+---------------------------------------------------------
+customer_e~e |    370,490    1.714174    1.326634  -2.846097   7.985538
+(370,490 real changes made)
+
+    Variable |        Obs        Mean    Std. Dev.       Min        Max
+-------------+---------------------------------------------------------
+presence_e~e |    376,589    .2047561    .2952307          0   3.246337
+(309,596 real changes made)
+
+    Variable |        Obs        Mean    Std. Dev.       Min        Max
+-------------+---------------------------------------------------------
+overall_ex~e |    370,490    2.878717    1.348411   -3.37419   8.520495
+(370,490 real changes made)
+
+. 
+. label variable teamwork_exposure "Social distancing effect on teamwork (max=1
+> 00)"
+
+. label variable customer_exposure "Social distancing effect on customer contac
+> t (max=100)"
+
+. label variable presence_exposure "Social distancing effect on physical presen
+> ce (max=100)"
+
+. label variable overall_exposure "Social distancing exposure (max=100)"
+
+. 
+. 
+end of do-file
+
+. 
+. /* 
+> Calibrate epsilon.
+> 
+> Ciccone, Antonio, and Robert Hall. 1996. “Productivity and the Density of Eco
+> nomic Activity.” 
+> The American Economic Review 86 (1): 54–70.
+> 
+> density^agglomeration = density^(epsilon * chi)
+> */
+. scalar agglomeration = 0.06
+
+. generate LHS = agglomeration * ln(population_density)
+(6,099 missing values generated)
+
+. generate RHS = (communication_share/100) * ln(population_density)
+(6,099 missing values generated)
+
+. 
+. regress LHS RHS [aw=employment]
+(sum of wgt is 91,381,057)
+
+      Source |       SS           df       MS      Number of obs   =   370,490
+-------------+----------------------------------   F(1, 370488)    >  99999.00
+       Model |  1227.93998         1  1227.93998   Prob > F        =    0.0000
+    Residual |  2300.08567   370,488   .00620826   R-squared       =    0.3481
+-------------+----------------------------------   Adj R-squared   =    0.3481
+       Total |  3528.02565   370,489  .009522619   Root MSE        =    .07879
+
+------------------------------------------------------------------------------
+         LHS |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         RHS |   .0406019   .0000913   444.74   0.000      .040423    .0407808
+       _cons |   .2589218   .0003095   836.62   0.000     .2583153    .2595284
+------------------------------------------------------------------------------
+
+. scalar epsilon = _b[RHS]
+
+. 
+. * Eq 5
+. generate cost_ratio = population_density^(epsilon*communication_share/100)
+(5,654 missing values generated)
+
+. * Eq 4
+. generate contact_ratio = population_density^(epsilon*(1-communication_share/1
+> 00))
+(5,654 missing values generated)
+
+. * current number of contacts
+. summarize contact_ratio [aw=employment]
+
+    Variable |     Obs      Weight        Mean   Std. Dev.       Min        Max
+-------------+-----------------------------------------------------------------
+contact_ra~o | 370,935    91488067    1.144795   .0761533          0   1.476634
+
+. scalar current_contact = r(mean)
+
+. 
+. * target contact is ten percent lower
+. scalar target_contact = current_contact * 0.9
+
+. 
+. * loop to find the cap
+. scalar cap = 10000
+
+. scalar average = current_contact 
+
+. generate counterfactual = .
+(376,589 missing values generated)
+
+. while average > target_contact {
+  2.         quietly replace counterfactual = min(population_density, cap)^(eps
+> ilon*(1-communication_share/100))
+  3.         quietly summarize counterfactual [aw=employment]
+  4.         scalar average = r(mean)
+  5.         scalar cap = 0.9*cap
+  6. }
+
+. 
+. generate cost_increase = (contact_ratio/counterfactual)^(communication_share/
+> (100-communication_share))
+(6,099 missing values generated)
+
+. summarize cost_increase [aw=employment]
+
+    Variable |     Obs      Weight        Mean   Std. Dev.       Min        Max
+-------------+-----------------------------------------------------------------
+cost_incre~e | 370,490    91381057    1.103907   .0550716          1   1.335886
+
+. 
+end of do-file
