@@ -38,9 +38,9 @@ Notes:
 . tempfile occupation
 
 . save `occupation', replace
-(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St26379.000001 no
+(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St27414.000001 no
 > t found)
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St26379.000001 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St27414.000001 saved
 
 . 
 . use "../data/clean/cbp/zip_code_business_patterns.dta", clear
@@ -66,6 +66,9 @@ end of do-file
 
 . generate presence_exposure = presence_share/100 * ln(plant_size)
 
+. generate overall_exposure  = affected_share/100 * ln(population_density)
+(6,099 missing values generated)
+
 . 
 . foreach X of var *_exposure {
   2.         summarize `X'
@@ -87,26 +90,64 @@ customer_e~e |    370,490    1.192858     .985739  -2.095043   6.515367
 presence_e~e |    376,589    .1934092    .2864322          0    3.19715
 (302,589 real changes made)
 
+    Variable |        Obs        Mean    Std. Dev.       Min        Max
+-------------+---------------------------------------------------------
+overall_ex~e |    370,490    2.213308    1.251919  -3.196601   8.290633
+(370,490 real changes made)
+
 . 
-. label variable teamwork_exposure "Social distancing effect on teamwork [0,100
-> ]"
+. label variable teamwork_exposure "Social distancing effect on teamwork (max=1
+> 00)"
 
 . label variable customer_exposure "Social distancing effect on customer contac
-> t [0,100]"
+> t (max=100)"
 
 . label variable presence_exposure "Social distancing effect on physical presen
-> ce [0,100]"
+> ce (max=100)"
+
+. label variable overall_exposure "Social distancing exposure (max=100)"
 
 . 
 . 
 end of do-file
 
 . 
-. generate egy = 1
+. foreach X of var `indexes' {
+  2.         replace `X' = `X' * employment
+  3.         replace employment = 0 if missing(`X')
+  4. }
+variable teamwork_share was byte now long
+(376,589 real changes made)
+(0 real changes made)
+variable customer_share was byte now long
+(376,589 real changes made)
+(0 real changes made)
+variable presence_share was byte now long
+(302,589 real changes made)
+(0 real changes made)
+(364,303 real changes made)
+(5,654 real changes made)
+(364,955 real changes made)
+(445 real changes made)
+(282,039 real changes made)
+(0 real changes made)
 
-. collapse (first) population_density employment_density (mean) `indexes' plant
-> _size (sum) employment=egy [aw=employment], by(zip)
+. collapse (first) population_density employment_density (sum) `indexes' establ
+> ishments employment, by(zip)
 
+. foreach X of var `indexes' {
+  2.         replace `X' = `X' / employment
+  3. }
+(26,811 real changes made, 2,518 to missing)
+(26,811 real changes made, 2,518 to missing)
+(26,481 real changes made, 2,518 to missing)
+(26,007 real changes made, 2,518 to missing)
+(26,381 real changes made, 2,518 to missing)
+(25,757 real changes made, 2,518 to missing)
+
+. generate plant_size = employment / establishments
+
+. 
 . * merge coordinates
 . merge 1:1 zip using "../data/clean/geonames/us-zip-codes.dta", nogen keep(mas
 > ter match)
@@ -122,7 +163,7 @@ end of do-file
 
 . 
 . local vars zip latitude longitude population_density employment_density plant
-> _size  `indexes' 
+> _size employment `indexes' 
 
 . keep `vars'
 
@@ -130,23 +171,23 @@ end of do-file
 
 . * round values for presentation
 . replace plant_size = plant_size*10
-(26,811 real changes made)
+(24,293 real changes made)
 
 . foreach X of var population_density employment_density plant_size `indexes' {
   2.         replace `X' = round(`X')
   3. }
 (24,293 real changes made)
 (24,380 real changes made)
-(25,123 real changes made)
-(22,249 real changes made)
-(22,249 real changes made)
-(22,076 real changes made)
-(20,565 real changes made)
+(21,652 real changes made)
+(21,026 real changes made)
+(21,018 real changes made)
+(20,959 real changes made)
+(20,501 real changes made)
 (20,833 real changes made)
-(21,927 real changes made)
+(20,845 real changes made)
 
 . replace plant_size = plant_size/10
-(26,811 real changes made)
+(24,293 real changes made)
 
 . foreach X of var latitude longitude {
   2.         replace `X' = round(`X'*10000)/10000
@@ -160,83 +201,113 @@ end of do-file
 . list in 1/10
 
      +-----------------------------------------------------------------+
-  1. |   zip | latitude | longitude | popula~y | employ~y  | plant_~e  |
-     | 10271 |  40.7089 |  -74.0111 |        0 |   935979  |     40.5  |
+  1. |   zip | latitude | longit~e | popula~y  | employ~y  | plant_~e  |
+     | 98164 |   47.606 | -122.332 |    15385  |   314021  |     19.4  |
      |-----------------------------------------------------------------|
-     | team~are | cust~are | pres~are | team~ure | cust~ure | pres~ure |
-     |       36 |       24 |        1 |       89 |        . |        1 |
+     | employ~t | team~are | cust~are | pres~are | team~ure | cust~ure |
+     |      601 |       38 |       18 |        1 |       87 |       28 |
+     |-----------------------------------------------------------------|
+     |                            pres~ure                             |
+     |                                   1                             |
      +-----------------------------------------------------------------+
 
      +-----------------------------------------------------------------+
-  2. |   zip | latitude | longitude | popula~y | employ~y  | plant_~e  |
-     | 98164 |   47.606 |  -122.332 |    15385 |   314021  |     22.4  |
+  2. |   zip | latitude | longit~e | popula~y  | employ~y  | plant_~e  |
+     | 10119 |  40.7808 | -73.9772 |     2159  |   262080  |     30.8  |
      |-----------------------------------------------------------------|
-     | team~are | cust~are | pres~are | team~ure | cust~ure | pres~ure |
-     |       38 |       18 |        1 |       87 |       28 |        1 |
+     | employ~t | team~are | cust~are | pres~are | team~ure | cust~ure |
+     |     7774 |       31 |       17 |        2 |       71 |       19 |
+     |-----------------------------------------------------------------|
+     |                            pres~ure                             |
+     |                                   1                             |
      +-----------------------------------------------------------------+
 
      +-----------------------------------------------------------------+
-  3. |   zip | latitude | longitude | popula~y | employ~y  | plant_~e  |
-     | 10279 |  40.7127 |  -74.0078 |        0 |   189634  |     17.9  |
+  3. |   zip | latitude | longit~e | popula~y  | employ~y  | plant_~e  |
+     | 14302 |  43.0945 | -79.0567 |     2973  |    24561  |      4.6  |
      |-----------------------------------------------------------------|
-     | team~are | cust~are | pres~are | team~ure | cust~ure | pres~ure |
-     |       39 |       19 |        2 |       85 |        . |        1 |
+     | employ~t | team~are | cust~are | pres~are | team~ure | cust~ure |
+     |       32 |       38 |       25 |        1 |       69 |       31 |
+     |-----------------------------------------------------------------|
+     |                            pres~ure                             |
+     |                                   0                             |
      +-----------------------------------------------------------------+
 
      +-----------------------------------------------------------------+
-  4. |   zip | latitude | longitude | popula~y | employ~y  | plant_~e  |
-     | 17822 |  40.9674 |  -76.6049 |        0 |    27867  |     1028  |
+  4. |   zip | latitude | longit~e | popula~y  | employ~y  | plant_~e  |
+     | 20535 |  38.8941 | -77.0251 |      619  |    21906  |      6.6  |
      |-----------------------------------------------------------------|
-     | team~are | cust~are | pres~are | team~ure | cust~ure | pres~ure |
-     |       45 |       56 |        2 |       84 |        . |        4 |
+     | employ~t | team~are | cust~are | pres~are | team~ure | cust~ure |
+     |       93 |       38 |       18 |        1 |       69 |       18 |
+     |-----------------------------------------------------------------|
+     |                            pres~ure                             |
+     |                                   1                             |
      +-----------------------------------------------------------------+
 
      +-----------------------------------------------------------------+
-  5. |   zip | latitude | longitude | popula~y | employ~y  | plant_~e  |
-     | 19109 |  39.9496 |  -75.1637 |        0 |   210909  |     16.4  |
+  5. |   zip | latitude | longit~e | popula~y  | employ~y  | plant_~e  |
+     | 10173 |  40.7543 | -73.9796 |      163  |   187444  |      9.5  |
      |-----------------------------------------------------------------|
-     | team~are | cust~are | pres~are | team~ure | cust~ure | pres~ure |
-     |       35 |       19 |        1 |       77 |        . |        1 |
+     | employ~t | team~are | cust~are | pres~are | team~ure | cust~ure |
+     |      532 |       31 |       18 |        2 |       68 |       14 |
+     |-----------------------------------------------------------------|
+     |                            pres~ure                             |
+     |                                   1                             |
      +-----------------------------------------------------------------+
 
      +-----------------------------------------------------------------+
-  6. |   zip | latitude | longitude | popula~y | employ~y  | plant_~e  |
-     | 10177 |  40.7553 |  -73.9761 |        0 |   469471  |     13.1  |
+  6. |   zip | latitude | longit~e | popula~y  | employ~y  | plant_~e  |
+     |  7311 |  40.7323 | -74.0754 |     6932  |   179090  |     26.4  |
      |-----------------------------------------------------------------|
-     | team~are | cust~are | pres~are | team~ure | cust~ure | pres~ure |
-     |       32 |       17 |        1 |       76 |        . |        1 |
+     | employ~t | team~are | cust~are | pres~are | team~ure | cust~ure |
+     |     3858 |       30 |       17 |        1 |       65 |       23 |
+     |-----------------------------------------------------------------|
+     |                            pres~ure                             |
+     |                                   1                             |
      +-----------------------------------------------------------------+
 
      +-----------------------------------------------------------------+
-  7. |   zip | latitude | longitude | popula~y | employ~y  | plant_~e  |
-     | 70163 |    29.95 |  -90.0755 |        0 |   179706  |     15.2  |
+  7. |   zip | latitude | longit~e | popula~y  | employ~y  | plant_~e  |
+     | 29202 |  34.0007 | -81.0348 |     5531  |    54572  |      7.3  |
      |-----------------------------------------------------------------|
-     | team~are | cust~are | pres~are | team~ure | cust~ure | pres~ure |
-     |       34 |       19 |        1 |       75 |        . |        1 |
+     | employ~t | team~are | cust~are | pres~are | team~ure | cust~ure |
+     |      256 |       33 |       28 |        2 |       65 |       37 |
+     |-----------------------------------------------------------------|
+     |                            pres~ure                             |
+     |                                   1                             |
      +-----------------------------------------------------------------+
 
      +-----------------------------------------------------------------+
-  8. |   zip | latitude | longitude | popula~y | employ~y  | plant_~e  |
-     | 70139 |  29.9546 |  -90.0751 |        0 |   158857  |     25.2  |
+  8. |   zip | latitude | longit~e | popula~y  | employ~y  | plant_~e  |
+     | 10165 |  40.7524 | -73.9791 |      153  |   314137  |      7.9  |
      |-----------------------------------------------------------------|
-     | team~are | cust~are | pres~are | team~ure | cust~ure | pres~ure |
-     |       35 |       18 |        1 |       75 |        . |        1 |
+     | employ~t | team~are | cust~are | pres~are | team~ure | cust~ure |
+     |     2199 |       27 |       18 |        5 |       63 |       14 |
+     |-----------------------------------------------------------------|
+     |                            pres~ure                             |
+     |                                   3                             |
      +-----------------------------------------------------------------+
 
      +-----------------------------------------------------------------+
-  9. |   zip | latitude | longitude | popula~y | employ~y  | plant_~e  |
-     | 80290 |  39.7436 | -104.9876 |        0 |    41665  |     15.5  |
+  9. |   zip | latitude | longit~e | popula~y  | employ~y  | plant_~e  |
+     | 10170 |  40.7526 | -73.9755 |       80  |   221941  |     12.5  |
      |-----------------------------------------------------------------|
-     | team~are | cust~are | pres~are | team~ure | cust~ure | pres~ure |
-     |       38 |       18 |        1 |       73 |        . |        1 |
+     | employ~t | team~are | cust~are | pres~are | team~ure | cust~ure |
+     |     3139 |       28 |       20 |        2 |       63 |       14 |
+     |-----------------------------------------------------------------|
+     |                            pres~ure                             |
+     |                                   2                             |
      +-----------------------------------------------------------------+
 
      +-----------------------------------------------------------------+
- 10. |   zip | latitude | longitude | popula~y | employ~y  | plant_~e  |
-     | 48243 |  42.3314 |  -83.0458 |        0 |   159543  |     48.2  |
+ 10. |   zip | latitude | longit~e | popula~y  | employ~y  | plant_~e  |
+     | 60606 |  41.8868 | -87.6386 |     3488  |   209053  |       40  |
      |-----------------------------------------------------------------|
-     | team~are | cust~are | pres~are | team~ure | cust~ure | pres~ure |
-     |       33 |       18 |        1 |       72 |        . |        1 |
+     | employ~t | team~are | cust~are | pres~are | team~ure | cust~ure |
+     |   135296 |       29 |       19 |        3 |       63 |       23 |
+     |-----------------------------------------------------------------|
+     |                            pres~ure                             |
+     |                                   4                             |
      +-----------------------------------------------------------------+
 
 . generate zip_code = string(zip,"%05.0f")
@@ -250,39 +321,45 @@ file ../data/derived/location-index.csv saved
 
 . 
 . *drop rural areas, CBP is not representative for these
-. drop if population_density<10
-(4,388 observations deleted)
+. drop if population_density<10 | employment<50
+(9,128 observations deleted)
 
 . 
 . generate ln_density = ln(population_density)
-(2,428 missing values generated)
 
 . foreach X of var *_share *_exposure {
   2.         lowess `X' ln_density, bw(0.5) generate(`X'_hat)
   3. }
 
 . 
+. do "fig4.do"
+
+. graph drop _all
+
+. 
 . line teamwork_share_hat customer_share_hat presence_share_hat population_dens
 > ity, sort ///
-> b1title("(A)") ytitle("Share of workers (percent)") xtitle("Population densit
-> y (person/km2, log scale)") ///
+> caption("(A)", position(6)) ytitle("Share of workers (percent)") xtitle("Popu
+> lation density (person/km2, log scale)") ///
 > scheme(s2mono) graphregion(color(white)) xscale(log) xlabel(10 100 1000 10000
 >  100000) ///
-> legend(order(1 "Teamwork" 2 "Customer contact" 3 "Physical presence")) ///
+> legend(region(lstyle(none)) bplacement(5) order(1 "Teamwork" 2 "Customer cont
+> act")) ///
 > name(fig4a)
 
 . 
 . line teamwork_exposure_hat customer_exposure_hat presence_exposure_hat popula
 > tion_density, sort ///
-> b1title("(B)") ytitle("Social distancing exposure (max=100)") xtitle("Populat
-> ion density (person/km2, log scale)") ///
+> caption("(B)", position(6)) ytitle("Social distancing exposure (max=100)") xt
+> itle("Population density (person/km2, log scale)") ///
 > scheme(s2mono) graphregion(color(white)) xscale(log) xlabel(10 100 1000 10000
 >  100000) ///
-> legend(order(1 "Teamwork" 2 "Customer contact" 3 "Physical presence")) ///
+> legend(region(lstyle(none)) bplacement(7) order(3 "Physical presence")) ///
 > name(fig4b)
 
 . 
-. graph combine fig4a fig4b, scheme(s2mono) graphregion(color(white)) xsize(9)
+. graph combine fig4a fig4b, iscale(1.1) scheme(s2mono) graphregion(color(white
+> )) xsize(9)
 
 . 
 . graph export "../text/overleaf/fig4.eps", replace
@@ -290,6 +367,9 @@ file ../data/derived/location-index.csv saved
 
 . graph export "../text/overleaf/fig4.pdf", replace
 (file ../text/overleaf/fig4.pdf written in PDF format)
+
+. 
+end of do-file
 
 . 
 end of do-file

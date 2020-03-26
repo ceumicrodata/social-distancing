@@ -12,7 +12,7 @@ scheme(s2mono) graphregion(color(white)) xscale(log) xlabel(10 100 1000 10000 10
 legend(region(lstyle(none)) bplacement(7) order(3 "Physical presence")) ///
 name(fig4b)
 
-graph combine fig4a fig4b, iscale(1.0) scheme(s2mono) graphregion(color(white)) xsize(9)
+graph combine fig4a fig4b, iscale(1.1) scheme(s2mono) graphregion(color(white)) xsize(9)
 
 graph export "../text/overleaf/fig4.eps", replace
 graph export "../text/overleaf/fig4.pdf", replace

@@ -111,45 +111,15 @@ Millions of workers: 39.962858
 
 . list industry_label sum_employment in 1/5
 
-     +-----------------------------------------------------------------------+
-  1. |                                                        industry_label |
-     |                                                 Publishing industries |
-     |-----------------------------------------------------------------------|
-     |                               sum_em~t                                |
-     |                               791081.6                                |
-     +-----------------------------------------------------------------------+
-
-     +-----------------------------------------------------------------------+
-  2. |                                                        industry_label |
-     |                                                      All other retail |
-     |-----------------------------------------------------------------------|
-     |                               sum_em~t                                |
-     |                                1027938                                |
-     +-----------------------------------------------------------------------+
-
-     +-----------------------------------------------------------------------+
-  3. |                                                        industry_label |
-     |                   Museums, historical sites, and similar institutions |
-     |-----------------------------------------------------------------------|
-     |                               sum_em~t                                |
-     |                                1277922                                |
-     +-----------------------------------------------------------------------+
-
-     +-----------------------------------------------------------------------+
-  4. |                                                        industry_label |
-     |  Lessors of nonfinancial intangible assets (except copyrighted works) |
-     |-----------------------------------------------------------------------|
-     |                               sum_em~t                                |
-     |                                1601562                                |
-     +-----------------------------------------------------------------------+
-
-     +-----------------------------------------------------------------------+
-  5. |                                                        industry_label |
-     | Religious, grantmaking, civic, professional, and similar organizatons |
-     |-----------------------------------------------------------------------|
-     |                               sum_em~t                                |
-     |                                1959038                                |
-     +-----------------------------------------------------------------------+
+     +----------------------------------------------------------------+
+     |                                      industry_label   sum_em~t |
+     |----------------------------------------------------------------|
+  1. |                                  Telecommunications   791081.6 |
+  2. |                                    All other retail    1027938 |
+  3. | Museums, historical sites, and similar institutions    1277922 |
+  4. |                                         Real estate    1601562 |
+  5. |                               Repair and mantenance    1959038 |
+     +----------------------------------------------------------------+
 
 . 
 . clear all
@@ -164,9 +134,9 @@ Millions of workers: 39.962858
 . tempfile occupation
 
 . save `occupation', replace
-(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St26383.000001 no
+(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St27373.000001 no
 > t found)
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St26383.000001 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St27373.000001 saved
 
 . 
 . use "../data/clean/cbp/zip_code_business_patterns.dta", clear
@@ -192,6 +162,9 @@ end of do-file
 
 . generate presence_exposure = presence_share/100 * ln(plant_size)
 
+. generate overall_exposure  = affected_share/100 * ln(population_density)
+(6,099 missing values generated)
+
 . 
 . foreach X of var *_exposure {
   2.         summarize `X'
@@ -213,15 +186,22 @@ customer_e~e |    370,490    1.192858     .985739  -2.095043   6.515367
 presence_e~e |    376,589    .1934092    .2864322          0    3.19715
 (302,589 real changes made)
 
+    Variable |        Obs        Mean    Std. Dev.       Min        Max
+-------------+---------------------------------------------------------
+overall_ex~e |    370,490    2.213308    1.251919  -3.196601   8.290633
+(370,490 real changes made)
+
 . 
-. label variable teamwork_exposure "Social distancing effect on teamwork [0,100
-> ]"
+. label variable teamwork_exposure "Social distancing effect on teamwork (max=1
+> 00)"
 
 . label variable customer_exposure "Social distancing effect on customer contac
-> t [0,100]"
+> t (max=100)"
 
 . label variable presence_exposure "Social distancing effect on physical presen
-> ce [0,100]"
+> ce (max=100)"
+
+. label variable overall_exposure "Social distancing exposure (max=100)"
 
 . 
 . 

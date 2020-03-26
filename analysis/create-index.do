@@ -18,7 +18,7 @@ egen cbp_employment = sum(employment / 1000), by(industry_code)
 corr cbp_employment ces_employment 
 assert r(rho)>0.98
 
-local vars  teamwork_share customer_share presence_share communication_share affected_share teamwork_exposure customer_exposure presence_exposure population_density employment_density plant_size
+local vars  teamwork_share customer_share presence_share communication_share affected_share teamwork_exposure customer_exposure presence_exposure overall_exposure population_density employment_density plant_size
 keep industry_code industry_label `vars'
 order industry_code industry_label `vars'
 
@@ -45,13 +45,14 @@ label variable affected_share "Workers in any of the three groups (percent)"
 label variable teamwork_exposure "Teamwork exposure to social distancing"
 label variable customer_exposure "Customer contact exposure to social distancing"
 label variable presence_exposure "Physical presence exposure to social distancing"
+label variable overall_exposure "Overall exposure to social distancing"
 
 label variable population_density "Population density in the average ZIP code of business (person/km2)"
 label variable employment_density "Employment density in the average ZIP code of business (person/km2)"
 label variable plant_size "Average plant size (person)"
 label variable ces_employment "Industry employment (thousand persons)"
 
-gsort -teamwork_exposure
+gsort -overall_exposure
 
 save "../data/derived/industry-index.dta", replace
 export delimited "../data/derived/industry-index.csv", replace
