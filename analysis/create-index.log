@@ -1,7 +1,7 @@
 
   ___  ____  ____  ____  ____ (R)
  /__    /   ____/   /   ____/
-___/   /   /___/   /   /___/   15.1   Copyright 1985-2017 StataCorp LLC
+___/   /   /___/   /   /___/   15.0   Copyright 1985-2017 StataCorp LLC
   Statistics/Data Analysis            StataCorp
                                       4905 Lakeway Drive
      MP - Parallel Edition            College Station, Texas 77845 USA
@@ -13,7 +13,6 @@ Single-user 2-core Stata perpetual license:
        Serial number:  501506203290
          Licensed to:  Miklos Koren
                        CEU MicroData
-
 
 Notes:
       1.  Stata is running in batch mode.
@@ -47,130 +46,31 @@ Notes:
 . tempfile industry
 
 . save `industry', replace
-(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St30575.000001 no
+(note: file /var/folders/7b/svcv81g94n3fm6nrj7ckr15c0000gn/T//St06743.000001 no
 > t found)
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St30575.000001 saved
+file /var/folders/7b/svcv81g94n3fm6nrj7ckr15c0000gn/T//St06743.000001 saved
 
 . 
 . 
-. do "industry_location_panel.do"
-
 . import delimited "../data/derived/occupation/naics_risk.csv", varnames(1) cle
 > ar
 (6 vars, 84 obs)
 
-. tempfile occupation
-
-. save `occupation', replace
-(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St30575.000002 no
-> t found)
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St30575.000002 saved
-
-. 
-. use "../data/clean/cbp/zip_code_business_patterns.dta", clear
-
-. merge m:1 industry_code using `occupation', keep(match) nogen
-
-    Result                           # of obs.
-    -----------------------------------------
-    not matched                             0
-    matched                           464,804  
-    -----------------------------------------
-
-. 
-end of do-file
-
-. do "calculate-exposure.do"
-
-. generate teamwork_exposure = teamwork_share/100 * ln(employment_density)
-(5,824 missing values generated)
-
-. generate customer_exposure = customer_share/100 * ln(population_density)
-(6,294 missing values generated)
-
-. generate presence_exposure = presence_share/100 * ln(plant_size)
-
-. generate overall_exposure  = affected_share/100 * ln(population_density)
-(6,294 missing values generated)
-
-. 
-. foreach X of var *_exposure {
-  2.         summarize `X'
-  3.         replace `X' = round(`X'/r(max)*100)
-  4. }
-
-    Variable |        Obs        Mean    Std. Dev.       Min        Max
--------------+---------------------------------------------------------
-teamwork_e~e |    458,980     1.02599    .7788558  -1.575394   6.560357
-(458,980 real changes made)
-
-    Variable |        Obs        Mean    Std. Dev.       Min        Max
--------------+---------------------------------------------------------
-customer_e~e |    458,510    1.930914    1.609443  -3.280917   9.831341
-(458,510 real changes made)
-
-    Variable |        Obs        Mean    Std. Dev.       Min        Max
--------------+---------------------------------------------------------
-presence_e~e |    464,804     .193983    .2846667          0   3.246337
-(381,514 real changes made)
-
-    Variable |        Obs        Mean    Std. Dev.       Min        Max
--------------+---------------------------------------------------------
-overall_ex~e |    458,510     3.03745    1.469592  -3.399505   9.940578
-(458,510 real changes made)
-
-. 
-. label variable teamwork_exposure "Social distancing effect on teamwork (max=1
-> 00)"
-
-. label variable customer_exposure "Social distancing effect on customer contac
-> t (max=100)"
-
-. label variable presence_exposure "Social distancing effect on physical presen
-> ce (max=100)"
-
-. label variable overall_exposure "Social distancing exposure (max=100)"
-
-. 
-. 
-end of do-file
-
-. 
 . merge m:1 industry_code using `industry', nogen keep(master match)
 
     Result                           # of obs.
     -----------------------------------------
     not matched                             0
-    matched                           464,804  
+    matched                                84  
     -----------------------------------------
 
 . 
-. * check correlation betwen CES and CBP employment estimates
-. egen cbp_employment = sum(employment / 1000), by(industry_code)
-
-. 
-. corr cbp_employment ces_employment 
-(obs=463,595)
-
-             | cbp_em~t ces_em~t
--------------+------------------
-cbp_employ~t |   1.0000
-ces_employ~t |   0.9836   1.0000
-
-
-. assert r(rho)>0.98
-
-. 
-. local vars  teamwork_share customer_share presence_share communication_share 
-> affected_share teamwork_exposure customer_exposure presence_exposure overall_
-> exposure population_density employment_density plant_size
+. local vars teamwork_share customer_share presence_share communication_share a
+> ffected_share
 
 . keep industry_code industry_label `vars'
 
 . order industry_code industry_label `vars'
-
-. 
-. collapse (mean) `vars' [aw=employment], by(industry_code industry_label)
 
 . 
 . * merge on CES employment to be able to calculate weighted statistics
@@ -180,11 +80,11 @@ ces_employ~t |   0.9836   1.0000
     Result                           # of obs.
     -----------------------------------------
     not matched                             0
-    matched                                83  
+    matched                                84  
     -----------------------------------------
 
 . 
-. foreach X of var *_share *_exposure {
+. foreach X of var *_share {
   2.         replace `X' = round(`X')
   3.         format `X' %10.0f
   4. }
@@ -193,19 +93,12 @@ ces_employ~t |   0.9836   1.0000
 (0 real changes made)
 (0 real changes made)
 (0 real changes made)
-(83 real changes made)
-(83 real changes made)
-(72 real changes made)
-(83 real changes made)
 
-. foreach X of var *_density plant_size ces_employment {
+. foreach X of var ces_employment {
   2.         replace `X' = round(`X'*10)/10
   3.         format `X' %11.1f
   4. }
-(83 real changes made)
-(78 real changes made)
-(83 real changes made)
-(70 real changes made)
+(71 real changes made)
 
 . 
 . label variable teamwork_share "Workers in teamwork-intensive occupations (per
@@ -223,25 +116,6 @@ ces_employ~t |   0.9836   1.0000
 . label variable affected_share "Workers in any of the three groups (percent)"
 
 . 
-. label variable teamwork_exposure "Teamwork exposure to social distancing"
-
-. label variable customer_exposure "Customer contact exposure to social distanc
-> ing"
-
-. label variable presence_exposure "Physical presence exposure to social distan
-> cing"
-
-. label variable overall_exposure "Overall exposure to social distancing"
-
-. 
-. label variable population_density "Population density in the average ZIP code
->  of business (person/km2)"
-
-. label variable employment_density "Employment density in the average ZIP code
->  of business (person/km2)"
-
-. label variable plant_size "Average plant size (person)"
-
 . label variable ces_employment "Industry employment (thousand persons)"
 
 . 

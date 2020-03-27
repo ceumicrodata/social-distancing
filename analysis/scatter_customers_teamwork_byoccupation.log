@@ -117,12 +117,12 @@ variable label_occup2 was str19 now str39
 > ytitle("Customer contact") xtitle("Teamwork") mlabel(label_occup2) graphregio
 > n(margin(3 15 1 3))
 
-. graph export "../text/overleaf/fig3.eps", replace
-(note: file ../text/overleaf/fig3.eps not found)
-(file ../text/overleaf/fig3.eps written in EPS format)
+. graph export "../text/fig3.eps", replace
+(note: file ../text/fig3.eps not found)
+(file ../text/fig3.eps written in EPS format)
 
-. graph export "../text/overleaf/fig3.pdf", replace
-(file ../text/overleaf/fig3.pdf written in PDF format)
+. graph export "../text/fig3.pdf", replace
+(file ../text/fig3.pdf written in PDF format)
 
 . 
 end of do-file

@@ -1,8 +1,6 @@
 clear all
-local indexes teamwork_share customer_share presence_share teamwork_exposure customer_exposure presence_exposure
-
+local indexes teamwork_share customer_share presence_share communication_share affected_share
 do "industry_location_panel.do"
-do "calculate-exposure.do"
 
 foreach X of var `indexes' {
 	replace `X' = `X' * employment
@@ -30,8 +28,7 @@ foreach X of var latitude longitude {
 	replace `X' = round(`X'*10000)/10000
 }
 
-gsort -teamwork_exposure
-list in 1/10
+sort zip
 generate zip_code = string(zip,"%05.0f")
 drop zip
 order zip_code
@@ -41,7 +38,7 @@ export delimited "../data/derived/location-index.csv", replace
 drop if population_density<10 | employment<50
 
 generate ln_density = ln(population_density)
-foreach X of var *_share *_exposure {
+foreach X of var *_share {
 	lowess `X' ln_density, bw(0.5) generate(`X'_hat)
 }
 

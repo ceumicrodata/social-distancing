@@ -58,5 +58,5 @@ replace label_occup2="Industrial machinery mechanics"  if  SOCCode=="49-9041"
 
 scatter customer_index teamwork_index if customer_index>0 & teamwork_index>0, graphregion(color(white)) msymbol(circle_hollow) ///
 ytitle("Customer contact") xtitle("Teamwork") mlabel(label_occup2) graphregion(margin(3 15 1 3))
-graph export "../text/overleaf/fig3.eps", replace
-graph export "../text/overleaf/fig3.pdf", replace
+graph export "../text/fig3.eps", replace
+graph export "../text/fig3.pdf", replace
