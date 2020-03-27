@@ -52,7 +52,7 @@ label variable employment_density "Employment density in the average ZIP code of
 label variable plant_size "Average plant size (person)"
 label variable ces_employment "Industry employment (thousand persons)"
 
-gsort -overall_exposure
+gsort -communication_share
 
 save "../data/derived/industry-index.dta", replace
 export delimited "../data/derived/industry-index.csv", replace

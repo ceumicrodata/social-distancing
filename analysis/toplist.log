@@ -1,0 +1,60 @@
+
+  ___  ____  ____  ____  ____ (R)
+ /__    /   ____/   /   ____/
+___/   /   /___/   /   /___/   15.1   Copyright 1985-2017 StataCorp LLC
+  Statistics/Data Analysis            StataCorp
+                                      4905 Lakeway Drive
+     MP - Parallel Edition            College Station, Texas 77845 USA
+                                      800-STATA-PC        http://www.stata.com
+                                      979-696-4600        stata@stata.com
+                                      979-696-4601 (fax)
+
+Single-user 2-core Stata perpetual license:
+       Serial number:  501506203290
+         Licensed to:  Miklos Koren
+                       CEU MicroData
+
+
+Notes:
+      1.  Stata is running in batch mode.
+      2.  Unicode is supported; see help unicode_advice.
+      3.  More than 2 billion observations are allowed; see help obs_advice.
+      4.  Maximum number of variables is set to 5000; see help set_maxvar.
+
+. do toplist.do 
+
+. use "../data/derived/industry-index.dta", clear
+
+. 
+. * drop hospitals and clinics
+. drop if inlist(industry_code, 621, 622)
+(2 observations deleted)
+
+. 
+. * aggregate up to 2 digits
+. generate naics_2d = int(industry_code/10)
+
+. collapse (mean) teamwork_share customer_share presence_share communication_sh
+> are affected_share [aw=ces_employment], by(naics_2d)
+
+. foreach X of var *_share {
+  2.         replace `X' = round(`X')
+  3. }
+(18 real changes made)
+(17 real changes made)
+(17 real changes made)
+(18 real changes made)
+(18 real changes made)
+
+. 
+. gsort -communication_share
+
+. keep if (_n<=5) | (_n>=_N-4)
+(13 observations deleted)
+
+. 
+. export delimited "../data/derived/top-industries.csv", replace
+file ../data/derived/top-industries.csv saved
+
+. 
+end of do-file
