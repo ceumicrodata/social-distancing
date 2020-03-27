@@ -3,24 +3,8 @@ import delimited "../../derived/crosswalk/ces2industry.csv", varnames(1) clear c
 tempfile ces
 save `ces', replace
 
-import excel "../../raw/bls/industry-employment/industry.xlsx", cellrange(A7:D258) sheet("Table 2.7") firstrow clear
-
-rename Nonagriculturewageandsalary CES_label
-rename NA CES_industry
-drop C
-rename D employment
-
-foreach X of var CES* {
-	replace `X' = strtrim(`X')
-	drop if missing(`X')
-}
-* Postal Service appears twice
-duplicates drop CES_label CES_industry, force
-
-destring employment, force replace
-
-merge 1:1 CES_label CES_industry using `ces', nogen keep(match)
-
+import delimited "../../raw/bls/industry-employment/ces-2020-feb.csv", varnames(1) clear case(preserve)
+merge 1:1 ces_industry using `ces', keep(match) nogen
 
 collapse (sum) employment, by(industry_code)
 summarize employment, detail

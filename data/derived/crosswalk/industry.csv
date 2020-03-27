@@ -1,83 +1,91 @@
 industry_code,industry_label,aggregation
-111,Crop production,3
-112,Animal production,3
-113,Forestry and Logging,3
-114,"Fishing, hunting and trapping",3
-115,Support activities for agriculture and forestry,3
 211,Oil and gas extraction,3
 212,"Mining, except oil and gas",3
 213,Support activities for mining,3
-221,"Electric power generation, transmission and distribution, Natural gas distribution, Water, sewage and other systems",3
-23,Construction,2
+236,Construction of buildings,3
+237,Heavy and civil engineering construction,3
+238,Specialty trade contractors,3
+321,Wood products,3
+327,Nonmetallic mineral products,3
+331,Primary metals,3
+332,Fabricated metal products,3
+333,Machinery,3
+334,Computer and electronic products,3
+335,Electrical equipment and appliances,3
+336,Transportation equipment,3
+337,Furniture and related products,3
+339,Miscellaneous durable goods manufacturing,3
 311,Food manufacturing,3
-312,Beverage and tobacco product,3
-313,Textile mills and textile product mills,3
-315,"Apparel, leather and allied product manufacturing",3
-321,Wood product manufacturing,3
-322,Paper manufacturing,3
+313,Textile mills,3
+314,Textile product mills,3
+315,Apparel,3
+322,Paper and paper products,3
 323,Printing and related support activities,3
-324,Petroleum and coal products manufacturing,3
-325,Chemical manufacturing,3
-326,Plastics and rubber products manufacturing,3
-327,Nonmetallic mineral product manufacturing,3
-331,Primary metal manufacturing,3
-332,Fabricated metal product manufacturing,3
-333,Machinery manufacturing,3
-334,Computer and electronic product manufacturing,3
-335,"Electrical equipment, appliance, and component manufacturing",3
-336,Transportation equipment manufacturing,3
-337,Furniture and related product manufacturing,3
-339,Miscellaneous manufacturing,3
-42,Wholesale trade,2
+324,Petroleum and coal products,3
+325,Chemicals,3
+326,Plastics and rubber products,3
+312,Miscellaneous nondurable goods manufacturing,3
+423,Wholesale trade: Durable goods,3
+424,Wholesale trade: Nondurable goods,3
+425,Electronic markets and agents and brokers,3
 441,Motor vehicle and parts dealers,3
-442,All other retail,3
+442,Furniture and home furnishings stores,3
+443,Electronics and appliance stores,3
+444,Building material and garden supply stores,3
 445,Food and beverage stores,3
-452,General Merchandise stores,3
+446,Health and personal care stores,3
+447,Gasoline stations,3
+448,Clothing and clothing accessories stores,3
+451,"Sporting goods, hobby, book, and music stores",3
+452,General merchandise stores,3
+453,Miscellaneous store retailers,3
+454,Nonstore retailers,3
 481,Air transportation,3
 482,Rail transportation,3
 483,Water transportation,3
 484,Truck transportation,3
 485,Transit and ground passenger transportation,3
 486,Pipeline transportation,3
-487,Scenic and sightseeing transportation and support activities for transportation,3
-491,Postal Service,3
+487,Scenic and sightseeing transportation,3
+488,Support activities for transportation,3
 492,Couriers and messengers,3
 493,Warehousing and storage,3
-511,Publishing industries,3
-512,"Motion picture, video, and sound recording industries",3
-515,Broadcasting (except Internet),3
+221,Utilities,3
+511,"Publishing industries, except Internet",3
+512,Motion picture and sound recording industries,3
+515,"Broadcasting, except Internet",3
 517,Telecommunications,3
-518,"Data processing, hosting, and related services",3
+518,"Data processing, hosting and related services",3
 519,Other information services,3
-521,"Monetary authorities, credit intermediation, and related activities",3
-523,"Securities, commodity contracts, funds, trusts and other financial investments and related activities",3
+521,"Monetary authorities, Credit intermediation and related activities",3
+523,"Securities, commodity contracts, investments, and funds and trusts",3
 524,Insurance carriers and related activities,3
 531,Real estate,3
-532,"Automotive equipment rental and leasing, Consumer goods rental and general rental centers, Commercial and industrial machinery and equipment rental and leasing",3
-533,Lessors of nonfinancial intangible assets (except copyrighted works),3
-541,"Professional, scientific, and technical services",3
-55,Management of companies and enterprises,2
+532,Rental and leasing services,3
+533,Lessors of nonfinancial intangible assets,3
 561,Administrative and support services,3
 562,Waste management and remediation services,3
-611,Education services,3
 621,Ambulatory health care services,3
 622,Hospitals,3
 623,Nursing and residential care facilities,3
 624,Social assistance,3
-711,"Performing arts, spectator sports, and related industries",3
+711,Performing arts and spectator sports,3
 712,"Museums, historical sites, and similar institutions",3
-713,"Amusement, gambling, and recreation industries",3
-721,Accomodation,3
+713,"Amusements, gambling, and recreation",3
+721,Accommodation,3
 722,Food services and drinking places,3
-811,Repair and mantenance,3
+811,Repair and maintenance,3
 812,Personal and laundry services,3
-813,"Religious, grantmaking, civic, professional, and similar organizatons",3
-814,Private households,3
-921,"Executive, Legislative, and Other General Government Support",3
-922,"Justice, Public Order, and Safety Activities",3
-923,Administration of Human Resource Programs,3
-924,Administration of Environmental Quality Programs,3
-925,"Administration of Housing Programs, Urban Planning, and Community Development",3
-926,Administration of Economic Programs,3
-927,Space Research and Technology,3
-928,National Security and International Affairs,3
+813,Membership associations and organizations,3
+911,"Federal, except U.S. Postal Service",3
+919,U.S. Postal Service,3
+921,State government education,3
+922,"State government, excluding education",3
+931,Local government education,3
+932,"Local government, excluding education",3
+541,Professional and technical services,3
+551,Management of companies and enterprises,3
+611,Educational services,3
+113,Forestry and loggin,3
+114,"Fishing, Hunting and Trapping",3
+115,Support Activities for Agriculture and Forestry,3
