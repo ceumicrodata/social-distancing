@@ -36,7 +36,7 @@ Notes:
 
 . 
 . replace ces_employment = int(ces_employment*1000)
-(65 real changes made)
+(79 real changes made)
 
 . foreach X of var *_share {
   2.         summarize `X' [fw=ces_employment]
@@ -45,35 +45,35 @@ Notes:
 
     Variable |        Obs        Mean    Std. Dev.       Min        Max
 -------------+---------------------------------------------------------
-teamwork_s~e |113,049,400    22.85383    12.35028          5         50
-Millions of workers: 25.836119
+teamwork_s~e |116,498,199    22.90905    12.47579          5         50
+Millions of workers: 26.688627
 
     Variable |        Obs        Mean    Std. Dev.       Min        Max
 -------------+---------------------------------------------------------
-customer_s~e |113,049,400    31.43124    20.93571          3         74
-Millions of workers: 35.532823
+customer_s~e |116,498,199    31.13826    21.37387          3         90
+Millions of workers: 36.275507
 
     Variable |        Obs        Mean    Std. Dev.       Min        Max
 -------------+---------------------------------------------------------
-presence_s~e |113,049,400    8.022725    12.29342          0         66
-Millions of workers: 9.069642
+presence_s~e |116,498,199    8.262375    12.87915          0         66
+Millions of workers: 9.6255184
 
     Variable |        Obs        Mean    Std. Dev.       Min        Max
 -------------+---------------------------------------------------------
-communicat~e |113,049,400    43.13084    17.89304          8         75
-Millions of workers: 48.759154
+communicat~e |116,498,199    42.89975    18.29325          8         91
+Millions of workers: 49.977432
 
     Variable |        Obs        Mean    Std. Dev.       Min        Max
 -------------+---------------------------------------------------------
-affected_s~e |113,049,400    50.49341    15.14627         18         80
-Millions of workers: 57.082502
+affected_s~e |116,498,199    50.44518    15.45256         18         91
+Millions of workers: 58.767722
 
 . 
 . generate naics_2d = industry_code if industry_code<100
-(64 missing values generated)
+(81 missing values generated)
 
 . replace naics_2d = int(industry_code/10) if industry_code>=100
-(64 real changes made)
+(81 real changes made)
 
 . 
 . * employment-weighted average
@@ -81,15 +81,15 @@ Millions of workers: 57.082502
   2.         replace `X' = `X' * employment
   3.         replace employment = . if missing(`X')
   4. }
-(67 real changes made)
+(81 real changes made)
 (0 real changes made)
-(67 real changes made)
+(81 real changes made)
 (0 real changes made)
-(58 real changes made)
+(70 real changes made)
 (0 real changes made)
-(67 real changes made)
+(81 real changes made)
 (0 real changes made)
-(67 real changes made)
+(81 real changes made)
 (0 real changes made)
 
 . collapse (sum) employment (sum) teamwork_share customer_share presence_share 
@@ -114,11 +114,11 @@ Millions of workers: 57.082502
      +----------------------------------------------------------------+
      |                                      industry_label   sum_em~t |
      |----------------------------------------------------------------|
-  1. |                                    All other retail   236856.1 |
-  2. |                                  Telecommunications    1027938 |
-  3. | Museums, historical sites, and similar institutions    1277922 |
-  4. |                               Repair and mantenance    1635397 |
-  5. |                                         Real estate    1959038 |
+  1. |            Clothing and clothing accessories stores   451328.2 |
+  2. |       Sporting goods, hobby, book, and music stores   687883.2 |
+  3. |                                  Telecommunications    1478965 |
+  4. |                                Water transportation    1973029 |
+  5. | Museums, historical sites, and similar institutions    2223013 |
      +----------------------------------------------------------------+
 
 . 
@@ -129,14 +129,14 @@ Millions of workers: 57.082502
 
 . import delimited "../data/derived/occupation/naics_risk.csv", varnames(1) cle
 > ar
-(6 vars, 74 obs)
+(6 vars, 84 obs)
 
 . tempfile occupation
 
 . save `occupation', replace
-(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St29026.000001 no
+(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St30511.000001 no
 > t found)
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St29026.000001 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St30511.000001 saved
 
 . 
 . use "../data/clean/cbp/zip_code_business_patterns.dta", clear
@@ -146,7 +146,7 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St29026.000001 saved
     Result                           # of obs.
     -----------------------------------------
     not matched                             0
-    matched                           376,589  
+    matched                           464,804  
     -----------------------------------------
 
 . 
@@ -155,15 +155,15 @@ end of do-file
 . do "calculate-exposure.do"
 
 . generate teamwork_exposure = teamwork_share/100 * ln(employment_density)
-(5,654 missing values generated)
+(5,824 missing values generated)
 
 . generate customer_exposure = customer_share/100 * ln(population_density)
-(6,099 missing values generated)
+(6,294 missing values generated)
 
 . generate presence_exposure = presence_share/100 * ln(plant_size)
 
 . generate overall_exposure  = affected_share/100 * ln(population_density)
-(6,099 missing values generated)
+(6,294 missing values generated)
 
 . 
 . foreach X of var *_exposure {
@@ -173,23 +173,23 @@ end of do-file
 
     Variable |        Obs        Mean    Std. Dev.       Min        Max
 -------------+---------------------------------------------------------
-teamwork_e~e |    370,935     1.04078     .824821  -1.575394   6.560357
-(370,935 real changes made)
+teamwork_e~e |    458,980     1.02599    .7788558  -1.575394   6.560357
+(458,980 real changes made)
 
     Variable |        Obs        Mean    Std. Dev.       Min        Max
 -------------+---------------------------------------------------------
-customer_e~e |    370,490    1.714174    1.326634  -2.846097   7.985538
-(370,490 real changes made)
+customer_e~e |    458,510    1.930914    1.609443  -3.280917   9.831341
+(458,510 real changes made)
 
     Variable |        Obs        Mean    Std. Dev.       Min        Max
 -------------+---------------------------------------------------------
-presence_e~e |    376,589    .2047561    .2952307          0   3.246337
-(309,596 real changes made)
+presence_e~e |    464,804     .193983    .2846667          0   3.246337
+(381,514 real changes made)
 
     Variable |        Obs        Mean    Std. Dev.       Min        Max
 -------------+---------------------------------------------------------
-overall_ex~e |    370,490    2.878717    1.348411   -3.37419   8.520495
-(370,490 real changes made)
+overall_ex~e |    458,510     3.03745    1.469592  -3.399505   9.940578
+(458,510 real changes made)
 
 . 
 . label variable teamwork_exposure "Social distancing effect on teamwork (max=1
@@ -210,7 +210,7 @@ end of do-file
 . 
 . * of which urban
 . drop if population_density < 1000
-(268,492 observations deleted)
+(328,404 observations deleted)
 
 . * drop hospitals and clinics
 . drop if inlist(industry_code, 621, 622)
@@ -221,19 +221,19 @@ end of do-file
   3.         replace employment = . if missing(`X')
   4. }
 variable teamwork_share was byte now long
-(103,963 real changes made)
+(132,266 real changes made)
 (0 real changes made)
 variable customer_share was byte now long
-(103,963 real changes made)
+(132,266 real changes made)
 (0 real changes made)
 variable presence_share was byte now long
-(83,725 real changes made)
+(106,124 real changes made)
 (0 real changes made)
 variable communication_share was byte now long
-(103,963 real changes made)
+(132,266 real changes made)
 (0 real changes made)
 variable affected_share was byte now long
-(103,963 real changes made)
+(132,266 real changes made)
 (0 real changes made)
 
 . collapse (sum) teamwork_share customer_share presence_share communication_sha
@@ -242,11 +242,11 @@ variable affected_share was byte now long
 . foreach X of var *_share {
   2.         replace `X' = `X' / employment
   3. }
-(67 real changes made)
-(67 real changes made)
-(58 real changes made)
-(67 real changes made)
-(67 real changes made)
+(81 real changes made)
+(81 real changes made)
+(70 real changes made)
+(81 real changes made)
+(81 real changes made)
 
 . replace employment = int(employment)
 (0 real changes made)
@@ -259,28 +259,28 @@ variable affected_share was byte now long
 
     Variable |        Obs        Mean    Std. Dev.       Min        Max
 -------------+---------------------------------------------------------
-teamwork_s~e | 38,187,045    24.73976    13.16483          5         50
-Millions of workers: 9.4473832
+teamwork_s~e | 37,020,146    24.92679    13.40574          5         50
+Millions of workers: 9.2279325
 
     Variable |        Obs        Mean    Std. Dev.       Min        Max
 -------------+---------------------------------------------------------
-customer_s~e | 38,187,045    32.64106    18.29045          3         74
-Millions of workers: 12.464656
+customer_s~e | 37,020,146    33.69251    19.57374          3         90
+Millions of workers: 12.473017
 
     Variable |        Obs        Mean    Std. Dev.       Min        Max
 -------------+---------------------------------------------------------
-presence_s~e | 38,187,045    6.378864    10.45405          0         66
-Millions of workers: 2.4358997
+presence_s~e | 37,020,146    6.098823    10.88293          0         66
+Millions of workers: 2.2577932
 
     Variable |        Obs        Mean    Std. Dev.       Min        Max
 -------------+---------------------------------------------------------
-communicat~e | 38,187,045    45.42835     15.1881          8         75
-Millions of workers: 17.347744
+communicat~e | 37,020,146    46.40141    16.18013          8         91
+Millions of workers: 17.177871
 
     Variable |        Obs        Mean    Std. Dev.       Min        Max
 -------------+---------------------------------------------------------
-affected_s~e | 38,187,045    51.24741    12.89844         18         80
-Millions of workers: 19.569871
+affected_s~e | 37,020,146    51.94053    13.80185         18         91
+Millions of workers: 19.228461
 
 . 
 end of do-file
