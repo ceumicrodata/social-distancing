@@ -33,18 +33,18 @@ Notes:
 . 
 . * when no population data, assume population=0
 . mvencode population_density, mv(0) override
-population~y: 5654 missing values recoded
+population~y: 5824 missing values recoded
 
 . * employment-weighted measures across zip codes
 . foreach X of var `measures' {
   2.         replace `X' = `X' * employment
   3.         replace employment = 0 if missing(`X')
   4. }
-(370,490 real changes made)
+(458,510 real changes made)
 (0 real changes made)
-(370,935 real changes made)
-(5,654 real changes made)
-(376,589 real changes made)
+(458,980 real changes made)
+(5,824 real changes made)
+(464,804 real changes made)
 (0 real changes made)
 
 . collapse (sum) employment `measures', by(industry_code)
@@ -53,15 +53,15 @@ population~y: 5654 missing values recoded
   2.         replace `X' = round(`X' / employment, 0.1)
   3. 
 . }
-(69 real changes made)
-(69 real changes made)
-(69 real changes made)
+(83 real changes made)
+(83 real changes made)
+(83 real changes made)
 
 . rename employment cbp_employment
 
 . compress
   variable cbp_employment was double now long
-  (276 bytes saved)
+  (332 bytes saved)
 
 . 
 . label variable population_density "Average population density (person/km2)"

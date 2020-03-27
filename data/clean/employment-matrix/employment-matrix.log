@@ -28,14 +28,14 @@ Notes:
 
 . import delimited "../../derived/crosswalk/naics2industry.csv", varnames(1) cl
 > ear
-(3 vars, 99 obs)
+(3 vars, 87 obs)
 
 . tempfile naics
 
 . save `naics', replace
-(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St05479.000001 no
+(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St30451.000001 no
 > t found)
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St05479.000001 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St30451.000001 saved
 
 . 
 . clear all
@@ -78,7 +78,7 @@ naics_6d: all characters numeric; replaced as long
     Result                           # of obs.
     -----------------------------------------
     not matched                             0
-    matched                            31,789  
+    matched                            31,476  
     -----------------------------------------
 
 . collapse (sum) Employment, by(industry_code SOCCode)

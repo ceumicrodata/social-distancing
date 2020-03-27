@@ -50,15 +50,15 @@ ces_industry,industry_code,industry_name
 43488000,488,Support activities for transportation
 43492000,492,Couriers and messengers
 43493000,493,Warehousing and storage
-44220000,22,Utilities
+44220000,221,Utilities
 50511000,511,"Publishing industries, except Internet"
 50512000,512,Motion picture and sound recording industries
 50515000,515,"Broadcasting, except Internet"
 50517000,517,Telecommunications
 50518000,518,"Data processing, hosting and related services"
 50519000,519,Other information services
-55521000,521,Monetary authorities - central bank
-55522000,522,Credit intermediation and related activities
+55521000,521,"Monetary authorities, Credit intermediation and related activities"
+55522000,521,"Monetary authorities, Credit intermediation and related activities"
 55523000,523,"Securities, commodity contracts, investments, and funds and trusts"
 55524000,524,Insurance carriers and related activities
 55531000,531,Real estate
@@ -84,7 +84,7 @@ ces_industry,industry_code,industry_name
 90922000,922,"State government, excluding education"
 90931611,931,Local government education
 90932000,932,"Local government, excluding education"
-60540000,54,Professional and technical services
-60550000,55,Management of companies and enterprises
-65610000,61,Educational services
+60540000,541,Professional and technical services
+60550000,551,Management of companies and enterprises
+65610000,611,Educational services
 10113300,113,Logging

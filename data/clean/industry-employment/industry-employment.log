@@ -32,9 +32,9 @@ Notes:
 . tempfile ces
 
 . save `ces', replace
-(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St30314.000001 no
+(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St30436.000001 no
 > t found)
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St30314.000001 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St30436.000001 saved
 
 . 
 . import delimited "../../raw/bls/industry-employment/ces-2020-feb.csv", varnam
@@ -57,17 +57,17 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St30314.000001 saved
                       (sum) employment
 -------------------------------------------------------------
       Percentiles      Smallest
- 1%         19.2           19.2
- 5%         54.5           23.8
-10%        111.7           36.6       Obs                  89
-25%        404.7           50.4       Sum of Wgt.          89
+ 1%         23.8           23.8
+ 5%         65.1           36.6
+10%        114.8           50.4       Obs                  88
+25%        407.8           54.5       Sum of Wgt.          88
 
-50%        822.6                      Mean            1713.99
-                        Largest       Std. Dev.      2303.252
-75%       2091.8         8056.4
-90%       4250.4           8937       Variance        5304971
-95%       7855.3         9717.3       Skewness       2.505394
-99%      12287.5        12287.5       Kurtosis       9.582768
+50%       836.75                      Mean           1733.467
+                        Largest       Std. Dev.      2309.324
+75%      2137.95         8056.4
+90%       4250.4           8937       Variance        5332979
+95%       7855.3         9717.3       Skewness       2.493589
+99%      12287.5        12287.5       Kurtosis       9.504224
 
 . display r(sum)
 152545.1

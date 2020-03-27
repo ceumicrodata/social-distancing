@@ -35,26 +35,26 @@ Notes:
 
     Result                           # of obs.
     -----------------------------------------
-    not matched                           579
-        from master                       579  
+    not matched                           607
+        from master                       607  
         from using                          0  
 
-    matched                            12,245  
+    matched                            13,400  
     -----------------------------------------
 
 . * a few cases are missing the risk, take these to be low risk
 . mvencode `indexes', mv(0) override
-    teamwork: 579 missing values recoded
-    customer: 579 missing values recoded
-    presence: 579 missing values recoded
+    teamwork: 607 missing values recoded
+    customer: 607 missing values recoded
+    presence: 607 missing values recoded
 
 . 
 . replace Employment = round(Employment*1000)
-(12,824 real changes made)
+(14,007 real changes made)
 
 . compress
   variable Employment was double now long
-  (51,296 bytes saved)
+  (56,028 bytes saved)
 
 . 
 . * both or all three
@@ -74,11 +74,11 @@ Notes:
 . foreach X in `indexes'  communication affected {
   2.         replace `X'_share = round(`X'_share / Employment * 100)
   3. }
-(74 real changes made)
-(74 real changes made)
-(74 real changes made)
-(74 real changes made)
-(74 real changes made)
+(84 real changes made)
+(84 real changes made)
+(84 real changes made)
+(84 real changes made)
+(84 real changes made)
 
 . drop Employment
 
