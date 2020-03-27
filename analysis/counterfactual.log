@@ -34,9 +34,9 @@ Notes:
 . tempfile occupation
 
 . save `occupation', replace
-(note: file /var/folders/7b/svcv81g94n3fm6nrj7ckr15c0000gn/T//St04700.000001 no
+(note: file /var/folders/7b/svcv81g94n3fm6nrj7ckr15c0000gn/T//St04948.000001 no
 > t found)
-file /var/folders/7b/svcv81g94n3fm6nrj7ckr15c0000gn/T//St04700.000001 saved
+file /var/folders/7b/svcv81g94n3fm6nrj7ckr15c0000gn/T//St04948.000001 saved
 
 . 
 . use "../data/clean/cbp/zip_code_business_patterns.dta", clear
@@ -109,15 +109,17 @@ end of do-file
 
 . 
 . /* 
-> Calibrate epsilon.
+> Calibrate epsilon to gamma=1.04 in
 > 
 > Ciccone, Antonio, and Robert Hall. 1996. “Productivity and the Density of Eco
 > nomic Activity.” 
 > The American Economic Review 86 (1): 54–70.
 > 
+> page 62.
+> 
 > density^agglomeration = density^(epsilon * chi)
 > */
-. scalar agglomeration = 0.06
+. scalar agglomeration = 0.04
 
 . generate LHS = agglomeration * ln(population_density)
 (6,294 missing values generated)
@@ -131,42 +133,41 @@ end of do-file
 
       Source |       SS           df       MS      Number of obs   =   458,510
 -------------+----------------------------------   F(1, 458508)    >  99999.00
-       Model |  1509.28756         1  1509.28756   Prob > F        =    0.0000
-    Residual |  2907.44064   458,508   .00634109   R-squared       =    0.3417
+       Model |  670.794467         1  670.794467   Prob > F        =    0.0000
+    Residual |  1292.19583   458,508  .002818262   R-squared       =    0.3417
 -------------+----------------------------------   Adj R-squared   =    0.3417
-       Total |   4416.7282   458,509  .009632806   Root MSE        =    .07963
+       Total |   1962.9903   458,509  .004281247   Root MSE        =    .05309
 
 ------------------------------------------------------------------------------
          LHS |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
-         RHS |    .038906   .0000797   487.87   0.000     .0387497    .0390623
-       _cons |   .2617286   .0002781   941.03   0.000     .2611835    .2622737
+         RHS |   .0259374   .0000532   487.87   0.000     .0258332    .0260416
+       _cons |   .1744857   .0001854   941.03   0.000     .1741223    .1748491
 ------------------------------------------------------------------------------
 
 . scalar epsilon = _b[RHS]
 
-. 
-. * Eq 5
-. generate cost_ratio = population_density^(epsilon*communication_share/100)
-(5,824 missing values generated)
+. generate chi = communication_share/100
 
+. generate gamma = chi/(1-chi)
+
+. 
 . * Eq 4
-. generate contact_ratio = population_density^(epsilon*(1-communication_share/1
-> 00))
+. generate contact = population_density^(epsilon*(1-chi))
 (5,824 missing values generated)
 
 . * current number of contacts
-. summarize contact_ratio [aw=employment]
+. summarize contact [aw=employment]
 
     Variable |     Obs      Weight        Mean   Std. Dev.       Min        Max
 -------------+-----------------------------------------------------------------
-contact_ra~o | 458,980    87750639    1.135195   .0748444          0   1.452789
+     contact | 458,980    87750639    1.087394   .0554947          0    1.28273
 
 . scalar current_contact = r(mean)
 
 . 
-. * target contact is ten percent lower
-. scalar target_contact = current_contact * 0.9
+. * target contact is half
+. scalar target_contact = current_contact * 0.5
 
 . 
 . * loop to find the cap
@@ -179,22 +180,25 @@ contact_ra~o | 458,980    87750639    1.135195   .0748444          0   1.452789
 
 . while average > target_contact {
   2.         quietly replace counterfactual = min(population_density, cap)^(eps
-> ilon*(1-communication_share/100))
+> ilon*(1-chi))
   3.         quietly summarize counterfactual [aw=employment]
   4.         scalar average = r(mean)
-  5.         scalar cap = 0.9*cap
+  5.         scalar cap = 0.95*cap
   6. }
 
 . 
-. generate cost_increase = (contact_ratio/counterfactual)^(communication_share/
-> (100-communication_share))
+. generate contact_ratio = counterfactual / contact
 (6,294 missing values generated)
 
-. summarize cost_increase [aw=employment]
+. * Eq 6 from the paper
+. generate cost_ratio = chi*contact_ratio + (1-chi)*(contact_ratio)^(-gamma)
+(6,294 missing values generated)
+
+. summarize cost_ratio [aw=employment]
 
     Variable |     Obs      Weight        Mean   Std. Dev.       Min        Max
 -------------+-----------------------------------------------------------------
-cost_incre~e | 458,510    87643392    1.108941   .0571633          1   1.416075
+  cost_ratio | 458,510    87643392    1.222481   .0567359   1.039587   1.322792
 
 . 
 . do "aggregate2digit.do"
@@ -214,12 +218,8 @@ cost_incre~e | 458,510    87643392    1.108941   .0571633          1   1.416075
 end of do-file
 
 . collapse (mean) cost_increase [aw=employment], by(naics_2d)
+variable cost_increase not found
+r(111);
 
-. gsort -cost_increase
-
-. export delimited "cost_by_naics2.csv", replace
-(note: file cost_by_naics2.csv not found)
-file cost_by_naics2.csv saved
-
-. 
 end of do-file
+r(111);
