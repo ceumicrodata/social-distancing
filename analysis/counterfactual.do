@@ -47,7 +47,13 @@ generate contact_ratio = counterfactual / contact
 generate cost_ratio = chi*contact_ratio + (1-chi)*(contact_ratio)^(-gamma)
 summarize cost_ratio [aw=employment]
 
+* compute for nyc
+merge m:1 zip using "nyc_zip.dta", keep(master match)
+generate nyc = (_m==3)
+summarize population_density if nyc==1 [aw=employment]
+summarize cost_ratio if nyc==1 [aw=employment]
+
 do "aggregate2digit.do"
-collapse (mean) cost_increase [aw=employment], by(naics_2d)
-gsort -cost_increase
+collapse (mean) cost_ratio [aw=employment], by(naics_2d)
+gsort -cost_ratio
 export delimited "cost_by_naics2.csv", replace

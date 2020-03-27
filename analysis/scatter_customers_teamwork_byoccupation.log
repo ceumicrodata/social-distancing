@@ -1,7 +1,7 @@
 
   ___  ____  ____  ____  ____ (R)
  /__    /   ____/   /   ____/
-___/   /   /___/   /   /___/   15.1   Copyright 1985-2017 StataCorp LLC
+___/   /   /___/   /   /___/   15.0   Copyright 1985-2017 StataCorp LLC
   Statistics/Data Analysis            StataCorp
                                       4905 Lakeway Drive
      MP - Parallel Edition            College Station, Texas 77845 USA
@@ -13,7 +13,6 @@ Single-user 2-core Stata perpetual license:
        Serial number:  501506203290
          Licensed to:  Miklos Koren
                        CEU MicroData
-
 
 Notes:
       1.  Stata is running in batch mode.
@@ -119,6 +118,7 @@ variable label_occup2 was str19 now str39
 > n(margin(3 15 1 3))
 
 . graph export "../text/overleaf/fig3.eps", replace
+(note: file ../text/overleaf/fig3.eps not found)
 (file ../text/overleaf/fig3.eps written in EPS format)
 
 . graph export "../text/overleaf/fig3.pdf", replace

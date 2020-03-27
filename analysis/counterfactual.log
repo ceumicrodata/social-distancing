@@ -34,9 +34,9 @@ Notes:
 . tempfile occupation
 
 . save `occupation', replace
-(note: file /var/folders/7b/svcv81g94n3fm6nrj7ckr15c0000gn/T//St04948.000001 no
+(note: file /var/folders/7b/svcv81g94n3fm6nrj7ckr15c0000gn/T//St06112.000001 no
 > t found)
-file /var/folders/7b/svcv81g94n3fm6nrj7ckr15c0000gn/T//St04948.000001 saved
+file /var/folders/7b/svcv81g94n3fm6nrj7ckr15c0000gn/T//St06112.000001 saved
 
 . 
 . use "../data/clean/cbp/zip_code_business_patterns.dta", clear
@@ -201,6 +201,33 @@ end of do-file
   cost_ratio | 458,510    87643392    1.222481   .0567359   1.039587   1.322792
 
 . 
+. * compute for nyc
+. merge m:1 zip using "nyc_zip.dta", keep(master match)
+
+    Result                           # of obs.
+    -----------------------------------------
+    not matched                       458,614
+        from master                   458,614  (_merge==1)
+        from using                          0  (_merge==2)
+
+    matched                             6,190  (_merge==3)
+    -----------------------------------------
+
+. generate nyc = (_m==3)
+
+. summarize population_density if nyc==1 [aw=employment]
+
+    Variable |     Obs      Weight        Mean   Std. Dev.       Min        Max
+-------------+-----------------------------------------------------------------
+population~y |   6,190     2892604    19902.81   12203.91          0   57231.17
+
+. summarize cost_ratio if nyc==1 [aw=employment]
+
+    Variable |     Obs      Weight        Mean   Std. Dev.       Min        Max
+-------------+-----------------------------------------------------------------
+  cost_ratio |   6,013     2841419    1.258541   .0590341   1.067878   1.322792
+
+. 
 . do "aggregate2digit.do"
 
 . generate naics_2d = int(industry_code/10)
@@ -217,9 +244,12 @@ end of do-file
 . 
 end of do-file
 
-. collapse (mean) cost_increase [aw=employment], by(naics_2d)
-variable cost_increase not found
-r(111);
+. collapse (mean) cost_ratio [aw=employment], by(naics_2d)
 
+. gsort -cost_ratio
+
+. export delimited "cost_by_naics2.csv", replace
+file cost_by_naics2.csv saved
+
+. 
 end of do-file
-r(111);

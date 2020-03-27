@@ -4,7 +4,7 @@ use "../data/derived/industry-index.dta", clear
 drop if inlist(industry_code, 621, 622)
 
 * aggregate up to 2 digits
-do "aggregate2naics.do"
+do "aggregate2digit.do"
 
 collapse (mean) teamwork_share customer_share presence_share communication_share affected_share [aw=ces_employment], by(naics_2d)
 foreach X of var *_share {

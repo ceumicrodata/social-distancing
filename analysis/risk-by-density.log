@@ -1,7 +1,7 @@
 
   ___  ____  ____  ____  ____ (R)
  /__    /   ____/   /   ____/
-___/   /   /___/   /   /___/   15.1   Copyright 1985-2017 StataCorp LLC
+___/   /   /___/   /   /___/   15.0   Copyright 1985-2017 StataCorp LLC
   Statistics/Data Analysis            StataCorp
                                       4905 Lakeway Drive
      MP - Parallel Edition            College Station, Texas 77845 USA
@@ -13,7 +13,6 @@ Single-user 2-core Stata perpetual license:
        Serial number:  501506203290
          Licensed to:  Miklos Koren
                        CEU MicroData
-
 
 Notes:
       1.  Stata is running in batch mode.
@@ -38,9 +37,9 @@ Notes:
 . tempfile occupation
 
 . save `occupation', replace
-(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St31183.000001 no
+(note: file /var/folders/7b/svcv81g94n3fm6nrj7ckr15c0000gn/T//St05037.000001 no
 > t found)
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St31183.000001 saved
+file /var/folders/7b/svcv81g94n3fm6nrj7ckr15c0000gn/T//St05037.000001 saved
 
 . 
 . use "../data/clean/cbp/zip_code_business_patterns.dta", clear
@@ -224,17 +223,6 @@ variable presence_share was byte now long
 
      +-----------------------------------------------------------------+
   3. |   zip | latitude | longitude | popula~y | employ~y  | plant_~e  |
-     | 10119 |  40.7808 |  -73.9772 |     2159 |   262080  |       31  |
-     |-----------------------------------------------------------------|
-     | employ~t | team~are | cust~are | pres~are | team~ure | cust~ure |
-     |     7809 |       39 |       25 |        2 |       75 |       19 |
-     |-----------------------------------------------------------------|
-     |                            pres~ure                             |
-     |                                   2                             |
-     +-----------------------------------------------------------------+
-
-     +-----------------------------------------------------------------+
-  4. |   zip | latitude | longitude | popula~y | employ~y  | plant_~e  |
      |  7311 |  40.7323 |  -74.0754 |     6932 |   179090  |     26.6  |
      |-----------------------------------------------------------------|
      | employ~t | team~are | cust~are | pres~are | team~ure | cust~ure |
@@ -242,6 +230,17 @@ variable presence_share was byte now long
      |-----------------------------------------------------------------|
      |                            pres~ure                             |
      |                                   1                             |
+     +-----------------------------------------------------------------+
+
+     +-----------------------------------------------------------------+
+  4. |   zip | latitude | longitude | popula~y | employ~y  | plant_~e  |
+     | 10119 |  40.7808 |  -73.9772 |     2159 |   262080  |       31  |
+     |-----------------------------------------------------------------|
+     | employ~t | team~are | cust~are | pres~are | team~ure | cust~ure |
+     |     7809 |       39 |       25 |        2 |       75 |       19 |
+     |-----------------------------------------------------------------|
+     |                            pres~ure                             |
+     |                                   2                             |
      +-----------------------------------------------------------------+
 
      +-----------------------------------------------------------------+
@@ -268,17 +267,6 @@ variable presence_share was byte now long
 
      +-----------------------------------------------------------------+
   7. |   zip | latitude | longitude | popula~y | employ~y  | plant_~e  |
-     | 14302 |  43.0945 |  -79.0567 |     2973 |    24561  |      4.6  |
-     |-----------------------------------------------------------------|
-     | employ~t | team~are | cust~are | pres~are | team~ure | cust~ure |
-     |       32 |       45 |       30 |        1 |       70 |       24 |
-     |-----------------------------------------------------------------|
-     |                            pres~ure                             |
-     |                                   0                             |
-     +-----------------------------------------------------------------+
-
-     +-----------------------------------------------------------------+
-  8. |   zip | latitude | longitude | popula~y | employ~y  | plant_~e  |
      | 10165 |  40.7524 |  -73.9791 |      153 |   314137  |      8.1  |
      |-----------------------------------------------------------------|
      | employ~t | team~are | cust~are | pres~are | team~ure | cust~ure |
@@ -289,7 +277,7 @@ variable presence_share was byte now long
      +-----------------------------------------------------------------+
 
      +-----------------------------------------------------------------+
-  9. |   zip | latitude | longitude | popula~y | employ~y  | plant_~e  |
+  8. |   zip | latitude | longitude | popula~y | employ~y  | plant_~e  |
      | 94104 |  37.7915 | -122.4018 |     2020 |   282246  |     22.6  |
      |-----------------------------------------------------------------|
      | employ~t | team~are | cust~are | pres~are | team~ure | cust~ure |
@@ -297,6 +285,17 @@ variable presence_share was byte now long
      |-----------------------------------------------------------------|
      |                            pres~ure                             |
      |                                   2                             |
+     +-----------------------------------------------------------------+
+
+     +-----------------------------------------------------------------+
+  9. |   zip | latitude | longitude | popula~y | employ~y  | plant_~e  |
+     | 14302 |  43.0945 |  -79.0567 |     2973 |    24561  |      4.6  |
+     |-----------------------------------------------------------------|
+     | employ~t | team~are | cust~are | pres~are | team~ure | cust~ure |
+     |       32 |       45 |       30 |        1 |       70 |       24 |
+     |-----------------------------------------------------------------|
+     |                            pres~ure                             |
+     |                                   0                             |
      +-----------------------------------------------------------------+
 
      +-----------------------------------------------------------------+
@@ -363,6 +362,7 @@ file ../data/derived/location-index.csv saved
 
 . 
 . graph export "../text/overleaf/fig4.eps", replace
+(note: file ../text/overleaf/fig4.eps not found)
 (file ../text/overleaf/fig4.eps written in EPS format)
 
 . graph export "../text/overleaf/fig4.pdf", replace

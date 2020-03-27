@@ -1,7 +1,7 @@
 
   ___  ____  ____  ____  ____ (R)
  /__    /   ____/   /   ____/
-___/   /   /___/   /   /___/   15.1   Copyright 1985-2017 StataCorp LLC
+___/   /   /___/   /   /___/   15.0   Copyright 1985-2017 StataCorp LLC
   Statistics/Data Analysis            StataCorp
                                       4905 Lakeway Drive
      MP - Parallel Edition            College Station, Texas 77845 USA
@@ -13,7 +13,6 @@ Single-user 2-core Stata perpetual license:
        Serial number:  501506203290
          Licensed to:  Miklos Koren
                        CEU MicroData
-
 
 Notes:
       1.  Stata is running in batch mode.
@@ -32,25 +31,40 @@ Notes:
 
 . 
 . * aggregate up to 2 digits
+. do "aggregate2digit.do"
+
 . generate naics_2d = int(industry_code/10)
 
+. replace naics_2d = 31 if (naics_2d>=31) & (naics<=33)
+(15 real changes made)
+
+. replace naics_2d = 44 if (naics_2d>=44) & (naics<=45)
+(4 real changes made)
+
+. replace naics_2d = 48 if (naics_2d>=48) & (naics<=49)
+(2 real changes made)
+
+. 
+end of do-file
+
+. 
 . collapse (mean) teamwork_share customer_share presence_share communication_sh
 > are affected_share [aw=ces_employment], by(naics_2d)
 
 . foreach X of var *_share {
   2.         replace `X' = round(`X')
   3. }
-(18 real changes made)
-(17 real changes made)
-(17 real changes made)
-(18 real changes made)
-(18 real changes made)
+(14 real changes made)
+(14 real changes made)
+(13 real changes made)
+(14 real changes made)
+(14 real changes made)
 
 . 
 . gsort -communication_share
 
 . keep if (_n<=5) | (_n>=_N-4)
-(13 observations deleted)
+(9 observations deleted)
 
 . 
 . export delimited "../data/derived/top-industries.csv", replace
