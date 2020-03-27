@@ -27,59 +27,28 @@ Notes:
 
 . import delimited "../../derived/crosswalk/ces2industry.csv", varnames(1) clea
 > r case(preserve)
-(4 vars, 100 obs)
+(3 vars, 89 obs)
 
 . tempfile ces
 
 . save `ces', replace
-(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St05594.000001 no
+(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St30314.000001 no
 > t found)
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St05594.000001 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St30314.000001 saved
 
 . 
-. import excel "../../raw/bls/industry-employment/industry.xlsx", cellrange(A7:
-> D258) sheet("Table 2.7") firstrow clear
+. import delimited "../../raw/bls/industry-employment/ces-2020-feb.csv", varnam
+> es(1) clear case(preserve)
+(2 vars, 176 obs)
 
-. 
-. rename Nonagriculturewageandsalary CES_label
-
-. rename NA CES_industry
-
-. drop C
-
-. rename D employment
-
-. 
-. foreach X of var CES* {
-  2.         replace `X' = strtrim(`X')
-  3.         drop if missing(`X')
-  4. }
-(251 real changes made)
-(1 observation deleted)
-(248 real changes made)
-(0 observations deleted)
-
-. * Postal Service appears twice
-. duplicates drop CES_label CES_industry, force
-
-Duplicates in terms of CES_label CES_industry
-
-(1 observation deleted)
-
-. 
-. destring employment, force replace
-employment: all characters numeric; replaced as double
-
-. 
-. merge 1:1 CES_label CES_industry using `ces', nogen keep(match)
+. merge 1:1 ces_industry using `ces', keep(match) nogen
 
     Result                           # of obs.
     -----------------------------------------
     not matched                             0
-    matched                                98  
+    matched                                89  
     -----------------------------------------
 
-. 
 . 
 . collapse (sum) employment, by(industry_code)
 
@@ -88,20 +57,20 @@ employment: all characters numeric; replaced as double
                       (sum) employment
 -------------------------------------------------------------
       Percentiles      Smallest
- 1%            0              0
- 5%         14.9              0
-10%         64.8              0       Obs                  81
-25%        307.8              0       Sum of Wgt.          81
+ 1%         19.2           19.2
+ 5%         54.5           23.8
+10%        111.7           36.6       Obs                  89
+25%        404.7           50.4       Sum of Wgt.          89
 
-50%        725.4                      Mean           1865.911
-                        Largest       Std. Dev.      3110.532
-75%       1717.5           8890
-90%       5145.1         9300.1       Variance        9675411
-95%       7619.9        11926.3       Skewness       3.291464
-99%        19653          19653       Kurtosis       16.15582
+50%        822.6                      Mean            1713.99
+                        Largest       Std. Dev.      2303.252
+75%       2091.8         8056.4
+90%       4250.4           8937       Variance        5304971
+95%       7855.3         9717.3       Skewness       2.505394
+99%      12287.5        12287.5       Kurtosis       9.582768
 
 . display r(sum)
-151138.8
+152545.1
 
 . 
 . save "industry-employment.dta", replace

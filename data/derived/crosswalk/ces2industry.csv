@@ -1,101 +1,90 @@
-CES_label,CES_industry,industry_code,industry_label
-Oil and gas extraction,211,211,Oil and gas extraction
-"Mining, except oil and gas",212,212,"Mining, except oil and gas"
-Support activities for mining,213,213,Support activities for mining
-"Electric power generation, transmission and distribution",2211,221,"Electric power generation, transmission and distribution, Natural gas distribution, Water, sewage and other systems"
-Natural gas distribution,2212,221,"Electric power generation, transmission and distribution, Natural gas distribution, Water, sewage and other systems"
-"Water, sewage and other systems",2213,221,"Electric power generation, transmission and distribution, Natural gas distribution, Water, sewage and other systems"
-Construction,23,23,Construction
-Food manufacturing,311,311,Food manufacturing
-Beverage and tobacco product,312,312,Beverage and tobacco product
-Textile mills and textile product mills,"313,314",313,Textile mills and textile product mills
-"Apparel, leather and allied product manufacturing","315, 316",315,"Apparel, leather and allied product manufacturing"
-Wood product manufacturing,321,321,Wood product manufacturing
-Paper manufacturing,322,322,Paper manufacturing
-Printing and related support activities,323,323,Printing and related support activities
-Petroleum and coal products manufacturing,324,324,Petroleum and coal products manufacturing
-Chemical manufacturing,325,325,Chemical manufacturing
-Plastics and rubber products manufacturing,326,326,Plastics and rubber products manufacturing
-Nonmetallic mineral product manufacturing,327,327,Nonmetallic mineral product manufacturing
-Primary metal manufacturing,331,331,Primary metal manufacturing
-Fabricated metal product manufacturing,332,332,Fabricated metal product manufacturing
-Machinery manufacturing,333,333,Machinery manufacturing
-Computer and electronic product manufacturing,334,334,Computer and electronic product manufacturing
-"Electrical equipment, appliance, and component manufacturing",335,335,"Electrical equipment, appliance, and component manufacturing"
-Transportation equipment manufacturing,336,336,Transportation equipment manufacturing
-Furniture and related product manufacturing,337,337,Furniture and related product manufacturing
-Miscellaneous manufacturing,339,339,Miscellaneous manufacturing
-Wholesale trade,42,42,Wholesale trade
-Motor vehicle and parts dealers,441,441,Motor vehicle and parts dealers
-Food and beverage stores,445,445,Food and beverage stores
-General Merchandise stores,452,452,General Merchandise stores
-All other retail,"442-4, 446-8, 451, 453-4",442,All other retail
-Air transportation,481,481,Air transportation
-Rail transportation,482,482,Rail transportation
-Water transportation,483,483,Water transportation
-Truck transportation,484,484,Truck transportation
-Transit and ground passenger transportation,485,485,Transit and ground passenger transportation
-Pipeline transportation,486,486,Pipeline transportation
-Scenic and sightseeing transportation and support activities for transportation,"487,488",487,Scenic and sightseeing transportation and support activities for transportation
-Postal Service,491,491,Postal Service
-Couriers and messengers,492,492,Couriers and messengers
-Warehousing and storage,493,493,Warehousing and storage
-Publishing industries,511,511,Publishing industries
-"Motion picture, video, and sound recording industries",512,512,"Motion picture, video, and sound recording industries"
-Broadcasting (except Internet),515,515,Broadcasting (except Internet)
-Telecommunications,517,517,Telecommunications
-"Data processing, hosting, and related services",518,518,"Data processing, hosting, and related services"
-Other information services,519,519,Other information services
-"Monetary authorities, credit intermediation, and related activities","521, 522",521,"Monetary authorities, credit intermediation, and related activities"
-"Securities, commodity contracts, funds, trusts and other financial investments and related activities","523, 525",523,"Securities, commodity contracts, funds, trusts and other financial investments and related activities"
-Insurance carriers and related activities,524,524,Insurance carriers and related activities
-Real estate,531,531,Real estate
-Automotive equipment rental and leasing,5321,532,"Automotive equipment rental and leasing, Consumer goods rental and general rental centers, Commercial and industrial machinery and equipment rental and leasing"
-Consumer goods rental and general rental centers,"5322, 5323",532,"Automotive equipment rental and leasing, Consumer goods rental and general rental centers, Commercial and industrial machinery and equipment rental and leasing"
-Commercial and industrial machinery and equipment rental and leasing,5324,532,"Automotive equipment rental and leasing, Consumer goods rental and general rental centers, Commercial and industrial machinery and equipment rental and leasing"
-Lessors of nonfinancial intangible assets (except copyrighted works),533,533,Lessors of nonfinancial intangible assets (except copyrighted works)
-Management of companies and enterprises,55,55,Management of companies and enterprises
-Administrative and support services,561,561,Administrative and support services
-Waste management and remediation services,562,562,Waste management and remediation services
-Ambulatory health care services,621,621,Ambulatory health care services
-Hospitals,622,622,Hospitals
-Nursing and residential care facilities,623,623,Nursing and residential care facilities
-Social assistance,624,624,Social assistance
-"Performing arts, spectator sports, and related industries",711,711,"Performing arts, spectator sports, and related industries"
-"Museums, historical sites, and similar institutions",712,712,"Museums, historical sites, and similar institutions"
-"Amusement, gambling, and recreation industries",713,713,"Amusement, gambling, and recreation industries"
-Accomodation,721,721,Accomodation
-Food services and drinking places,722,722,Food services and drinking places
-Repair and mantenance,811,811,Repair and mantenance
-Personal and laundry services,812,812,Personal and laundry services
-Private households,814,814,Private households
-Federal electric utilities,NA,901,Federal electric utilities
-Federal enterprises except the Postal Service and electric utilities,NA,902,Federal enterprises except the Postal Service and electric utilities
-Federal defense government compensation,NA,903,Federal defense government compensation
-Federal defense government consumption of fixed capital,NA,904,Federal defense government consumption of fixed capital
-Federal defense government except compensation and consumption of fixed capital,NA,905,Federal defense government except compensation and consumption of fixed capital
-Federal non-defense government compensation - except enterprises,NA,906,Federal non-defense government compensation - except enterprises
-Federal non-defense government consumption of fixed capital,NA,907,Federal non-defense government consumption of fixed capital
-Federal non-defense government except compensation and consumption of fixed capital,NA,908,Federal non-defense government except compensation and consumption of fixed capital
-State and local government,NA,909,State and local government
-Crop production,111,111,Crop production
-Animal production,112,112,Animal production
-Forestry,"1131, 1132",113,Forestry and Logging
-Logging,1133,113,Forestry and Logging
-"Fishing, hunting and trapping",114,114,"Fishing, hunting and trapping"
-Support activities for agriculture and forestry,115,115,Support activities for agriculture and forestry
-Legal services,5411,541,"Professional, scientific, and technical services"
-"Accounting, tax preparation, bookkeeping, and payroll services",5412,541,"Professional, scientific, and technical services"
-"Architectural, engineering, and related services",5413,541,"Professional, scientific, and technical services"
-Specialized design services,5414,541,"Professional, scientific, and technical services"
-Computer systems design and related services,5415,541,"Professional, scientific, and technical services"
-"Management, scientific, and technical consulting services",5416,541,"Professional, scientific, and technical services"
-Scientific research and development services,5417,541,"Professional, scientific, and technical services"
-Advertising and related services,5418,541,"Professional, scientific, and technical services"
-"Other professional, scientific, and technical services",5419,541,"Professional, scientific, and technical services"
-Elementary and secondary schools,6111,611,Education services
-"Junior colleges, colleges, universities, and professional schools","6112, 6113",611,Education services
-Other educational services,6114-7,611,Education services
-Religious organizations,8131,813,"Religious, grantmaking, civic, professional, and similar organizatons"
-Grantmaking and giving services and social advocacy organizations,"8132, 8133",813,"Religious, grantmaking, civic, professional, and similar organizatons"
-"Civic, social, professional, and similar organizations","8134, 8139",813,"Religious, grantmaking, civic, professional, and similar organizatons"
+ces_industry,industry_code,industry_name
+10211000,211,Oil and gas extraction
+10212000,212,"Mining, except oil and gas"
+10213000,213,Support activities for mining
+20236000,236,Construction of buildings
+20237000,237,Heavy and civil engineering construction
+20238000,238,Specialty trade contractors
+31321000,321,Wood products
+31327000,327,Nonmetallic mineral products
+31331000,331,Primary metals
+31332000,332,Fabricated metal products
+31333000,333,Machinery
+31334000,334,Computer and electronic products
+31335000,335,Electrical equipment and appliances
+31336000,336,Transportation equipment
+31337000,337,Furniture and related products
+31339000,339,Miscellaneous durable goods manufacturing
+32311000,311,Food manufacturing
+32313000,313,Textile mills
+32314000,314,Textile product mills
+32315000,315,Apparel
+32322000,322,Paper and paper products
+32323000,323,Printing and related support activities
+32324000,324,Petroleum and coal products
+32325000,325,Chemicals
+32326000,326,Plastics and rubber products
+32329000,312,Miscellaneous nondurable goods manufacturing
+41423000,423,Durable goods
+41424000,424,Nondurable goods
+41425000,425,Electronic markets and agents and brokers
+42441000,441,Motor vehicle and parts dealers
+42442000,442,Furniture and home furnishings stores
+42443000,443,Electronics and appliance stores
+42444000,444,Building material and garden supply stores
+42445000,445,Food and beverage stores
+42446000,446,Health and personal care stores
+42447000,447,Gasoline stations
+42448000,448,Clothing and clothing accessories stores
+42451000,451,"Sporting goods, hobby, book, and music stores"
+42452000,452,General merchandise stores
+42453000,453,Miscellaneous store retailers
+42454000,454,Nonstore retailers
+43481000,481,Air transportation
+43482000,482,Rail transportation
+43483000,483,Water transportation
+43484000,484,Truck transportation
+43485000,485,Transit and ground passenger transportation
+43486000,486,Pipeline transportation
+43487000,487,Scenic and sightseeing transportation
+43488000,488,Support activities for transportation
+43492000,492,Couriers and messengers
+43493000,493,Warehousing and storage
+44220000,22,Utilities
+50511000,511,"Publishing industries, except Internet"
+50512000,512,Motion picture and sound recording industries
+50515000,515,"Broadcasting, except Internet"
+50517000,517,Telecommunications
+50518000,518,"Data processing, hosting and related services"
+50519000,519,Other information services
+55521000,521,Monetary authorities - central bank
+55522000,522,Credit intermediation and related activities
+55523000,523,"Securities, commodity contracts, investments, and funds and trusts"
+55524000,524,Insurance carriers and related activities
+55531000,531,Real estate
+55532000,532,Rental and leasing services
+55533000,533,Lessors of nonfinancial intangible assets
+60561000,561,Administrative and support services
+60562000,562,Waste management and remediation services
+65621000,621,Ambulatory health care services
+65622000,622,Hospitals
+65623000,623,Nursing and residential care facilities
+65624000,624,Social assistance
+70711000,711,Performing arts and spectator sports
+70712000,712,"Museums, historical sites, and similar institutions"
+70713000,713,"Amusements, gambling, and recreation"
+70721000,721,Accommodation
+70722000,722,Food services and drinking places
+80811000,811,Repair and maintenance
+80812000,812,Personal and laundry services
+80813000,813,Membership associations and organizations
+90911000,911,"Federal, except U.S. Postal Service"
+90919120,919,U.S. Postal Service
+90921611,921,State government education
+90922000,922,"State government, excluding education"
+90931611,931,Local government education
+90932000,932,"Local government, excluding education"
+60540000,54,Professional and technical services
+60550000,55,Management of companies and enterprises
+65610000,61,Educational services
+10113300,113,Logging
