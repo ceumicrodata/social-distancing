@@ -30,14 +30,14 @@ Notes:
 
 . import delimited "../data/derived/occupation/naics_risk.csv", varnames(1) cle
 > ar
-(6 vars, 74 obs)
+(6 vars, 84 obs)
 
 . tempfile occupation
 
 . save `occupation', replace
-(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St29690.000001 no
+(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St30615.000001 no
 > t found)
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St29690.000001 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St30615.000001 saved
 
 . 
 . use "../data/clean/cbp/zip_code_business_patterns.dta", clear
@@ -47,7 +47,7 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St29690.000001 saved
     Result                           # of obs.
     -----------------------------------------
     not matched                             0
-    matched                           376,589  
+    matched                           464,804  
     -----------------------------------------
 
 . 
@@ -56,15 +56,15 @@ end of do-file
 . do "calculate-exposure.do"
 
 . generate teamwork_exposure = teamwork_share/100 * ln(employment_density)
-(5,654 missing values generated)
+(5,824 missing values generated)
 
 . generate customer_exposure = customer_share/100 * ln(population_density)
-(6,099 missing values generated)
+(6,294 missing values generated)
 
 . generate presence_exposure = presence_share/100 * ln(plant_size)
 
 . generate overall_exposure  = affected_share/100 * ln(population_density)
-(6,099 missing values generated)
+(6,294 missing values generated)
 
 . 
 . foreach X of var *_exposure {
@@ -74,23 +74,23 @@ end of do-file
 
     Variable |        Obs        Mean    Std. Dev.       Min        Max
 -------------+---------------------------------------------------------
-teamwork_e~e |    370,935     1.04078     .824821  -1.575394   6.560357
-(370,935 real changes made)
+teamwork_e~e |    458,980     1.02599    .7788558  -1.575394   6.560357
+(458,980 real changes made)
 
     Variable |        Obs        Mean    Std. Dev.       Min        Max
 -------------+---------------------------------------------------------
-customer_e~e |    370,490    1.714174    1.326634  -2.846097   7.985538
-(370,490 real changes made)
+customer_e~e |    458,510    1.930914    1.609443  -3.280917   9.831341
+(458,510 real changes made)
 
     Variable |        Obs        Mean    Std. Dev.       Min        Max
 -------------+---------------------------------------------------------
-presence_e~e |    376,589    .2047561    .2952307          0   3.246337
-(309,596 real changes made)
+presence_e~e |    464,804     .193983    .2846667          0   3.246337
+(381,514 real changes made)
 
     Variable |        Obs        Mean    Std. Dev.       Min        Max
 -------------+---------------------------------------------------------
-overall_ex~e |    370,490    2.878717    1.348411   -3.37419   8.520495
-(370,490 real changes made)
+overall_ex~e |    458,510     3.03745    1.469592  -3.399505   9.940578
+(458,510 real changes made)
 
 . 
 . label variable teamwork_exposure "Social distancing effect on teamwork (max=1
@@ -121,27 +121,27 @@ end of do-file
 . scalar agglomeration = 0.06
 
 . generate LHS = agglomeration * ln(population_density)
-(6,099 missing values generated)
+(6,294 missing values generated)
 
 . generate RHS = (communication_share/100) * ln(population_density)
-(6,099 missing values generated)
+(6,294 missing values generated)
 
 . 
 . regress LHS RHS [aw=employment]
-(sum of wgt is 91,381,057)
+(sum of wgt is 87,643,392)
 
-      Source |       SS           df       MS      Number of obs   =   370,490
--------------+----------------------------------   F(1, 370488)    >  99999.00
-       Model |  1227.93998         1  1227.93998   Prob > F        =    0.0000
-    Residual |  2300.08567   370,488   .00620826   R-squared       =    0.3481
--------------+----------------------------------   Adj R-squared   =    0.3481
-       Total |  3528.02565   370,489  .009522619   Root MSE        =    .07879
+      Source |       SS           df       MS      Number of obs   =   458,510
+-------------+----------------------------------   F(1, 458508)    >  99999.00
+       Model |  1509.28756         1  1509.28756   Prob > F        =    0.0000
+    Residual |  2907.44064   458,508   .00634109   R-squared       =    0.3417
+-------------+----------------------------------   Adj R-squared   =    0.3417
+       Total |   4416.7282   458,509  .009632806   Root MSE        =    .07963
 
 ------------------------------------------------------------------------------
          LHS |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
-         RHS |   .0406019   .0000913   444.74   0.000      .040423    .0407808
-       _cons |   .2589218   .0003095   836.62   0.000     .2583153    .2595284
+         RHS |    .038906   .0000797   487.87   0.000     .0387497    .0390623
+       _cons |   .2617286   .0002781   941.03   0.000     .2611835    .2622737
 ------------------------------------------------------------------------------
 
 . scalar epsilon = _b[RHS]
@@ -149,19 +149,19 @@ end of do-file
 . 
 . * Eq 5
 . generate cost_ratio = population_density^(epsilon*communication_share/100)
-(5,654 missing values generated)
+(5,824 missing values generated)
 
 . * Eq 4
 . generate contact_ratio = population_density^(epsilon*(1-communication_share/1
 > 00))
-(5,654 missing values generated)
+(5,824 missing values generated)
 
 . * current number of contacts
 . summarize contact_ratio [aw=employment]
 
     Variable |     Obs      Weight        Mean   Std. Dev.       Min        Max
 -------------+-----------------------------------------------------------------
-contact_ra~o | 370,935    91488067    1.144795   .0761533          0   1.476634
+contact_ra~o | 458,980    87750639    1.135195   .0748444          0   1.452789
 
 . scalar current_contact = r(mean)
 
@@ -176,7 +176,7 @@ contact_ra~o | 370,935    91488067    1.144795   .0761533          0   1.476634
 . scalar average = current_contact 
 
 . generate counterfactual = .
-(376,589 missing values generated)
+(464,804 missing values generated)
 
 . while average > target_contact {
   2.         quietly replace counterfactual = min(population_density, cap)^(eps
@@ -189,13 +189,13 @@ contact_ra~o | 370,935    91488067    1.144795   .0761533          0   1.476634
 . 
 . generate cost_increase = (contact_ratio/counterfactual)^(communication_share/
 > (100-communication_share))
-(6,099 missing values generated)
+(6,294 missing values generated)
 
 . summarize cost_increase [aw=employment]
 
     Variable |     Obs      Weight        Mean   Std. Dev.       Min        Max
 -------------+-----------------------------------------------------------------
-cost_incre~e | 370,490    91381057    1.103907   .0550716          1   1.335886
+cost_incre~e | 458,510    87643392    1.108941   .0571633          1   1.416075
 
 . 
 end of do-file
