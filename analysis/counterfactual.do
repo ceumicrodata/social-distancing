@@ -42,3 +42,8 @@ while average > target_contact {
 
 generate cost_increase = (contact_ratio/counterfactual)^(communication_share/(100-communication_share))
 summarize cost_increase [aw=employment]
+
+do "aggregate2digit.do"
+collapse (mean) cost_increase [aw=employment], by(naics_2d)
+gsort -cost_increase
+export delimited "cost_by_naics2.csv", replace

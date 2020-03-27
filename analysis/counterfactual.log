@@ -1,7 +1,7 @@
 
   ___  ____  ____  ____  ____ (R)
  /__    /   ____/   /   ____/
-___/   /   /___/   /   /___/   15.1   Copyright 1985-2017 StataCorp LLC
+___/   /   /___/   /   /___/   15.0   Copyright 1985-2017 StataCorp LLC
   Statistics/Data Analysis            StataCorp
                                       4905 Lakeway Drive
      MP - Parallel Edition            College Station, Texas 77845 USA
@@ -13,7 +13,6 @@ Single-user 2-core Stata perpetual license:
        Serial number:  501506203290
          Licensed to:  Miklos Koren
                        CEU MicroData
-
 
 Notes:
       1.  Stata is running in batch mode.
@@ -35,9 +34,9 @@ Notes:
 . tempfile occupation
 
 . save `occupation', replace
-(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St30615.000001 no
+(note: file /var/folders/7b/svcv81g94n3fm6nrj7ckr15c0000gn/T//St04700.000001 no
 > t found)
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St30615.000001 saved
+file /var/folders/7b/svcv81g94n3fm6nrj7ckr15c0000gn/T//St04700.000001 saved
 
 . 
 . use "../data/clean/cbp/zip_code_business_patterns.dta", clear
@@ -128,7 +127,7 @@ end of do-file
 
 . 
 . regress LHS RHS [aw=employment]
-(sum of wgt is 87,643,392)
+(sum of wgt is   8.7643e+07)
 
       Source |       SS           df       MS      Number of obs   =   458,510
 -------------+----------------------------------   F(1, 458508)    >  99999.00
@@ -196,6 +195,31 @@ contact_ra~o | 458,980    87750639    1.135195   .0748444          0   1.452789
     Variable |     Obs      Weight        Mean   Std. Dev.       Min        Max
 -------------+-----------------------------------------------------------------
 cost_incre~e | 458,510    87643392    1.108941   .0571633          1   1.416075
+
+. 
+. do "aggregate2digit.do"
+
+. generate naics_2d = int(industry_code/10)
+
+. replace naics_2d = 31 if (naics_2d>=31) & (naics<=33)
+(25,843 real changes made)
+
+. replace naics_2d = 44 if (naics_2d>=44) & (naics<=45)
+(30,239 real changes made)
+
+. replace naics_2d = 48 if (naics_2d>=48) & (naics<=49)
+(3,411 real changes made)
+
+. 
+end of do-file
+
+. collapse (mean) cost_increase [aw=employment], by(naics_2d)
+
+. gsort -cost_increase
+
+. export delimited "cost_by_naics2.csv", replace
+(note: file cost_by_naics2.csv not found)
+file cost_by_naics2.csv saved
 
 . 
 end of do-file
