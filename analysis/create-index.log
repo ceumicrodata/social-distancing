@@ -47,9 +47,9 @@ Notes:
 . tempfile industry
 
 . save `industry', replace
-(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St30498.000001 no
+(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St30575.000001 no
 > t found)
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St30498.000001 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St30575.000001 saved
 
 . 
 . 
@@ -62,9 +62,9 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St30498.000001 saved
 . tempfile occupation
 
 . save `occupation', replace
-(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St30498.000002 no
+(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St30575.000002 no
 > t found)
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St30498.000002 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St30575.000002 saved
 
 . 
 . use "../data/clean/cbp/zip_code_business_patterns.dta", clear
@@ -245,7 +245,7 @@ ces_employ~t |   0.9836   1.0000
 . label variable ces_employment "Industry employment (thousand persons)"
 
 . 
-. gsort -overall_exposure
+. gsort -communication_share
 
 . 
 . save "../data/derived/industry-index.dta", replace

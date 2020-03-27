@@ -1,5 +1,7 @@
 .PHONY: all data
-all: counterfactual.log ../data/derived/industry-index.dta ../text/overleaf/fig3.eps ../text/overleaf/fig4.eps headcount.log
+all: counterfactual.log ../data/derived/top-industries.csv ../data/derived/industry-index.dta ../text/overleaf/fig3.eps ../text/overleaf/fig4.eps headcount.log
+../data/derived/top-industries.csv: toplist.do ../data/derived/industry-index.dta
+	stata -b do $<
 ../text/overleaf/fig3.eps: scatter_customers_teamwork_byoccupation.do ../data/derived/occupation/risks.dta
 	stata -b do $<
 ../text/overleaf/fig4.eps: risk-by-density.do fig4.do ../data/derived/industry-index.dta ../data/clean/cbp/zip_code_business_patterns.dta

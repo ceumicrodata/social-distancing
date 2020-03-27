@@ -114,10 +114,10 @@ Millions of workers: 58.767722
      +----------------------------------------------------------------+
      |                                      industry_label   sum_em~t |
      |----------------------------------------------------------------|
-  1. |            Clothing and clothing accessories stores   451328.2 |
+  1. |                     Health and personal care stores   451328.2 |
   2. |       Sporting goods, hobby, book, and music stores   687883.2 |
-  3. |                                  Telecommunications    1478965 |
-  4. |                                Water transportation    1973029 |
+  3. |                          Other information services    1478965 |
+  4. |                                  Air transportation    1973029 |
   5. | Museums, historical sites, and similar institutions    2223013 |
      +----------------------------------------------------------------+
 
@@ -134,9 +134,9 @@ Millions of workers: 58.767722
 . tempfile occupation
 
 . save `occupation', replace
-(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St30511.000001 no
+(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St30583.000001 no
 > t found)
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St30511.000001 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St30583.000001 saved
 
 . 
 . use "../data/clean/cbp/zip_code_business_patterns.dta", clear
