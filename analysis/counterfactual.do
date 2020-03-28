@@ -63,42 +63,41 @@ while average > target_contact {
 
 generate contact_ratio = counterfactual / contact
 * Eq 6 from the paper
-generate cost_ratio = chi*contact_ratio + (1-chi)*(contact_ratio)^(-gamma)
-summarize cost_ratio [aw=employment_weight]
+generate labor_subsidy = 100 - 100 * (1 - chi*contact_ratio) * (contact_ratio)^gamma / (1-chi)
+summarize labor_subsidy [aw=employment_weight]
 
 * compute for nyc
 merge m:1 zip using "nyc_zip.dta", keep(master match)
 generate nyc = (_m==3)
 summarize population_density if nyc==1 [aw=employment_weight]
-summarize cost_ratio if nyc==1 [aw=employment_weight]
+summarize labor_subsidy if nyc==1 [aw=employment_weight]
 
 do "aggregate2digit.do"
 * weighted cost ratio
-replace cost_ratio = cost_ratio * employment_weight
+replace labor_subsidy = labor_subsidy * employment_weight
 * only add up ces_employment once per industry
 egen tag = tag(industry_code)
 
-collapse (sum) cost_ratio employment_weight, by(naics_2d)
+collapse (sum) labor_subsidy employment_weight, by(naics_2d)
 * merge on names
 merge 1:1 naics_2d using `digit2', nogen keep(master match)
 
-generate cost_increase = round(100*cost_ratio / employment_weight - 100, 0.1)
-drop cost_ratio
+replace labor_subsidy = round(labor_subsidy/employment_weight, 0.1)
 rename employment_weight employment
 replace employment = round(employment)
 
 * calculate weighted average
-summarize cost_increase [fw=employment], meanonly
+summarize labor_subsidy [fw=employment], meanonly
 scalar average = r(mean)
 scalar N = r(N)
 
-gsort -cost_increase
+gsort -labor_subsidy
 
 * add a row for average
 set obs 20
 replace industry_label = "Average" in 20
-replace cost_increase = average in 20
+replace labor_subsidy = average in 20
 replace employment = N in 20
 
-order industry_label cost_increase employment
+order industry_label labor_subsidy employment
 export delimited "cost_by_naics2.csv", replace
