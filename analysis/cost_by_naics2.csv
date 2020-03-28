@@ -1,20 +1,21 @@
-naics_2d,cost_ratio
-55,1.27457
-54,1.26826
-72,1.2587026
-52,1.2539024
-53,1.2536802
-51,1.2522348
-71,1.2488863
-61,1.2476883
-81,1.2318755
-62,1.2276683
-44,1.2172936
-56,1.2063874
-22,1.2000015
-21,1.1983764
-42,1.1648296
-23,1.1464789
-31,1.1096293
-48,1.1045818
-11,1.0870048
+industry_label,cost_increase,employment,naics_2d
+Management of Companies and Enterprises,21.4,2448,55
+"Professional, Scientific, and Technical Services",20.799999,9717,54
+Accommodation and Food Services,20.1,14379,72
+Real Estate Rental and Leasing,19.799999,2361,53
+"Arts, Entertainment, and Recreation",19.799999,2494,71
+Educational Services,19.700001,3838,61
+Finance and Insurance,19.4,6489,52
+Information,19.299999,2898,51
+Other Services (except Public Administration),18.299999,5939,81
+Retail Trade,17.799999,15659,44
+Administrative and Support and Waste Management and Remediation Services,16.200001,9404,56
+Utilities,15.9,547,22
+Health Care and Social Assistance,14.7,7640,62
+Mining,14.5,662,21
+Wholesale Trade,13.1,5936,42
+Construction,12.1,7646,23
+Manufacturing,8.8999996,12861,31
+Transportation and Warehousing,8.6999998,5523,48
+"Agriculture, Forestry, Fishing and Hunting",3.7,55,11
+Average,16.31328,116496,
