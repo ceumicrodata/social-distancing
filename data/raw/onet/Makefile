@@ -22,3 +22,6 @@ download:
 	wget "https://www.onetonline.org/find/descriptor/result/4.A.4.b.2/Developing_and_Building_Teams.csv?fmt=csv&a=1" -O Developing_and_Building_Teams.csv
 	wget "https://www.onetonline.org/find/descriptor/result/4.A.4.b.4/Guiding_Directing_and_Motivating_Subordinates.csv?fmt=csv&a=1" -O Guiding_Directing_and_Motivating_Subordinates.csv	
 	wget "https://www.onetonline.org/find/descriptor/result/4.C.2.d.1.g/Spend_Time_Using_Your_Hands_to_Handle_Control_or_Feel_Objects_Tools_or_Controls.csv?fmt=csv&a=1" -O Spend_Time_Using_Your_Hands_to_Handle_Control_or_Feel_Objects_Tools_or_Controls.csv
+	wget "https://www.onetonline.org/find/descriptor/result/4.C.1.a.2.h/Electronic_Mail.csv?fmt=csv&a=1" -O Electronic_Mail.csv
+	wget "https://www.onetonline.org/find/descriptor/result/4.C.1.a.2.j/Letters_and_Memos.csv?fmt=csv&a=1" -O Letters_and_Memos.csv
+	wget "https://www.onetonline.org/find/descriptor/result/4.C.1.a.2.f/Telephone.csv?fmt=csv&a=1" -O Telephone.csv	

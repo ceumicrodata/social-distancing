@@ -28,12 +28,20 @@ Notes:
 . * introduce short names for all risk factors
 . local risks proximity group face2face customers contact move control operate 
 > repair_elect repair_mechanic inspect coach interpersonal care public consult 
-> peers coordinate team guide
+> peers coordinate team guide phone email memo
 
 . 
 . * face2face context
 . local face2face Face-to-Face_Discussions
 
+. * telecommunucation context
+. local phone Telephone
+
+. local email Electronic_Mail 
+
+. local memo Letters_and_Memos
+
+. 
 . * measures of teamwork
 . local group Work_With_Work_Group_or_Team
 
@@ -83,9 +91,9 @@ Notes:
 
 . save `rsk', replace emptyok
 (note: dataset contains 0 observations)
-(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St22275.000001 no
+(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St38430.000001 no
 > t found)
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St22275.000001 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St38430.000001 saved
 
 . 
 . foreach risk in `risks' {
@@ -114,7 +122,7 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St22275.000001 saved
 
     matched                                 0  
     -----------------------------------------
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St22275.000001 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St38430.000001 saved
 (3 vars, 967 obs)
 
     Result                           # of obs.
@@ -122,7 +130,7 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St22275.000001 saved
     not matched                             0
     matched                               967  
     -----------------------------------------
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St22275.000001 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St38430.000001 saved
 (3 vars, 967 obs)
 
     Result                           # of obs.
@@ -130,7 +138,7 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St22275.000001 saved
     not matched                             0
     matched                               967  
     -----------------------------------------
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St22275.000001 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St38430.000001 saved
 (3 vars, 968 obs)
 
     Result                           # of obs.
@@ -141,7 +149,7 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St22275.000001 saved
 
     matched                               967  
     -----------------------------------------
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St22275.000001 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St38430.000001 saved
 (3 vars, 968 obs)
 
     Result                           # of obs.
@@ -149,7 +157,7 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St22275.000001 saved
     not matched                             0
     matched                               968  
     -----------------------------------------
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St22275.000001 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St38430.000001 saved
 (4 vars, 968 obs)
 
     Result                           # of obs.
@@ -157,7 +165,7 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St22275.000001 saved
     not matched                             0
     matched                               968  
     -----------------------------------------
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St22275.000001 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St38430.000001 saved
 (4 vars, 968 obs)
 
     Result                           # of obs.
@@ -165,7 +173,7 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St22275.000001 saved
     not matched                             0
     matched                               968  
     -----------------------------------------
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St22275.000001 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St38430.000001 saved
 (4 vars, 968 obs)
 
     Result                           # of obs.
@@ -173,7 +181,7 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St22275.000001 saved
     not matched                             0
     matched                               968  
     -----------------------------------------
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St22275.000001 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St38430.000001 saved
 (4 vars, 968 obs)
 
     Result                           # of obs.
@@ -181,7 +189,7 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St22275.000001 saved
     not matched                             0
     matched                               968  
     -----------------------------------------
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St22275.000001 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St38430.000001 saved
 (4 vars, 968 obs)
 
     Result                           # of obs.
@@ -189,7 +197,7 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St22275.000001 saved
     not matched                             0
     matched                               968  
     -----------------------------------------
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St22275.000001 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St38430.000001 saved
 (4 vars, 968 obs)
 
     Result                           # of obs.
@@ -197,7 +205,7 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St22275.000001 saved
     not matched                             0
     matched                               968  
     -----------------------------------------
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St22275.000001 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St38430.000001 saved
 (4 vars, 968 obs)
 
     Result                           # of obs.
@@ -205,7 +213,7 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St22275.000001 saved
     not matched                             0
     matched                               968  
     -----------------------------------------
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St22275.000001 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St38430.000001 saved
 (4 vars, 968 obs)
 
     Result                           # of obs.
@@ -213,7 +221,7 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St22275.000001 saved
     not matched                             0
     matched                               968  
     -----------------------------------------
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St22275.000001 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St38430.000001 saved
 (4 vars, 968 obs)
 
     Result                           # of obs.
@@ -221,7 +229,7 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St22275.000001 saved
     not matched                             0
     matched                               968  
     -----------------------------------------
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St22275.000001 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St38430.000001 saved
 (4 vars, 968 obs)
 
     Result                           # of obs.
@@ -229,7 +237,7 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St22275.000001 saved
     not matched                             0
     matched                               968  
     -----------------------------------------
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St22275.000001 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St38430.000001 saved
 (4 vars, 968 obs)
 
     Result                           # of obs.
@@ -237,7 +245,7 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St22275.000001 saved
     not matched                             0
     matched                               968  
     -----------------------------------------
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St22275.000001 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St38430.000001 saved
 (4 vars, 968 obs)
 
     Result                           # of obs.
@@ -245,7 +253,7 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St22275.000001 saved
     not matched                             0
     matched                               968  
     -----------------------------------------
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St22275.000001 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St38430.000001 saved
 (4 vars, 968 obs)
 
     Result                           # of obs.
@@ -253,7 +261,7 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St22275.000001 saved
     not matched                             0
     matched                               968  
     -----------------------------------------
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St22275.000001 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St38430.000001 saved
 (4 vars, 968 obs)
 
     Result                           # of obs.
@@ -261,7 +269,7 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St22275.000001 saved
     not matched                             0
     matched                               968  
     -----------------------------------------
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St22275.000001 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St38430.000001 saved
 (4 vars, 968 obs)
 
     Result                           # of obs.
@@ -269,7 +277,40 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St22275.000001 saved
     not matched                             0
     matched                               968  
     -----------------------------------------
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St22275.000001 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St38430.000001 saved
+(3 vars, 967 obs)
+
+    Result                           # of obs.
+    -----------------------------------------
+    not matched                             1
+        from master                         0  
+        from using                          1  
+
+    matched                               967  
+    -----------------------------------------
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St38430.000001 saved
+(3 vars, 967 obs)
+
+    Result                           # of obs.
+    -----------------------------------------
+    not matched                             1
+        from master                         0  
+        from using                          1  
+
+    matched                               967  
+    -----------------------------------------
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St38430.000001 saved
+(3 vars, 967 obs)
+
+    Result                           # of obs.
+    -----------------------------------------
+    not matched                             1
+        from master                         0  
+        from using                          1  
+
+    matched                               967  
+    -----------------------------------------
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St38430.000001 saved
 
 . 
 . merge 1:1 Code using "crosswalk.dta", nogen keep(master match)
@@ -314,6 +355,9 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St22275.000001 saved
 (61 real changes made)
 (56 real changes made)
 (59 real changes made)
+(59 real changes made)
+(61 real changes made)
+(64 real changes made)
 
 . 
 . order SOCCode Description

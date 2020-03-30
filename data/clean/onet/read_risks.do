@@ -1,9 +1,14 @@
 clear all
 * introduce short names for all risk factors
-local risks proximity group face2face customers contact move control operate repair_elect repair_mechanic inspect coach interpersonal care public consult peers coordinate team guide
+local risks proximity group face2face customers contact move control operate repair_elect repair_mechanic inspect coach interpersonal care public consult peers coordinate team guide phone email memo
 
 * face2face context
 local face2face Face-to-Face_Discussions
+* telecommunucation context
+local phone Telephone
+local email Electronic_Mail 
+local memo Letters_and_Memos
+
 * measures of teamwork
 local group Work_With_Work_Group_or_Team
 local interpersonal Establishing_and_Maintaining_Interpersonal_Relationships
