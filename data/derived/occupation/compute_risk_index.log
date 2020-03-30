@@ -40,8 +40,8 @@ Notes:
 
 . 
 . * face2face daily, more frequently than either email or memos
-. local teamwork_context (face2face > 75)&(face2face > email)&(face2face > memo
-> )
+. local teamwork_context ((face2face > 75)&(face2face > email)&(face2face > mem
+> o))
 
 . local customer_context (face2face > 75)
 
