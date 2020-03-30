@@ -1,7 +1,7 @@
 
   ___  ____  ____  ____  ____ (R)
  /__    /   ____/   /   ____/
-___/   /   /___/   /   /___/   15.0   Copyright 1985-2017 StataCorp LLC
+___/   /   /___/   /   /___/   15.1   Copyright 1985-2017 StataCorp LLC
   Statistics/Data Analysis            StataCorp
                                       4905 Lakeway Drive
      MP - Parallel Edition            College Station, Texas 77845 USA
@@ -13,6 +13,7 @@ Single-user 2-core Stata perpetual license:
        Serial number:  501506203290
          Licensed to:  Miklos Koren
                        CEU MicroData
+
 
 Notes:
       1.  Stata is running in batch mode.
@@ -44,8 +45,8 @@ Notes:
 
     Variable |        Obs        Mean    Std. Dev.       Min        Max
 -------------+---------------------------------------------------------
-teamwork_s~e |116,656,999    22.90373    12.46813          5         50
-Millions of workers: 26.718799
+teamwork_s~e |116,656,999    10.49821    4.870516          4         31
+Millions of workers: 12.246894
 
     Variable |        Obs        Mean    Std. Dev.       Min        Max
 -------------+---------------------------------------------------------
@@ -59,13 +60,13 @@ Millions of workers: 9.6874504
 
     Variable |        Obs        Mean    Std. Dev.       Min        Max
 -------------+---------------------------------------------------------
-communicat~e |116,656,999    42.87266    18.29552          8         91
-Millions of workers: 50.013956
+communicat~e |116,656,999    34.29906    19.64212          7         91
+Millions of workers: 40.012257
 
     Variable |        Obs        Mean    Std. Dev.       Min        Max
 -------------+---------------------------------------------------------
-affected_s~e |116,656,999    50.45682    15.44526         18         91
-Millions of workers: 58.861414
+affected_s~e |116,656,999    41.69611    17.85819         13         91
+Millions of workers: 48.641433
 
 . 
 . generate naics_2d = industry_code if industry_code<100

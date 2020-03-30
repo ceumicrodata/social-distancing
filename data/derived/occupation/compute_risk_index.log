@@ -26,7 +26,7 @@ Notes:
 . clear
 
 . import delimited "../../clean/onet/risks.csv", case(preserve) varnames(1)
-(22 vars, 764 obs)
+(25 vars, 764 obs)
 
 . 
 . **************
@@ -39,8 +39,9 @@ Notes:
 . local presence move operate repair_elect repair_mechanic inspect
 
 . 
-. * face2face daily
-. local teamwork_context (face2face > 75)
+. * face2face daily, more frequently than either email or memos
+. local teamwork_context (face2face > 75)&(face2face > email)&(face2face > memo
+> )
 
 . local customer_context (face2face > 75)
 
