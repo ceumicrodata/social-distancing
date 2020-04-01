@@ -5,11 +5,17 @@ Please cite as
 
 > Koren, Miklós and Rita Pető. 2020. "Business disruptions from social distancing." CEU MicroData, Budapest. http://koren.mk/papers/working_papers/social_distancing/
 
+## Update 2020-03-31
+> Koren, Miklós, and Rita Pető. 2020. “Business Disruptions from Social Distancing.” arXiv [econ.GN]. arXiv. http://arxiv.org/abs/2003.13983.
+
+The version published on arXiv contains new analysis, removing some occupations where telecommunication can more easily be used. Code and data are available at the [`telco` branch](https://github.com/ceumicrodata/social-distancing/tree/telco).
+
+
 # License and copyright
 All text (`*.md`, `*.txt`, `*.tex`, `*.pdf`) are [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/). All code (`*.do`, `Makefile`) are subject to the [3-clause BSD license](https://opensource.org/licenses/BSD-3-Clause). All derived data (`data/derived/*`) are subject to [Open Database License](https://opendatacommons.org/licenses/odbl/index.html). Please respect to copyright and license terms of original data vendors (`data/raw/*`).
 
 # Data availability statement
-All raw data are saved in the folder `data/raw/`. The `Makefile` in each folder shows the URLs used to download the data.
+All the data used in the analysis, including raw data, is available for reuse with permissive licenses. Raw data are saved in the folder `data/raw/`. The `Makefile` in each folder shows the URLs used to download the data.
 ## O* NET
 ### Citation
 > U.S. Department of Labor/Employment and Training Administration, 2020. "O* NET Online." Downloaded 2020-03-12.
