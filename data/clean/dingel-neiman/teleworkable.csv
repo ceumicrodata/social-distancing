@@ -1,0 +1,765 @@
+SOCCode,Description,teleworkable
+11-1011,Chief executives,1
+11-1021,General and operations managers,1
+11-2011,Advertising and promotions managers,1
+11-2021,Marketing managers,1
+11-2022,Sales managers,1
+11-2031,Public relations and fundraising managers,1
+11-3011,Administrative services managers,1
+11-3021,Computer and information systems managers,1
+11-3031,Financial managers,1
+11-3051,Industrial production managers,0
+11-3061,Purchasing managers,1
+11-3071,"Transportation, storage, and distribution managers",0
+11-3111,Compensation and benefits managers,0
+11-3121,Human resources managers,1
+11-3131,Training and development managers,1
+11-9013,"Farmers, ranchers, and other agricultural managers",0
+11-9021,Construction managers,0
+11-9031,"Education administrators, preschool and childcare center/program",0
+11-9032,"Education administrators, elementary and secondary school",1
+11-9033,"Education administrators, postsecondary",1
+11-9039,"Education administrators, all other",1
+11-9041,Architectural and engineering managers,1
+11-9051,Food service managers,0
+11-9061,Funeral service managers,0
+11-9071,Gaming managers,0
+11-9081,Lodging managers,0
+11-9111,Medical and health services managers,1
+11-9121,Natural sciences managers,1
+11-9131,Postmasters and mail superintendents,1
+11-9141,"Property, real estate, and community association managers",1
+11-9151,Social and community service managers,0
+11-9161,Emergency management directors,0
+11-9199,"Managers, all other",1
+13-1011,"Agents and business managers of artists, performers, and athletes",1
+13-1020,Buyers and purchasing agents,1
+13-1031,"Claims adjusters, examiners, and investigators",1
+13-1032,"Insurance appraisers, auto damage",0
+13-1041,Compliance officers,0
+13-1051,Cost estimators,0
+13-1071,Human resources specialists,1
+13-1074,Farm labor contractors,1
+13-1075,Labor relations specialists,0
+13-1081,Logisticians,1
+13-1111,Management analysts,1
+13-1121,"Meeting, convention, and event planners",0
+13-1131,Fundraisers,0
+13-1141,"Compensation, benefits, and job analysis specialists",1
+13-1151,Training and development specialists,1
+13-1161,Market research analysts and marketing specialists,1
+13-1199,"Business operations specialists, all other",1
+13-2011,Accountants and auditors,1
+13-2021,Appraisers and assessors of real estate,1
+13-2031,Budget analysts,1
+13-2041,Credit analysts,1
+13-2051,Financial analysts,1
+13-2052,Personal financial advisors,1
+13-2053,Insurance underwriters,1
+13-2061,Financial examiners,1
+13-2071,Credit counselors,1
+13-2072,Loan officers,0
+13-2081,"Tax examiners and collectors, and revenue agents",0
+13-2082,Tax preparers,0
+13-2099,"Financial specialists, all other",1
+15-1111,Computer and information research scientists,1
+15-1121,Computer systems analysts,1
+15-1122,Information security analysts,1
+15-1131,Computer programmers,1
+15-1132,"Software developers, applications",1
+15-1133,"Software developers, systems software",1
+15-1134,Web developers,1
+15-1141,Database administrators,1
+15-1142,Network and computer systems administrators,1
+15-1143,Computer network architects,1
+15-1151,Computer user support specialists,1
+15-1152,Computer network support specialists,1
+15-1199,"Computer occupations, all other",1
+15-2011,Actuaries,1
+15-2021,Mathematicians,1
+15-2031,Operations research analysts,1
+15-2041,Statisticians,1
+15-2090,Miscellaneous mathematical science occupations,1
+17-1011,"Architects, except landscape and naval",1
+17-1012,Landscape architects,1
+17-1021,Cartographers and photogrammetrists,1
+17-1022,Surveyors,0
+17-2011,Aerospace engineers,1
+17-2021,Agricultural engineers,0
+17-2031,Biomedical engineers,1
+17-2041,Chemical engineers,0
+17-2051,Civil engineers,1
+17-2061,Computer hardware engineers,1
+17-2071,Electrical engineers,1
+17-2072,"Electronics engineers, except computer",1
+17-2081,Environmental engineers,1
+17-2111,"Health and safety engineers, except mining safety engineers and inspectors",0
+17-2112,Industrial engineers,1
+17-2121,Marine engineers and naval architects,1
+17-2131,Materials engineers,0
+17-2141,Mechanical engineers,0
+17-2151,"Mining and geological engineers, including mining safety engineers",0
+17-2161,Nuclear engineers,0
+17-2171,Petroleum engineers,1
+17-2199,"Engineers, all other",0
+17-3011,Architectural and civil drafters,1
+17-3012,Electrical and electronics drafters,1
+17-3013,Mechanical drafters,1
+17-3021,Aerospace engineering and operations technicians,0
+17-3022,Civil engineering technicians,1
+17-3023,Electrical and electronics engineering technicians,0
+17-3024,Electro-mechanical technicians,0
+17-3025,Environmental engineering technicians,0
+17-3026,Industrial engineering technicians,0
+17-3027,Mechanical engineering technicians,0
+17-3029,"Engineering technicians, except drafters, all other",0
+17-3031,Surveying and mapping technicians,1
+19-1011,Animal scientists,1
+19-1012,Food scientists and technologists,0
+19-1013,Soil and plant scientists,1
+19-1020,,1
+19-1021,Biochemists and biophysicists,0
+19-1022,Microbiologists,0
+19-1023,Zoologists and wildlife biologists,1
+19-1029,"Biological scientists, all other",1
+19-1031,Conservation scientists,0
+19-1032,Foresters,0
+19-1041,Epidemiologists,1
+19-1042,"Medical scientists, except epidemiologists",1
+19-2011,Astronomers,1
+19-2012,Physicists,1
+19-2021,Atmospheric and space scientists,0
+19-2031,Chemists,0
+19-2032,Materials scientists,0
+19-2041,"Environmental scientists and specialists, including health",1
+19-2042,"Geoscientists, except hydrologists and geographers",1
+19-2043,Hydrologists,1
+19-2099,"Physical scientists, all other",1
+19-3011,Economists,1
+19-3022,Survey researchers,1
+19-3031,"Clinical, counseling, and school psychologists",1
+19-3032,Industrial-organizational psychologists,0
+19-3039,"Psychologists, all other",1
+19-3041,Sociologists,1
+19-3051,Urban and regional planners,0
+19-3091,Anthropologists and archeologists,1
+19-3092,Geographers,1
+19-3093,Historians,0
+19-3094,Political scientists,1
+19-3099,"Social scientists and related workers, all other",1
+19-4011,Agricultural and food science technicians,0
+19-4021,Biological technicians,0
+19-4031,Chemical technicians,0
+19-4041,Geological and petroleum technicians,1
+19-4051,Nuclear technicians,0
+19-4061,Social science research assistants,1
+19-4091,"Environmental science and protection technicians, including health",0
+19-4092,Forensic science technicians,0
+19-4093,Forest and conservation technicians,0
+19-4099,"Life, physical, and social science technicians, all other",1
+21-1012,"Educational, guidance, school, and vocational counselors",1
+21-1013,Marriage and family therapists,1
+21-1015,Rehabilitation counselors,1
+21-1018,"Substance abuse, behavioral disorder, and mental health counselors",1
+21-1021,"Child, family, and school social workers",0
+21-1022,Healthcare social workers,0
+21-1023,Mental health and substance abuse social workers,0
+21-1091,Health educators,0
+21-1092,Probation officers and correctional treatment specialists,1
+21-1093,Social and human service assistants,0
+21-1094,Community health workers,0
+21-2011,Clergy,1
+21-2021,"Directors, religious activities and education",1
+23-1011,Lawyers,1
+23-1012,Judicial law clerks,1
+23-1021,"Administrative law judges, adjudicators, and hearing officers",1
+23-1022,"Arbitrators, mediators, and conciliators",1
+23-1023,"Judges, magistrate judges, and magistrates",0
+23-2011,Paralegals and legal assistants,1
+23-2091,Court reporters,1
+23-2093,"Title examiners, abstractors, and searchers",1
+25-1011,"Business teachers, postsecondary",1
+25-1021,"Computer science teachers, postsecondary",1
+25-1022,"Mathematical science teachers, postsecondary",1
+25-1031,"Architecture teachers, postsecondary",1
+25-1032,"Engineering teachers, postsecondary",1
+25-1041,"Agricultural sciences teachers, postsecondary",0
+25-1042,"Biological science teachers, postsecondary",1
+25-1043,"Forestry and conservation science teachers, postsecondary",1
+25-1051,"Atmospheric, earth, marine, and space sciences teachers, postsecondary",1
+25-1052,"Chemistry teachers, postsecondary",0
+25-1053,"Environmental science teachers, postsecondary",1
+25-1054,"Physics teachers, postsecondary",1
+25-1061,"Anthropology and archeology teachers, postsecondary",1
+25-1062,"Area, ethnic, and cultural studies teachers, postsecondary",1
+25-1063,"Economics teachers, postsecondary",1
+25-1064,"Geography teachers, postsecondary",1
+25-1065,"Political science teachers, postsecondary",1
+25-1066,"Psychology teachers, postsecondary",1
+25-1067,"Sociology teachers, postsecondary",1
+25-1071,"Health specialties teachers, postsecondary",1
+25-1072,"Nursing instructors and teachers, postsecondary",1
+25-1081,"Education teachers, postsecondary",1
+25-1082,"Library science teachers, postsecondary",1
+25-1111,"Criminal justice and law enforcement teachers, postsecondary",1
+25-1112,"Law teachers, postsecondary",1
+25-1113,"Social work teachers, postsecondary",1
+25-1121,"Art, drama, and music teachers, postsecondary",1
+25-1122,"Communications teachers, postsecondary",1
+25-1123,"English language and literature teachers, postsecondary",1
+25-1124,"Foreign language and literature teachers, postsecondary",1
+25-1125,"History teachers, postsecondary",1
+25-1126,"Philosophy and religion teachers, postsecondary",1
+25-1191,Graduate teaching assistants,1
+25-1192,"Home economics teachers, postsecondary",1
+25-1193,"Recreation and fitness studies teachers, postsecondary",1
+25-1194,"Vocational education teachers, postsecondary",0
+25-2011,"Preschool teachers, except special education",0
+25-2012,"Kindergarten teachers, except special education",1
+25-2021,"Elementary school teachers, except special education",1
+25-2022,"Middle school teachers, except special and career/technical education",0
+25-2023,"Career/technical education teachers, middle school",0
+25-2031,"Secondary school teachers, except special and career/technical education",1
+25-2032,"Career/technical education teachers, secondary school",1
+25-2051,"Special education teachers, preschool",1
+25-2052,"Special education teachers, kindergarten and elementary school",1
+25-2053,"Special education teachers, middle school",1
+25-2054,"Special education teachers, secondary school",1
+25-2059,"Special education teachers, all other",0
+25-3011,Adult basic and secondary education and literacy teachers and instructors,1
+25-3021,Self-enrichment education teachers,1
+25-3097,"Teachers and instructors, all other, except substitute teachers",1
+25-4011,Archivists,1
+25-4012,Curators,1
+25-4013,Museum technicians and conservators,0
+25-4021,Librarians,0
+25-4031,Library technicians,1
+25-9011,Audio-visual and multimedia collections specialists,1
+25-9021,Farm and home management advisors,0
+25-9031,Instructional coordinators,1
+25-9041,Teacher assistants,1
+27-1011,Art directors,1
+27-1012,Craft artists,0
+27-1013,"Fine artists, including painters, sculptors, and illustrators",1
+27-1014,Multimedia artists and animators,1
+27-1021,Commercial and industrial designers,1
+27-1022,Fashion designers,0
+27-1023,Floral designers,1
+27-1024,Graphic designers,1
+27-1025,Interior designers,1
+27-1026,Merchandise displayers and window trimmers,0
+27-1027,Set and exhibit designers,1
+27-2011,Actors,0
+27-2012,Producers and directors,0
+27-2021,Athletes and sports competitors,1
+27-2022,Coaches and scouts,1
+27-2023,"Umpires, referees, and other sports officials",0
+27-2031,Dancers,0
+27-2032,Choreographers,0
+27-2041,Music directors and composers,1
+27-2042,Musicians and singers,0
+27-3011,Radio and television announcers,0
+27-3012,Public address system and other announcers,1
+27-3021,Broadcast news analysts,0
+27-3022,Reporters and correspondents,0
+27-3031,Public relations specialists,1
+27-3041,Editors,1
+27-3042,Technical writers,1
+27-3043,Writers and authors,1
+27-3091,Interpreters and translators,0
+27-4011,Audio and video equipment technicians,1
+27-4012,Broadcast technicians,1
+27-4013,Radio operators,0
+27-4014,Sound engineering technicians,1
+27-4021,Photographers,1
+27-4031,"Camera operators, television, video, and motion picture",0
+27-4032,Film and video editors,1
+29-1011,Chiropractors,0
+29-1021,"Dentists, general",0
+29-1022,Oral and maxillofacial surgeons,0
+29-1023,Orthodontists,0
+29-1024,Prosthodontists,0
+29-1031,Dietitians and nutritionists,0
+29-1041,Optometrists,0
+29-1051,Pharmacists,0
+29-1061,Anesthesiologists,0
+29-1062,Family and general practitioners,0
+29-1063,"Internists, general",0
+29-1064,Obstetricians and gynecologists,0
+29-1065,"Pediatricians, general",0
+29-1066,Psychiatrists,1
+29-1067,Surgeons,0
+29-1069,"Physicians and surgeons, all other",0
+29-1071,Physician assistants,0
+29-1081,Podiatrists,0
+29-1122,Occupational therapists,0
+29-1123,Physical therapists,0
+29-1124,Radiation therapists,0
+29-1125,Recreational therapists,0
+29-1126,Respiratory therapists,0
+29-1127,Speech-language pathologists,1
+29-1128,Exercise physiologists,0
+29-1131,Veterinarians,0
+29-1141,Registered nurses,0
+29-1151,Nurse anesthetists,0
+29-1161,Nurse midwives,0
+29-1171,Nurse practitioners,0
+29-1181,Audiologists,0
+29-1199,"Health diagnosing and treating practitioners, all other",0
+29-2010,Clinical laboratory technologists and technicians,0
+29-2021,Dental hygienists,0
+29-2031,Cardiovascular technologists and technicians,0
+29-2032,Diagnostic medical sonographers,0
+29-2033,Nuclear medicine technologists,0
+29-2034,Radiologic technologists,0
+29-2035,Magnetic resonance imaging technologists,0
+29-2041,Emergency medical technicians and paramedics,0
+29-2051,Dietetic technicians,0
+29-2052,Pharmacy technicians,0
+29-2053,Psychiatric technicians,0
+29-2054,Respiratory therapy technicians,0
+29-2055,Surgical technologists,0
+29-2056,Veterinary technologists and technicians,0
+29-2057,Ophthalmic medical technicians,0
+29-2061,Licensed practical and licensed vocational nurses,0
+29-2071,Medical records and health information technicians,1
+29-2081,"Opticians, dispensing",0
+29-2091,Orthotists and prosthetists,0
+29-2092,Hearing aid specialists,0
+29-2099,"Health technologists and technicians, all other",0
+29-9011,Occupational health and safety specialists,0
+29-9012,Occupational health and safety technicians,0
+29-9091,Athletic trainers,1
+29-9092,Genetic counselors,1
+29-9099,"Healthcare practitioners and technical workers, all other",0
+31-1011,Home health aides,0
+31-1013,Psychiatric aides,0
+31-1014,Nursing assistants,0
+31-1015,Orderlies,0
+31-2011,Occupational therapy assistants,0
+31-2012,Occupational therapy aides,0
+31-2021,Physical therapist assistants,0
+31-2022,Physical therapist aides,0
+31-9011,Massage therapists,0
+31-9091,Dental assistants,0
+31-9092,Medical assistants,0
+31-9093,Medical equipment preparers,0
+31-9094,Medical transcriptionists,1
+31-9095,Pharmacy aides,0
+31-9096,Veterinary assistants and laboratory animal caretakers,0
+31-9097,Phlebotomists,0
+31-9099,"Healthcare support workers, all other",1
+33-1011,First-line supervisors of correctional officers,0
+33-1012,First-line supervisors of police and detectives,0
+33-1021,First-line supervisors of fire fighting and prevention workers,0
+33-2011,Firefighters,0
+33-2021,Fire inspectors and investigators,0
+33-2022,Forest fire inspectors and prevention specialists,0
+33-3011,Bailiffs,0
+33-3012,Correctional officers and jailers,0
+33-3021,Detectives and criminal investigators,0
+33-3031,Fish and game wardens,0
+33-3041,Parking enforcement workers,0
+33-3051,Police and sheriff's patrol officers,0
+33-3052,Transit and railroad police,0
+33-9011,Animal control workers,0
+33-9021,Private detectives and investigators,1
+33-9031,Gaming surveillance officers and gaming investigators,0
+33-9032,Security guards,0
+33-9091,Crossing guards,0
+33-9092,"Lifeguards, ski patrol, and other recreational protective service workers",0
+33-9093,Transportation security screeners,0
+33-9099,"Protective service workers, all other",1
+35-1011,Chefs and head cooks,0
+35-1012,First-line supervisors of food preparation and serving workers,0
+35-2011,"Cooks, fast food",0
+35-2012,"Cooks, institution and cafeteria",0
+35-2013,"Cooks, private household",1
+35-2014,"Cooks, restaurant",0
+35-2015,"Cooks, short order",0
+35-2021,Food preparation workers,0
+35-3011,Bartenders,0
+35-3021,"Combined food preparation and serving workers, including fast food",0
+35-3022,"Counter attendants, cafeteria, food concession, and coffee shop",0
+35-3031,Waiters and waitresses,0
+35-3041,"Food servers, nonrestaurant",0
+35-9011,Dining room and cafeteria attendants and bartender helpers,0
+35-9021,Dishwashers,0
+35-9031,"Hosts and hostesses, restaurant, lounge, and coffee shop",0
+37-1011,First-line supervisors of housekeeping and janitorial workers,0
+37-1012,"First-line supervisors of landscaping, lawn service, and groundskeeping workers",0
+37-2011,"Janitors and cleaners, except maids and housekeeping cleaners",0
+37-2012,Maids and housekeeping cleaners,0
+37-2021,Pest control workers,0
+37-3011,Landscaping and groundskeeping workers,0
+37-3012,"Pesticide handlers, sprayers, and applicators, vegetation",0
+37-3013,Tree trimmers and pruners,0
+39-1010,First-line supervisors of gaming workers,0
+39-1021,First-line supervisors of personal service workers,1
+39-2011,Animal trainers,0
+39-2021,Nonfarm animal caretakers,0
+39-3011,Gaming dealers,1
+39-3012,Gaming and sports book writers and runners,0
+39-3021,Motion picture projectionists,0
+39-3031,"Ushers, lobby attendants, and ticket takers",1
+39-3091,Amusement and recreation attendants,0
+39-3092,Costume attendants,0
+39-3093,"Locker room, coatroom, and dressing room attendants",0
+39-4011,Embalmers,0
+39-4021,Funeral attendants,0
+39-4031,"Morticians, undertakers, and funeral directors",0
+39-5011,Barbers,0
+39-5012,"Hairdressers, hairstylists, and cosmetologists",0
+39-5091,"Makeup artists, theatrical and performance",1
+39-5092,Manicurists and pedicurists,0
+39-5093,Shampooers,0
+39-5094,Skincare specialists,0
+39-6011,Baggage porters and bellhops,0
+39-6012,Concierges,0
+39-7010,Tour and travel guides,0
+39-9011,Childcare workers,1
+39-9021,Personal care aides,0
+39-9031,Fitness trainers and aerobics instructors,0
+39-9032,Recreation workers,1
+39-9041,Residential advisors,1
+41-1011,First-line supervisors of retail sales workers,0
+41-1012,First-line supervisors of non-retail sales workers,1
+41-2011,Cashiers,0
+41-2012,Gaming change persons and booth cashiers,0
+41-2021,Counter and rental clerks,0
+41-2022,Parts salespersons,0
+41-2031,Retail salespersons,0
+41-3011,Advertising sales agents,0
+41-3021,Insurance sales agents,1
+41-3031,"Securities, commodities, and financial services sales agents",1
+41-3041,Travel agents,0
+41-3099,"Sales representatives, services, all other",1
+41-4011,"Sales representatives, wholesale and manufacturing, technical and scientific products",1
+41-4012,"Sales representatives, wholesale and manufacturing, except technical and scientific products",1
+41-9011,Demonstrators and product promoters,0
+41-9012,Models,1
+41-9021,Real estate brokers,1
+41-9022,Real estate sales agents,0
+41-9031,Sales engineers,1
+41-9041,Telemarketers,1
+41-9091,"Door-to-door sales workers, news and street vendors, and related workers",0
+43-1011,First-line supervisors of office and administrative support workers,1
+43-2011,"Switchboard operators, including answering service",0
+43-2021,Telephone operators,0
+43-3011,Bill and account collectors,1
+43-3021,Billing and posting clerks,1
+43-3031,"Bookkeeping, accounting, and auditing clerks",1
+43-3041,Gaming cage workers,0
+43-3051,Payroll and timekeeping clerks,1
+43-3061,Procurement clerks,0
+43-3071,Tellers,0
+43-4011,Brokerage clerks,1
+43-4021,Correspondence clerks,1
+43-4031,"Court, municipal, and license clerks",0
+43-4041,"Credit authorizers, checkers, and clerks",1
+43-4051,Customer service representatives,1
+43-4061,"Eligibility interviewers, government programs",0
+43-4071,File clerks,1
+43-4081,"Hotel, motel, and resort desk clerks",0
+43-4111,"Interviewers, except eligibility and loan",1
+43-4121,"Library assistants, clerical",0
+43-4131,Loan interviewers and clerks,0
+43-4141,New accounts clerks,0
+43-4151,Order clerks,1
+43-4161,"Human resources assistants, except payroll and timekeeping",1
+43-4171,Receptionists and information clerks,0
+43-4181,Reservation and transportation ticket agents and travel clerks,0
+43-5011,Cargo and freight agents,1
+43-5021,Couriers and messengers,1
+43-5031,"Police, fire, and ambulance dispatchers",0
+43-5032,"Dispatchers, except police, fire, and ambulance",1
+43-5041,"Meter readers, utilities",0
+43-5051,Postal service clerks,0
+43-5052,Postal service mail carriers,0
+43-5053,"Postal service mail sorters, processors, and processing machine operators",0
+43-5061,"Production, planning, and expediting clerks",0
+43-5071,"Shipping, receiving, and traffic clerks",0
+43-5081,Stock clerks and order fillers,0
+43-5111,"Weighers, measurers, checkers, and samplers, recordkeeping",0
+43-6011,Executive secretaries and executive administrative assistants,1
+43-6012,Legal secretaries,1
+43-6013,Medical secretaries,1
+43-6014,"Secretaries and administrative assistants, except legal, medical, and executive",1
+43-9011,Computer operators,1
+43-9021,Data entry keyers,1
+43-9022,Word processors and typists,1
+43-9031,Desktop publishers,1
+43-9041,Insurance claims and policy processing clerks,1
+43-9051,"Mail clerks and mail machine operators, except postal service",1
+43-9061,"Office clerks, general",1
+43-9071,"Office machine operators, except computer",1
+43-9081,Proofreaders and copy markers,0
+43-9111,Statistical assistants,1
+45-1011,"First-line supervisors of farming, fishing, and forestry workers",0
+45-2011,Agricultural inspectors,0
+45-2021,Animal breeders,0
+45-2041,"Graders and sorters, agricultural products",0
+45-2091,Agricultural equipment operators,0
+45-2092,"Farmworkers and laborers, crop, nursery, and greenhouse",0
+45-2093,"Farmworkers, farm, ranch, and aquacultural animals",0
+45-3000,Fishing and hunting workers,0
+45-4011,Forest and conservation workers,0
+45-4021,Fallers,0
+45-4022,Logging equipment operators,0
+45-4023,Log graders and scalers,0
+47-1011,First-line supervisors of construction trades and extraction workers,0
+47-2011,Boilermakers,0
+47-2021,Brickmasons and blockmasons,0
+47-2022,Stonemasons,0
+47-2031,Carpenters,0
+47-2041,Carpet installers,0
+47-2042,"Floor layers, except carpet, wood, and hard tiles",0
+47-2043,Floor sanders and finishers,0
+47-2044,Tile and marble setters,0
+47-2051,Cement masons and concrete finishers,0
+47-2053,Terrazzo workers and finishers,0
+47-2061,Construction laborers,0
+47-2071,"Paving, surfacing, and tamping equipment operators",0
+47-2072,Pile-driver operators,0
+47-2073,Operating engineers and other construction equipment operators,0
+47-2081,Drywall and ceiling tile installers,0
+47-2082,Tapers,0
+47-2111,Electricians,0
+47-2121,Glaziers,0
+47-2131,"Insulation workers, floor, ceiling, and wall",0
+47-2132,"Insulation workers, mechanical",0
+47-2141,"Painters, construction and maintenance",0
+47-2142,Paperhangers,0
+47-2151,Pipelayers,0
+47-2152,"Plumbers, pipefitters, and steamfitters",0
+47-2161,Plasterers and stucco masons,0
+47-2171,Reinforcing iron and rebar workers,0
+47-2181,Roofers,0
+47-2211,Sheet metal workers,0
+47-2221,Structural iron and steel workers,0
+47-2231,Solar photovoltaic installers,0
+47-3011,"Helpers--brickmasons, blockmasons, stonemasons, and tile and marble setters",0
+47-3012,Helpers--carpenters,0
+47-3013,Helpers--electricians,0
+47-3014,"Helpers--painters, paperhangers, plasterers, and stucco masons",0
+47-3015,"Helpers--pipelayers, plumbers, pipefitters, and steamfitters",0
+47-3016,Helpers--roofers,0
+47-4011,Construction and building inspectors,0
+47-4021,Elevator installers and repairers,0
+47-4031,Fence erectors,0
+47-4041,Hazardous materials removal workers,0
+47-4051,Highway maintenance workers,0
+47-4061,Rail-track laying and maintenance equipment operators,0
+47-4071,Septic tank servicers and sewer pipe cleaners,0
+47-4090,Miscellaneous construction and related workers,0
+47-5011,"Derrick operators, oil and gas",0
+47-5012,"Rotary drill operators, oil and gas",0
+47-5013,"Service unit operators, oil, gas, and mining",0
+47-5021,"Earth drillers, except oil and gas",0
+47-5031,"Explosives workers, ordnance handling experts, and blasters",0
+47-5041,Continuous mining machine operators,0
+47-5042,Mine cutting and channeling machine operators,0
+47-5051,"Rock splitters, quarry",0
+47-5061,"Roof bolters, mining",0
+47-5071,"Roustabouts, oil and gas",0
+47-5081,Helpers--extraction workers,0
+49-1011,"First-line supervisors of mechanics, installers, and repairers",0
+49-2011,"Computer, automated teller, and office machine repairers",0
+49-2021,"Radio, cellular, and tower equipment installers and repairers",0
+49-2022,"Telecommunications equipment installers and repairers, except line installers",0
+49-2091,Avionics technicians,0
+49-2092,"Electric motor, power tool, and related repairers",0
+49-2093,"Electrical and electronics installers and repairers, transportation equipment",0
+49-2094,"Electrical and electronics repairers, commercial and industrial equipment",0
+49-2095,"Electrical and electronics repairers, powerhouse, substation, and relay",0
+49-2096,"Electronic equipment installers and repairers, motor vehicles",0
+49-2097,Electronic home entertainment equipment installers and repairers,0
+49-2098,Security and fire alarm systems installers,0
+49-3011,Aircraft mechanics and service technicians,0
+49-3021,Automotive body and related repairers,0
+49-3022,Automotive glass installers and repairers,0
+49-3023,Automotive service technicians and mechanics,0
+49-3031,Bus and truck mechanics and diesel engine specialists,0
+49-3041,Farm equipment mechanics and service technicians,0
+49-3042,"Mobile heavy equipment mechanics, except engines",0
+49-3043,Rail car repairers,0
+49-3051,Motorboat mechanics and service technicians,0
+49-3052,Motorcycle mechanics,0
+49-3053,Outdoor power equipment and other small engine mechanics,0
+49-3091,Bicycle repairers,0
+49-3092,Recreational vehicle service technicians,0
+49-3093,Tire repairers and changers,0
+49-9011,Mechanical door repairers,0
+49-9012,"Control and valve installers and repairers, except mechanical door",0
+49-9021,"Heating, air conditioning, and refrigeration mechanics and installers",0
+49-9031,Home appliance repairers,0
+49-9041,Industrial machinery mechanics,0
+49-9043,"Maintenance workers, machinery",0
+49-9044,Millwrights,0
+49-9045,"Refractory materials repairers, except brickmasons",0
+49-9051,Electrical power-line installers and repairers,0
+49-9052,Telecommunications line installers and repairers,0
+49-9061,Camera and photographic equipment repairers,0
+49-9062,Medical equipment repairers,0
+49-9063,Musical instrument repairers and tuners,0
+49-9064,Watch repairers,0
+49-9071,"Maintenance and repair workers, general",0
+49-9081,Wind turbine service technicians,0
+49-9091,"Coin, vending, and amusement machine servicers and repairers",1
+49-9092,Commercial divers,0
+49-9093,"Fabric menders, except garment",0
+49-9094,Locksmiths and safe repairers,0
+49-9095,Manufactured building and mobile home installers,0
+49-9096,Riggers,0
+49-9097,Signal and track switch repairers,0
+49-9098,"Helpers--installation, maintenance, and repair workers",0
+49-9099,"Installation, maintenance, and repair workers, all other",0
+51-1011,First-line supervisors of production and operating workers,0
+51-2011,"Aircraft structure, surfaces, rigging, and systems assemblers",0
+51-2021,"Coil winders, tapers, and finishers",0
+51-2028,"Electrical, electronic, and electromechanical assemblers, except coil winders, tapers, and finishers",0
+51-2031,Engine and other machine assemblers,0
+51-2041,Structural metal fabricators and fitters,0
+51-2091,Fiberglass laminators and fabricators,0
+51-2093,Timing device assemblers and adjusters,0
+51-2098,"Assemblers and fabricators, all other, including team assemblers",0
+51-3011,Bakers,0
+51-3021,Butchers and meat cutters,0
+51-3022,"Meat, poultry, and fish cutters and trimmers",0
+51-3023,Slaughterers and meat packers,0
+51-3091,"Food and tobacco roasting, baking, and drying machine operators and tenders",0
+51-3092,Food batchmakers,0
+51-3093,Food cooking machine operators and tenders,0
+51-4011,"Computer-controlled machine tool operators, metal and plastic",0
+51-4012,"Computer numerically controlled machine tool programmers, metal and plastic",0
+51-4021,"Extruding and drawing machine setters, operators, and tenders, metal and plastic",0
+51-4022,"Forging machine setters, operators, and tenders, metal and plastic",0
+51-4023,"Rolling machine setters, operators, and tenders, metal and plastic",0
+51-4031,"Cutting, punching, and press machine setters, operators, and tenders, metal and plastic",0
+51-4032,"Drilling and boring machine tool setters, operators, and tenders, metal and plastic",0
+51-4033,"Grinding, lapping, polishing, and buffing machine tool setters, operators, and tenders, metal and plastic",0
+51-4034,"Lathe and turning machine tool setters, operators, and tenders, metal and plastic",0
+51-4035,"Milling and planing machine setters, operators, and tenders, metal and plastic",0
+51-4041,Machinists,0
+51-4051,Metal-refining furnace operators and tenders,0
+51-4052,"Pourers and casters, metal",0
+51-4061,"Model makers, metal and plastic",0
+51-4062,"Patternmakers, metal and plastic",0
+51-4071,Foundry mold and coremakers,0
+51-4072,"Molding, coremaking, and casting machine setters, operators, and tenders, metal and plastic",0
+51-4081,"Multiple machine tool setters, operators, and tenders, metal and plastic",0
+51-4111,Tool and die makers,0
+51-4121,"Welders, cutters, solderers, and brazers",0
+51-4122,"Welding, soldering, and brazing machine setters, operators, and tenders",0
+51-4191,"Heat treating equipment setters, operators, and tenders, metal and plastic",0
+51-4192,"Layout workers, metal and plastic",0
+51-4193,"Plating and coating machine setters, operators, and tenders, metal and plastic",0
+51-4194,"Tool grinders, filers, and sharpeners",0
+51-5111,Prepress technicians and workers,1
+51-5112,Printing press operators,0
+51-5113,Print binding and finishing workers,0
+51-6011,Laundry and dry-cleaning workers,0
+51-6021,"Pressers, textile, garment, and related materials",0
+51-6031,Sewing machine operators,0
+51-6041,Shoe and leather workers and repairers,0
+51-6042,Shoe machine operators and tenders,0
+51-6051,"Sewers, hand",0
+51-6052,"Tailors, dressmakers, and custom sewers",0
+51-6061,Textile bleaching and dyeing machine operators and tenders,0
+51-6062,"Textile cutting machine setters, operators, and tenders",0
+51-6063,"Textile knitting and weaving machine setters, operators, and tenders",0
+51-6064,"Textile winding, twisting, and drawing out machine setters, operators, and tenders",0
+51-6091,"Extruding and forming machine setters, operators, and tenders, synthetic and glass fibers",0
+51-6092,Fabric and apparel patternmakers,0
+51-6093,Upholsterers,0
+51-7011,Cabinetmakers and bench carpenters,0
+51-7021,Furniture finishers,0
+51-7031,"Model makers, wood",0
+51-7032,"Patternmakers, wood",0
+51-7041,"Sawing machine setters, operators, and tenders, wood",0
+51-7042,"Woodworking machine setters, operators, and tenders, except sawing",0
+51-8011,Nuclear power reactor operators,0
+51-8012,Power distributors and dispatchers,0
+51-8013,Power plant operators,0
+51-8021,Stationary engineers and boiler operators,0
+51-8031,Water and wastewater treatment plant and system operators,0
+51-8091,Chemical plant and system operators,0
+51-8092,Gas plant operators,0
+51-8093,"Petroleum pump system operators, refinery operators, and gaugers",0
+51-8099,"Plant and system operators, all other",0
+51-9011,Chemical equipment operators and tenders,0
+51-9012,"Separating, filtering, clarifying, precipitating, and still machine setters, operators, and tenders",0
+51-9021,"Crushing, grinding, and polishing machine setters, operators, and tenders",0
+51-9022,"Grinding and polishing workers, hand",0
+51-9023,"Mixing and blending machine setters, operators, and tenders",0
+51-9031,"Cutters and trimmers, hand",0
+51-9032,"Cutting and slicing machine setters, operators, and tenders",0
+51-9041,"Extruding, forming, pressing, and compacting machine setters, operators, and tenders",0
+51-9051,"Furnace, kiln, oven, drier, and kettle operators and tenders",0
+51-9061,"Inspectors, testers, sorters, samplers, and weighers",0
+51-9071,Jewelers and precious stone and metal workers,0
+51-9081,Dental laboratory technicians,0
+51-9082,Medical appliance technicians,0
+51-9083,Ophthalmic laboratory technicians,1
+51-9111,Packaging and filling machine operators and tenders,0
+51-9121,"Coating, painting, and spraying machine setters, operators, and tenders",0
+51-9122,"Painters, transportation equipment",0
+51-9123,"Painting, coating, and decorating workers",1
+51-9141,Semiconductor processors,0
+51-9151,Photographic process workers and processing machine operators,0
+51-9191,Adhesive bonding machine operators and tenders,0
+51-9192,"Cleaning, washing, and metal pickling equipment operators and tenders",0
+51-9193,Cooling and freezing equipment operators and tenders,0
+51-9194,Etchers and engravers,0
+51-9195,"Molders, shapers, and casters, except metal and plastic",0
+51-9196,"Paper goods machine setters, operators, and tenders",0
+51-9197,Tire builders,0
+51-9198,Helpers--production workers,0
+51-9199,"Production workers, all other",0
+53-1011,Aircraft cargo handling supervisors,0
+53-1048,"First-Line supervisors of transportation and material moving workers, except aircraft cargo handling supervisors",1
+53-2011,"Airline pilots, copilots, and flight engineers",0
+53-2012,Commercial pilots,0
+53-2021,Air traffic controllers,1
+53-2022,Airfield operations specialists,0
+53-2031,Flight attendants,0
+53-3011,"Ambulance drivers and attendants, except emergency medical technicians",0
+53-3021,"Bus drivers, transit and intercity",0
+53-3022,"Bus drivers, school or special client",0
+53-3031,Driver/sales workers,0
+53-3032,Heavy and tractor-trailer truck drivers,0
+53-3033,Light truck or delivery services drivers,0
+53-3041,Taxi drivers and chauffeurs,0
+53-4011,Locomotive engineers,0
+53-4012,Locomotive firers,0
+53-4013,"Rail yard engineers, dinkey operators, and hostlers",0
+53-4021,"Railroad brake, signal, and switch operators",0
+53-4031,Railroad conductors and yardmasters,0
+53-4041,Subway and streetcar operators,0
+53-5011,Sailors and marine oilers,0
+53-5021,"Captains, mates, and pilots of water vessels",0
+53-5022,Motorboat operators,0
+53-5031,Ship engineers,0
+53-6011,Bridge and lock tenders,0
+53-6021,Parking lot attendants,0
+53-6031,Automotive and watercraft service attendants,0
+53-6041,Traffic technicians,0
+53-6051,Transportation inspectors,0
+53-6061,"Transportation attendants, except flight attendants",0
+53-7011,Conveyor operators and tenders,0
+53-7021,Crane and tower operators,0
+53-7031,Dredge operators,0
+53-7032,Excavating and loading machine and dragline operators,0
+53-7033,"Loading machine operators, underground mining",0
+53-7041,Hoist and winch operators,0
+53-7051,Industrial truck and tractor operators,0
+53-7061,Cleaners of vehicles and equipment,0
+53-7062,"Laborers and freight, stock, and material movers, hand",0
+53-7063,Machine feeders and offbearers,0
+53-7064,"Packers and packagers, hand",0
+53-7071,Gas compressor and gas pumping station operators,0
+53-7072,"Pump operators, except wellhead pumpers",0
+53-7073,Wellhead pumpers,0
+53-7081,Refuse and recyclable material collectors,0
+53-7111,Mine shuttle car operators,0
+53-7121,"Tank car, truck, and ship loaders",0

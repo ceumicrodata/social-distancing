@@ -1,0 +1,78 @@
+
+  ___  ____  ____  ____  ____ (R)
+ /__    /   ____/   /   ____/
+___/   /   /___/   /   /___/   15.1   Copyright 1985-2017 StataCorp LLC
+  Statistics/Data Analysis            StataCorp
+                                      4905 Lakeway Drive
+     MP - Parallel Edition            College Station, Texas 77845 USA
+                                      800-STATA-PC        http://www.stata.com
+                                      979-696-4600        stata@stata.com
+                                      979-696-4601 (fax)
+
+Single-user 2-core Stata perpetual license:
+       Serial number:  501506203290
+         Licensed to:  Miklos Koren
+                       CEU MicroData
+
+
+Notes:
+      1.  Stata is running in batch mode.
+      2.  Unicode is supported; see help unicode_advice.
+      3.  More than 2 billion observations are allowed; see help obs_advice.
+      4.  Maximum number of variables is set to 5000; see help set_maxvar.
+
+. do compare_risk_telework.do 
+
+. import delimited "../../clean/dingel-neiman/teleworkable.csv", clear
+(3 vars, 764 obs)
+
+. rename soccode SOCCode
+
+. merge 1:1 SOCCode using "risks.dta", nogen
+
+    Result                           # of obs.
+    -----------------------------------------
+    not matched                             0
+    matched                               764  
+    -----------------------------------------
+
+. 
+. foreach X of var teamwork customer presence {
+  2.         tabulate `X' telework
+  3.         count if `X'==1 & telework==1
+  4. }
+
+  Teamwork |
+communicat |
+       ion |     teleworkable
+   (dummy) |         0          1 |     Total
+-----------+----------------------+----------
+         0 |       458        237 |       695 
+         1 |        56         13 |        69 
+-----------+----------------------+----------
+     Total |       514        250 |       764 
+  13
+
+  Customer |
+communicat |
+       ion |     teleworkable
+   (dummy) |         0          1 |     Total
+-----------+----------------------+----------
+         0 |       365        195 |       560 
+         1 |       149         55 |       204 
+-----------+----------------------+----------
+     Total |       514        250 |       764 
+  55
+
+  Physical |
+  presence |     teleworkable
+   (dummy) |         0          1 |     Total
+-----------+----------------------+----------
+         0 |       412        250 |       662 
+         1 |       102          0 |       102 
+-----------+----------------------+----------
+     Total |       514        250 |       764 
+  0
+
+. 
+end of do-file
