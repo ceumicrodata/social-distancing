@@ -1,6 +1,6 @@
 clear all
 
-local weeks 08 15
+local weeks 08 15 22
 local variables raw_visitor_counts raw_visit_counts
 
 * read industry aggregator
@@ -49,12 +49,12 @@ rename raw_visit_counts visits
 egen i = group(industry_code zip)
 tsset i day
 foreach X of var visitors visits {
-	generate gr_`X' = (`X'-L7.`X')/(`X'+L7.`X')
-	generate lagged_`X' = L7.`X'
+	generate gr_`X' = (`X'-L14.`X')/(`X'+L14.`X')
+	generate lagged_`X' = L14.`X'
 }
 
-* keep week of March 15
-keep if day==15
+* keep week of March 22
+keep if day==22
 keep industry_code zip gr_* lagged_*
 
 save "visit-naics-zip.dta", replace
