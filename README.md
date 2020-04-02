@@ -15,6 +15,9 @@ The version published on arXiv removes some occupations where telecommunication 
 Please cite this version as
 > Koren, Miklós, and Rita Pető. 2020. “Business Disruptions from Social Distancing.” arXiv [econ.GN]. arXiv. http://arxiv.org/abs/2003.13983.
 
+### Version submitted to Covid Economics
+The version compares our occupation indexes to that of Dingel and Neiman (2020) and cite several pieces of parallel research using O* NET data. Code and data are available at [Release version 1.3](https://github.com/ceumicrodata/social-distancing/tree/v1.3)
+
 # License and copyright
 All text (`*.md`, `*.txt`, `*.tex`, `*.pdf`) are [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/). All code (`*.do`, `Makefile`) are subject to the [3-clause BSD license](https://opensource.org/licenses/BSD-3-Clause). All derived data (`data/derived/*`) are subject to [Open Database License](https://opendatacommons.org/licenses/odbl/index.html). Please respect to copyright and license terms of original data vendors (`data/raw/*`).
 
