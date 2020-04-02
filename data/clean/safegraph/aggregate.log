@@ -1,0 +1,92 @@
+
+  ___  ____  ____  ____  ____ (R)
+ /__    /   ____/   /   ____/
+___/   /   /___/   /   /___/   15.1   Copyright 1985-2017 StataCorp LLC
+  Statistics/Data Analysis            StataCorp
+                                      4905 Lakeway Drive
+     MP - Parallel Edition            College Station, Texas 77845 USA
+                                      800-STATA-PC        http://www.stata.com
+                                      979-696-4600        stata@stata.com
+                                      979-696-4601 (fax)
+
+6-user 8-core Stata network perpetual license:
+       Serial number:  501506218601
+         Licensed to:  Miklos Koren
+                       Central European University
+
+  ___  ____  ____  ____  ____ (R)
+ /__    /   ____/   /   ____/
+___/   /   /___/   /   /___/   15.1   Copyright 1985-2017 StataCorp LLC
+  Statistics/Data Analysis            StataCorp
+                                      4905 Lakeway Drive
+     MP - Parallel Edition            College Station, Texas 77845 USA
+                                      800-STATA-PC        http://www.stata.com
+                                      979-696-4600        stata@stata.com
+                                      979-696-4601 (fax)
+
+6-user 8-core Stata network perpetual license:
+       Serial number:  501506218601
+         Licensed to:  Miklos Koren
+                       Central European University
+
+Notes:
+      1.  Stata is running in batch mode.
+      2.  Unicode is supported; see help unicode_advice.
+      3.  More than 2 billion observations are allowed; see help obs_advice.
+      4.  Maximum number of variables is set to 5000; see help set_maxvar.
+
+. do aggregate 2020-03-08-weekly-patterns.csv 
+
+
+Notes:
+      1.  Stata is running in batch mode.
+      2.  Unicode is supported; see help unicode_advice.
+      3.  More than 2 billion observations are allowed; see help obs_advice.
+      4.  Maximum number of variables is set to 5000; see help set_maxvar.
+
+. do aggregate 2020-03-15-weekly-patterns.csv 
+
+. clear all
+. clear all
+
+. 
+. confirm existence `1'
+
+. local week = substr("`1'", 1, 10)
+
+. 
+
+. 
+. confirm existence `1'
+
+. local week = substr("`1'", 1, 10)
+
+. 
+. import delimited "`1'", varnames(1) encoding("utf-8") case(preserve) clear
+. import delimited "`1'", varnames(1) encoding("utf-8") case(preserve) clear
+(23 vars, 3,778,283 obs)
+
+. 
+(23 vars, 3,900,801 obs)
+
+. 
+. collapse (sum) raw_visit_counts raw_visitor_counts, by(postal_code naics_code
+>  iso_country_code)
+
+. 
+. export delimited "naics-zip-`week'.csv", replace
+. collapse (sum) raw_visit_counts raw_visitor_counts, by(postal_code naics_code
+>  iso_country_code)
+
+. 
+. export delimited "naics-zip-`week'.csv", replace
+(note: file naics-zip-2020-03-08.csv not found)
+file naics-zip-2020-03-08.csv saved
+
+(note: file naics-zip-2020-03-15.csv not found)
+file naics-zip-2020-03-15.csv saved
+
+. 
+end of do-file
+. 
+end of do-file

@@ -8,8 +8,8 @@ local teamwork group consult coordinate team guide
 local customer customers public care interpersonal consult
 local presence move operate repair_elect repair_mechanic inspect
 
-* face2face daily
-local teamwork_context (face2face > 75)
+* face2face daily, more frequently than either email or memos
+local teamwork_context ((face2face > 75)&(face2face > email)&(face2face > memo))
 local customer_context (face2face > 75)
 * share office or more dense
 local presence_context (proximity > 25)

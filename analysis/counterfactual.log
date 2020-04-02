@@ -47,9 +47,9 @@ Notes:
 . tempfile industry
 
 . save `industry', replace
-(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St33878.000001 no
+(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St38734.000001 no
 > t found)
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St33878.000001 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St38734.000001 saved
 
 . 
 . import delimited "../data/derived/crosswalk/2digit_names.csv", varnames(1) cl
@@ -59,9 +59,9 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St33878.000001 saved
 . tempfile digit2
 
 . save `digit2', replace
-(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St33878.000002 no
+(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St38734.000002 no
 > t found)
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St33878.000002 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St38734.000002 saved
 
 . 
 . do "industry_location_panel.do"
@@ -73,9 +73,9 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St33878.000002 saved
 . tempfile occupation
 
 . save `occupation', replace
-(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St33878.000003 no
+(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St38734.000003 no
 > t found)
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St33878.000003 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St38734.000003 saved
 
 . 
 . use "../data/clean/cbp/zip_code_business_patterns.dta", clear
@@ -141,17 +141,17 @@ end of do-file
 (sum of wgt is 116,309.746596697)
 
       Source |       SS           df       MS      Number of obs   =   442,430
--------------+----------------------------------   F(1, 442428)    >  99999.00
-       Model |  616.297587         1  616.297587   Prob > F        =    0.0000
-    Residual |  1335.23119   442,428  .003017963   R-squared       =    0.3158
--------------+----------------------------------   Adj R-squared   =    0.3158
-       Total |  1951.52878   442,429  .004410942   Root MSE        =    .05494
+-------------+----------------------------------   F(1, 442428)    =  91371.73
+       Model |  334.047684         1  334.047684   Prob > F        =    0.0000
+    Residual |   1617.4811   442,428  .003655919   R-squared       =    0.1712
+-------------+----------------------------------   Adj R-squared   =    0.1712
+       Total |  1951.52878   442,429  .004410942   Root MSE        =    .06046
 
 ------------------------------------------------------------------------------
          LHS |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
-         RHS |   .0263435   .0000583   451.90   0.000     .0262292    .0264577
-       _cons |   .1821685   .0001805  1009.36   0.000     .1818147    .1825222
+         RHS |    .019775   .0000654   302.28   0.000     .0196467    .0199032
+       _cons |    .211468   .0001694  1248.16   0.000     .2111359    .2118001
 ------------------------------------------------------------------------------
 
 . scalar epsilon = _b[RHS]
@@ -171,7 +171,7 @@ end of do-file
 
     Variable |     Obs      Weight        Mean   Std. Dev.       Min        Max
 -------------+-----------------------------------------------------------------
-     contact | 442,887    116498.2    1.098926   .0611887          0    1.28774
+     contact | 442,887    116498.2    1.085039   .0564065          0   1.219526
 
 . scalar current_contact = r(mean)
 
@@ -209,7 +209,7 @@ end of do-file
 
     Variable |     Obs      Weight        Mean   Std. Dev.       Min        Max
 -------------+-----------------------------------------------------------------
-labor_subs~y | 442,430  116309.747    18.55491   6.770266   3.115181   37.50838
+labor_subs~y | 442,430  116309.747    12.26117    6.07015   2.242862    30.7935
 
 . 
 . * compute for nyc
@@ -236,7 +236,7 @@ population~y |   6,014  3962.41947    19325.86   12222.27          0   57231.17
 
     Variable |     Obs      Weight        Mean   Std. Dev.       Min        Max
 -------------+-----------------------------------------------------------------
-labor_subs~y |   5,844  3885.88659    21.28615   6.529398   5.400251   37.50838
+labor_subs~y |   5,844  3885.88659    13.33967   5.765235   2.938455    30.7935
 
 . 
 . do "aggregate2digit.do"

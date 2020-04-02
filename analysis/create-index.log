@@ -1,7 +1,7 @@
 
   ___  ____  ____  ____  ____ (R)
  /__    /   ____/   /   ____/
-___/   /   /___/   /   /___/   15.0   Copyright 1985-2017 StataCorp LLC
+___/   /   /___/   /   /___/   15.1   Copyright 1985-2017 StataCorp LLC
   Statistics/Data Analysis            StataCorp
                                       4905 Lakeway Drive
      MP - Parallel Edition            College Station, Texas 77845 USA
@@ -13,6 +13,7 @@ Single-user 2-core Stata perpetual license:
        Serial number:  501506203290
          Licensed to:  Miklos Koren
                        CEU MicroData
+
 
 Notes:
       1.  Stata is running in batch mode.
@@ -46,9 +47,9 @@ Notes:
 . tempfile industry
 
 . save `industry', replace
-(note: file /var/folders/7b/svcv81g94n3fm6nrj7ckr15c0000gn/T//St06743.000001 no
+(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St38736.000001 no
 > t found)
-file /var/folders/7b/svcv81g94n3fm6nrj7ckr15c0000gn/T//St06743.000001 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St38736.000001 saved
 
 . 
 . 

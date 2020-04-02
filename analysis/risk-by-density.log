@@ -1,7 +1,7 @@
 
   ___  ____  ____  ____  ____ (R)
  /__    /   ____/   /   ____/
-___/   /   /___/   /   /___/   15.0   Copyright 1985-2017 StataCorp LLC
+___/   /   /___/   /   /___/   15.1   Copyright 1985-2017 StataCorp LLC
   Statistics/Data Analysis            StataCorp
                                       4905 Lakeway Drive
      MP - Parallel Edition            College Station, Texas 77845 USA
@@ -13,6 +13,7 @@ Single-user 2-core Stata perpetual license:
        Serial number:  501506203290
          Licensed to:  Miklos Koren
                        CEU MicroData
+
 
 Notes:
       1.  Stata is running in batch mode.
@@ -36,9 +37,9 @@ Notes:
 . tempfile occupation
 
 . save `occupation', replace
-(note: file /var/folders/7b/svcv81g94n3fm6nrj7ckr15c0000gn/T//St06911.000001 no
+(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St38739.000001 no
 > t found)
-file /var/folders/7b/svcv81g94n3fm6nrj7ckr15c0000gn/T//St06911.000001 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St38739.000001 saved
 
 . 
 . use "../data/clean/cbp/zip_code_business_patterns.dta", clear
@@ -121,11 +122,11 @@ variable affected_share was byte now long
 (24,293 real changes made)
 (24,380 real changes made)
 (23,561 real changes made)
-(22,365 real changes made)
+(22,274 real changes made)
 (22,259 real changes made)
 (22,210 real changes made)
-(22,343 real changes made)
-(22,379 real changes made)
+(22,360 real changes made)
+(22,352 real changes made)
 
 . replace plant_size = plant_size/10
 (26,811 real changes made)
@@ -178,7 +179,6 @@ file ../data/derived/location-index.csv saved
 
 . 
 . graph export "../text/fig4.eps", replace
-(note: file ../text/fig4.eps not found)
 (file ../text/fig4.eps written in EPS format)
 
 . graph export "../text/fig4.pdf", replace
