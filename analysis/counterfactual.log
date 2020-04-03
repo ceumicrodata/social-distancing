@@ -47,9 +47,9 @@ Notes:
 . tempfile industry
 
 . save `industry', replace
-(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St33911.000001 no
+(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St34032.000001 no
 > t found)
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St33911.000001 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St34032.000001 saved
 
 . 
 . import delimited "../data/derived/crosswalk/2digit_names.csv", varnames(1) cl
@@ -59,9 +59,9 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St33911.000001 saved
 . tempfile digit2
 
 . save `digit2', replace
-(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St33911.000002 no
+(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St34032.000002 no
 > t found)
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St33911.000002 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St34032.000002 saved
 
 . 
 . do "industry_location_panel.do"
@@ -73,9 +73,9 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St33911.000002 saved
 . tempfile occupation
 
 . save `occupation', replace
-(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St33911.000003 no
+(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St34032.000003 no
 > t found)
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St33911.000003 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St34032.000003 saved
 
 . 
 . use "../data/clean/cbp/zip_code_business_patterns.dta", clear
@@ -242,6 +242,53 @@ labor_subs~y |   5,844  3865.19104     13.3136   5.758363   2.938807   30.78519
 . save "wage_subsidy.dta", replace
 file wage_subsidy.dta saved
 
+. do "employment-growth.do"
+
+. preserve
+
+.         generate wage_subsidy = employment_weight * labor_subsidy
+(7,188 missing values generated)
+
+.         collapse (firstnm) ces_employment growth (sum) wage_subsidy employmen
+> t_weight, by(industry_code industry_label)
+
+.         replace wage_subsidy =  wage_subsidy / employment_weight
+(81 real changes made, 2 to missing)
+
+.         
+.         generate str label = ""
+(81 missing values generated)
+
+.         replace label = industry_label if inlist(industry_code, 487, 722, 442
+> , 448, 452, 519, 486, 113, 451, 721, 446)
+variable label was str1 now str45
+(11 real changes made)
+
+.         
+.         tw ///
+>         (lfitci growth wage_subsidy [aw=ces_employment]  ) ///
+>         (scatter growth wage_subsidy [aw=ces_employment],  msymbol(circle_hol
+> low) mlabel(label)), ///
+>         scheme(s2mono) graphregion(color(white)) ///
+>         ytitle("Change in monthly employment (%)" ) ///
+>         xtitle("Wage subsidy to compensate drop in contacts (percent)") ///
+>         legend(region(lstyle(none)) order(2 "Regression line" 1 "Confidence i
+> nterval")) ///
+>         graphregion(margin(1 40 1 1)) aspect(1)
+
+.         
+.         graph export "../text/fig5.eps", replace
+(note: file ../text/fig5.eps not found)
+(file ../text/fig5.eps written in EPS format)
+
+.         graph export "../text/fig5.pdf", replace
+(file ../text/fig5.pdf written in PDF format)
+
+. restore 
+
+. 
+end of do-file
+
 . 
 . do "aggregate2digit.do"
 
@@ -262,9 +309,6 @@ end of do-file
 . * weighted cost ratio
 . replace labor_subsidy = labor_subsidy * employment_weight
 (443,634 real changes made, 1,204 to missing)
-
-. * only add up ces_employment once per industry
-. egen tag = tag(industry_code)
 
 . 
 . collapse (sum) labor_subsidy employment_weight, by(naics_2d)

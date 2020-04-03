@@ -73,12 +73,11 @@ summarize population_density if nyc==1 [aw=employment_weight]
 summarize labor_subsidy if nyc==1 [aw=employment_weight]
 
 save "wage_subsidy.dta", replace
+do "employment-growth.do"
 
 do "aggregate2digit.do"
 * weighted cost ratio
 replace labor_subsidy = labor_subsidy * employment_weight
-* only add up ces_employment once per industry
-egen tag = tag(industry_code)
 
 collapse (sum) labor_subsidy employment_weight, by(naics_2d)
 * merge on names
