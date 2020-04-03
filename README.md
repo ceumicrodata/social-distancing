@@ -3,7 +3,20 @@
 # Citation
 Please cite as 
 
-> Koren, Miklós and Rita Pető. 2020. "Business disruptions from social distancing." Covid Economics, Issue 2. CEPR, London, UK. http://koren.mk/papers/working_papers/social_distancing/
+> Koren, Miklós, and Rita Pető. 2020. “Business Disruptions from Social Distancing.” Covid Economics. Centre for Economic Policy Research. arXiv. http://arxiv.org/abs/2003.13983.
+> ```
+> @ARTICLE{Koren2020-mk,
+>   title         = "Business disruptions from social distancing",
+>   author        = "Koren, Mikl{\'o}s and Pet{\H o}, Rita",
+>   journal       = "Covid Economics",
+>   number        =  2,
+>   institution   = "Centre for Economic Policy Research",
+>   year          =  2020,
+>   archivePrefix = "arXiv",
+>   primaryClass  = "econ.GN",
+>   eprint        = "2003.13983"
+> }
+> ```
 
 ## Release notes
 ### Version submitted to PLOS ONE
