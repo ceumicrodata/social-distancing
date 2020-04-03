@@ -1,11 +1,11 @@
 # Which industries contracted the most in March?
-The BLS published new statistics on the employment situation of U.S. non-farm businesses. Total employment [fell by 701,000 in March](https://www.bls.gov/news.release/empsit.nr0.htm) The biggest losses were in leisure and hospitality, health care and social assistance, professional services, retail and construction. 
+The BLS published new statistics on the employment situation of U.S. non-farm businesses. Total employment [fell by 701,000 in March](https://www.bls.gov/news.release/empsit.nr0.htm). The biggest losses were in leisure and hospitality, health care and social assistance, professional services, retail, and construction. 
 
-All of these sectors are highly exposed to social distancing measures introduces to limit the spread of COVID-19. Research by [Koren and Pető (2020)](http://koren.mk/papers/working_papers/social_distancing/) shows that 50 percent of workers in these sectors are vulnerable to social distancing by at least one measure: they engage in face-to-face teamwork, customer contact, or work in close physical proximity to other.
+All of these sectors are highly exposed to social distancing measures introduced to limit the spread of COVID-19. Research by [Koren and Pető (2020)](http://koren.mk/papers/working_papers/social_distancing/) shows that 50 percent of workers in these sectors are vulnerable to social distancing by at least one measure: they engage in face-to-face teamwork, customer contact, or work in close physical proximity to other.
 
-[Koren and Pető (2020)](http://koren.mk/papers/working_papers/social_distancing/) also compute a percentage wage subsidy necessary to compensate businesses for the disruption in human interaction. This depends on the share of communication-intensive workers and the population density in the neighorhood of the business.
+[Koren and Pető (2020)](http://koren.mk/papers/working_papers/social_distancing/) also compute a percentage wage subsidy necessary to compensate businesses for the disruption in human interaction. This depends on the share of communication-intensive workers and the population density in the neighborhood of the business.
 
-The Figure shows the employment change between March and February 2020 (seasonally adjusted, in percent) in each industry, plotted agains the predicted exposure to social distancing, as summarized by the necessary wage subsidy (percent).
+The Figure shows the employment change between March and February 2020 (seasonally adjusted, in percent) in each industry, plotted against the predicted exposure to social distancing, as summarized by the necessary wage subsidy (percent).
 
 ![](fig5.png)
 
