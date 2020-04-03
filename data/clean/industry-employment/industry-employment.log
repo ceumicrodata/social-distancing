@@ -32,14 +32,14 @@ Notes:
 . tempfile ces
 
 . save `ces', replace
-(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St30436.000001 no
+(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St33903.000001 no
 > t found)
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St30436.000001 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St33903.000001 saved
 
 . 
-. import delimited "../../raw/bls/industry-employment/ces-2020-feb.csv", varnam
+. import delimited "../../raw/bls/industry-employment/ces-2020-mar.csv", varnam
 > es(1) clear case(preserve)
-(2 vars, 176 obs)
+(3 vars, 881 obs)
 
 . merge 1:1 ces_industry using `ces', keep(match) nogen
 
@@ -50,27 +50,34 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St30436.000001 saved
     -----------------------------------------
 
 . 
-. collapse (sum) employment, by(industry_code)
+. replace growth = growth * employment
+(89 real changes made)
 
+. collapse (sum) employment growth, by(industry_code)
+
+. replace growth = growth / employment
+(88 real changes made)
+
+. 
 . summarize employment, detail
 
                       (sum) employment
 -------------------------------------------------------------
       Percentiles      Smallest
- 1%         23.8           23.8
- 5%         65.1           36.6
-10%        114.8           50.4       Obs                  88
-25%        407.8           54.5       Sum of Wgt.          88
+ 1%         23.6           23.6
+ 5%         64.9           35.7
+10%        113.6             51       Obs                  88
+25%        408.4           53.7       Sum of Wgt.          88
 
-50%       836.75                      Mean           1733.467
-                        Largest       Std. Dev.      2309.324
-75%      2137.95         8056.4
-90%       4250.4           8937       Variance        5332979
-95%       7855.3         9717.3       Skewness       2.493589
-99%      12287.5        12287.5       Kurtosis       9.504224
+50%        832.7                      Mean            1724.81
+                        Largest       Std. Dev.       2283.89
+75%      2124.15         8048.1
+90%       4233.6         8872.6       Variance        5216152
+95%       7815.8         9712.1       Skewness       2.441514
+99%      11865.5        11865.5       Kurtosis       9.110522
 
 . display r(sum)
-152545.1
+151783.3
 
 . 
 . save "industry-employment.dta", replace

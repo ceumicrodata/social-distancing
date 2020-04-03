@@ -11,7 +11,7 @@ tempfile digit2
 save `digit2', replace
 
 do "industry_location_panel.do"
-merge m:1 industry_code using `industry', nogen keep(master match) keepusing(industry_label ces_employment)
+merge m:1 industry_code using `industry', nogen keep(master match) keepusing(industry_label ces_employment growth)
 
 * drop hospitals and clinics
 drop if inlist(industry_code, 621, 622)

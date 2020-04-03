@@ -47,9 +47,9 @@ Notes:
 . tempfile industry
 
 . save `industry', replace
-(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St38736.000001 no
+(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St33914.000001 no
 > t found)
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St38736.000001 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St33914.000001 saved
 
 . 
 . 
@@ -99,7 +99,7 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St38736.000001 saved
   2.         replace `X' = round(`X'*10)/10
   3.         format `X' %11.1f
   4. }
-(71 real changes made)
+(64 real changes made)
 
 . 
 . label variable teamwork_share "Workers in teamwork-intensive occupations (per

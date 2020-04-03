@@ -26,27 +26,46 @@ Notes:
 . clear all 
 
 . import delimited "ces.txt", delimiters(tab)
-(5 vars, 7,671,102 obs)
+(5 vars, 7,696,299 obs)
 
 . 
-. keep if year==2020 & period=="M02"
+. keep if year==2020 & inlist(period, "M02", "M03")
 (7,669,140 observations deleted)
 
 . keep if regexm(series_id, "CES........01")
-(1,786 observations deleted)
+(26,102 observations deleted)
 
 . generate str ces_industry = substr(series_id, 4, 8)
 
-. keep ces_industry value
-
+. 
 . rename value employment
+
+. reshape wide employment, i(ces_industry) j(period) string
+(note: j = M02 M03)
+
+Data                               long   ->   wide
+-----------------------------------------------------------------------------
+Number of obs.                     1057   ->     881
+Number of variables                   6   ->       6
+j variable (2 values)            period   ->   (dropped)
+xij variables:
+                             employment   ->   employmentM02 employmentM03
+-----------------------------------------------------------------------------
+
+. 
+. generate growth = employmentM03/employmentM02 * 100 - 100
+(705 missing values generated)
+
+. rename employmentM03 employment
 
 . order ces_industry employment
 
+. keep ces_industry employment growth
+
 . 
-. export delimited "ces-2020-feb.csv", replace
-(note: file ces-2020-feb.csv not found)
-file ces-2020-feb.csv saved
+. export delimited "ces-2020-mar.csv", replace
+(note: file ces-2020-mar.csv not found)
+file ces-2020-mar.csv saved
 
 . 
 end of do-file
