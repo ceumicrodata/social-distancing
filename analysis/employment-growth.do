@@ -17,4 +17,5 @@ preserve
 	
 	graph export "../text/fig5.eps", replace
 	graph export "../text/fig5.pdf", replace
+	graph export "../text/fig5.png", replace
 restore 
