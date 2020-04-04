@@ -10,9 +10,11 @@ all: counterfactual.log ../data/derived/top-industries.csv ../data/derived/indus
 	stata -b do $<
 headcount.log: headcount.do ../data/derived/industry-index.dta
 	stata -b do $<
-counterfactual.log: counterfactual.do ../data/derived/occupation/naics_risk.csv ../data/clean/cbp/zip_code_business_patterns.dta nyc_zip.dta
+counterfactual.log: counterfactual.do ../data/derived/occupation/naics_risk.csv ../data/clean/cbp/zip_code_business_patterns.dta nyc_zip.dta ../data/derived/change-in-visits.dta
 	stata -b do $<
 nyc_zip.dta: nyc_zip.do ../data/raw/census/cbp/zcta_county_rel_10.txt
+	stata -b do $<
+../data/derived/change-in-visits.dta: store-visits.do ../data/clean/safegraph/visit-naics-zip.dta
 	stata -b do $<
 
 # Derived data

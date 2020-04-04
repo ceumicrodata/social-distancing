@@ -47,9 +47,9 @@ Notes:
 . tempfile industry
 
 . save `industry', replace
-(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St34032.000001 no
+(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St38473.000001 no
 > t found)
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St34032.000001 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St38473.000001 saved
 
 . 
 . import delimited "../data/derived/crosswalk/2digit_names.csv", varnames(1) cl
@@ -59,9 +59,9 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St34032.000001 saved
 . tempfile digit2
 
 . save `digit2', replace
-(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St34032.000002 no
+(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St38473.000002 no
 > t found)
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St34032.000002 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St38473.000002 saved
 
 . 
 . do "industry_location_panel.do"
@@ -73,9 +73,9 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St34032.000002 saved
 . tempfile occupation
 
 . save `occupation', replace
-(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St34032.000003 no
+(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St38473.000003 no
 > t found)
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St34032.000003 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St38473.000003 saved
 
 . 
 . use "../data/clean/cbp/zip_code_business_patterns.dta", clear
@@ -161,55 +161,118 @@ end of do-file
 . generate gamma = chi/(1-chi)
 
 . 
-. * Eq 4
-. generate contact = population_density^(epsilon*(1-chi))
-(5,527 missing values generated)
+. * use actual drop in visits between Feb 2020 and last week of March to calcul
+> ate contact ratio
+. merge 1:1 industry_code zip using "../data/derived/change-in-visits.dta", nog
+> en keep(master match)
+
+    Result                           # of obs.
+    -----------------------------------------
+    not matched                       149,129
+        from master                   149,129  
+        from using                          0  
+
+    matched                           300,489  
+    -----------------------------------------
+
+. * interpolate missing safegraph data from industry mean
+. reg gr_visits i.industry_code [aw=employment_weight],
+(sum of wgt is 85,550.3583683134)
+
+      Source |       SS           df       MS      Number of obs   =   299,718
+-------------+----------------------------------   F(60, 299657)   =   2815.07
+       Model |  9532.89007        60  158.881501   Prob > F        =    0.0000
+    Residual |   16912.548   299,657  .056439689   R-squared       =    0.3605
+-------------+----------------------------------   Adj R-squared   =    0.3603
+       Total |   26445.438   299,717  .088234695   Root MSE        =    .23757
+
+------------------------------------------------------------------------------
+   gr_visits |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+industry_c~e |
+        236  |   -.152431   .0157806    -9.66   0.000    -.1833605   -.1215016
+        238  |  -.0657914   .0090695    -7.25   0.000    -.0835674   -.0480154
+        311  |  -.1489608   .0093233   -15.98   0.000    -.1672341   -.1306874
+        312  |  -.4552813   .0112741   -40.38   0.000    -.4773783   -.4331844
+        314  |  -.2048236   .1292512    -1.58   0.113    -.4581523    .0485052
+        321  |  -.0885783   .1962047    -0.45   0.652     -.473134    .2959774
+        323  |  -.1834401   .0119274   -15.38   0.000    -.2068175   -.1600628
+        325  |   -.480284    .127798    -3.76   0.000    -.7307645   -.2298034
+        327  |  -.0336592   .0280757    -1.20   0.231    -.0886868    .0213684
+        331  |  -.0345043   .0372355    -0.93   0.354    -.1074848    .0384761
+        332  |  -.0564686   .0130076    -4.34   0.000    -.0819632    -.030974
+        333  |  -.3688511   .1850493    -1.99   0.046    -.7315426   -.0061596
+        334  |  -.4446639    .053493    -8.31   0.000    -.5495087   -.3398191
+        336  |  -.0166363   .0309842    -0.54   0.591    -.0773645    .0440919
+        339  |  -.1798965   .0106348   -16.92   0.000    -.2007404   -.1590526
+        423  |  -.0581308   .0090095    -6.45   0.000     -.075789   -.0404725
+        424  |  -.0275672   .0095447    -2.89   0.004    -.0462746   -.0088598
+        441  |  -.0838604   .0091207    -9.19   0.000    -.1017366   -.0659841
+        442  |  -.3417503   .0105181   -32.49   0.000    -.3623654   -.3211352
+        443  |  -.2675183   .0105339   -25.40   0.000    -.2881644   -.2468721
+        444  |   .0815423   .0093695     8.70   0.000     .0631784    .0999062
+        445  |  -.0018098   .0089762    -0.20   0.840     -.019403    .0157833
+        446  |   -.174921   .0095231   -18.37   0.000     -.193586   -.1562561
+        447  |  -.0388615   .0096131    -4.04   0.000    -.0577029     -.02002
+        448  |  -.5487345   .0093829   -58.48   0.000    -.5671247   -.5303442
+        451  |  -.4052643   .0102624   -39.49   0.000    -.4253783   -.3851504
+        452  |  -.1439082   .0089794   -16.03   0.000    -.1615075   -.1263089
+        453  |  -.3237797   .0097493   -33.21   0.000    -.3428881   -.3046714
+        454  |  -.0525166   .0216177    -2.43   0.015    -.0948867   -.0101466
+        484  |  -.0453203   .0114597    -3.95   0.000    -.0677811   -.0228595
+        485  |   -.242641   .0127681   -19.00   0.000    -.2676661    -.217616
+        488  |  -.1632402   .0100701   -16.21   0.000    -.1829774    -.143503
+        492  |   .0652669   .0099906     6.53   0.000     .0456856    .0848481
+        493  |   -.036013   .0146981    -2.45   0.014    -.0648208   -.0072052
+        511  |   .1978458   .1280048     1.55   0.122      -.05304    .4487317
+        512  |  -.5101427   .0107102   -47.63   0.000    -.5311343   -.4891511
+        515  |  -.1606566   .0389327    -4.13   0.000    -.2369637   -.0843495
+        517  |  -.2813249   .0099891   -28.16   0.000    -.3009033   -.2617466
+        518  |  -.2568875   .0283248    -9.07   0.000    -.3124033   -.2013716
+        519  |  -.5360272   .0120052   -44.65   0.000    -.5595571   -.5124973
+        521  |  -.1241157   .0090195   -13.76   0.000    -.1417936   -.1064377
+        523  |  -.3586019   .0096393   -37.20   0.000    -.3774947   -.3397091
+        524  |  -.2410338   .0090084   -26.76   0.000      -.25869   -.2233777
+        531  |  -.3100702   .0092318   -33.59   0.000    -.3281642   -.2919762
+        532  |  -.1041724   .0102416   -10.17   0.000    -.1242457   -.0840992
+        541  |  -.1039219   .0087826   -11.83   0.000    -.1211355   -.0867083
+        551  |  -.1077342   .0165307    -6.52   0.000    -.1401338   -.0753345
+        561  |  -.0450096   .0088018    -5.11   0.000     -.062261   -.0277583
+        562  |   .0242372   .0114923     2.11   0.035     .0017127    .0467618
+        611  |  -.6047625   .0089206   -67.79   0.000    -.6222466   -.5872784
+        623  |  -.1166084   .0090101   -12.94   0.000    -.1342679    -.098949
+        624  |  -.3845979   .0088993   -43.22   0.000    -.4020403   -.3671555
+        711  |  -.6022814   .0139737   -43.10   0.000    -.6296694   -.5748934
+        712  |  -.3919089   .0129531   -30.26   0.000    -.4172967   -.3665211
+        713  |  -.4667681   .0091892   -50.80   0.000    -.4847788   -.4487575
+        721  |   -.461949   .0091224   -50.64   0.000    -.4798286   -.4440694
+        722  |  -.3823482   .0087588   -43.65   0.000    -.3995151   -.3651813
+        811  |   .0001659   .0093375     0.02   0.986    -.0181354    .0184671
+        812  |  -.2019979   .0092716   -21.79   0.000      -.22017   -.1838257
+        813  |  -.3823938   .0089873   -42.55   0.000    -.4000087   -.3647789
+             |
+       _cons |  -.1978458   .0086809   -22.79   0.000      -.21486   -.1808316
+------------------------------------------------------------------------------
+
+. tempvar hat
+
+. predict `hat', xb
+
+. replace gr_visits = `hat' if missing(gr_visits)
+(149,129 real changes made)
 
 . 
-. * current number of contacts
-. summarize contact [aw=employment_weight]
-
-    Variable |     Obs      Weight        Mean   Std. Dev.       Min        Max
--------------+-----------------------------------------------------------------
-     contact | 442,887    115789.7    1.084958   .0564378          0   1.219048
-
-. scalar current_contact = r(mean)
-
-. 
-. * target contact is half
-. scalar target_contact = current_contact * 0.5
-
-. 
-. * loop to find the cap
-. scalar cap = 10000
-
-. scalar average = current_contact 
-
-. generate counterfactual = .
-(449,618 missing values generated)
-
-. while average > target_contact {
-  2.         quietly replace counterfactual = min(contact, min(population_densi
-> ty, cap)^(epsilon*(1-chi)))
-  3.         quietly summarize counterfactual [aw=employment_weight]
-  4.         scalar average = r(mean)
-  5.         scalar cap = 0.90*cap
-  6. }
-
-. 
-. generate contact_ratio = counterfactual / contact
-(5,984 missing values generated)
+. generate contact_ratio = 1 + gr_visits
 
 . * Eq 6 from the paper
 . generate labor_subsidy = 100 - 100 * (1 - chi*contact_ratio) * (contact_ratio
 > )^gamma / (1-chi)
-(5,984 missing values generated)
 
 . summarize labor_subsidy [aw=employment_weight]
 
     Variable |     Obs      Weight        Mean   Std. Dev.       Min        Max
 -------------+-----------------------------------------------------------------
-labor_subs~y | 442,430  115601.595    12.23691   6.069789    2.24381   30.78519
+labor_subs~y | 442,887    115789.7    17.38905   24.30661  -1.42e-14        100
 
 . 
 . * compute for nyc
@@ -236,7 +299,7 @@ population~y |   6,014  3941.66245    19315.45   12218.79          0   57231.17
 
     Variable |     Obs      Weight        Mean   Std. Dev.       Min        Max
 -------------+-----------------------------------------------------------------
-labor_subs~y |   5,844  3865.19104     13.3136   5.758363   2.938807   30.78519
+labor_subs~y |   6,014  3941.66245     26.1386   28.57253  -1.42e-14        100
 
 . 
 . save "wage_subsidy.dta", replace
@@ -247,13 +310,13 @@ file wage_subsidy.dta saved
 . preserve
 
 .         generate wage_subsidy = employment_weight * labor_subsidy
-(7,188 missing values generated)
+(1,209 missing values generated)
 
 .         collapse (firstnm) ces_employment growth (sum) wage_subsidy employmen
 > t_weight, by(industry_code industry_label)
 
 .         replace wage_subsidy =  wage_subsidy / employment_weight
-(81 real changes made, 2 to missing)
+(80 real changes made, 2 to missing)
 
 .         
 .         generate str label = ""
@@ -278,89 +341,17 @@ variable label was str1 now str45
 
 .         
 .         graph export "../text/fig5.eps", replace
-(note: file ../text/fig5.eps not found)
 (file ../text/fig5.eps written in EPS format)
 
 .         graph export "../text/fig5.pdf", replace
 (file ../text/fig5.pdf written in PDF format)
 
-. restore 
+.         graph export "../text/fig5.png", replace
+translator Graph2png not found
+r(111);
 
-. 
 end of do-file
+r(111);
 
-. 
-. do "aggregate2digit.do"
-
-. generate naics_2d = int(industry_code/10)
-
-. replace naics_2d = 31 if (naics_2d>=31) & (naics<=33)
-(25,843 real changes made)
-
-. replace naics_2d = 44 if (naics_2d>=44) & (naics<=45)
-(30,239 real changes made)
-
-. replace naics_2d = 48 if (naics_2d>=48) & (naics<=49)
-(3,411 real changes made)
-
-. 
 end of do-file
-
-. * weighted cost ratio
-. replace labor_subsidy = labor_subsidy * employment_weight
-(443,634 real changes made, 1,204 to missing)
-
-. 
-. collapse (sum) labor_subsidy employment_weight, by(naics_2d)
-
-. * merge on names
-. merge 1:1 naics_2d using `digit2', nogen keep(master match)
-
-    Result                           # of obs.
-    -----------------------------------------
-    not matched                             0
-    matched                                19  
-    -----------------------------------------
-
-. 
-. replace labor_subsidy = round(labor_subsidy/employment_weight, 0.1)
-(19 real changes made)
-
-. rename employment_weight employment
-
-. replace employment = round(employment)
-(19 real changes made)
-
-. 
-. * calculate weighted average
-. summarize labor_subsidy [fw=employment], meanonly
-
-. scalar average = r(mean)
-
-. scalar N = r(N)
-
-. 
-. gsort -labor_subsidy
-
-. 
-. * add a row for average
-. set obs 20
-number of observations (_N) was 19, now 20
-
-. replace industry_label = "Average" in 20
-(1 real change made)
-
-. replace labor_subsidy = average in 20
-(1 real change made)
-
-. replace employment = N in 20
-(1 real change made)
-
-. 
-. order industry_label labor_subsidy employment
-
-. export delimited "cost_by_naics2.csv", replace
-file cost_by_naics2.csv saved
-
-. 
-end of do-file
+r(111);

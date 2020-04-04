@@ -1,21 +1,21 @@
 industry_label,labor_subsidy,employment,naics_2d
-Retail Trade,22.1,15624,44
-Accommodation and Food Services,17.7,13930,72
-"Arts, Entertainment, and Recreation",15.1,2462,71
-Other Services (except Public Administration),14.5,5919,81
-Educational Services,13.8,3823,61
-Finance and Insurance,13.6,6498,52
-Real Estate Rental and Leasing,12.9,2355,53
-Health Care and Social Assistance,11.5,7623,62
-Administrative and Support and Waste Management and Remediation Services,11.3,9339,56
-Management of Companies and Enterprises,10.4,2456,55
-Information,9.300000000000001,2899,51
-Mining,9,654,21
-Utilities,8.6,548,22
-"Professional, Scientific, and Technical Services",8.6,9712,54
-Wholesale Trade,7.7,5937,42
-Construction,6.800000000000001,7605,23
-Transportation and Warehousing,5.9,5515,48
-Manufacturing,4.5,12838,31
-"Agriculture, Forestry, Fishing and Hunting",2.6,54,11
-Average,12.21219179383545,115791,
+Educational Services,47.5,3823,61
+Accommodation and Food Services,39.5,13930,72
+Retail Trade,36.9,15624,44
+"Arts, Entertainment, and Recreation",34,2462,71
+Other Services (except Public Administration),23.3,5919,81
+Finance and Insurance,15.2,6498,52
+Real Estate Rental and Leasing,14.8,2355,53
+Information,11.9,2899,51
+Health Care and Social Assistance,11.1,7623,62
+Administrative and Support and Waste Management and Remediation Services,5.9,9339,56
+"Professional, Scientific, and Technical Services",5.4,9712,54
+Wholesale Trade,2.6,5937,42
+Utilities,2,548,22
+Construction,1.3,7605,23
+Manufacturing,1.2,12838,31
+Transportation and Warehousing,1.2,5515,48
+Management of Companies and Enterprises,.3,2456,55
+"Agriculture, Forestry, Fishing and Hunting",0,54,11
+Mining,0,654,21
+Average,16.74944339370072,115791,

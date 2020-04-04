@@ -40,28 +40,15 @@ scalar epsilon = _b[RHS]
 generate chi = communication_share/100
 generate gamma = chi/(1-chi)
 
-* Eq 4
-generate contact = population_density^(epsilon*(1-chi))
+* use actual drop in visits between Feb 2020 and last week of March to calculate contact ratio
+merge 1:1 industry_code zip using "../data/derived/change-in-visits.dta", nogen keep(master match)
+* interpolate missing safegraph data from industry mean
+reg gr_visits i.industry_code [aw=employment_weight],
+tempvar hat
+predict `hat', xb
+replace gr_visits = `hat' if missing(gr_visits)
 
-* current number of contacts
-summarize contact [aw=employment_weight]
-scalar current_contact = r(mean)
-
-* target contact is half
-scalar target_contact = current_contact * 0.5
-
-* loop to find the cap
-scalar cap = 10000
-scalar average = current_contact 
-generate counterfactual = .
-while average > target_contact {
-	quietly replace counterfactual = min(contact, min(population_density, cap)^(epsilon*(1-chi)))
-	quietly summarize counterfactual [aw=employment_weight]
-	scalar average = r(mean)
-	scalar cap = 0.90*cap
-}
-
-generate contact_ratio = counterfactual / contact
+generate contact_ratio = 1 + gr_visits
 * Eq 6 from the paper
 generate labor_subsidy = 100 - 100 * (1 - chi*contact_ratio) * (contact_ratio)^gamma / (1-chi)
 summarize labor_subsidy [aw=employment_weight]

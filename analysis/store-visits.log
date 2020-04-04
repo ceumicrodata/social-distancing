@@ -1,0 +1,71 @@
+
+  ___  ____  ____  ____  ____ (R)
+ /__    /   ____/   /   ____/
+___/   /   /___/   /   /___/   15.1   Copyright 1985-2017 StataCorp LLC
+  Statistics/Data Analysis            StataCorp
+                                      4905 Lakeway Drive
+     MP - Parallel Edition            College Station, Texas 77845 USA
+                                      800-STATA-PC        http://www.stata.com
+                                      979-696-4600        stata@stata.com
+                                      979-696-4601 (fax)
+
+Single-user 2-core Stata perpetual license:
+       Serial number:  501506203290
+         Licensed to:  Miklos Koren
+                       CEU MicroData
+
+
+Notes:
+      1.  Stata is running in batch mode.
+      2.  Unicode is supported; see help unicode_advice.
+      3.  More than 2 billion observations are allowed; see help obs_advice.
+      4.  Maximum number of variables is set to 5000; see help set_maxvar.
+
+. do store-visits.do 
+
+. clear all
+
+. use "../data/clean/safegraph/visit-naics-zip.dta",
+
+. 
+. * keep 2020-02 and 2020-03-22
+. keep if inlist(day_of_year, 60, 88)
+(2,316,628 observations deleted)
+
+. 
+. * proportional change in daily visits between month of February and last week
+>  of March
+. keep industry_code zip visits day_of_year
+
+. reshape wide visits, i(industry_code zip) j(day_of_year)
+(note: j = 60 88)
+
+Data                               long   ->   wide
+-----------------------------------------------------------------------------
+Number of obs.                  1.2e+06   ->  579157
+Number of variables                   4   ->       4
+j variable (2 values)       day_of_year   ->   (dropped)
+xij variables:
+                                 visits   ->   visits60 visits88
+-----------------------------------------------------------------------------
+
+. 
+. generate gr_visits = (visits88 - visits60)/visits60
+(47,278 missing values generated)
+
+. * only look at reduction in traffic due to social distancing
+. replace gr_visits = 0 if gr_visits>0
+(166,387 real changes made)
+
+. * model cannot accommodate 100% drop in traffic, winsorize
+. replace gr_visits = -0.95 if gr_visits<-0.95
+(24,982 real changes made)
+
+. 
+. keep industry_code zip gr_visits
+
+. save "../data/derived/change-in-visits.dta", replace
+file ../data/derived/change-in-visits.dta saved
+
+. 
+end of do-file
