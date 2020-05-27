@@ -47,9 +47,9 @@ Notes:
 . tempfile industry
 
 . save `industry', replace
-(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St34032.000001 no
+(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St48919.000001 no
 > t found)
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St34032.000001 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St48919.000001 saved
 
 . 
 . import delimited "../data/derived/crosswalk/2digit_names.csv", varnames(1) cl
@@ -59,9 +59,9 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St34032.000001 saved
 . tempfile digit2
 
 . save `digit2', replace
-(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St34032.000002 no
+(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St48919.000002 no
 > t found)
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St34032.000002 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St48919.000002 saved
 
 . 
 . do "industry_location_panel.do"
@@ -73,9 +73,9 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St34032.000002 saved
 . tempfile occupation
 
 . save `occupation', replace
-(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St34032.000003 no
+(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St48919.000003 no
 > t found)
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St34032.000003 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St48919.000003 saved
 
 . 
 . use "../data/clean/cbp/zip_code_business_patterns.dta", clear
@@ -138,20 +138,20 @@ end of do-file
 
 . 
 . regress LHS RHS [aw=employment_weight]
-(sum of wgt is 115,601.595430615)
+(sum of wgt is 97,228.1424131829)
 
       Source |       SS           df       MS      Number of obs   =   442,430
--------------+----------------------------------   F(1, 442428)    =  90905.81
-       Model |  332.465899         1  332.465899   Prob > F        =    0.0000
-    Residual |  1618.07293   442,428  .003657257   R-squared       =    0.1704
--------------+----------------------------------   Adj R-squared   =    0.1704
-       Total |  1950.53883   442,429  .004408705   Root MSE        =    .06048
+-------------+----------------------------------   F(1, 442428)    =  84705.43
+       Model |  310.454682         1  310.454682   Prob > F        =    0.0000
+    Residual |  1621.54712   442,428   .00366511   R-squared       =    0.1607
+-------------+----------------------------------   Adj R-squared   =    0.1607
+       Total |  1932.00181   442,429  .004366806   Root MSE        =    .06054
 
 ------------------------------------------------------------------------------
          LHS |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
-         RHS |   .0197359   .0000655   301.51   0.000     .0196076    .0198642
-       _cons |   .2116621   .0001693  1250.52   0.000     .2113303    .2119938
+         RHS |    .019571   .0000672   291.04   0.000     .0194392    .0197028
+       _cons |     .21392   .0001674  1278.22   0.000      .213592     .214248
 ------------------------------------------------------------------------------
 
 . scalar epsilon = _b[RHS]
@@ -171,7 +171,7 @@ end of do-file
 
     Variable |     Obs      Weight        Mean   Std. Dev.       Min        Max
 -------------+-----------------------------------------------------------------
-     contact | 442,887    115789.7    1.084958   .0564378          0   1.219048
+     contact | 442,887  97392.5001    1.086139   .0568988          0   1.217032
 
 . scalar current_contact = r(mean)
 
@@ -209,7 +209,7 @@ end of do-file
 
     Variable |     Obs      Weight        Mean   Std. Dev.       Min        Max
 -------------+-----------------------------------------------------------------
-labor_subs~y | 442,430  115601.595    12.23691   6.069789    2.24381   30.78519
+labor_subs~y | 442,430  97228.1424    11.35373   5.787354   2.144916   29.86782
 
 . 
 . * compute for nyc
@@ -230,13 +230,13 @@ labor_subs~y | 442,430  115601.595    12.23691   6.069789    2.24381   30.78519
 
     Variable |     Obs      Weight        Mean   Std. Dev.       Min        Max
 -------------+-----------------------------------------------------------------
-population~y |   6,014  3941.66245    19315.45   12218.79          0   57231.17
+population~y |   6,014  3287.95922    19149.36   12127.81          0   57231.17
 
 . summarize labor_subsidy if nyc==1 [aw=employment_weight]
 
     Variable |     Obs      Weight        Mean   Std. Dev.       Min        Max
 -------------+-----------------------------------------------------------------
-labor_subs~y |   5,844  3865.19104     13.3136   5.758363   2.938807   30.78519
+labor_subs~y |   5,844  3220.69291    12.40142   5.390354   2.817928   29.86782
 
 . 
 . save "wage_subsidy.dta", replace
@@ -249,8 +249,8 @@ file wage_subsidy.dta saved
 .         generate wage_subsidy = employment_weight * labor_subsidy
 (7,188 missing values generated)
 
-.         collapse (firstnm) ces_employment growth (sum) wage_subsidy employmen
-> t_weight, by(industry_code industry_label)
+.         collapse (firstnm) ces_employment growth affected_share (sum) wage_su
+> bsidy employment_weight, by(industry_code industry_label)
 
 .         replace wage_subsidy =  wage_subsidy / employment_weight
 (81 real changes made, 2 to missing)
@@ -266,11 +266,11 @@ variable label was str1 now str45
 
 .         
 .         tw ///
->         (lfitci growth wage_subsidy [aw=ces_employment]  ) ///
->         (scatter growth wage_subsidy [aw=ces_employment],  msymbol(circle_hol
-> low) mlabel(label)), ///
+>         (lfitci growth wage_subsidy   ) ///
+>         (scatter growth wage_subsidy,  msymbol(circle_hollow) mlabel(label)),
+>  ///
 >         scheme(s2mono) graphregion(color(white)) ///
->         ytitle("Change in monthly employment (%)" ) ///
+>         ytitle("Change in employment between Feb and Apr (%)" ) ///
 >         xtitle("Wage subsidy to compensate drop in contacts (percent)") ///
 >         legend(region(lstyle(none)) order(2 "Regression line" 1 "Confidence i
 > nterval")) ///
@@ -278,12 +278,26 @@ variable label was str1 now str45
 
 .         
 .         graph export "../text/fig5.eps", replace
-(note: file ../text/fig5.eps not found)
 (file ../text/fig5.eps written in EPS format)
 
 .         graph export "../text/fig5.pdf", replace
 (file ../text/fig5.pdf written in PDF format)
 
+. 
+.         tw ///
+>         (scatter growth affected_share,  msymbol(circle_hollow) mlabel(label)
+> ), ///
+>         scheme(s2mono) graphregion(color(white)) ///
+>         ytitle("Change in employment between Feb and Apr (%)" ) ///
+>         xtitle("Share of workers in affected occupations (%)") ///
+>         legend(off) ///
+>         graphregion(margin(1 40 1 1)) aspect(1)
+
+.         
+.         graph export "../text/fig5b.pdf", replace
+(file ../text/fig5b.pdf written in PDF format)
+
+.         
 . restore 
 
 . 
