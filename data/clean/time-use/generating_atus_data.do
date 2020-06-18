@@ -1,24 +1,22 @@
-cd "C:\Users\Dell\Dropbox\social_distance\social-distancing-master\data\raw\bls\atus\"
 clear all
 
-
-import delimited atuswgts_2018.dat.dat, clear 
+import delimited "../../raw/bls/atus/atuswgts_2018.dat", clear 
 tempfile weights2018
 save `weights2018'
 
-import delimited atuswgts_2017.dat.dat, clear
+import delimited "../../raw/bls/atus/atuswgts_2017.dat", clear
 foreach i of varlist finlwg* {
 rename `i'  x`i'
 }
 tempfile weights2017
 save `weights2017'
 
-import delimited lvwgts_1718.dat, clear 
+import delimited "../../raw/bls/atus/lvwgts_1718.dat", clear 
 tempfile weightslv
 save `weightslv'
 
 
-import delimited lvresp_1718.dat.dat, clear
+import delimited "../../raw/bls/atus/lvresp_1718.dat", clear
 keep tucaseid tulineno lejf_1 lejf_11 lejf_12 lejf_13 lejf_14  lejf_15 lejf_1a lejf_2 lejf_3 lujf_10 ///
 lxjf_1 lxjf_11 lxjf_12 lxjf_13 lxjf_14 lxjf_15 lxjf_1a lxjf_2 lxjf_3
 
@@ -117,7 +115,7 @@ label values lujf_10 labellujf_10
 tempfile flexible
 save `flexible'
 
-import delimited atusresp_2017.dat, clear
+import delimited "../../raw/bls/atus/atusresp_2017.dat", clear
 gen year=2017
 
 keep tucaseid tulineno teio1cow teio1icd teio1ocd trdtind1 trdtocc1 trmjind1 trmjocc1 trmjocgr txio1cow txio1icd txio1ocd trlvmodr
@@ -328,7 +326,7 @@ label values txio1ocd   labeltxio1ocd
 tempfile 2017
 save `2017'
 
-import delimited atusresp_2018.dat.txt, clear 
+import delimited "../../raw/bls/atus/atusresp_2018.dat", clear 
 keep tucaseid tulineno teio1cow teio1icd teio1ocd trdtind1 trdtocc1 trmjind1 trmjocc1 trmjocgr txio1cow txio1icd txio1ocd trlvmodr
 
 gen year=2018
@@ -556,4 +554,4 @@ cap drop x`i'
 merge 1:1 tucaseid using `weightslv', keep(3) nogenerate
 
 
-save "C:\Users\Dell\Dropbox\social_distance\social-distancing-master\data\raw\bls\atus\atus.dta", replace 
+save "atus.dta", replace 
