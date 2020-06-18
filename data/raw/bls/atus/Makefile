@@ -1,4 +1,4 @@
-TABLES = atusresp atusact atuswho atuswgts
+TABLES = atusresp atuswgts
 all: $(foreach table,$(TABLES),$(table)_2017.dat $(table)_2018.dat) lvresp_1718.dat lvwgts_1718.dat 
 %_2017.dat: 
 	# in 2017, BLS was still use underscore in file name
