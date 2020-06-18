@@ -31,7 +31,7 @@ Notes:
 . tempfile weights2018
 
 . save `weights2018'
-file /var/folders/f4/7drmhl1d5kj3wp1r33jvx32m0000gn/T//St20440.000001 saved
+file /var/folders/f4/7drmhl1d5kj3wp1r33jvx32m0000gn/T//St20478.000001 saved
 
 . 
 . import delimited "../../raw/bls/atus/atuswgts_2017.dat", clear
@@ -44,7 +44,7 @@ file /var/folders/f4/7drmhl1d5kj3wp1r33jvx32m0000gn/T//St20440.000001 saved
 . tempfile weights2017
 
 . save `weights2017'
-file /var/folders/f4/7drmhl1d5kj3wp1r33jvx32m0000gn/T//St20440.000002 saved
+file /var/folders/f4/7drmhl1d5kj3wp1r33jvx32m0000gn/T//St20478.000002 saved
 
 . 
 . import delimited "../../raw/bls/atus/lvwgts_1718.dat", clear 
@@ -53,7 +53,7 @@ file /var/folders/f4/7drmhl1d5kj3wp1r33jvx32m0000gn/T//St20440.000002 saved
 . tempfile weightslv
 
 . save `weightslv'
-file /var/folders/f4/7drmhl1d5kj3wp1r33jvx32m0000gn/T//St20440.000003 saved
+file /var/folders/f4/7drmhl1d5kj3wp1r33jvx32m0000gn/T//St20478.000003 saved
 
 . 
 . do "read_label_leave_module.do"
@@ -104,8 +104,6 @@ note: label truncated to 80 characters
 . label variable lujf_10 "As part of your (main) job, can you work at home?"
 
 . 
-. 
-. 
 . label variable lxjf_1 "LEJF_1: allocation flag"
 
 . label variable lxjf_11 "LEJF_11: allocation flag"
@@ -125,70 +123,68 @@ note: label truncated to 80 characters
 . label variable lxjf_3 "LEJF_3: allocation flag"
 
 . 
-. 
-. 
 . label define labellejf_1 ///
-> 1 "Yes" ///
-> 2 "No"
+>         1 "Yes" ///
+>         2 "No"
 
 . 
 . label define labellejf_11 ///
-> 1 "Yes" ///
-> 2 "No"
+>         1 "Yes" ///
+>         2 "No"
 
 . 
 . label define labellejf_12 ///
-> 1 "Paid" ///
-> 2 "Take work home" ///
-> 3 "Both"
+>         1 "Paid" ///
+>         2 "Take work home" ///
+>         3 "Both"
 
 . 
 . label define labellejf_13 ///
-> 1 "Finish or catch up on work" ///
-> 2 "Job requires working at home" ///
-> 3 "Coordinate work schedule with personal or family needs" ///
-> 4 "Reduce commuting time or expense" ///
-> 5 "Personal preference" ///
-> 6 "Weather" ///
-> 7 "Other" ///
+>         1 "Finish or catch up on work" ///
+>         2 "Job requires working at home" ///
+>         3 "Coordinate work schedule with personal or family needs" ///
+>         4 "Reduce commuting time or expense" ///
+>         5 "Personal preference" ///
+>         6 "Weather" ///
+>         7 "Other" ///
 > 
 
 . label define labellejf_14 ///
-> 1 "Yes" ///
-> 2 "No" ///
+>         1 "Yes" ///
+>         2 "No" ///
 > 
 
 . 
 . label define labellejf_15 ///
-> 1 "5 or more days a week" ///
-> 2 "3 to 4 days a week" /// 
-> 3 "1 to 2 days a week" ///
-> 4 "At least once a week" ///
-> 5 "Once every 2 weeks" ///
-> 6 "Once a month" ///
-> 7 "Less than once a month"
+>         1 "5 or more days a week" ///
+>         2 "3 to 4 days a week" /// 
+>         3 "1 to 2 days a week" ///
+>         4 "At least once a week" ///
+>         5 "Once every 2 weeks" ///
+>         6 "Once a month" ///
+>         7 "Less than once a month"
 
 . 
 . label define labellejf_1a ///
-> 1 "Frequent basis" ///
-> 2 "Occasionally" ///
-> 3 "Rarely"
+>         1 "Frequent basis" ///
+>         2 "Occasionally" ///
+>         3 "Rarely"
 
 . 
 . label define labellejf_2 ///
-> 1 "Formal program or policy" ///
-> 2 "Informal arrangement"
+>         1 "Formal program or policy" ///
+>         2 "Informal arrangement"
 
 . 
 . label define labellejf_3 ///
-> 1 "Worker has some input" ///
-> 2 "Employer decides" ///
-> 3 "Other"
+>         1 "Worker has some input" ///
+>         2 "Employer decides" ///
+>         3 "Other"
 
 . 
 . label define labellujf_10 ///
-> 1 "Yes" ///
-> 2 "No"
+>         1 "Yes" ///
+>         2 "No"
 
 . 
 . label values lejf_1 labellejf_1
@@ -218,7 +214,7 @@ end of do-file
 . tempfile flexible
 
 . save `flexible'
-file /var/folders/f4/7drmhl1d5kj3wp1r33jvx32m0000gn/T//St20440.000004 saved
+file /var/folders/f4/7drmhl1d5kj3wp1r33jvx32m0000gn/T//St20478.000004 saved
 
 . 
 . do "read_label_atus_2017.do"
@@ -227,11 +223,11 @@ file /var/folders/f4/7drmhl1d5kj3wp1r33jvx32m0000gn/T//St20440.000004 saved
 (175 vars, 10,223 obs)
 
 . 
-. gen year=2017
-
-. 
 . keep tucaseid tulineno teio1cow teio1icd teio1ocd trdtind1 trdtocc1 trmjind1 
 > trmjocc1 trmjocgr txio1cow txio1icd txio1ocd trlvmodr
+
+. 
+. generate year = 2017
 
 . 
 . label variable trlvmodr "Leave Module Respondent" 
@@ -260,190 +256,187 @@ file /var/folders/f4/7drmhl1d5kj3wp1r33jvx32m0000gn/T//St20440.000004 saved
 
 . 
 . label define labeltrlvmodr ///
-> -1 "Blank" ///
-> -2 "Don't Know" ///
-> -3 "Refused" ///
-> 0 "Did not respond to Leave Module" ///
-> 1 "Responded to the Leave Module"
+>         -1 "Blank" ///
+>         -2 "Don't Know" ///
+>         -3 "Refused" ///
+>         0 "Did not respond to Leave Module" ///
+>         1 "Responded to the Leave Module"
 
 . 
 . label define labeltrdtocc1 ///
-> -1 "Blank" ///
-> -2 "Don't Know" ///
-> -3 "Refused" ///
-> 1 "Management occupations" ///
-> 2 "Business and financial operations occupations" ///
-> 3 "Computer and mathematical science occupations" ///
-> 4 "Architecture and engineering occupations" ///
-> 5 "Life, physical, and social science occupations" ///
-> 6 "Community and social service occupations" ///
-> 7 "Legal occupations" ///
-> 8 "Education, training, and library occupations" ///
-> 9 "Arts, design, entertainment, sports, and media occupations" ///
-> 10 "Healthcare practitioner and technical occupations" ///
-> 11 "Healthcare support occupations" ///
-> 12 "Protective service occupations" ///
-> 13 "Food preparation and serving related occupations" ///
-> 14 "Building and grounds cleaning and maintenance occupations" ///
-> 15 "Personal care and service occupations" ///
-> 16 "Sales and related occupations" ///
-> 17 "Office and administrative support occupations" ///
-> 18 "Farming, fishing, and forestry occupations" ///
-> 19 "Construction and extraction occupations" ///
-> 20 "Installation, maintenance, and repair occupations" ///
-> 21 "Production occupations" ///
-> 22 "Transportation and material moving occupations"
-
-. 
-.  
-.  label define labelteio1cow ///
-> -1 "Blank" ///
-> -2 "Don't Know" ///
-> -3 "Refused" ///
-> 1 "Government, federal" ///
-> 2 "Government, state" ///
-> 3 "Government, local" ///
-> 4 "Private, for profit" ///
-> 5 "Private, nonprofit" ///
-> 6 "Self-employed, incorporated" ///
-> 7 "Self-employed, unincorporated" ///
-> 8 "Without pay" 
+>         -1 "Blank" ///
+>         -2 "Don't Know" ///
+>         -3 "Refused" ///
+>         1 "Management occupations" ///
+>         2 "Business and financial operations occupations" ///
+>         3 "Computer and mathematical science occupations" ///
+>         4 "Architecture and engineering occupations" ///
+>         5 "Life, physical, and social science occupations" ///
+>         6 "Community and social service occupations" ///
+>         7 "Legal occupations" ///
+>         8 "Education, training, and library occupations" ///
+>         9 "Arts, design, entertainment, sports, and media occupations" ///
+>         10 "Healthcare practitioner and technical occupations" ///
+>         11 "Healthcare support occupations" ///
+>         12 "Protective service occupations" ///
+>         13 "Food preparation and serving related occupations" ///
+>         14 "Building and grounds cleaning and maintenance occupations" ///
+>         15 "Personal care and service occupations" ///
+>         16 "Sales and related occupations" ///
+>         17 "Office and administrative support occupations" ///
+>         18 "Farming, fishing, and forestry occupations" ///
+>         19 "Construction and extraction occupations" ///
+>         20 "Installation, maintenance, and repair occupations" ///
+>         21 "Production occupations" ///
+>         22 "Transportation and material moving occupations"
 
 .  
-.  
+. label define labelteio1cow ///
+>         -1 "Blank" ///
+>         -2 "Don't Know" ///
+>         -3 "Refused" ///
+>         1 "Government, federal" ///
+>         2 "Government, state" ///
+>         3 "Government, local" ///
+>         4 "Private, for profit" ///
+>         5 "Private, nonprofit" ///
+>         6 "Self-employed, incorporated" ///
+>         7 "Self-employed, unincorporated" ///
+>         8 "Without pay" 
+
 .  
 . label define labeltrmjind1 ///
-> -1 "Blank" ///
-> -2 "Don't Know" ///
-> -3 "Refused" ///
-> 1 "Agriculture, forestry, fishing, and hunting" ///
-> 2 "Mining, quarrying, and oil and gas extraction" ///
-> 3 "Construction" ///
-> 4 "Manufacturing" ///
-> 5 "Wholesale and retail trade" ///
-> 6 "Transportation and utilities" ///
-> 7 "Information" ///
-> 8 "Financial activities" ///
-> 9 "Professional and business services" ///
-> 10 "Educational and health services" ///
-> 11 "Leisure and hospitality" ///
-> 12 "Other services" ///
-> 13 "Public administration"
+>         -1 "Blank" ///
+>         -2 "Don't Know" ///
+>         -3 "Refused" ///
+>         1 "Agriculture, forestry, fishing, and hunting" ///
+>         2 "Mining, quarrying, and oil and gas extraction" ///
+>         3 "Construction" ///
+>         4 "Manufacturing" ///
+>         5 "Wholesale and retail trade" ///
+>         6 "Transportation and utilities" ///
+>         7 "Information" ///
+>         8 "Financial activities" ///
+>         9 "Professional and business services" ///
+>         10 "Educational and health services" ///
+>         11 "Leisure and hospitality" ///
+>         12 "Other services" ///
+>         13 "Public administration"
 
 .  
 . label define labeltrmjocc1 ///
-> -1 "Blank" ///
-> -2 "Don't Know" ///
-> -3 "Refused" ///
-> 1 "Management, business, and financial occupations" ///
-> 2 "Professional and related occupations" ///
-> 3 "Service occupations" ///
-> 4 "Sales and related occupations" ///
-> 5 "Office and administrative support occupations" ///
-> 6 "Farming, fishing, and forestry occupations" ///
-> 7 "Construction and extraction occupations" ///
-> 8 "Installation, maintenance, and repair occupations" ///
-> 9 "Production occupations" ///
-> 10 "Transportation and material moving occupations"
+>         -1 "Blank" ///
+>         -2 "Don't Know" ///
+>         -3 "Refused" ///
+>         1 "Management, business, and financial occupations" ///
+>         2 "Professional and related occupations" ///
+>         3 "Service occupations" ///
+>         4 "Sales and related occupations" ///
+>         5 "Office and administrative support occupations" ///
+>         6 "Farming, fishing, and forestry occupations" ///
+>         7 "Construction and extraction occupations" ///
+>         8 "Installation, maintenance, and repair occupations" ///
+>         9 "Production occupations" ///
+>         10 "Transportation and material moving occupations"
 
 .  
 . label define labeltrmjocgr ///
-> -1 "Blank" ///
-> -2 "Don't Know" ///
-> -3 "Refused" ///
-> 1 "Management, professional, and related occupations" ///
-> 2 "Service occupations" ///
-> 3 "Sales and office occupations" ///
-> 4 "Farming, fishing, and forestry occupations" ///
-> 5 "Construction and maintenance occupations" ///
-> 6 "Production, transportation, and material moving occupations"
+>         -1 "Blank" ///
+>         -2 "Don't Know" ///
+>         -3 "Refused" ///
+>         1 "Management, professional, and related occupations" ///
+>         2 "Service occupations" ///
+>         3 "Sales and office occupations" ///
+>         4 "Farming, fishing, and forestry occupations" ///
+>         5 "Construction and maintenance occupations" ///
+>         6 "Production, transportation, and material moving occupations"
 
 . 
 . label define labeltxio1cow ///
-> -1 "Blank" ///
-> -2 "Don't Know" ///
-> -3 "Refused" ///
-> 0 "Value - No Change" ///
-> 1 "Blank - No Change" ///
-> 2 "Don`t Know - No Change" ///
-> 3 "Refused - No Change" ///
-> 10 "Value To Value" ///
-> 11 "Blank To Value" ///
-> 12 "Don`t Know To Value" ///
-> 13 "Refused To Value" ///
-> 20 "Value To Longitudinal Value" ///
-> 21 "Blank To Longitudinal Value" ///
-> 22 "Don`t Know To Longitudinal Value" ///
-> 23 "Refused To Longitudinal Value" ///
-> 30 "Value To Allocated Value Long." ///
-> 31 "Blank To Allocated Value Long." ///
-> 32 "Don`t Know To Allocated Value Long." ///
-> 33 "Refused To Allocated Value Long." ///
-> 40 "Value To Allocated Value" ///
-> 41 "Blank To Allocated Value" ///
-> 42 "Don`t Know To Allocated Value" ///
-> 43 "Refused To Allocated Value" ///
-> 50 "Value To Blank" ///
-> 52 "Don`t Know To Blank" ///
-> 53 "Refused To Blank" 
+>         -1 "Blank" ///
+>         -2 "Don't Know" ///
+>         -3 "Refused" ///
+>         0 "Value - No Change" ///
+>         1 "Blank - No Change" ///
+>         2 "Don`t Know - No Change" ///
+>         3 "Refused - No Change" ///
+>         10 "Value To Value" ///
+>         11 "Blank To Value" ///
+>         12 "Don`t Know To Value" ///
+>         13 "Refused To Value" ///
+>         20 "Value To Longitudinal Value" ///
+>         21 "Blank To Longitudinal Value" ///
+>         22 "Don`t Know To Longitudinal Value" ///
+>         23 "Refused To Longitudinal Value" ///
+>         30 "Value To Allocated Value Long." ///
+>         31 "Blank To Allocated Value Long." ///
+>         32 "Don`t Know To Allocated Value Long." ///
+>         33 "Refused To Allocated Value Long." ///
+>         40 "Value To Allocated Value" ///
+>         41 "Blank To Allocated Value" ///
+>         42 "Don`t Know To Allocated Value" ///
+>         43 "Refused To Allocated Value" ///
+>         50 "Value To Blank" ///
+>         52 "Don`t Know To Blank" ///
+>         53 "Refused To Blank" 
 
 .  
 . label define labeltxio1icd ///
-> -1 "Blank" ///
-> -2 "Don't Know" ///
-> -3 "Refused" ///
-> 0 "Value - No Change" ///
-> 1 "Blank - No Change" ///
-> 2 "Don`t Know - No Change" ///
-> 3 "Refused - No Change" ///
-> 10 "Value To Value" ///
-> 11 "Blank To Value" ///
-> 12 "Don`t Know To Value" ///
-> 13 "Refused To Value" ///
-> 20 "Value To Longitudinal Value" ///
-> 21 "Blank To Longitudinal Value" ///
-> 22 "Don`t Know To Longitudinal Value" ///
-> 23 "Refused To Longitudinal Value" ///
-> 30 "Value To Allocated Value Long." ///
-> 31 "Blank To Allocated Value Long." ///
-> 32 "Don`t Know To Allocated Value Long." ///
-> 33 "Refused To Allocated Value Long." ///
-> 40 "Value To Allocated Value" ///
-> 41 "Blank To Allocated Value" ///
-> 42 "Don`t Know To Allocated Value" ///
-> 43 "Refused To Allocated Value" ///
-> 50 "Value To Blank" ///
-> 52 "Don`t Know To Blank" ///
-> 53 "Refused To Blank"
+>         -1 "Blank" ///
+>         -2 "Don't Know" ///
+>         -3 "Refused" ///
+>         0 "Value - No Change" ///
+>         1 "Blank - No Change" ///
+>         2 "Don`t Know - No Change" ///
+>         3 "Refused - No Change" ///
+>         10 "Value To Value" ///
+>         11 "Blank To Value" ///
+>         12 "Don`t Know To Value" ///
+>         13 "Refused To Value" ///
+>         20 "Value To Longitudinal Value" ///
+>         21 "Blank To Longitudinal Value" ///
+>         22 "Don`t Know To Longitudinal Value" ///
+>         23 "Refused To Longitudinal Value" ///
+>         30 "Value To Allocated Value Long." ///
+>         31 "Blank To Allocated Value Long." ///
+>         32 "Don`t Know To Allocated Value Long." ///
+>         33 "Refused To Allocated Value Long." ///
+>         40 "Value To Allocated Value" ///
+>         41 "Blank To Allocated Value" ///
+>         42 "Don`t Know To Allocated Value" ///
+>         43 "Refused To Allocated Value" ///
+>         50 "Value To Blank" ///
+>         52 "Don`t Know To Blank" ///
+>         53 "Refused To Blank"
 
 .  
 . label define labeltxio1ocd ///
-> -1 "Blank" ///
-> -2 "Don't Know" ///
-> -3 "Refused" ///
-> 0 "Value - No Change" ///
-> 1 "Blank - No Change" ///
-> 2 "Don`t Know - No Change" ///
-> 3 "Refused - No Change" ///
-> 10 "Value To Value" ///
-> 11 "Blank To Value" ///
-> 12 "Don`t Know To Value" ///
-> 13 "Refused To Value" ///
-> 20 "Value To Longitudinal Value" ///
-> 21 "Blank To Longitudinal Value" ///
-> 22 "Don`t Know To Longitudinal Value" ///
-> 23 "Refused To Longitudinal Value" ///
-> 30 "Value To Allocated Value Long." ///
-> 31 "Blank To Allocated Value Long." ///
-> 32 "Don`t Know To Allocated Value Long." ///
-> 33 "Refused To Allocated Value Long." ///
-> 40 "Value To Allocated Value" ///
-> 41 "Blank To Allocated Value" ///
-> 42 "Don`t Know To Allocated Value" ///
-> 43 "Refused To Allocated Value" ///
-> 50 "Value To Blank" ///
-> 52 "Don`t Know To Blank" ///
-> 53 "Refused To Blank"
+>         -1 "Blank" ///
+>         -2 "Don't Know" ///
+>         -3 "Refused" ///
+>         0 "Value - No Change" ///
+>         1 "Blank - No Change" ///
+>         2 "Don`t Know - No Change" ///
+>         3 "Refused - No Change" ///
+>         10 "Value To Value" ///
+>         11 "Blank To Value" ///
+>         12 "Don`t Know To Value" ///
+>         13 "Refused To Value" ///
+>         20 "Value To Longitudinal Value" ///
+>         21 "Blank To Longitudinal Value" ///
+>         22 "Don`t Know To Longitudinal Value" ///
+>         23 "Refused To Longitudinal Value" ///
+>         30 "Value To Allocated Value Long." ///
+>         31 "Blank To Allocated Value Long." ///
+>         32 "Don`t Know To Allocated Value Long." ///
+>         33 "Refused To Allocated Value Long." ///
+>         40 "Value To Allocated Value" ///
+>         41 "Blank To Allocated Value" ///
+>         42 "Don`t Know To Allocated Value" ///
+>         43 "Refused To Allocated Value" ///
+>         50 "Value To Blank" ///
+>         52 "Don`t Know To Blank" ///
+>         53 "Refused To Blank"
 
 .   
 . label values teio1cow   labelteio1cow 
@@ -470,7 +463,7 @@ end of do-file
 . tempfile 2017
 
 . save `2017'
-file /var/folders/f4/7drmhl1d5kj3wp1r33jvx32m0000gn/T//St20440.000005 saved
+file /var/folders/f4/7drmhl1d5kj3wp1r33jvx32m0000gn/T//St20478.000005 saved
 
 . 
 . do "read_label_atus_2018.do"
@@ -483,7 +476,7 @@ file /var/folders/f4/7drmhl1d5kj3wp1r33jvx32m0000gn/T//St20440.000005 saved
 > trmjocc1 trmjocgr txio1cow txio1icd txio1ocd trlvmodr
 
 . 
-. gen year=2018
+. generate year = 2018
 
 . 
 . label variable trlvmodr "Leave Module Respondent" 
@@ -512,191 +505,187 @@ file /var/folders/f4/7drmhl1d5kj3wp1r33jvx32m0000gn/T//St20440.000005 saved
 
 . 
 . label define labeltrlvmodr ///
-> -1 "Blank" ///
-> -2 "Don't Know" ///
-> -3 "Refused" ///
-> 0 "Did not respond to Leave Module" ///
-> 1 "Responded to the Leave Module"
+>         -1 "Blank" ///
+>         -2 "Don't Know" ///
+>         -3 "Refused" ///
+>         0 "Did not respond to Leave Module" ///
+>         1 "Responded to the Leave Module"
 
 . 
 . label define labeltrdtocc1 ///
-> -1 "Blank" ///
-> -2 "Don't Know" ///
-> -3 "Refused" ///
-> 1 "Management occupations" ///
-> 2 "Business and financial operations occupations" ///
-> 3 "Computer and mathematical science occupations" ///
-> 4 "Architecture and engineering occupations" ///
-> 5 "Life, physical, and social science occupations" ///
-> 6 "Community and social service occupations" ///
-> 7 "Legal occupations" ///
-> 8 "Education, training, and library occupations" ///
-> 9 "Arts, design, entertainment, sports, and media occupations" ///
-> 10 "Healthcare practitioner and technical occupations" ///
-> 11 "Healthcare support occupations" ///
-> 12 "Protective service occupations" ///
-> 13 "Food preparation and serving related occupations" ///
-> 14 "Building and grounds cleaning and maintenance occupations" ///
-> 15 "Personal care and service occupations" ///
-> 16 "Sales and related occupations" ///
-> 17 "Office and administrative support occupations" ///
-> 18 "Farming, fishing, and forestry occupations" ///
-> 19 "Construction and extraction occupations" ///
-> 20 "Installation, maintenance, and repair occupations" ///
-> 21 "Production occupations" ///
-> 22 "Transportation and material moving occupations" 
+>         -1 "Blank" ///
+>         -2 "Don't Know" ///
+>         -3 "Refused" ///
+>         1 "Management occupations" ///
+>         2 "Business and financial operations occupations" ///
+>         3 "Computer and mathematical science occupations" ///
+>         4 "Architecture and engineering occupations" ///
+>         5 "Life, physical, and social science occupations" ///
+>         6 "Community and social service occupations" ///
+>         7 "Legal occupations" ///
+>         8 "Education, training, and library occupations" ///
+>         9 "Arts, design, entertainment, sports, and media occupations" ///
+>         10 "Healthcare practitioner and technical occupations" ///
+>         11 "Healthcare support occupations" ///
+>         12 "Protective service occupations" ///
+>         13 "Food preparation and serving related occupations" ///
+>         14 "Building and grounds cleaning and maintenance occupations" ///
+>         15 "Personal care and service occupations" ///
+>         16 "Sales and related occupations" ///
+>         17 "Office and administrative support occupations" ///
+>         18 "Farming, fishing, and forestry occupations" ///
+>         19 "Construction and extraction occupations" ///
+>         20 "Installation, maintenance, and repair occupations" ///
+>         21 "Production occupations" ///
+>         22 "Transportation and material moving occupations" 
 
-.  
-.  
-.  label define labelteio1cow ///
-> -1 "Blank" ///
-> -2 "Don't Know" ///
-> -3 "Refused" ///
-> 1 "Government, federal" ///
-> 2 "Government, state" ///
-> 3 "Government, local" ///
-> 4 "Private, for profit" ///
-> 5 "Private, nonprofit" ///
-> 6 "Self-employed, incorporated" ///
-> 7 "Self-employed, unincorporated" ///
-> 8 "Without pay" 
+.   
+. label define labelteio1cow ///
+>         -1 "Blank" ///
+>         -2 "Don't Know" ///
+>         -3 "Refused" ///
+>         1 "Government, federal" ///
+>         2 "Government, state" ///
+>         3 "Government, local" ///
+>         4 "Private, for profit" ///
+>         5 "Private, nonprofit" ///
+>         6 "Self-employed, incorporated" ///
+>         7 "Self-employed, unincorporated" ///
+>         8 "Without pay" 
 
-.  
-.  
-.  
+.   
 . label define labeltrmjind1 ///
-> -1 "Blank" ///
-> -2 "Don't Know" ///
-> -3 "Refused" ///
-> 1 "Agriculture, forestry, fishing, and hunting" ///
-> 2 "Mining, quarrying, and oil and gas extraction" ///
-> 3 "Construction" ///
-> 4 "Manufacturing" ///
-> 5 "Wholesale and retail trade" ///
-> 6 "Transportation and utilities" ///
-> 7 "Information" ///
-> 8 "Financial activities" ///
-> 9 "Professional and business services" ///
-> 10 "Educational and health services" ///
-> 11 "Leisure and hospitality" ///
-> 12 "Other services" ///
-> 13 "Public administration"
+>         -1 "Blank" ///
+>         -2 "Don't Know" ///
+>         -3 "Refused" ///
+>         1 "Agriculture, forestry, fishing, and hunting" ///
+>         2 "Mining, quarrying, and oil and gas extraction" ///
+>         3 "Construction" ///
+>         4 "Manufacturing" ///
+>         5 "Wholesale and retail trade" ///
+>         6 "Transportation and utilities" ///
+>         7 "Information" ///
+>         8 "Financial activities" ///
+>         9 "Professional and business services" ///
+>         10 "Educational and health services" ///
+>         11 "Leisure and hospitality" ///
+>         12 "Other services" ///
+>         13 "Public administration"
 
 .  
 . label define labeltrmjocc1 ///
-> -1 "Blank" ///
-> -2 "Don't Know" ///
-> -3 "Refused" ///
-> 1 "Management, business, and financial occupations" ///
-> 2 "Professional and related occupations" ///
-> 3 "Service occupations" ///
-> 4 "Sales and related occupations" ///
-> 5 "Office and administrative support occupations" ///
-> 6 "Farming, fishing, and forestry occupations" ///
-> 7 "Construction and extraction occupations" ///
-> 8 "Installation, maintenance, and repair occupations" ///
-> 9 "Production occupations" ///
-> 10 "Transportation and material moving occupations"
+>         -1 "Blank" ///
+>         -2 "Don't Know" ///
+>         -3 "Refused" ///
+>         1 "Management, business, and financial occupations" ///
+>         2 "Professional and related occupations" ///
+>         3 "Service occupations" ///
+>         4 "Sales and related occupations" ///
+>         5 "Office and administrative support occupations" ///
+>         6 "Farming, fishing, and forestry occupations" ///
+>         7 "Construction and extraction occupations" ///
+>         8 "Installation, maintenance, and repair occupations" ///
+>         9 "Production occupations" ///
+>         10 "Transportation and material moving occupations"
 
 .  
 . label define labeltrmjocgr ///
-> -1 "Blank" ///
-> -2 "Don't Know" ///
-> -3 "Refused" ///
-> 1 "Management, professional, and related occupations" ///
-> 2 "Service occupations" ///
-> 3 "Sales and office occupations" ///
-> 4 "Farming, fishing, and forestry occupations" ///
-> 5 "Construction and maintenance occupations" ///
-> 6 "Production, transportation, and material moving occupations"
+>         -1 "Blank" ///
+>         -2 "Don't Know" ///
+>         -3 "Refused" ///
+>         1 "Management, professional, and related occupations" ///
+>         2 "Service occupations" ///
+>         3 "Sales and office occupations" ///
+>         4 "Farming, fishing, and forestry occupations" ///
+>         5 "Construction and maintenance occupations" ///
+>         6 "Production, transportation, and material moving occupations"
 
 .  
-. 
 . label define labeltxio1cow ///
-> -1 "Blank" ///
-> -2 "Don't Know"  ///
-> -3 "Refused"  ///
-> 0 "Value - No Change" ///
-> 1 "Blank - No Change" ///
-> 2 "Don`t Know - No Change" ///
-> 3 "Refused - No Change" ///
-> 10 "Value To Value" ///
-> 11 "Blank To Value" ///
-> 12 "Don`t Know To Value" ///
-> 13 "Refused To Value" ///
-> 20 "Value To Longitudinal Value" ///
-> 21 "Blank To Longitudinal Value" ///
-> 22 "Don`t Know To Longitudinal Value" ///
-> 23 "Refused To Longitudinal Value" ///
-> 30 "Value To Allocated Value Long." ///
-> 31 "Blank To Allocated Value Long." ///
-> 32 "Don`t Know To Allocated Value Long." ///
-> 33 "Refused To Allocated Value Long." ///
-> 40 "Value To Allocated Value" ///
-> 41 "Blank To Allocated Value" ///
-> 42 "Don`t Know To Allocated Value" ///
-> 43 "Refused To Allocated Value" ///
-> 50 "Value To Blank" ///
-> 52 "Don`t Know To Blank" ///
-> 53 "Refused To Blank" 
+>         -1 "Blank" ///
+>         -2 "Don't Know"  ///
+>         -3 "Refused"  ///
+>         0 "Value - No Change" ///
+>         1 "Blank - No Change" ///
+>         2 "Don`t Know - No Change" ///
+>         3 "Refused - No Change" ///
+>         10 "Value To Value" ///
+>         11 "Blank To Value" ///
+>         12 "Don`t Know To Value" ///
+>         13 "Refused To Value" ///
+>         20 "Value To Longitudinal Value" ///
+>         21 "Blank To Longitudinal Value" ///
+>         22 "Don`t Know To Longitudinal Value" ///
+>         23 "Refused To Longitudinal Value" ///
+>         30 "Value To Allocated Value Long." ///
+>         31 "Blank To Allocated Value Long." ///
+>         32 "Don`t Know To Allocated Value Long." ///
+>         33 "Refused To Allocated Value Long." ///
+>         40 "Value To Allocated Value" ///
+>         41 "Blank To Allocated Value" ///
+>         42 "Don`t Know To Allocated Value" ///
+>         43 "Refused To Allocated Value" ///
+>         50 "Value To Blank" ///
+>         52 "Don`t Know To Blank" ///
+>         53 "Refused To Blank" 
 
 .  
 . label define labeltxio1icd ///
-> -1 "Blank" ///
-> -2 "Don't Know" ///
-> -3 "Refused" ///
-> 0 "Value - No Change" ///
-> 1 "Blank - No Change" ///
-> 2 "Don`t Know - No Change" ///
-> 3 "Refused - No Change" ///
-> 10 "Value To Value" ///
-> 11 "Blank To Value" ///
-> 12 "Don`t Know To Value" ///
-> 13 "Refused To Value" ///
-> 20 "Value To Longitudinal Value" ///
-> 21 "Blank To Longitudinal Value" ///
-> 22 "Don`t Know To Longitudinal Value" ///
-> 23 "Refused To Longitudinal Value" ///
-> 30 "Value To Allocated Value Long." ///
-> 31 "Blank To Allocated Value Long." ///
-> 32 "Don`t Know To Allocated Value Long." ///
-> 33 "Refused To Allocated Value Long." ///
-> 40 "Value To Allocated Value" ///
-> 41 "Blank To Allocated Value" ///
-> 42 "Don`t Know To Allocated Value" ///
-> 43 "Refused To Allocated Value" ///
-> 50 "Value To Blank" ///
-> 52 "Don`t Know To Blank" ///
-> 53 "Refused To Blank" 
+>         -1 "Blank" ///
+>         -2 "Don't Know" ///
+>         -3 "Refused" ///
+>         0 "Value - No Change" ///
+>         1 "Blank - No Change" ///
+>         2 "Don`t Know - No Change" ///
+>         3 "Refused - No Change" ///
+>         10 "Value To Value" ///
+>         11 "Blank To Value" ///
+>         12 "Don`t Know To Value" ///
+>         13 "Refused To Value" ///
+>         20 "Value To Longitudinal Value" ///
+>         21 "Blank To Longitudinal Value" ///
+>         22 "Don`t Know To Longitudinal Value" ///
+>         23 "Refused To Longitudinal Value" ///
+>         30 "Value To Allocated Value Long." ///
+>         31 "Blank To Allocated Value Long." ///
+>         32 "Don`t Know To Allocated Value Long." ///
+>         33 "Refused To Allocated Value Long." ///
+>         40 "Value To Allocated Value" ///
+>         41 "Blank To Allocated Value" ///
+>         42 "Don`t Know To Allocated Value" ///
+>         43 "Refused To Allocated Value" ///
+>         50 "Value To Blank" ///
+>         52 "Don`t Know To Blank" ///
+>         53 "Refused To Blank" 
 
 .  
 . label define labeltxio1ocd  ///
-> -1 "Blank" ///
-> -2 "Don't Know"  ///
-> -3 "Refused" ///
-> 0 "Value - No Change" ///
-> 1 "Blank - No Change" ///
-> 2 "Don`t Know - No Change" ///
-> 3 "Refused - No Change"  ///
-> 10 "Value To Value"  ///
-> 11 "Blank To Value"  ///
-> 12 "Don`t Know To Value"  ///
-> 13 "Refused To Value"  ///
-> 20 "Value To Longitudinal Value"  ///
-> 21 "Blank To Longitudinal Value"  ///
-> 22 "Don`t Know To Longitudinal Value"  ///
-> 23 "Refused To Longitudinal Value"  ///
-> 30 "Value To Allocated Value Long."  ///
-> 31 "Blank To Allocated Value Long."  ///
-> 32 "Don`t Know To Allocated Value Long."  ///
-> 33 "Refused To Allocated Value Long."  ///
-> 40 "Value To Allocated Value"  ///
-> 41 "Blank To Allocated Value"  ///
-> 42 "Don`t Know To Allocated Value"  ///
-> 43 "Refused To Allocated Value"  ///
-> 50 "Value To Blank"  ///
-> 52 "Don`t Know To Blank"  ///
-> 53 "Refused To Blank" 
+>         -1 "Blank" ///
+>         -2 "Don't Know"  ///
+>         -3 "Refused" ///
+>         0 "Value - No Change" ///
+>         1 "Blank - No Change" ///
+>         2 "Don`t Know - No Change" ///
+>         3 "Refused - No Change"  ///
+>         10 "Value To Value"  ///
+>         11 "Blank To Value"  ///
+>         12 "Don`t Know To Value"  ///
+>         13 "Refused To Value"  ///
+>         20 "Value To Longitudinal Value"  ///
+>         21 "Blank To Longitudinal Value"  ///
+>         22 "Don`t Know To Longitudinal Value"  ///
+>         23 "Refused To Longitudinal Value"  ///
+>         30 "Value To Allocated Value Long."  ///
+>         31 "Blank To Allocated Value Long."  ///
+>         32 "Don`t Know To Allocated Value Long."  ///
+>         33 "Refused To Allocated Value Long."  ///
+>         40 "Value To Allocated Value"  ///
+>         41 "Blank To Allocated Value"  ///
+>         42 "Don`t Know To Allocated Value"  ///
+>         43 "Refused To Allocated Value"  ///
+>         50 "Value To Blank"  ///
+>         52 "Don`t Know To Blank"  ///
+>         53 "Refused To Blank" 
 
 .   
 . label values teio1cow   labelteio1cow 
@@ -768,8 +757,8 @@ end of do-file
 
 . 
 . foreach i of varlist finlwg* {
-  2.         replace `i' = x`i' if `i'==.
-  3.         cap drop x`i'
+  2.         replace `i' = x`i' if missing(`i')
+  3.         capture drop x`i'
   4. }
 (5,187 real changes made)
 (5,187 real changes made)

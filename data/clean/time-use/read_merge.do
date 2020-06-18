@@ -35,8 +35,8 @@ merge 1:1 tucaseid using `weights2018', keep(1 3) nogenerate
 merge 1:1 tucaseid using `weights2017', keep(1 3) nogenerate
 
 foreach i of varlist finlwg* {
-	replace `i' = x`i' if `i'==.
-	cap drop x`i'
+	replace `i' = x`i' if missing(`i')
+	capture drop x`i'
 }
 
 merge 1:1 tucaseid using `weightslv', keep(3) nogenerate
