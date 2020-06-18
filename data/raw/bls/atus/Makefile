@@ -1,5 +1,11 @@
-all: atusresp_2018.dat atusact_2018.dat atuswho_2018.dat
-%_2018.dat: 
-	wget -O temp.zip "https://www.bls.gov/tus/special.requests/$*-2018.zip"
+TABLES = atusresp atusact atuswho atuswgts
+all: $(foreach table,$(TABLES),$(table)_2017.dat $(table)_2018.dat) lvresp_1718.dat lvwgts_1718.dat 
+%_2017.dat: 
+	# in 2017, BLS was still use underscore in file name
+	wget -O temp.zip "https://www.bls.gov/tus/special.requests/$*_2017.zip"
+	unzip temp.zip $@
+	rm temp.zip
+%.dat: 
+	wget -O temp.zip "https://www.bls.gov/tus/special.requests/$(subst _,-,$*).zip"
 	unzip temp.zip $@
 	rm temp.zip
