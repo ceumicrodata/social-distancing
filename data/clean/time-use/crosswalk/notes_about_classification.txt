@@ -1,0 +1,22 @@
+https://www.bls.gov/tus/changes.pdf
+
+
+Industry codes
+2014: Beginning in January 2014 ATUS, industry data were classified using the 2012 Census
+Industry Classification system. This system replaced the 2007 Census Industry Classification
+system. Cases with [TUYEAR=2013] have industry data classified using the 2007 Census
+Industry Classification System. All other cases with [TUYEAR > 2013] have industry data
+classified using the 2012 Census Industry Classification system.
+
+
+
+
+Occupation codes
+Edited: occupation code (main job)
+2011: Beginning in January 2011 ATUS, occupation data were classified using the 2010
+Census Occupation Classification system. This system replaced the 2002 Census
+Occupation Classification system. Cases with [TUYEAR < 2011] have occupation data
+classified using the 2002 Census Occupation Classification system. All other cases with
+[TUYEAR > 2010] have
+
+
