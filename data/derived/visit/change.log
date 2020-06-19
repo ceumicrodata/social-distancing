@@ -1,0 +1,88 @@
+
+  ___  ____  ____  ____  ____ (R)
+ /__    /   ____/   /   ____/
+___/   /   /___/   /   /___/   16.1   Copyright 1985-2019 StataCorp LLC
+  Statistics/Data Analysis            StataCorp
+                                      4905 Lakeway Drive
+     MP - Parallel Edition            College Station, Texas 77845 USA
+                                      800-STATA-PC        http://www.stata.com
+                                      979-696-4600        stata@stata.com
+                                      979-696-4601 (fax)
+
+Single-user 2-core Stata perpetual license:
+       Serial number:  501606204617
+         Licensed to:  Miklos Koren
+                       CEU MicroData
+
+Notes:
+      1.  Stata is running in batch mode.
+      2.  Unicode is supported; see help unicode_advice.
+      3.  More than 2 billion observations are allowed; see help obs_advice.
+      4.  Maximum number of variables is set to 5000; see help set_maxvar.
+
+. do change.do 
+
+. clear all
+
+. use "../industry_location_panel.dta"
+
+. 
+. * add safegraph visits data
+. * only use visits to plants in CBP
+. * if not found, assume 0 visits
+. merge 1:1 industry_code zip using "visit-naics-zip.dta", nogen keep(master ma
+> tch)
+
+    Result                           # of obs.
+    -----------------------------------------
+    not matched                       147,185
+        from master                   147,185  
+        from using                          0  
+
+    matched                           302,433  
+    -----------------------------------------
+
+. mvencode visit*, mv(0) override
+
+. 
+. * compute employment-weighted averages for each industry
+. foreach X of var visit* {
+  2.         egen local_`X' = sum(`X'), by(zip)
+  3.         replace local_`X' = employment_weight * local_`X'
+  4. }
+(440,242 real changes made, 1,209 to missing)
+(440,242 real changes made, 1,209 to missing)
+(440,253 real changes made, 1,209 to missing)
+(440,253 real changes made, 1,209 to missing)
+
+. 
+. collapse (sum) local_* visit* employment_weight establishments, by(industry_c
+> ode)
+
+. foreach X of var local* visit* {
+  2.         replace `X' =  `X' / employment_weight
+  3. }
+(81 real changes made, 2 to missing)
+(81 real changes made, 2 to missing)
+(81 real changes made, 2 to missing)
+(81 real changes made, 2 to missing)
+(63 real changes made, 2 to missing)
+(63 real changes made, 2 to missing)
+(62 real changes made, 2 to missing)
+(62 real changes made, 2 to missing)
+
+. 
+. generate visit_change = visits_may / visits_feb * 100 - 100
+(20 missing values generated)
+
+. generate local_visit_change = local_visits_may / local_visits_feb * 100 - 100
+(2 missing values generated)
+
+. 
+. keep industry_code *_change
+
+. save "visit-change.dta"
+file visit-change.dta saved
+
+. 
+end of do-file
