@@ -27,69 +27,44 @@ Notes:
 . local indexes teamwork_share customer_share presence_share communication_shar
 > e affected_share face2face_share
 
-. do "industry_location_panel.do"
-
-. import delimited "../data/derived/occupation/naics_risk.csv", varnames(1) cle
-> ar
-(7 vars, 84 obs)
-
-. tempfile occupation
-
-. save `occupation', replace
-(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St49307.000001 no
-> t found)
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St49307.000001 saved
-
-. 
-. use "../data/clean/cbp/zip_code_business_patterns.dta", clear
-
-. merge m:1 industry_code using `occupation', keep(match) nogen
-
-    Result                           # of obs.
-    -----------------------------------------
-    not matched                             0
-    matched                           464,804  
-    -----------------------------------------
-
-. 
-end of do-file
+. use "../data/derived/industry_location_panel.dta", clear
 
 . 
 . foreach X of var `indexes' {
-  2.         replace `X' = `X' * employment
-  3.         replace employment = 0 if missing(`X')
+  2.         replace `X' = `X' * employment_weight
+  3.         replace employment_weight = 0 if missing(`X')
   4. }
-variable teamwork_share was byte now long
-(464,804 real changes made)
+variable teamwork_share was byte now float
+(449,618 real changes made, 1,209 to missing)
+(1,209 real changes made)
+variable customer_share was byte now float
+(449,618 real changes made)
 (0 real changes made)
-variable customer_share was byte now long
-(464,804 real changes made)
+variable presence_share was byte now float
+(366,328 real changes made)
 (0 real changes made)
-variable presence_share was byte now long
-(381,514 real changes made)
+variable communication_share was byte now float
+(449,618 real changes made)
 (0 real changes made)
-variable communication_share was byte now long
-(464,804 real changes made)
+variable affected_share was byte now float
+(449,618 real changes made)
 (0 real changes made)
-variable affected_share was byte now long
-(464,804 real changes made)
-(0 real changes made)
-variable face2face_share was byte now long
-(464,804 real changes made)
+variable face2face_share was byte now float
+(449,618 real changes made)
 (0 real changes made)
 
 . collapse (first) population_density employment_density (sum) `indexes' establ
-> ishments employment, by(zip)
+> ishments employment employment_weight, by(zip)
 
 . foreach X of var `indexes' {
-  2.         replace `X' = `X' / employment
+  2.         replace `X' = `X' / employment_weight
   3. }
-(26,811 real changes made)
-(26,811 real changes made)
-(26,280 real changes made)
-(26,811 real changes made)
-(26,811 real changes made)
-(26,811 real changes made)
+(26,741 real changes made, 2,409 to missing)
+(26,741 real changes made, 2,409 to missing)
+(26,392 real changes made, 2,409 to missing)
+(26,741 real changes made, 2,409 to missing)
+(26,741 real changes made, 2,409 to missing)
+(26,741 real changes made, 2,409 to missing)
 
 . generate plant_size = employment / establishments
 
@@ -104,7 +79,7 @@ variable face2face_share was byte now long
         from master                         1  
         from using                          0  
 
-    matched                            26,810  
+    matched                            26,740  
     -----------------------------------------
 
 . 
@@ -117,23 +92,23 @@ variable face2face_share was byte now long
 
 . * round values for presentation
 . replace plant_size = plant_size*10
-(26,811 real changes made)
+(26,741 real changes made)
 
 . foreach X of var population_density employment_density plant_size `indexes' {
   2.         replace `X' = round(`X')
   3. }
-(24,293 real changes made)
-(24,380 real changes made)
-(23,561 real changes made)
-(22,365 real changes made)
-(22,259 real changes made)
-(22,210 real changes made)
-(22,343 real changes made)
-(22,379 real changes made)
-(22,298 real changes made)
+(24,267 real changes made)
+(24,354 real changes made)
+(23,430 real changes made)
+(23,603 real changes made)
+(22,949 real changes made)
+(23,016 real changes made)
+(24,130 real changes made)
+(24,195 real changes made)
+(23,536 real changes made)
 
 . replace plant_size = plant_size/10
-(26,811 real changes made)
+(26,741 real changes made)
 
 . foreach X of var latitude longitude {
   2.         replace `X' = round(`X'*10000)/10000
@@ -157,11 +132,11 @@ file ../data/derived/location-index.csv saved
 . 
 . *drop rural areas, CBP is not representative for these
 . drop if population_density<10 | employment<50
-(7,979 observations deleted)
+(8,008 observations deleted)
 
 . 
 . generate ln_density = ln(population_density)
-(1,046 missing values generated)
+(1,001 missing values generated)
 
 . foreach X of var *_share {
   2.         lowess `X' ln_density, bw(0.5) generate(`X'_hat)

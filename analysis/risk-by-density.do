@@ -1,14 +1,14 @@
 clear all
 local indexes teamwork_share customer_share presence_share communication_share affected_share face2face_share
-do "industry_location_panel.do"
+use "../data/derived/industry_location_panel.dta", clear
 
 foreach X of var `indexes' {
-	replace `X' = `X' * employment
-	replace employment = 0 if missing(`X')
+	replace `X' = `X' * employment_weight
+	replace employment_weight = 0 if missing(`X')
 }
-collapse (first) population_density employment_density (sum) `indexes' establishments employment, by(zip)
+collapse (first) population_density employment_density (sum) `indexes' establishments employment employment_weight, by(zip)
 foreach X of var `indexes' {
-	replace `X' = `X' / employment
+	replace `X' = `X' / employment_weight
 }
 generate plant_size = employment / establishments
 

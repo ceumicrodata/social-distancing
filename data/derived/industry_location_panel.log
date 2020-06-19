@@ -1,0 +1,118 @@
+
+  ___  ____  ____  ____  ____ (R)
+ /__    /   ____/   /   ____/
+___/   /   /___/   /   /___/   16.1   Copyright 1985-2019 StataCorp LLC
+  Statistics/Data Analysis            StataCorp
+                                      4905 Lakeway Drive
+     MP - Parallel Edition            College Station, Texas 77845 USA
+                                      800-STATA-PC        http://www.stata.com
+                                      979-696-4600        stata@stata.com
+                                      979-696-4601 (fax)
+
+Single-user 2-core Stata perpetual license:
+       Serial number:  501606204617
+         Licensed to:  Miklos Koren
+                       CEU MicroData
+
+Notes:
+      1.  Stata is running in batch mode.
+      2.  Unicode is supported; see help unicode_advice.
+      3.  More than 2 billion observations are allowed; see help obs_advice.
+      4.  Maximum number of variables is set to 5000; see help set_maxvar.
+
+. do industry_location_panel.do 
+
+. clear all
+
+. 
+. import delimited "crosswalk/industry.csv", varnames(1) clear case(preserve)
+(3 vars, 90 obs)
+
+. merge 1:1 industry_code using "../clean/industry-employment/industry-employme
+> nt.dta", nogen keep(master match)
+
+    Result                           # of obs.
+    -----------------------------------------
+    not matched                             2
+        from master                         2  
+        from using                          0  
+
+    matched                                88  
+    -----------------------------------------
+
+. rename employment ces_employment
+
+. tempfile industry
+
+. save `industry', replace
+(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St49640.000001 no
+> t found)
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St49640.000001 saved
+
+. 
+. import delimited "crosswalk/2digit_names.csv", varnames(1) clear case(preserv
+> e)
+(2 vars, 20 obs)
+
+. tempfile digit2
+
+. save `digit2', replace
+(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St49640.000002 no
+> t found)
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St49640.000002 saved
+
+. 
+. import delimited "occupation/naics_risk.csv", varnames(1) clear
+(7 vars, 84 obs)
+
+. tempfile occupation
+
+. save `occupation', replace
+(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St49640.000003 no
+> t found)
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St49640.000003 saved
+
+. 
+. use "../clean/cbp/zip_code_business_patterns.dta", clear
+
+. merge m:1 industry_code using `occupation', keep(match) nogen
+
+    Result                           # of obs.
+    -----------------------------------------
+    not matched                             0
+    matched                           464,804  
+    -----------------------------------------
+
+. merge m:1 industry_code using `industry', nogen keep(master match) keepusing(
+> industry_label ces_employment growth)
+
+    Result                           # of obs.
+    -----------------------------------------
+    not matched                             0
+    matched                           464,804  
+    -----------------------------------------
+
+. 
+. * drop hospitals and clinics
+. drop if inlist(industry_code, 621, 622)
+(15,186 observations deleted)
+
+. 
+. * regional employment weight from CBP, sectoral weight from CES
+. tempvar sum
+
+. egen `sum' = sum(cond(!missing(population_density,communication_share),employ
+> ment,0)), by(industry_code)
+
+. generate employment_weight = cond(!missing(population_density,communication_s
+> hare),employment,0)/`sum'*ces_employment
+(1,209 missing values generated)
+
+. 
+. drop _*
+
+. save "industry_location_panel.dta", replace
+file industry_location_panel.dta saved
+
+. 
+end of do-file

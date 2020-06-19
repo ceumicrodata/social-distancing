@@ -25,97 +25,8 @@ Notes:
 . clear all
 
 . 
-. import delimited "../data/derived/crosswalk/industry.csv", varnames(1) clear 
-> case(preserve)
-(3 vars, 90 obs)
+. use "../data/derived/industry_location_panel.dta", clear
 
-. merge 1:1 industry_code using "../data/clean/industry-employment/industry-emp
-> loyment.dta", nogen keep(master match)
-
-    Result                           # of obs.
-    -----------------------------------------
-    not matched                             2
-        from master                         2  
-        from using                          0  
-
-    matched                                88  
-    -----------------------------------------
-
-. rename employment ces_employment
-
-. tempfile industry
-
-. save `industry', replace
-(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St49299.000001 no
-> t found)
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St49299.000001 saved
-
-. 
-. import delimited "../data/derived/crosswalk/2digit_names.csv", varnames(1) cl
-> ear case(preserve)
-(2 vars, 20 obs)
-
-. tempfile digit2
-
-. save `digit2', replace
-(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St49299.000002 no
-> t found)
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St49299.000002 saved
-
-. 
-. do "industry_location_panel.do"
-
-. import delimited "../data/derived/occupation/naics_risk.csv", varnames(1) cle
-> ar
-(7 vars, 84 obs)
-
-. tempfile occupation
-
-. save `occupation', replace
-(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St49299.000003 no
-> t found)
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St49299.000003 saved
-
-. 
-. use "../data/clean/cbp/zip_code_business_patterns.dta", clear
-
-. merge m:1 industry_code using `occupation', keep(match) nogen
-
-    Result                           # of obs.
-    -----------------------------------------
-    not matched                             0
-    matched                           464,804  
-    -----------------------------------------
-
-. 
-end of do-file
-
-. merge m:1 industry_code using `industry', nogen keep(master match) keepusing(
-> industry_label ces_employment growth)
-
-    Result                           # of obs.
-    -----------------------------------------
-    not matched                             0
-    matched                           464,804  
-    -----------------------------------------
-
-. 
-. * drop hospitals and clinics
-. drop if inlist(industry_code, 621, 622)
-(15,186 observations deleted)
-
-. 
-. * regional employment weight from CBP, sectoral weight from CES
-. tempvar sum
-
-. egen `sum' = sum(cond(!missing(population_density,communication_share),employ
-> ment,0)), by(industry_code)
-
-. generate employment_weight = cond(!missing(population_density,communication_s
-> hare),employment,0)/`sum'*ces_employment
-(1,209 missing values generated)
-
-. 
 . /* 
 > Calibrate epsilon to gamma=1.04 in
 > 
@@ -328,53 +239,8 @@ end of do-file
 
 . * merge on names
 . merge 1:1 naics_2d using `digit2', nogen keep(master match)
+invalid file specification
+r(198);
 
-    Result                           # of obs.
-    -----------------------------------------
-    not matched                             0
-    matched                                19  
-    -----------------------------------------
-
-. 
-. replace labor_subsidy = round(labor_subsidy/employment_weight, 0.1)
-(19 real changes made)
-
-. rename employment_weight employment
-
-. replace employment = round(employment)
-(19 real changes made)
-
-. 
-. * calculate weighted average
-. summarize labor_subsidy [fw=employment], meanonly
-
-. scalar average = r(mean)
-
-. scalar N = r(N)
-
-. 
-. gsort -labor_subsidy
-
-. 
-. * add a row for average
-. set obs 20
-number of observations (_N) was 19, now 20
-
-. replace industry_label = "Average" in 20
-(1 real change made)
-
-. replace labor_subsidy = average in 20
-(1 real change made)
-
-. replace employment = N in 20
-(1 real change made)
-
-. 
-. order industry_label labor_subsidy employment
-
-. export delimited "cost_by_naics2.csv", replace
-(note: file cost_by_naics2.csv not found)
-file cost_by_naics2.csv saved
-
-. 
 end of do-file
+r(198);
