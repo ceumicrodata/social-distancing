@@ -10,7 +10,7 @@ save `industry', replace
 import delimited "../data/derived/occupation/naics_risk.csv", varnames(1) clear
 merge m:1 industry_code using `industry', nogen keep(master match)
 
-local vars teamwork_share customer_share presence_share communication_share affected_share
+local vars teamwork_share customer_share presence_share communication_share affected_share face2face_share
 keep industry_code industry_label `vars'
 order industry_code industry_label `vars'
 
@@ -31,10 +31,11 @@ label variable customer_share "Workers in customer-facing occupations (percent)"
 label variable presence_share "Workers in occupations requiring physical presence (percent)"
 label variable communication_share "Workers in communication-intensive occupations (percent)"
 label variable affected_share "Workers in any of the three groups (percent)"
+label variable face2face_share "Workers in face-to-face-intensive occupations (percent)"
 
 label variable ces_employment "Industry employment (thousand persons)"
 
-gsort -communication_share
+gsort -affected_share
 
 save "../data/derived/industry-index.dta", replace
 export delimited "../data/derived/industry-index.csv", replace

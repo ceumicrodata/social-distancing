@@ -8,11 +8,13 @@ local teamwork group consult coordinate team guide
 local customer customers public care interpersonal consult
 local presence move operate repair_elect repair_mechanic inspect
 
-* face2face daily, more frequently than either email or memos
-local teamwork_context ((face2face > 75)&(face2face > email)&(face2face > memo))
+* face2face daily
+local teamwork_context (face2face > 75)
 local customer_context (face2face > 75)
 * share office or more dense
 local presence_context (proximity > 25)
+* email and memos daily on average
+local remote_context (email+memo > 2 * 75)
 * for tasks
 local cutoff = 62.5
 
@@ -53,11 +55,13 @@ label variable presence_index "Physical presence index [0,100] with context cuto
 foreach X of var teamwork customer presence {
 	replace `X' = ``X'_context' * (`X' >= `cutoff')
 }
+generate remote = `remote_context'
 label variable teamwork "Teamwork communication (dummy)"
 label variable customer "Customer communication (dummy)"
 label variable presence "Physical presence (dummy)"
+label variable remote "Remote work (dummy)"
 
-keep SOCCode Description teamwork customer presence teamwork_index* customer_index* presence_index*
+keep SOCCode Description teamwork customer presence remote teamwork_index* customer_index* presence_index*
 compress
 
 save "risks.dta", replace

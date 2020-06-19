@@ -1,7 +1,7 @@
 
   ___  ____  ____  ____  ____ (R)
  /__    /   ____/   /   ____/
-___/   /   /___/   /   /___/   15.1   Copyright 1985-2017 StataCorp LLC
+___/   /   /___/   /   /___/   16.1   Copyright 1985-2019 StataCorp LLC
   Statistics/Data Analysis            StataCorp
                                       4905 Lakeway Drive
      MP - Parallel Edition            College Station, Texas 77845 USA
@@ -10,10 +10,9 @@ ___/   /   /___/   /   /___/   15.1   Copyright 1985-2017 StataCorp LLC
                                       979-696-4601 (fax)
 
 Single-user 2-core Stata perpetual license:
-       Serial number:  501506203290
+       Serial number:  501606204617
          Licensed to:  Miklos Koren
                        CEU MicroData
-
 
 Notes:
       1.  Stata is running in batch mode.
@@ -43,10 +42,11 @@ Notes:
     -----------------------------------------
 
 . * a few cases are missing the risk, take these to be low risk
-. mvencode `indexes', mv(0) override
+. mvencode `indexes' remote, mv(0) override
     teamwork: 607 missing values recoded
     customer: 607 missing values recoded
     presence: 607 missing values recoded
+      remote: 607 missing values recoded
 
 . 
 . replace Employment = round(Employment*1000)
@@ -58,22 +58,25 @@ Notes:
 
 . 
 . * both or all three
-. generate byte communication = teamwork|customer
+. generate byte communication = teamwork | customer
 
-. generate byte affected = communication|presence
+. generate byte affected = communication | presence
+
+. * share of workers communicating but not remotely
+. generate byte face2face = communication & !remote
 
 . 
-. foreach X of var `indexes'  communication affected {
-  2.         * index is high and context implies face2face
-.         generate double `X'_share = `X' * Employment
+. foreach X of var `indexes' communication affected face2face {
+  2.         generate double `X'_share = `X' * Employment
   3. }
 
 . collapse (sum) Employment teamwork_share customer_share presence_share commun
-> ication_share affected_share, by(industry_code)
+> ication_share affected_share face2face_share, by(industry_code)
 
-. foreach X in `indexes'  communication affected {
+. foreach X in `indexes' communication affected face2face {
   2.         replace `X'_share = round(`X'_share / Employment * 100)
   3. }
+(84 real changes made)
 (84 real changes made)
 (84 real changes made)
 (84 real changes made)
@@ -84,6 +87,7 @@ Notes:
 
 . 
 . export delimited "naics_risk.csv", replace
+(note: file naics_risk.csv not found)
 file naics_risk.csv saved
 
 . 

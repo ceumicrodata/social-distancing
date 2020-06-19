@@ -1,7 +1,7 @@
 
   ___  ____  ____  ____  ____ (R)
  /__    /   ____/   /   ____/
-___/   /   /___/   /   /___/   15.1   Copyright 1985-2017 StataCorp LLC
+___/   /   /___/   /   /___/   16.1   Copyright 1985-2019 StataCorp LLC
   Statistics/Data Analysis            StataCorp
                                       4905 Lakeway Drive
      MP - Parallel Edition            College Station, Texas 77845 USA
@@ -10,10 +10,9 @@ ___/   /   /___/   /   /___/   15.1   Copyright 1985-2017 StataCorp LLC
                                       979-696-4601 (fax)
 
 Single-user 2-core Stata perpetual license:
-       Serial number:  501506203290
+       Serial number:  501606204617
          Licensed to:  Miklos Koren
                        CEU MicroData
-
 
 Notes:
       1.  Stata is running in batch mode.
@@ -26,20 +25,20 @@ Notes:
 . clear all
 
 . local indexes teamwork_share customer_share presence_share communication_shar
-> e affected_share
+> e affected_share face2face_share
 
 . do "industry_location_panel.do"
 
 . import delimited "../data/derived/occupation/naics_risk.csv", varnames(1) cle
 > ar
-(6 vars, 84 obs)
+(7 vars, 84 obs)
 
 . tempfile occupation
 
 . save `occupation', replace
-(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St47363.000001 no
+(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St49307.000001 no
 > t found)
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St47363.000001 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St49307.000001 saved
 
 . 
 . use "../data/clean/cbp/zip_code_business_patterns.dta", clear
@@ -75,6 +74,9 @@ variable communication_share was byte now long
 variable affected_share was byte now long
 (464,804 real changes made)
 (0 real changes made)
+variable face2face_share was byte now long
+(464,804 real changes made)
+(0 real changes made)
 
 . collapse (first) population_density employment_density (sum) `indexes' establ
 > ishments employment, by(zip)
@@ -85,6 +87,7 @@ variable affected_share was byte now long
 (26,811 real changes made)
 (26,811 real changes made)
 (26,280 real changes made)
+(26,811 real changes made)
 (26,811 real changes made)
 (26,811 real changes made)
 
@@ -122,11 +125,12 @@ variable affected_share was byte now long
 (24,293 real changes made)
 (24,380 real changes made)
 (23,561 real changes made)
-(22,274 real changes made)
+(22,365 real changes made)
 (22,259 real changes made)
 (22,210 real changes made)
-(22,360 real changes made)
-(22,352 real changes made)
+(22,343 real changes made)
+(22,379 real changes made)
+(22,298 real changes made)
 
 . replace plant_size = plant_size/10
 (26,811 real changes made)
@@ -147,6 +151,7 @@ variable affected_share was byte now long
 . order zip_code
 
 . export delimited "../data/derived/location-index.csv", replace
+(note: file ../data/derived/location-index.csv not found)
 file ../data/derived/location-index.csv saved
 
 . 

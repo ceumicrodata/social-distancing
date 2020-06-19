@@ -1,7 +1,7 @@
 
   ___  ____  ____  ____  ____ (R)
  /__    /   ____/   /   ____/
-___/   /   /___/   /   /___/   15.1   Copyright 1985-2017 StataCorp LLC
+___/   /   /___/   /   /___/   16.1   Copyright 1985-2019 StataCorp LLC
   Statistics/Data Analysis            StataCorp
                                       4905 Lakeway Drive
      MP - Parallel Edition            College Station, Texas 77845 USA
@@ -10,10 +10,9 @@ ___/   /   /___/   /   /___/   15.1   Copyright 1985-2017 StataCorp LLC
                                       979-696-4601 (fax)
 
 Single-user 2-core Stata perpetual license:
-       Serial number:  501506203290
+       Serial number:  501606204617
          Licensed to:  Miklos Koren
                        CEU MicroData
-
 
 Notes:
       1.  Stata is running in batch mode.
@@ -45,8 +44,8 @@ Notes:
 
     Variable |        Obs        Mean    Std. Dev.       Min        Max
 -------------+---------------------------------------------------------
-teamwork_s~e | 97,549,700    10.49109    4.944644          4         31
-Millions of workers: 10.234024
+teamwork_s~e | 97,549,700    24.05792    12.56859          5         50
+Millions of workers: 23.468429
 
     Variable |        Obs        Mean    Std. Dev.       Min        Max
 -------------+---------------------------------------------------------
@@ -60,13 +59,18 @@ Millions of workers: 8.601088
 
     Variable |        Obs        Mean    Std. Dev.       Min        Max
 -------------+---------------------------------------------------------
-communicat~e | 97,549,700    32.78139      19.342          7         91
-Millions of workers: 31.978147
+communicat~e | 97,549,700    42.23107    18.41098          8         91
+Millions of workers: 41.196279
 
     Variable |        Obs        Mean    Std. Dev.       Min        Max
 -------------+---------------------------------------------------------
-affected_s~e | 97,549,700    40.64868    17.88319         13         91
-Millions of workers: 39.652667
+affected_s~e | 97,549,700    50.26728    15.56533         18         91
+Millions of workers: 49.035582
+
+    Variable |        Obs        Mean    Std. Dev.       Min        Max
+-------------+---------------------------------------------------------
+face2face_~e | 97,549,700    22.62964    20.24656          1         88
+Millions of workers: 22.075143
 
 . 
 . generate naics_2d = industry_code if industry_code<100

@@ -20,10 +20,10 @@ foreach X of var *_share {
 	replace `X' = `X' * employment
 	replace employment = . if missing(`X')
 }
-collapse (sum) employment (sum) teamwork_share customer_share presence_share communication_share affected_share (firstnm) industry_label, by(naics_2d)
+collapse (sum) employment (sum) teamwork_share customer_share presence_share communication_share affected_share face2face_share (firstnm) industry_label, by(naics_2d)
 foreach X of var *_share {
 	replace `X' = `X' / employment
 }
-gsort -communication_share
+gsort -face2face_share
 generate sum_employment = sum(employment)
 list industry_label sum_employment in 1/5

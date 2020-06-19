@@ -1,11 +1,11 @@
 clear all
 use "risks.dta", clear
-gen occ_2digit=substr(SOCCode,1,2)
+generate occ_2digit = substr(SOCCode, 1, 2)
 
- collapse (mean) teamwork_index customer_index presence_index, by(occ_2digit )
+collapse (mean) teamwork_index customer_index presence_index, by(occ_2digit )
 
 foreach x of varlist teamwork_index customer_index presence_index {
-replace `x'=round(`x')
+	replace `x' = round(`x')
 }
 destring(occ), replace
 

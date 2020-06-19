@@ -1,7 +1,7 @@
 
   ___  ____  ____  ____  ____ (R)
  /__    /   ____/   /   ____/
-___/   /   /___/   /   /___/   15.1   Copyright 1985-2017 StataCorp LLC
+___/   /   /___/   /   /___/   16.1   Copyright 1985-2019 StataCorp LLC
   Statistics/Data Analysis            StataCorp
                                       4905 Lakeway Drive
      MP - Parallel Edition            College Station, Texas 77845 USA
@@ -10,10 +10,9 @@ ___/   /   /___/   /   /___/   15.1   Copyright 1985-2017 StataCorp LLC
                                       979-696-4601 (fax)
 
 Single-user 2-core Stata perpetual license:
-       Serial number:  501506203290
+       Serial number:  501606204617
          Licensed to:  Miklos Koren
                        CEU MicroData
-
 
 Notes:
       1.  Stata is running in batch mode.
@@ -50,7 +49,7 @@ end of do-file
 
 . 
 . collapse (mean) teamwork_share customer_share presence_share communication_sh
-> are affected_share [aw=ces_employment], by(naics_2d)
+> are affected_share face2face_share [aw=ces_employment], by(naics_2d)
 
 . foreach X of var *_share {
   2.         replace `X' = round(`X')
@@ -60,15 +59,17 @@ end of do-file
 (13 real changes made)
 (14 real changes made)
 (14 real changes made)
+(14 real changes made)
 
 . 
-. gsort -communication_share
+. gsort -face2face_share
 
 . keep if (_n<=5) | (_n>=_N-4)
 (9 observations deleted)
 
 . 
 . export delimited "../data/derived/top-industries.csv", replace
+(note: file ../data/derived/top-industries.csv not found)
 file ../data/derived/top-industries.csv saved
 
 . 

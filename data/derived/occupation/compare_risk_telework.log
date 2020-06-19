@@ -1,7 +1,7 @@
 
   ___  ____  ____  ____  ____ (R)
  /__    /   ____/   /   ____/
-___/   /   /___/   /   /___/   15.1   Copyright 1985-2017 StataCorp LLC
+___/   /   /___/   /   /___/   16.1   Copyright 1985-2019 StataCorp LLC
   Statistics/Data Analysis            StataCorp
                                       4905 Lakeway Drive
      MP - Parallel Edition            College Station, Texas 77845 USA
@@ -10,10 +10,9 @@ ___/   /   /___/   /   /___/   15.1   Copyright 1985-2017 StataCorp LLC
                                       979-696-4601 (fax)
 
 Single-user 2-core Stata perpetual license:
-       Serial number:  501506203290
+       Serial number:  501606204617
          Licensed to:  Miklos Koren
                        CEU MicroData
-
 
 Notes:
       1.  Stata is running in batch mode.
@@ -47,11 +46,11 @@ communicat |
        ion |     teleworkable
    (dummy) |         0          1 |     Total
 -----------+----------------------+----------
-         0 |       458        237 |       695 
-         1 |        56         13 |        69 
+         0 |       421        160 |       581 
+         1 |        93         90 |       183 
 -----------+----------------------+----------
      Total |       514        250 |       764 
-  13
+  90
 
   Customer |
 communicat |

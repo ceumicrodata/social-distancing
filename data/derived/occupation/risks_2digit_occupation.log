@@ -1,7 +1,7 @@
 
   ___  ____  ____  ____  ____ (R)
  /__    /   ____/   /   ____/
-___/   /   /___/   /   /___/   15.1   Copyright 1985-2017 StataCorp LLC
+___/   /   /___/   /   /___/   16.1   Copyright 1985-2019 StataCorp LLC
   Statistics/Data Analysis            StataCorp
                                       4905 Lakeway Drive
      MP - Parallel Edition            College Station, Texas 77845 USA
@@ -10,10 +10,9 @@ ___/   /   /___/   /   /___/   15.1   Copyright 1985-2017 StataCorp LLC
                                       979-696-4601 (fax)
 
 Single-user 2-core Stata perpetual license:
-       Serial number:  501506203290
+       Serial number:  501606204617
          Licensed to:  Miklos Koren
                        CEU MicroData
-
 
 Notes:
       1.  Stata is running in batch mode.
@@ -27,17 +26,16 @@ Notes:
 
 . use "risks.dta", clear
 
-. gen occ_2digit=substr(SOCCode,1,2)
+. generate occ_2digit = substr(SOCCode, 1, 2)
 
 . 
-.  collapse (mean) teamwork_index customer_index presence_index, by(occ_2digit 
-> )
+. collapse (mean) teamwork_index customer_index presence_index, by(occ_2digit )
 
 . 
 . foreach x of varlist teamwork_index customer_index presence_index {
-  2. replace `x'=round(`x')
+  2.         replace `x' = round(`x')
   3. }
-(21 real changes made)
+(20 real changes made)
 (21 real changes made)
 (22 real changes made)
 
@@ -72,6 +70,7 @@ occ_2digit: all characters numeric; replaced as byte
 . 
 . 
 . export delimited "risks_2digit_occupation.csv", replace
+(note: file risks_2digit_occupation.csv not found)
 file risks_2digit_occupation.csv saved
 
 . label value occ occ

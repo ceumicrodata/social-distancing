@@ -1,5 +1,5 @@
 clear all
-local indexes teamwork_share customer_share presence_share communication_share affected_share
+local indexes teamwork_share customer_share presence_share communication_share affected_share face2face_share
 do "industry_location_panel.do"
 
 foreach X of var `indexes' {

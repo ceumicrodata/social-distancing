@@ -1,7 +1,7 @@
 
   ___  ____  ____  ____  ____ (R)
  /__    /   ____/   /   ____/
-___/   /   /___/   /   /___/   15.1   Copyright 1985-2017 StataCorp LLC
+___/   /   /___/   /   /___/   16.1   Copyright 1985-2019 StataCorp LLC
   Statistics/Data Analysis            StataCorp
                                       4905 Lakeway Drive
      MP - Parallel Edition            College Station, Texas 77845 USA
@@ -10,10 +10,9 @@ ___/   /   /___/   /   /___/   15.1   Copyright 1985-2017 StataCorp LLC
                                       979-696-4601 (fax)
 
 Single-user 2-core Stata perpetual license:
-       Serial number:  501506203290
+       Serial number:  501606204617
          Licensed to:  Miklos Koren
                        CEU MicroData
-
 
 Notes:
       1.  Stata is running in batch mode.
@@ -47,15 +46,15 @@ Notes:
 . tempfile industry
 
 . save `industry', replace
-(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St47361.000001 no
+(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St49301.000001 no
 > t found)
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St47361.000001 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St49301.000001 saved
 
 . 
 . 
 . import delimited "../data/derived/occupation/naics_risk.csv", varnames(1) cle
 > ar
-(6 vars, 84 obs)
+(7 vars, 84 obs)
 
 . merge m:1 industry_code using `industry', nogen keep(master match)
 
@@ -67,7 +66,7 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St47361.000001 saved
 
 . 
 . local vars teamwork_share customer_share presence_share communication_share a
-> ffected_share
+> ffected_share face2face_share
 
 . keep industry_code industry_label `vars'
 
@@ -89,6 +88,7 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St47361.000001 saved
   2.         replace `X' = round(`X')
   3.         format `X' %10.0f
   4. }
+(0 real changes made)
 (0 real changes made)
 (0 real changes made)
 (0 real changes made)
@@ -116,17 +116,21 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St47361.000001 saved
 
 . label variable affected_share "Workers in any of the three groups (percent)"
 
+. label variable face2face_share "Workers in face-to-face-intensive occupations
+>  (percent)"
+
 . 
 . label variable ces_employment "Industry employment (thousand persons)"
 
 . 
-. gsort -communication_share
+. gsort -affected_share
 
 . 
 . save "../data/derived/industry-index.dta", replace
 file ../data/derived/industry-index.dta saved
 
 . export delimited "../data/derived/industry-index.csv", replace
+(note: file ../data/derived/industry-index.csv not found)
 file ../data/derived/industry-index.csv saved
 
 . 
