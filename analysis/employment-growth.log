@@ -1,0 +1,82 @@
+
+  ___  ____  ____  ____  ____ (R)
+ /__    /   ____/   /   ____/
+___/   /   /___/   /   /___/   16.1   Copyright 1985-2019 StataCorp LLC
+  Statistics/Data Analysis            StataCorp
+                                      4905 Lakeway Drive
+     MP - Parallel Edition            College Station, Texas 77845 USA
+                                      800-STATA-PC        http://www.stata.com
+                                      979-696-4600        stata@stata.com
+                                      979-696-4601 (fax)
+
+Single-user 2-core Stata perpetual license:
+       Serial number:  501606204617
+         Licensed to:  Miklos Koren
+                       CEU MicroData
+
+Notes:
+      1.  Stata is running in batch mode.
+      2.  Unicode is supported; see help unicode_advice.
+      3.  More than 2 billion observations are allowed; see help obs_advice.
+      4.  Maximum number of variables is set to 5000; see help set_maxvar.
+
+. do employment-growth.do 
+
+. clear all
+
+. 
+. use "../data/derived/industry_location_panel.dta", clear
+
+. 
+. collapse (firstnm) ces_employment growth customer_share teamwork_share presen
+> ce_share communication_share face2face_share affected_share , by(industry_cod
+> e industry_label)
+
+. 
+. generate str label = ""
+(81 missing values generated)
+
+. replace label = industry_label if inlist(industry_code, 487, 722, 442, 448, 4
+> 52, 519, 486, 113, 451, 721, 446)
+variable label was str1 now str45
+(11 real changes made)
+
+. 
+. tw ///
+> (scatter growth face2face_share,  msymbol(circle_hollow) mlabel(label)), ///
+> scheme(s2mono) graphregion(color(white)) ///
+> ytitle("Change in employment between Feb and May (%)" ) ///
+> xtitle("Share of workers in face-to-face occupations (%)") ///
+> legend(off) ///
+> graphregion(margin(1 40 1 1)) aspect(1)
+
+. 
+. graph export "../text/fig5b.eps", replace
+(file ../text/fig5b.eps written in EPS format)
+
+. graph export "../text/fig5b.pdf", replace
+(file ../text/fig5b.pdf written in PDF format)
+
+.         
+. regress growth customer_share teamwork_share presence_share face2face_share ,
+>  robust
+
+Linear regression                               Number of obs     =         79
+                                                F(4, 74)          =       6.16
+                                                Prob > F          =     0.0002
+                                                R-squared         =     0.2757
+                                                Root MSE          =     14.159
+
+------------------------------------------------------------------------------
+             |               Robust
+      growth |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+customer_s~e |   .0844223   .1190089     0.71   0.480    -.1527081    .3215526
+teamwork_s~e |   .4401719    .103621     4.25   0.000     .2337026    .6466413
+presence_s~e |   .1816919   .0767528     2.37   0.021     .0287586    .3346253
+face2face_~e |  -.3187978   .1554729    -2.05   0.044    -.6285844   -.0090112
+       _cons |  -22.03784   3.987718    -5.53   0.000    -29.98354   -14.09214
+------------------------------------------------------------------------------
+
+. 
+end of do-file

@@ -1,5 +1,5 @@
 .PHONY: all data
-all: counterfactual.log ../data/derived/top-industries.csv ../data/derived/industry-index.dta ../text/fig3.eps ../text/fig4.eps headcount.log
+all: counterfactual.log employment-growth.log ../data/derived/top-industries.csv ../data/derived/industry-index.dta ../text/fig3.eps ../text/fig4.eps headcount.log
 ../data/derived/top-industries.csv: toplist.do ../data/derived/industry-index.dta
 	stata -b do $<
 ../text/fig3.eps: scatter_customers_teamwork_byoccupation.do ../data/derived/occupation/risks.dta
@@ -10,7 +10,9 @@ all: counterfactual.log ../data/derived/top-industries.csv ../data/derived/indus
 	stata -b do $<
 headcount.log: headcount.do ../data/derived/industry-index.dta
 	stata -b do $<
-counterfactual.log: counterfactual.do employment-growth.do ../data/derived/industry_location_panel.dta nyc_zip.dta
+employment-growth.log: employment-growth.do ../data/derived/industry_location_panel.dta 
+	stata -b do $<
+counterfactual.log: counterfactual.do ../data/derived/industry_location_panel.dta nyc_zip.dta
 	stata -b do $<
 nyc_zip.dta: nyc_zip.do ../data/raw/census/cbp/zcta_county_rel_10.txt
 	stata -b do $<

@@ -152,67 +152,6 @@ labor_subs~y |   5,844  3220.69291    20.86242   6.435114   5.305287   36.99123
 . save "wage_subsidy.dta", replace
 file wage_subsidy.dta saved
 
-. do "employment-growth.do"
-
-. preserve
-
-.         generate wage_subsidy = employment_weight * labor_subsidy
-(7,188 missing values generated)
-
-.         collapse (firstnm) ces_employment growth affected_share (sum) wage_su
-> bsidy employment_weight, by(industry_code industry_label)
-
-.         replace wage_subsidy =  wage_subsidy / employment_weight
-(81 real changes made, 2 to missing)
-
-.         
-.         generate str label = ""
-(81 missing values generated)
-
-.         replace label = industry_label if inlist(industry_code, 487, 722, 442
-> , 448, 452, 519, 486, 113, 451, 721, 446)
-variable label was str1 now str45
-(11 real changes made)
-
-.         
-.         tw ///
->         (lfitci growth wage_subsidy   ) ///
->         (scatter growth wage_subsidy,  msymbol(circle_hollow) mlabel(label)),
->  ///
->         scheme(s2mono) graphregion(color(white)) ///
->         ytitle("Change in employment between Feb and Apr (%)" ) ///
->         xtitle("Wage subsidy to compensate drop in contacts (percent)") ///
->         legend(region(lstyle(none)) order(2 "Regression line" 1 "Confidence i
-> nterval")) ///
->         graphregion(margin(1 40 1 1)) aspect(1)
-
-.         
-.         graph export "../text/fig5.eps", replace
-(file ../text/fig5.eps written in EPS format)
-
-.         graph export "../text/fig5.pdf", replace
-(file ../text/fig5.pdf written in PDF format)
-
-. 
-.         tw ///
->         (scatter growth affected_share,  msymbol(circle_hollow) mlabel(label)
-> ), ///
->         scheme(s2mono) graphregion(color(white)) ///
->         ytitle("Change in employment between Feb and Apr (%)" ) ///
->         xtitle("Share of workers in affected occupations (%)") ///
->         legend(off) ///
->         graphregion(margin(1 40 1 1)) aspect(1)
-
-.         
-.         graph export "../text/fig5b.pdf", replace
-(file ../text/fig5b.pdf written in PDF format)
-
-.         
-. restore 
-
-. 
-end of do-file
-
 . 
 . do "aggregate2digit.do"
 
