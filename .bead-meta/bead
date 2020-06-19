@@ -1,0 +1,10 @@
+{
+    "inputs": {
+        "safegraph-industry-location": {
+            "content_id": "f7aeed4c4969eb3a4b3fdf2c20c459f11a9fa2365003f883ce50c1ea9c2a1c1ef59de70255c0b1e14ea196a9e4903445f4cfb0947553d8db5a4e6cd01a8feddc", 
+            "freeze_time": "20200620T003105039425+0200", 
+            "kind": "c1ecd0c5a8337c550dc1129715f80276-6fb3c90f-dd5c-49de-8bca-ca893cfe15ff"
+        }
+    }, 
+    "kind": "dd311b47e321aa0cf3f8de10d13cb0af-523429a9-a30f-45b3-a6ae-19a3ddd843b3"
+}
