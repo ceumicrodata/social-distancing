@@ -1,0 +1,191 @@
+
+  ___  ____  ____  ____  ____ (R)
+ /__    /   ____/   /   ____/
+___/   /   /___/   /   /___/   16.1   Copyright 1985-2019 StataCorp LLC
+  Statistics/Data Analysis            StataCorp
+                                      4905 Lakeway Drive
+     MP - Parallel Edition            College Station, Texas 77845 USA
+                                      800-STATA-PC        http://www.stata.com
+                                      979-696-4600        stata@stata.com
+                                      979-696-4601 (fax)
+
+Single-user 2-core Stata perpetual license:
+       Serial number:  501606204617
+         Licensed to:  Miklos Koren
+                       CEU MicroData
+
+Notes:
+      1.  Stata is running in batch mode.
+      2.  Unicode is supported; see help unicode_advice.
+      3.  More than 2 billion observations are allowed; see help obs_advice.
+      4.  Maximum number of variables is set to 5000; see help set_maxvar.
+
+. do read.do 
+
+. clear all
+
+. 
+. local months 02 05
+
+. local variables raw_visitor_counts raw_visit_counts
+
+. 
+. * read industry aggregator
+. import delimited "../../derived/crosswalk/naics2industry.csv", varnames(1) cl
+> ear
+(3 vars, 87 obs)
+
+. tempfile naics2industry
+
+. save `naics2industry', replace
+(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St52560.000001 no
+> t found)
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St52560.000001 saved
+
+. 
+. clear
+
+. tempfile patterns
+
+. save `patterns', replace emptyok
+(note: dataset contains 0 observations)
+(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St52560.000002 no
+> t found)
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St52560.000002 saved
+
+. foreach m in `months' {
+  2.         import delimited "../../../input/safegraph-industry-location/naics
+> -zip-`m'.csv", clear varnames(1)
+  3.         
+.         generate month = `m'
+  4.         
+.         append using `patterns' 
+  5.         save `patterns', replace
+  6. }
+(6 vars, 1,153,154 obs)
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St52560.000002 saved
+(6 vars, 1,145,889 obs)
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St52560.000002 saved
+
+. 
+. * aggregate to 3-digit naics
+. generate naics_3d = int(naics_code/1000)
+(14,571 missing values generated)
+
+. keep if iso_country_code == "US"
+(1 observation deleted)
+
+. drop iso_country_code
+
+. rename postal_code zip
+
+. 
+. * missing values
+. inspect naics_3d zip
+
+naics_3d:                                       Number of Observations
+-----------                            ---------------------------------------
+                                             Total      Integers   Nonintegers
+|          #                 Negative            -             -             -
+|          #                 Zero                -             -             -
+|          #                 Positive    2,284,472     2,284,472             -
+|          #   #                       -----------   -----------   -----------
+|          #   #             Total       2,284,472     2,284,472             -
+|  .   .   #   #   #         Missing        14,570
++----------------------                -----------
+111                 928                  2,299,042
+  (79 unique values)
+
+zip:                                            Number of Observations
+------                                 ---------------------------------------
+                                             Total      Integers   Nonintegers
+|      #                     Negative            -             -             -
+|      #       #   #         Zero                3             3             -
+|  #   #   #   #   #         Positive    2,299,039     2,299,039             -
+|  #   #   #   #   #                   -----------   -----------   -----------
+|  #   #   #   #   #         Total       2,299,042     2,299,042             -
+|  #   #   #   #   #         Missing             -
++----------------------                -----------
+0                 99999                  2,299,042
+(More than 99 unique values)
+
+. drop if missing(naics_3d, zip)
+(14,570 observations deleted)
+
+. 
+. * convert to our industries
+. merge m:1 naics_3d using `naics2industry', keep(match) nogen
+
+    Result                           # of obs.
+    -----------------------------------------
+    not matched                             0
+    matched                         2,170,101  
+    -----------------------------------------
+
+. 
+. collapse (sum) `variables', by(industry_code zip month)
+
+. 
+. * balance panel
+. reshape wide `variables', i(industry_code zip) j(month)
+(note: j = 2 5)
+
+Data                               long   ->   wide
+-----------------------------------------------------------------------------
+Number of obs.                  1.2e+06   ->  587330
+Number of variables                   5   ->       6
+j variable (2 values)             month   ->   (dropped)
+xij variables:
+                     raw_visitor_counts   ->   raw_visitor_counts2 raw_visitor_
+> counts5
+                       raw_visit_counts   ->   raw_visit_counts2 raw_visit_coun
+> ts5
+-----------------------------------------------------------------------------
+
+. reshape long
+(note: j = 2 5)
+
+Data                               wide   ->   long
+-----------------------------------------------------------------------------
+Number of obs.                   587330   -> 1.2e+06
+Number of variables                   6   ->       5
+j variable (2 values)                     ->   month
+xij variables:
+raw_visitor_counts2 raw_visitor_counts5   ->   raw_visitor_counts
+    raw_visit_counts2 raw_visit_counts5   ->   raw_visit_counts
+-----------------------------------------------------------------------------
+
+. * assume missing data means no visitors
+. mvencode `variables', mv(0) override
+raw_visito~s: 20562 missing values recoded
+raw_visit_~s: 20562 missing values recoded
+
+. 
+. rename raw_visitor_counts visitors
+
+. rename raw_visit_counts visits
+
+. 
+. generate time = cond(month == 5, "_may", "_feb")
+
+. drop month
+
+. reshape wide visitors visits, i(industry_code zip) j(time) string
+(note: j = _feb _may)
+
+Data                               long   ->   wide
+-----------------------------------------------------------------------------
+Number of obs.                  1.2e+06   ->  587330
+Number of variables                   5   ->       6
+j variable (2 values)              time   ->   (dropped)
+xij variables:
+                               visitors   ->   visitors_feb visitors_may
+                                 visits   ->   visits_feb visits_may
+-----------------------------------------------------------------------------
+
+. 
+. save "visit-naics-zip.dta", replace
+file visit-naics-zip.dta saved
+
+. 
+end of do-file

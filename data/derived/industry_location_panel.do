@@ -27,4 +27,11 @@ egen `sum' = sum(cond(!missing(population_density,communication_share),employmen
 generate employment_weight = cond(!missing(population_density,communication_share),employment,0)/`sum'*ces_employment
 
 drop _*
+
+* add safegraph visits data
+* only use visits to plants in CBP
+* if not found, assume 0 visits
+merge 1:1 industry_code zip using "visit/visit-naics-zip.dta", nogen keep(master match)
+mvencode visit*, mv(0) override
+
 save "industry_location_panel.dta", replace

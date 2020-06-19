@@ -1,6 +1,6 @@
 clear all
 
-local weeks 08 15 22
+local months 02 05
 local variables raw_visitor_counts raw_visit_counts
 
 * read industry aggregator
@@ -11,12 +11,11 @@ save `naics2industry', replace
 clear
 tempfile patterns
 save `patterns', replace emptyok
-foreach week in `weeks' {
-	import delimited "naics-zip-2020-03-`week'.csv", clear varnames(1)
+foreach m in `months' {
+	import delimited "../../../input/safegraph-industry-location/naics-zip-`m'.csv", clear varnames(1)
 	
-	* first day of the week
-	generate day = `week'
-
+	generate month = `m'
+	
 	append using `patterns'	
 	save `patterns', replace
 }
@@ -34,10 +33,10 @@ drop if missing(naics_3d, zip)
 * convert to our industries
 merge m:1 naics_3d using `naics2industry', keep(match) nogen
 
-collapse (sum) `variables', by(industry_code zip day)
+collapse (sum) `variables', by(industry_code zip month)
 
 * balance panel
-reshape wide `variables', i(industry_code zip) j(day)
+reshape wide `variables', i(industry_code zip) j(month)
 reshape long
 * assume missing data means no visitors
 mvencode `variables', mv(0) override
@@ -45,16 +44,8 @@ mvencode `variables', mv(0) override
 rename raw_visitor_counts visitors
 rename raw_visit_counts visits
 
-* there are many zeros, compute Davis-Haltiwanger growth rates
-egen i = group(industry_code zip)
-tsset i day
-foreach X of var visitors visits {
-	generate gr_`X' = (`X'-L14.`X')/(`X'+L14.`X')
-	generate lagged_`X' = L14.`X'
-}
-
-* keep week of March 22
-keep if day==22
-keep industry_code zip gr_* lagged_*
+generate time = cond(month == 5, "_may", "_feb")
+drop month
+reshape wide visitors visits, i(industry_code zip) j(time) string
 
 save "visit-naics-zip.dta", replace

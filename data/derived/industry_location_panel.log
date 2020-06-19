@@ -45,9 +45,9 @@ Notes:
 . tempfile industry
 
 . save `industry', replace
-(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St49640.000001 no
+(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St52593.000001 no
 > t found)
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St49640.000001 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St52593.000001 saved
 
 . 
 . import delimited "crosswalk/2digit_names.csv", varnames(1) clear case(preserv
@@ -57,9 +57,9 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St49640.000001 saved
 . tempfile digit2
 
 . save `digit2', replace
-(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St49640.000002 no
+(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St52593.000002 no
 > t found)
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St49640.000002 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St52593.000002 saved
 
 . 
 . import delimited "occupation/naics_risk.csv", varnames(1) clear
@@ -68,9 +68,9 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St49640.000002 saved
 . tempfile occupation
 
 . save `occupation', replace
-(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St49640.000003 no
+(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St52593.000003 no
 > t found)
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St49640.000003 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St52593.000003 saved
 
 . 
 . use "../clean/cbp/zip_code_business_patterns.dta", clear
@@ -111,6 +111,29 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St49640.000003 saved
 . 
 . drop _*
 
+. 
+. * add safegraph visits data
+. * only use visits to plants in CBP
+. * if not found, assume 0 visits
+. merge 1:1 industry_code zip using "visit/visit-naics-zip.dta", nogen keep(mas
+> ter match)
+
+    Result                           # of obs.
+    -----------------------------------------
+    not matched                       147,185
+        from master                   147,185  
+        from using                          0  
+
+    matched                           302,433  
+    -----------------------------------------
+
+. mvencode visit*, mv(0) override
+visitors_feb: 147185 missing values recoded
+  visits_feb: 147185 missing values recoded
+visitors_may: 147185 missing values recoded
+  visits_may: 147185 missing values recoded
+
+. 
 . save "industry_location_panel.dta", replace
 file industry_location_panel.dta saved
 
