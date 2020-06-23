@@ -42,4 +42,5 @@ foreach X of var *_share {
 	lowess `X' ln_density, bw(0.5) generate(`X'_hat)
 }
 
+* FIXME: verify figure with new indexes
 do "fig4.do"
