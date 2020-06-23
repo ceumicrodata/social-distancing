@@ -11,6 +11,7 @@ foreach X of var *_share {
 	replace `X' = round(`X')
 }
 
+* NB: this is a comment
 gsort -face2face_share
 keep if (_n<=5) | (_n>=_N-4)
 
