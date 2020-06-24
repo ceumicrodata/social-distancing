@@ -1,0 +1,99 @@
+
+  ___  ____  ____  ____  ____ (R)
+ /__    /   ____/   /   ____/
+___/   /   /___/   /   /___/   16.1   Copyright 1985-2019 StataCorp LLC
+  Statistics/Data Analysis            StataCorp
+                                      4905 Lakeway Drive
+     MP - Parallel Edition            College Station, Texas 77845 USA
+                                      800-STATA-PC        http://www.stata.com
+                                      979-696-4600        stata@stata.com
+                                      979-696-4601 (fax)
+
+Single-user 2-core Stata perpetual license:
+       Serial number:  501606204617
+         Licensed to:  Miklos Koren
+                       CEU MicroData
+
+Notes:
+      1.  Stata is running in batch mode.
+      2.  Unicode is supported; see help unicode_advice.
+      3.  More than 2 billion observations are allowed; see help obs_advice.
+      4.  Maximum number of variables is set to 5000; see help set_maxvar.
+
+. do scatterplot_validation_teamwork_atus.do 
+
+. clear all
+
+. use "../data/derived/occupation/risks.dta", clear
+
+. 
+. 
+. gen label_teamwork=""
+(819 missing values generated)
+
+. replace label_teamwork="Chief executives" if SOCCode=="11-1011"
+variable label_teamwork was str1 now str16
+(1 real change made)
+
+. replace label_teamwork="Marketing specialists" if SOCCode=="13-1161"
+variable label_teamwork was str16 now str21
+(1 real change made)
+
+. replace label_teamwork="Fundraisers" if SOCCode=="13-1131"
+(1 real change made)
+
+. replace label_teamwork="Geographers" if SOCCode=="19-3092"
+(1 real change made)
+
+.  
+.         
+. gen label_teamwork_interact="" 
+(819 missing values generated)
+
+. replace label_teamwork_interact="Event planners" if SOCCode=="13-1121"
+variable label_teamwork_interact was str1 now str14
+(1 real change made)
+
+. *replace label_teamwork_interact="Civil engineering technicians" if SOCCode==
+> "17-3022"
+. replace label_teamwork_interact="Agricultural and food science technicians" i
+> f SOCCode=="19-4011"
+variable label_teamwork_interact was str14 now str41
+(1 real change made)
+
+. *replace label_teamwork_interact="Chemical technicians" if SOCCode=="19-4031"
+. replace label_teamwork_interact="Healthcare social workers" if SOCCode=="21-1
+> 022"
+(1 real change made)
+
+. 
+. *replace label_teamwork_interact="Oral and maxillofacial surgeons" if SOCCode
+> =="29-1022"
+. replace label_teamwork_interact="Dentists, general" if SOCCode=="29-1021"
+(1 real change made)
+
+. replace label_teamwork_interact="Postal service mail carriers" if SOCCode=="4
+> 3-5052"
+(1 real change made)
+
+. 
+. 
+. twoway (scatter teamwork_index can_wh if teamwork_index>0, mlabel(label_teamw
+> ork) )|| ///
+>         (scatter teamwork_interact_index can_wh if teamwork_interact_index>0,
+>  mlabel( label_teamwork_interact)), graphregion(color(white))  ///
+>         legend(order(1 "teamwork" 2 "teamwork * face-to-face"))  graphregion(
+> margin(3 15 1 3)) ytitle("Teamwork") xtitle("Share of workers who are able to
+>  work from home")
+
+. 
+. 
+. graph export "../text/teamwork_atus_validation.eps", replace
+(note: file ../text/teamwork_atus_validation.eps not found)
+(file ../text/teamwork_atus_validation.eps written in EPS format)
+
+. graph export "../text/teamwork_atus_validation.pdf", replace
+(file ../text/teamwork_atus_validation.pdf written in PDF format)
+
+. 
+end of do-file

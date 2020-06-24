@@ -35,7 +35,7 @@ Notes:
 . foreach x of varlist teamwork_index customer_index presence_index {
   2.         replace `x' = round(`x')
   3. }
-(20 real changes made)
+(18 real changes made)
 (21 real changes made)
 (22 real changes made)
 

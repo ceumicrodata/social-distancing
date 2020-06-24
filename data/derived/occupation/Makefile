@@ -6,7 +6,7 @@ risks_2digit_occupation.csv: risks_2digit_occupation.do risks.dta
 	stata -b do $<
 naics_risk.csv: aggregate_risk_by_naics.do risks.dta ../../clean/employment-matrix/matrix.dta
 	stata -b do $<
-risks.dta: compute_risk_index.do ../../clean/onet/risks.csv
+risks.dta: compute_risk_index.do ../../clean/onet/risks.csv ../crosswalk/census2010_soc2010.dta ../time-use/atus_working_at_home_occupationlevel.dta
 	stata -b do $<
 
 # Data cleaning

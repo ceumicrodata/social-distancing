@@ -46,15 +46,15 @@ Notes:
 . tempfile industry
 
 . save `industry', replace
-(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St49301.000001 no
+(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St01780.000001 no
 > t found)
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St49301.000001 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St01780.000001 saved
 
 . 
 . 
 . import delimited "../data/derived/occupation/naics_risk.csv", varnames(1) cle
 > ar
-(7 vars, 84 obs)
+(22 vars, 84 obs)
 
 . merge m:1 industry_code using `industry', nogen keep(master match)
 
@@ -69,69 +69,8 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St49301.000001 saved
 > ffected_share face2face_share
 
 . keep industry_code industry_label `vars'
+variable face2face_share not found
+r(111);
 
-. order industry_code industry_label `vars'
-
-. 
-. * merge on CES employment to be able to calculate weighted statistics
-. merge 1:1 industry_code using `industry', nogen keep(master match) keepusing(
-> ces_employment)
-
-    Result                           # of obs.
-    -----------------------------------------
-    not matched                             0
-    matched                                84  
-    -----------------------------------------
-
-. 
-. foreach X of var *_share {
-  2.         replace `X' = round(`X')
-  3.         format `X' %10.0f
-  4. }
-(0 real changes made)
-(0 real changes made)
-(0 real changes made)
-(0 real changes made)
-(0 real changes made)
-(0 real changes made)
-
-. foreach X of var ces_employment {
-  2.         replace `X' = round(`X'*10)/10
-  3.         format `X' %11.1f
-  4. }
-(58 real changes made)
-
-. 
-. label variable teamwork_share "Workers in teamwork-intensive occupations (per
-> cent)"
-
-. label variable customer_share "Workers in customer-facing occupations (percen
-> t)"
-
-. label variable presence_share "Workers in occupations requiring physical pres
-> ence (percent)"
-
-. label variable communication_share "Workers in communication-intensive occupa
-> tions (percent)"
-
-. label variable affected_share "Workers in any of the three groups (percent)"
-
-. label variable face2face_share "Workers in face-to-face-intensive occupations
->  (percent)"
-
-. 
-. label variable ces_employment "Industry employment (thousand persons)"
-
-. 
-. gsort -affected_share
-
-. 
-. save "../data/derived/industry-index.dta", replace
-file ../data/derived/industry-index.dta saved
-
-. export delimited "../data/derived/industry-index.csv", replace
-(note: file ../data/derived/industry-index.csv not found)
-file ../data/derived/industry-index.csv saved
-
-. 
 end of do-file
+r(111);

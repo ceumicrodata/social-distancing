@@ -1,0 +1,93 @@
+
+  ___  ____  ____  ____  ____ (R)
+ /__    /   ____/   /   ____/
+___/   /   /___/   /   /___/   16.1   Copyright 1985-2019 StataCorp LLC
+  Statistics/Data Analysis            StataCorp
+                                      4905 Lakeway Drive
+     MP - Parallel Edition            College Station, Texas 77845 USA
+                                      800-STATA-PC        http://www.stata.com
+                                      979-696-4600        stata@stata.com
+                                      979-696-4601 (fax)
+
+Single-user 2-core Stata perpetual license:
+       Serial number:  501606204617
+         Licensed to:  Miklos Koren
+                       CEU MicroData
+
+Notes:
+      1.  Stata is running in batch mode.
+      2.  Unicode is supported; see help unicode_advice.
+      3.  More than 2 billion observations are allowed; see help obs_advice.
+      4.  Maximum number of variables is set to 5000; see help set_maxvar.
+
+. do scatterplot_validation_customer_atus.do 
+
+. clear all
+
+. use "../data/derived/occupation/risks.dta", clear
+
+. 
+. gen label_customer=""
+(819 missing values generated)
+
+. replace label_customer="Education administrators" if SOCCode=="11-9032"
+variable label_customer was str1 now str24
+(1 real change made)
+
+. 
+. replace label_customer="Genetic counselors" if SOCCode=="29-9092"
+(1 real change made)
+
+. replace label_customer="Fundraisers" if SOCCode=="13-1131"
+(1 real change made)
+
+. 
+. replace label_customer="Software developers" if SOCCode=="15-1133"
+(1 real change made)
+
+. 
+. 
+. gen label_customer_interact=""
+(819 missing values generated)
+
+. *replace label_customer_interact="Industrial machinery mechanics"  if SOCCode
+> =="49-9041"
+. replace label_customer_interact="Cleaners of vehicles and equipment"  if SOCC
+> ode=="53-7061"
+variable label_customer_interact was str1 now str34
+(1 real change made)
+
+. replace label_customer_interact="Healthcare social workers"  if SOCCode=="21-
+> 1022"
+(1 real change made)
+
+. *replace label_customer_interact="Oral and maxillofacial surgeons"  if SOCCod
+> e=="29-1022"
+. replace label_customer_interact="Dentists"  if SOCCode=="29-1021"
+(1 real change made)
+
+. replace label_customer_interact="Directors, religious activities and educatio
+> n"  if SOCCode=="21-2021"
+variable label_customer_interact was str34 now str45
+(1 real change made)
+
+. 
+. twoway (scatter customer_index can_wh if customer_index>0, mlabel(label_custo
+> mer) )|| ///
+>         (scatter customer_interact_index can_wh if customer_interact_index>0,
+>  mlabel( label_customer_interact)), graphregion(color(white))  ///
+>         legend(order(1 "customer" 2 "customer * face-to-face"))  graphregion(
+> margin(3 15 1 3)) ytitle("Customer") xtitle("Share of workers who are able to
+>  work from home")
+
+. 
+. 
+. graph export "../text/customer_atus_validation.eps", replace
+(note: file ../text/customer_atus_validation.eps not found)
+(file ../text/customer_atus_validation.eps written in EPS format)
+
+. graph export "../text/customer_atus_validation.pdf", replace
+(file ../text/customer_atus_validation.pdf written in PDF format)
+
+. 
+end of do-file

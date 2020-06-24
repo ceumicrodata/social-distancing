@@ -1,5 +1,3 @@
-cd "C:\Users\Dell\Desktop\social-distance\data\derived\occupation"
-
 clear all
 use "../../clean/employment-matrix/matrix.dta"
 
