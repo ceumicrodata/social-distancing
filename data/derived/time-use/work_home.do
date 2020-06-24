@@ -1,6 +1,8 @@
-cd "C:\Users\Dell\Dropbox\social_distance\social-distancing-master\data\derived\atus"
+cd "C:\Users\Dell\Desktop\social-distance\data\derived\time-use"
 
-use "..\..\raw\bls\atus\atus.dta", clear
+ use "..\..\clean\time-use\atus.dta", clear
+
+
 
 gen can_wh=0
 replace can_wh=1 if lujf_10==1
