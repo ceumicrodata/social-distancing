@@ -10,8 +10,13 @@ risks.dta: compute_risk_index.do ../../clean/onet/risks.csv
 	stata -b do $<
 
 # Data cleaning
-data: ../../clean/onet/risks.csv ../../clean/employment-matrix/matrix.dta
+data: ../../clean/onet/risks.csv ../../clean/employment-matrix/matrix.dta ../crosswalk/census2010_soc2010.dta ../time-use/atus_working_at_home_occupationlevel.dta
 ../../clean/onet/risks.csv:
 	cd $(dir $@) && make
 ../../clean/employment-matrix/matrix.dta:
 	cd $(dir $@) && make
+../crosswalk/census2010_soc2010.dta:
+	cd $(dir $@) && make
+../time-use/atus_working_at_home_occupationlevel.dta:
+	cd $(dir $@) && make
+
