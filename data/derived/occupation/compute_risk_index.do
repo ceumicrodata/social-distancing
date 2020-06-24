@@ -1,8 +1,6 @@
-cd "C:\Users\Dell\Desktop\social-distance\data\derived\occupation"
-
 ******
 *crosswalk
-use "..\crosswalk\census2010_soc2010.dta", clear
+use "../crosswalk/census2010_soc2010.dta", clear
 keep census2010 soccode2010
 duplicates drop
 drop if   census2010=="" | soccode2010==""
@@ -14,7 +12,7 @@ save `crosswalk'
 
 *****
 *atus data
-use "..\time-use\atus_working_at_home_occupationlevel.dta", clear 
+use "../time-use/atus_working_at_home_occupationlevel.dta", clear 
 
 rename teio1ocd census2010
 merge 1:m census2010 using `crosswalk', keep(1 3) nogenerate
@@ -22,9 +20,6 @@ drop census2010
 rename soccode2010 SOCCode
 tempfile atus
 save `atus'
-
-
-
 
 clear
 import delimited "../../clean/onet/risks.csv", case(preserve) varnames(1)
