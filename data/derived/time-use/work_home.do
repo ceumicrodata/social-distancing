@@ -55,7 +55,7 @@ replace wh_1month=1 if lejf_15==6
 label var wh_1month "work home at least once a month or more"
 
 collapse (mean) can_wh ever_wh full_day_wh wh_5days wh_3days wh_1days ///
-wh_2weeks wh_1month (sum) count , by(teio1icd) 
+wh_2weeks wh_1month (sum) count , by(teio1ocd) 
 label var can_wh "as part of the (main) job, can you work at home?"
 label var ever_wh "Do you ever work at home?"
 label var full_day_wh "Are there days when you work only at home?"
@@ -65,6 +65,6 @@ label var wh_1days "work home 1 or more days a week"
 label var wh_2weeks "work home at least once in every 2 weeks or more"
 label var wh_1month "work home at least once a month or more"
 label var count "the number of individual"
-label var teio1icd "occupation code, census 2010"
+label var teio1ocd "occupation code, census 2010"
 
 save "atus_working_at_home_occupationlevel.dta", replace
