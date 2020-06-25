@@ -54,23 +54,23 @@ Millions of workers: 28.746508
 
     Variable |        Obs        Mean    Std. Dev.       Min        Max
 -------------+---------------------------------------------------------
-presence_s~e | 97,549,700    8.817134    13.26236          0         66
+presence_s~e | 97,549,700     8.85405    13.33172          0         66
+Millions of workers: 8.637099
+
+    Variable |        Obs        Mean    Std. Dev.       Min        Max
+-------------+---------------------------------------------------------
+teamwork_i~e | 97,549,700    10.49109    4.944644          4         31
+Millions of workers: 10.234024
+
+    Variable |        Obs        Mean    Std. Dev.       Min        Max
+-------------+---------------------------------------------------------
+customer_i~e | 97,549,700    24.61238    21.78591          1         90
+Millions of workers: 24.009299
+
+    Variable |        Obs        Mean    Std. Dev.       Min        Max
+-------------+---------------------------------------------------------
+presence_i~e | 97,549,700    8.817134    13.26236          0         66
 Millions of workers: 8.601088
-
-    Variable |        Obs        Mean    Std. Dev.       Min        Max
--------------+---------------------------------------------------------
-communicat~e | 97,549,700    42.23107    18.41098          8         91
-Millions of workers: 41.196279
-
-    Variable |        Obs        Mean    Std. Dev.       Min        Max
--------------+---------------------------------------------------------
-affected_s~e | 97,549,700    50.26728    15.56533         18         91
-Millions of workers: 49.035582
-
-    Variable |        Obs        Mean    Std. Dev.       Min        Max
--------------+---------------------------------------------------------
-face2face_~e | 97,549,700    22.62964    20.24656          1         88
-Millions of workers: 22.075143
 
 . 
 . generate naics_2d = industry_code if industry_code<100

@@ -89,7 +89,6 @@ variable label_teamwork_interact was str14 now str41
 . 
 . 
 . graph export "../text/teamwork_atus_validation.eps", replace
-(note: file ../text/teamwork_atus_validation.eps not found)
 (file ../text/teamwork_atus_validation.eps written in EPS format)
 
 . graph export "../text/teamwork_atus_validation.pdf", replace

@@ -28,7 +28,7 @@ Notes:
 
 . 
 . local indexes teamwork customer presence teamwork_interact customer_interact 
-> presence_interact f2f_email f2f prox
+> presence_interact
 
 . 
 . merge m:1 SOCCode using "risks.dta", keep(master match) nogen
@@ -50,9 +50,6 @@ Notes:
 teamwork_i~t: 607 missing values recoded
 customer_i~t: 607 missing values recoded
 presence_i~t: 607 missing values recoded
-   f2f_email: 607 missing values recoded
-         f2f: 607 missing values recoded
-        prox: 607 missing values recoded
 
 . 
 . replace Employment = round(Employment*1000)
@@ -69,18 +66,14 @@ presence_i~t: 607 missing values recoded
 
 . generate byte affected = communication | presence
 
-. * share of workers communicating but not remotely
-. *generate byte face2face = communication & !remote
-. * both or all three
 . 
 . generate byte communication_interact = teamwork_interact|customer_interact
 
 . generate byte affected_interact = communication_interact|presence_interact
 
 . 
-. 
-. foreach X of var `indexes'  communication affected  communication_interact af
-> fected_interact ///
+. foreach X of var `indexes' communication affected communication_interact affe
+> cted_interact ///
 > can_wh ever_wh full_day_wh wh_5days wh_3days wh_1days wh_2weeks wh_1month  {
   2.         generate double `X'_share = `X' * Employment
   3. }
@@ -95,13 +88,13 @@ presence_i~t: 607 missing values recoded
 
 . 
 . collapse (sum) Employment teamwork_share customer_share presence_share ///
-> communication_share affected_share  communication_interact_share affected_int
-> eract_share ///
-> teamwork_interact_share customer_interact_share presence_interact_share ///
-> can_wh_share ever_wh_share full_day_wh_share wh_5days_share wh_3days_share //
-> /
-> wh_1days_share wh_2weeks_share wh_1month_share f2f_email_share f2f_share prox
-> _share, by(industry_code)
+>         communication_share affected_share  communication_interact_share affe
+> cted_interact_share ///
+>         teamwork_interact_share customer_interact_share presence_interact_sha
+> re ///
+>         can_wh_share ever_wh_share full_day_wh_share wh_5days_share wh_3days_
+> share ///
+>         wh_1days_share wh_2weeks_share wh_1month_share, by(industry_code)
 
 . 
 . 
@@ -110,9 +103,6 @@ presence_i~t: 607 missing values recoded
 > can_wh ever_wh full_day_wh wh_5days wh_3days wh_1days wh_2weeks wh_1month  {
   2.         replace `X'_share = round(`X'_share / Employment * 100)
   3. }
-(84 real changes made)
-(84 real changes made)
-(84 real changes made)
 (84 real changes made)
 (84 real changes made)
 (84 real changes made)
@@ -174,14 +164,6 @@ presence_i~t: 607 missing values recoded
 . label var wh_2weeks "work home at least once in every 2 weeks or more"
 
 . label var wh_1month "work home at least once a month or more"
-
-. 
-. label var f2f_email_share "((face2face > 75)&(face2face > email)&(face2face >
->  memo))"
-
-. label var f2f_share "(face2face > 75)"
-
-. label var prox_share "(proximity > 25)"
 
 . 
 . export delimited "naics_risk.csv", replace

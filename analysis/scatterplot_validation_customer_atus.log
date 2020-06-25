@@ -83,7 +83,6 @@ variable label_customer_interact was str34 now str45
 . 
 . 
 . graph export "../text/customer_atus_validation.eps", replace
-(note: file ../text/customer_atus_validation.eps not found)
 (file ../text/customer_atus_validation.eps written in EPS format)
 
 . graph export "../text/customer_atus_validation.pdf", replace

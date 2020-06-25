@@ -46,7 +46,7 @@ census2010: all characters numeric; replaced as int
 . tempfile crosswalk
 
 . save `crosswalk'
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St01714.000001 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St09286.000001 saved
 
 . 
 . *****
@@ -71,7 +71,7 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St01714.000001 saved
 . tempfile atus
 
 . save `atus'
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St01714.000002 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St09286.000002 saved
 
 . 
 . clear
@@ -101,31 +101,6 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St01714.000002 saved
 . * share office or more dense
 . local presence_context (proximity > 25)
 
-. 
-. gen f2f_email = ((face2face > 75)&(face2face > email)&(face2face > memo))
-
-. label var f2f_email "((face2face > 75)&(face2face > email)&(face2face > memo)
-> )"
-
-. gen f2f = (face2face > 75)
-
-. label var f2f "(face2face > 75)"
-
-. gen prox = (proximity > 25)
-
-. label var prox "(proximity > 25)"
-
-. 
-. /*
-> * face2face daily
-> local teamwork_context (face2face > 75)
-> local customer_context (face2face > 75)
-> * share office or more dense
-> local presence_context (proximity > 25)
-> * email and memos daily on average
-> local remote_context (email+memo > 2 * 75)
-> */
-. 
 . 
 . * for tasks
 . local cutoff = 62.5
@@ -167,18 +142,26 @@ Correlation within presence: .68581597
 
 . 
 . foreach X of var teamwork customer presence {
-  2.         gen `X'_interact_index = round(``X'_context' * (`X'))
-  3.         gen `X'_index = round((`X'))
-  4. }
+  2.         generate `X'_interact_index = round(``X'_context' * (`X'))
+  3.         generate `X'_index = round((`X'))
+  4.         
+.         generate  `X'_interact = ``X'_context' * (`X' >= `cutoff')
+  5.         replace `X' = 0 if  (`X' < `cutoff')
+  6.         replace `X' = 1 if  (`X' >= `cutoff')
+  7. }
+(580 real changes made)
+(184 real changes made)
+(560 real changes made)
+(204 real changes made)
+(660 real changes made)
+(104 real changes made)
 
-. label variable teamwork_index "Teamwork communication index [0,100] with cont
-> ext cutoff"
+. 
+. label variable teamwork_index "Teamwork communication index [0,100]"
 
-. label variable customer_index "Customer communication index [0,100] with cont
-> ext cutoff"
+. label variable customer_index "Customer communication index [0,100]"
 
-. label variable presence_index "Physical presence index [0,100] with context c
-> utoff"
+. label variable presence_index "Physical presence index [0,100]"
 
 . 
 . label variable teamwork_interact_index "Teamwork communication index [0,100] 
@@ -189,20 +172,6 @@ Correlation within presence: .68581597
 
 . label variable presence_interact_index "Physical presence index [0,100] with 
 > context cutoff - interaction"
-
-. 
-. foreach X of var teamwork customer  presence {
-  2.         gen  `X'_interact = ``X'_context' * (`X' >= `cutoff')
-  3.         
-.         replace `X' = 0 if  (`X' < `cutoff')
-  4.         replace  `X' = 1  if  (`X' >= `cutoff')
-  5. }
-(580 real changes made)
-(184 real changes made)
-(560 real changes made)
-(204 real changes made)
-(660 real changes made)
-(104 real changes made)
 
 . 
 . 
@@ -228,47 +197,25 @@ Correlation within presence: .68581597
 . label variable customer "Customer communication (dummy)"
 
 . 
-. label variable teamwork_index "Teamwork communication"
-
-. label variable customer_index "Customer communication"
-
-. label variable presence_index "Physical presence"
-
-. label variable customer_index "Customer communication"
-
-. 
-. 
-. 
-. label var f2f_email "((face2face > 75)&(face2face > email)&(face2face > memo)
-> )"
-
-. label var f2f "(face2face > 75)"
-
-. label var prox "(proximity > 25)"
-
-. 
-. keep SOCCode Description f2f_email f2f prox teamwork* customer* presence* 
+. keep SOCCode Description teamwork* customer* presence* 
 
 . drop customers
 
 . compress
-  variable f2f_email was float now byte
-  variable f2f was float now byte
-  variable prox was float now byte
   variable teamwork was float now byte
   variable customer was float now byte
   variable presence was float now byte
   variable teamwork_interact_index was float now byte
   variable teamwork_index was float now byte
+  variable teamwork_interact was float now byte
   variable customer_interact_index was float now byte
   variable customer_index was float now byte
+  variable customer_interact was float now byte
   variable presence_interact_index was float now byte
   variable presence_index was float now byte
-  variable teamwork_interact was float now byte
-  variable customer_interact was float now byte
   variable presence_interact was float now byte
   variable Description was strL now str112
-  (42,968 bytes saved)
+  (36,092 bytes saved)
 
 . 
 . sort SOCCode

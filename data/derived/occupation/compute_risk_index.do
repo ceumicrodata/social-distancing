@@ -38,24 +38,6 @@ local customer_context ((face2face > 75)&(face2face > email)&(face2face > memo))
 * share office or more dense
 local presence_context (proximity > 25)
 
-gen f2f_email = ((face2face > 75)&(face2face > email)&(face2face > memo))
-label var f2f_email "((face2face > 75)&(face2face > email)&(face2face > memo))"
-gen f2f = (face2face > 75)
-label var f2f "(face2face > 75)"
-gen prox = (proximity > 25)
-label var prox "(proximity > 25)"
-
-/*
-* face2face daily
-local teamwork_context (face2face > 75)
-local customer_context (face2face > 75)
-* share office or more dense
-local presence_context (proximity > 25)
-* email and memos daily on average
-local remote_context (email+memo > 2 * 75)
-*/
-
-
 * for tasks
 local cutoff = 62.5
 
@@ -87,23 +69,21 @@ egen customer = rowmean(`customer')
 egen presence = rowmean(`presence')
 
 foreach X of var teamwork customer presence {
-	gen `X'_interact_index = round(``X'_context' * (`X'))
-	gen `X'_index = round((`X'))
+	generate `X'_interact_index = round(``X'_context' * (`X'))
+	generate `X'_index = round((`X'))
+	
+	generate  `X'_interact = ``X'_context' * (`X' >= `cutoff')
+	replace `X' = 0 if  (`X' < `cutoff')
+	replace `X' = 1 if  (`X' >= `cutoff')
 }
-label variable teamwork_index "Teamwork communication index [0,100] with context cutoff"
-label variable customer_index "Customer communication index [0,100] with context cutoff"
-label variable presence_index "Physical presence index [0,100] with context cutoff"
+
+label variable teamwork_index "Teamwork communication index [0,100]"
+label variable customer_index "Customer communication index [0,100]"
+label variable presence_index "Physical presence index [0,100]"
 
 label variable teamwork_interact_index "Teamwork communication index [0,100] with context cutoff - interaction"
 label variable customer_interact_index "Customer communication index [0,100] with context cutoff - interaction"
 label variable presence_interact_index "Physical presence index [0,100] with context cutoff - interaction"
-
-foreach X of var teamwork customer  presence {
-	gen  `X'_interact = ``X'_context' * (`X' >= `cutoff')
-	
-	replace `X' = 0 if  (`X' < `cutoff')
-	replace  `X' = 1  if  (`X' >= `cutoff')
-}
 
 
 label variable teamwork_interact "Teamwork communication (dummy) with context cutoff - interaction"
@@ -116,18 +96,7 @@ label variable customer "Customer communication (dummy)"
 label variable presence "Physical presence (dummy)"
 label variable customer "Customer communication (dummy)"
 
-label variable teamwork_index "Teamwork communication"
-label variable customer_index "Customer communication"
-label variable presence_index "Physical presence"
-label variable customer_index "Customer communication"
-
-
-
-label var f2f_email "((face2face > 75)&(face2face > email)&(face2face > memo))"
-label var f2f "(face2face > 75)"
-label var prox "(proximity > 25)"
-
-keep SOCCode Description f2f_email f2f prox teamwork* customer* presence* 
+keep SOCCode Description teamwork* customer* presence* 
 drop customers
 compress
 

@@ -28,9 +28,8 @@ Notes:
 . use "../data/derived/industry_location_panel.dta", clear
 
 . 
-. collapse (firstnm) ces_employment growth customer_share teamwork_share presen
-> ce_share communication_share face2face_share affected_share , by(industry_cod
-> e industry_label)
+. collapse (firstnm) ces_employment growth customer_* teamwork_* presence_*, by
+> (industry_code industry_label)
 
 . 
 . merge 1:1 industry_code using "../data/derived/visit/visit-change.dta", nogen
@@ -41,6 +40,11 @@ Notes:
     not matched                             0
     matched                                81  
     -----------------------------------------
+
+. * if industry is not in SafeGraph, replace with average visit change in ZIP c
+> ode of industry establishments
+. replace visit_change = local_visit_change if missing(visit_change)
+(18 real changes made)
 
 . 
 . generate str label = ""
@@ -53,10 +57,11 @@ variable label was str1 now str45
 
 . 
 . tw ///
-> (scatter growth face2face_share,  msymbol(circle_hollow) mlabel(label)), ///
+> (scatter growth customer_interact_share,  msymbol(circle_hollow) mlabel(label
+> )), ///
 > scheme(s2mono) graphregion(color(white)) ///
 > ytitle("Change in employment between Feb and May (%)" ) ///
-> xtitle("Share of workers in face-to-face occupations (%)") ///
+> xtitle("Share of workers in customer facing occupations (%)") ///
 > legend(off) ///
 > graphregion(margin(1 40 1 1)) aspect(1)
 
@@ -67,86 +72,79 @@ variable label was str1 now str45
 . graph export "../text/fig5b.pdf", replace
 (file ../text/fig5b.pdf written in PDF format)
 
+. 
+. foreach X in customer teamwork presence {
+  2.         generate `X'_resilient_share = `X'_share - `X'_interact_share
+  3.         generate visit_X_`X'_res = visit_change * `X'_resilient_share / 10
+> 0
+  4.         generate visit_X_`X'_aff = visit_change * `X'_interact_share / 100
+  5. }
+(2 missing values generated)
+(2 missing values generated)
+(2 missing values generated)
+(2 missing values generated)
+(2 missing values generated)
+(2 missing values generated)
+
 .         
 . regress growth customer_share teamwork_share presence_share, robust
 
 Linear regression                               Number of obs     =         79
-                                                F(3, 75)          =       7.81
+                                                F(3, 75)          =       7.87
                                                 Prob > F          =     0.0001
-                                                R-squared         =     0.2539
-                                                Root MSE          =     14.274
+                                                R-squared         =     0.2568
+                                                Root MSE          =     14.247
 
 ------------------------------------------------------------------------------
              |               Robust
       growth |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
-customer_s~e |   -.189989   .0937814    -2.03   0.046    -.3768112   -.0031668
-teamwork_s~e |    .508849   .1098257     4.63   0.000      .290065    .7276329
-presence_s~e |   .1685296   .0802547     2.10   0.039     .0086541    .3284051
-       _cons |  -23.08531   4.130731    -5.59   0.000    -31.31415   -14.85647
+customer_s~e |  -.1850973   .0939995    -1.97   0.053    -.3723539    .0021594
+teamwork_s~e |   .5184964    .111249     4.66   0.000     .2968769    .7401159
+presence_s~e |   .1706908   .0747569     2.28   0.025     .0217675    .3196141
+       _cons |  -23.55196   4.217306    -5.58   0.000    -31.95326   -15.15066
 ------------------------------------------------------------------------------
 
-. regress growth customer_share teamwork_share presence_share face2face_share, 
-> robust
+. regress growth customer_interact_share teamwork_interact_share presence_inter
+> act_share, robust
 
 Linear regression                               Number of obs     =         79
-                                                F(4, 74)          =       6.16
-                                                Prob > F          =     0.0002
-                                                R-squared         =     0.2757
-                                                Root MSE          =     14.159
+                                                F(3, 75)          =       3.49
+                                                Prob > F          =     0.0198
+                                                R-squared         =     0.1752
+                                                Root MSE          =     15.008
 
 ------------------------------------------------------------------------------
              |               Robust
       growth |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
-customer_s~e |   .0844223   .1190089     0.71   0.480    -.1527081    .3215526
-teamwork_s~e |   .4401719    .103621     4.25   0.000     .2337026    .6466413
-presence_s~e |   .1816919   .0767528     2.37   0.021     .0287586    .3346253
-face2face_~e |  -.3187978   .1554729    -2.05   0.044    -.6285844   -.0090112
-       _cons |  -22.03784   3.987718    -5.53   0.000    -29.98354   -14.09214
+customer_i~e |  -.2719762   .1075085    -2.53   0.014    -.4861441   -.0578083
+teamwork_i~e |   .0169286   .3712247     0.05   0.964    -.7225888    .7564461
+presence_i~e |   .0599678   .0841333     0.71   0.478    -.1076344      .22757
+       _cons |   -9.79693   3.785706    -2.59   0.012    -17.33844   -2.255417
 ------------------------------------------------------------------------------
 
-. regress growth customer_share teamwork_share presence_share face2face_share v
-> isit_change, robust
+. 
+. regress growth visit_change visit_X_*, robust
 
-Linear regression                               Number of obs     =         61
-                                                F(5, 55)          =       7.31
+Linear regression                               Number of obs     =         79
+                                                F(7, 71)          =      12.75
                                                 Prob > F          =     0.0000
-                                                R-squared         =     0.4469
-                                                Root MSE          =     12.783
+                                                R-squared         =     0.5868
+                                                Root MSE          =     10.918
 
 ------------------------------------------------------------------------------
              |               Robust
       growth |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
-customer_s~e |   .0328583    .158977     0.21   0.837    -.2857387    .3514553
-teamwork_s~e |   .6829973   .1801992     3.79   0.000     .3218701    1.044124
-presence_s~e |   .1448573   .1062527     1.36   0.178     -.068078    .3577925
-face2face_~e |   -.245941   .1874325    -1.31   0.195    -.6215642    .1296822
-visit_change |   .3153943   .0781661     4.03   0.000     .1587459    .4720427
-       _cons |  -14.38788   5.727061    -2.51   0.015    -25.86516   -2.910589
-------------------------------------------------------------------------------
-
-. regress growth customer_share teamwork_share presence_share face2face_share v
-> isit_change local_visit_change, robust
-
-Linear regression                               Number of obs     =         61
-                                                F(6, 54)          =       7.19
-                                                Prob > F          =     0.0000
-                                                R-squared         =     0.4830
-                                                Root MSE          =     12.472
-
-------------------------------------------------------------------------------
-             |               Robust
-      growth |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
--------------+----------------------------------------------------------------
-customer_s~e |    .052047   .1648868     0.32   0.753    -.2785311    .3826251
-teamwork_s~e |   .8901136   .2059214     4.32   0.000      .477266    1.302961
-presence_s~e |    .111752   .1050158     1.06   0.292     -.098792     .322296
-face2face_~e |  -.2570838    .193707    -1.33   0.190     -.645443    .1312754
-visit_change |   .2257354   .0761129     2.97   0.004     .0731382    .3783325
-local_visi~e |   .4850993   .1935489     2.51   0.015     .0970571    .8731416
-       _cons |    1.85158   8.573968     0.22   0.830    -15.33819    19.04135
+visit_change |   .3702219   .1265632     2.93   0.005      .117862    .6225817
+visit_X_cu~s |  -1.147368   .5360192    -2.14   0.036     -2.21616   -.0785757
+visit_X_cu~f |   .5981393   .1996491     3.00   0.004     .2000502    .9962284
+visit_X_te~s |  -.8806714   .2644349    -3.33   0.001     -1.40794   -.3534033
+visit_X_te~f |  -.1848616   .6184427    -0.30   0.766    -1.418001    1.048278
+visit_X_pr~s |    .061753     .21052     0.29   0.770     -.358012    .4815179
+visit_X_pr~f |  -.5099755   .2047084    -2.49   0.015    -.9181524   -.1017986
+       _cons |  -4.434232   2.950784    -1.50   0.137    -10.31793    1.449464
 ------------------------------------------------------------------------------
 
 . 
