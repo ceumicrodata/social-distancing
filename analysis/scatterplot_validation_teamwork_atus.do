@@ -1,6 +1,15 @@
 clear all
 use "../data/derived/occupation/risks.dta", clear
 
+* aggregate to ATUS occupation categories
+collapse (mean) teamwork_index teamwork_interact_index can_wh (firstnm) SOCCode, by(census2010)
+
+* use percent everywhere
+replace can_wh = 100 * can_wh
+* add random noise so more can be seen in figure
+set seed 1
+replace can_wh = can_wh + 2 * (uniform() - 0.5)
+
 
 gen label_teamwork=""
 replace label_teamwork="Chief executives" if SOCCode=="11-1011"
@@ -21,9 +30,10 @@ replace label_teamwork_interact="Dentists, general" if SOCCode=="29-1021"
 replace label_teamwork_interact="Postal service mail carriers" if SOCCode=="43-5052"
 
 
-twoway (scatter teamwork_index can_wh if teamwork_index>0, mlabel(label_teamwork) )|| ///
-	(scatter teamwork_interact_index can_wh if teamwork_interact_index>0, mlabel( label_teamwork_interact)), graphregion(color(white))  ///
-	legend(order(1 "teamwork" 2 "teamwork * face-to-face"))  graphregion(margin(3 15 1 3)) ytitle("Teamwork") xtitle("Share of workers who are able to work from home")
+twoway (scatter teamwork_interact_index can_wh if teamwork_interact_index>0, msymbol(O)) ///
+	(scatter teamwork_index can_wh if teamwork_index>0 & teamwork_interact_index==0, msymbol(Oh)) ///
+	, graphregion(color(white)) scheme(s2mono)  ///
+	legend(order(1 "Face to face" 2 "Emails and memos"))  graphregion(margin(3 15 1 3)) ytitle("Teamwork index") xtitle("Share of workers who are able to work from home") 
 
 
 graph export "../text/teamwork_atus_validation.eps", replace

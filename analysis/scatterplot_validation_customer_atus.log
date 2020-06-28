@@ -27,28 +27,44 @@ Notes:
 . use "../data/derived/occupation/risks.dta", clear
 
 . 
-. gen label_customer=""
-(819 missing values generated)
+. * aggregate to ATUS occupation categories
+. collapse (mean) customer_index customer_interact_index can_wh (firstnm) SOCCo
+> de, by(census2010)
+
+. 
+. * use percent everywhere
+. replace can_wh = 100 * can_wh
+(277 real changes made)
+
+. * add random noise so more can be seen in figure
+. set seed 1
+
+. replace can_wh = can_wh + 2 * (uniform() - 0.5)
+(443 real changes made)
+
+. 
+. generate label_customer=""
+(444 missing values generated)
 
 . replace label_customer="Education administrators" if SOCCode=="11-9032"
-variable label_customer was str1 now str24
-(1 real change made)
+(0 real changes made)
 
 . 
 . replace label_customer="Genetic counselors" if SOCCode=="29-9092"
-(1 real change made)
+(0 real changes made)
 
 . replace label_customer="Fundraisers" if SOCCode=="13-1131"
+variable label_customer was str1 now str11
 (1 real change made)
 
 . 
 . replace label_customer="Software developers" if SOCCode=="15-1133"
-(1 real change made)
+(0 real changes made)
 
 . 
 . 
-. gen label_customer_interact=""
-(819 missing values generated)
+. generate label_customer_interact=""
+(444 missing values generated)
 
 . *replace label_customer_interact="Industrial machinery mechanics"  if SOCCode
 > =="49-9041"
@@ -59,7 +75,7 @@ variable label_customer_interact was str1 now str34
 
 . replace label_customer_interact="Healthcare social workers"  if SOCCode=="21-
 > 1022"
-(1 real change made)
+(0 real changes made)
 
 . *replace label_customer_interact="Oral and maxillofacial surgeons"  if SOCCod
 > e=="29-1022"
@@ -72,13 +88,14 @@ variable label_customer_interact was str34 now str45
 (1 real change made)
 
 . 
-. twoway (scatter customer_index can_wh if customer_index>0, mlabel(label_custo
-> mer) )|| ///
->         (scatter customer_interact_index can_wh if customer_interact_index>0,
->  mlabel( label_customer_interact)), graphregion(color(white))  ///
->         legend(order(1 "customer" 2 "customer * face-to-face"))  graphregion(
-> margin(3 15 1 3)) ytitle("Customer") xtitle("Share of workers who are able to
->  work from home")
+. twoway (scatter customer_interact_index can_wh if customer_interact_index>0, 
+> msymbol(O)) ///
+>         (scatter customer_index can_wh if customer_index>0 & customer_interac
+> t_index==0, msymbol(Oh)) ///
+>         , graphregion(color(white)) scheme(s2mono)  ///
+>         legend(order(1 "Face to face" 2 "Emails and memos"))  graphregion(mar
+> gin(3 15 1 3)) ytitle("Customer interaction index") xtitle("Share of workers 
+> who are able to work from home") 
 
 . 
 . 

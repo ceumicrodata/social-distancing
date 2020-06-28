@@ -46,7 +46,7 @@ census2010: all characters numeric; replaced as int
 . tempfile crosswalk
 
 . save `crosswalk'
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St09286.000001 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St17144.000001 saved
 
 . 
 . *****
@@ -64,14 +64,13 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St09286.000001 saved
     matched                               709  
     -----------------------------------------
 
-. drop census2010
-
+. 
 . rename soccode2010 SOCCode
 
 . tempfile atus
 
 . save `atus'
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St09286.000002 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St17144.000002 saved
 
 . 
 . clear
@@ -231,6 +230,7 @@ Correlation within presence: .68581597
     matched                               654  (_merge==3)
     -----------------------------------------
 
+. * keep census code for future reference
 . 
 . /*NOTE
 > there are occupations that are only in ONet

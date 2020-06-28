@@ -16,7 +16,7 @@ use "../time-use/atus_working_at_home_occupationlevel.dta", clear
 
 rename teio1ocd census2010
 merge 1:m census2010 using `crosswalk', keep(1 3) nogenerate
-drop census2010
+
 rename soccode2010 SOCCode
 tempfile atus
 save `atus'
@@ -102,6 +102,7 @@ compress
 
 sort SOCCode
 merge 1:1 SOCCode using `atus'
+* keep census code for future reference
 
 /*NOTE
 there are occupations that are only in ONet
