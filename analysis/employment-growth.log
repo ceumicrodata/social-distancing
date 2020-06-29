@@ -114,15 +114,13 @@ variable presence_interact_share was byte now float
 
 . label variable teamwork_share "Teamwork-intensive workers (share, [0,1])"
 
-. label variable presence_share "Presence-intensive workers (share, [0,1])"
+. label variable presence_interact_share "Presence-intensive workers (share, [0
+> ,1])"
 
 . 
 . label variable customer_interact_share "   of which face-to-face intensive"
 
 . label variable teamwork_interact_share "   of which face-to-face intensive"
-
-. label variable presence_interact_share "   of which in close proximity to oth
-> ers"
 
 . 
 . label variable ln_visit_change "Change in number of monthly visits (log)"
@@ -132,23 +130,23 @@ variable presence_interact_share was byte now float
 . label variable visit_X_teamwork "   X share can work from home (teamwork)"
 
 . 
-. eststo: regress ln_growth customer_share teamwork_share presence_share, robus
-> t
+. eststo: regress ln_growth customer_share teamwork_share presence_interact_sha
+> re, robust
 
 Linear regression                               Number of obs     =         79
-                                                F(3, 75)          =       7.22
+                                                F(3, 75)          =       7.17
                                                 Prob > F          =     0.0003
-                                                R-squared         =     0.2480
-                                                Root MSE          =     .20605
+                                                R-squared         =     0.2454
+                                                Root MSE          =      .2064
 
 ------------------------------------------------------------------------------
              |               Robust
    ln_growth |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
-customer_s~e |  -.2861363   .1379903    -2.07   0.042    -.5610271   -.0112455
-teamwork_s~e |    .689622   .1583899     4.35   0.000     .3740931    1.005151
-presence_s~e |   .2270336    .103223     2.20   0.031     .0214029    .4326643
-       _cons |  -.2896717   .0582108    -4.98   0.000    -.4056336   -.1737099
+customer_s~e |  -.2928284   .1377891    -2.13   0.037    -.5673184   -.0183385
+teamwork_s~e |   .6766013   .1563255     4.33   0.000     .3651848    .9880177
+presence_i~e |   .2235249   .1113842     2.01   0.048     .0016363    .4454136
+       _cons |  -.2832966   .0568781    -4.98   0.000    -.3966035   -.1699897
 ------------------------------------------------------------------------------
 (est1 stored)
 
@@ -219,7 +217,8 @@ visit_X_te~k |  -.8809391   .2168583    -4.06   0.000    -1.313342   -.4485358
 . 
 . esttab using "../text/regression.tex", r2 star(* .1 ** .05 *** .01) se b(3) o
 > rder(customer_share customer_interact_share teamwork_share teamwork_interact_
-> share) noconstant nonote alignment(D{.}{.}{-1}) replace label
+> share presence_interact_share ln_visit_change visit_X_customer visit_X_custom
+> er) noconstant nonote alignment(D{.}{.}{-1}) replace label
 (output written to ../text/regression.tex)
 
 . 
