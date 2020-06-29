@@ -15,7 +15,7 @@ gen label_teamwork=""
 replace label_teamwork="Chief executives" if SOCCode=="11-1011"
 replace label_teamwork="Marketing specialists" if SOCCode=="13-1161"
 replace label_teamwork="Fundraisers" if SOCCode=="13-1131"
-replace label_teamwork="Geographers" if SOCCode=="19-3092"
+*replace label_teamwork="Geographers" if SOCCode=="19-3092"
  
 	
 gen label_teamwork_interact="" 
@@ -30,8 +30,8 @@ replace label_teamwork_interact="Dentists, general" if SOCCode=="29-1021"
 replace label_teamwork_interact="Postal service mail carriers" if SOCCode=="43-5052"
 
 
-twoway (scatter teamwork_interact_index can_wh if teamwork_interact_index>0, msymbol(O)) ///
-	(scatter teamwork_index can_wh if teamwork_index>0 & teamwork_interact_index==0, msymbol(Oh)) ///
+twoway (scatter teamwork_interact_index can_wh if teamwork_interact_index>0, msymbol(O) mlabel(label_teamwork_interact)) ///
+	(scatter teamwork_index can_wh if teamwork_index>0 & teamwork_interact_index==0, msymbol(Oh) mlabel(label_teamwork)) ///
 	, graphregion(color(white)) scheme(s2mono)  ///
 	legend(order(1 "Face to face" 2 "Emails and memos"))  graphregion(margin(3 15 1 3)) ytitle("Teamwork index") xtitle("Share of workers who are able to work from home") 
 
