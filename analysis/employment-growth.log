@@ -73,79 +73,154 @@ variable label was str1 now str45
 (file ../text/fig5b.pdf written in PDF format)
 
 . 
-. foreach X in customer teamwork presence {
-  2.         generate `X'_resilient_share = `X'_share - `X'_interact_share
-  3.         generate visit_X_`X'_res = visit_change * `X'_resilient_share / 10
-> 0
-  4.         generate visit_X_`X'_aff = visit_change * `X'_interact_share / 100
-  5. }
+. * transformations for regressions
+. foreach X of var growth visit_change {
+  2.         generate ln_`X' = ln(1 + `X' / 100)
+  3. }
 (2 missing values generated)
-(2 missing values generated)
-(2 missing values generated)
-(2 missing values generated)
-(2 missing values generated)
-(2 missing values generated)
-
-.         
-. regress growth customer_share teamwork_share presence_share, robust
-
-Linear regression                               Number of obs     =         79
-                                                F(3, 75)          =       7.87
-                                                Prob > F          =     0.0001
-                                                R-squared         =     0.2568
-                                                Root MSE          =     14.247
-
-------------------------------------------------------------------------------
-             |               Robust
-      growth |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
--------------+----------------------------------------------------------------
-customer_s~e |  -.1850973   .0939995    -1.97   0.053    -.3723539    .0021594
-teamwork_s~e |   .5184964    .111249     4.66   0.000     .2968769    .7401159
-presence_s~e |   .1706908   .0747569     2.28   0.025     .0217675    .3196141
-       _cons |  -23.55196   4.217306    -5.58   0.000    -31.95326   -15.15066
-------------------------------------------------------------------------------
-
-. regress growth customer_interact_share teamwork_interact_share presence_inter
-> act_share, robust
-
-Linear regression                               Number of obs     =         79
-                                                F(3, 75)          =       3.49
-                                                Prob > F          =     0.0198
-                                                R-squared         =     0.1752
-                                                Root MSE          =     15.008
-
-------------------------------------------------------------------------------
-             |               Robust
-      growth |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
--------------+----------------------------------------------------------------
-customer_i~e |  -.2719762   .1075085    -2.53   0.014    -.4861441   -.0578083
-teamwork_i~e |   .0169286   .3712247     0.05   0.964    -.7225888    .7564461
-presence_i~e |   .0599678   .0841333     0.71   0.478    -.1076344      .22757
-       _cons |   -9.79693   3.785706    -2.59   0.012    -17.33844   -2.255417
-------------------------------------------------------------------------------
+(3 missing values generated)
 
 . 
-. regress growth visit_change visit_X_*, robust
+. foreach X of var *share {
+  2.         replace `X' = `X' / 100
+  3. }
+variable customer_share was byte now float
+(81 real changes made)
+variable customer_interact_share was byte now float
+(81 real changes made)
+variable teamwork_share was byte now float
+(81 real changes made)
+variable teamwork_interact_share was byte now float
+(81 real changes made)
+variable presence_share was byte now float
+(70 real changes made)
+variable presence_interact_share was byte now float
+(70 real changes made)
+
+. 
+. foreach X in customer teamwork {
+  2.         generate `X'_wfh_share = (`X'_share - `X'_interact_share) / `X'_sh
+> are
+  3.         generate visit_X_`X' = ln_visit_change * `X'_wfh_share
+  4. }
+(3 missing values generated)
+(3 missing values generated)
+
+. 
+. label variable ln_growth "Employment change (log)"
+
+. 
+. label variable customer_share "Customer-facing workers (share, [0,1])"
+
+. label variable teamwork_share "Teamwork-intensive workers (share, [0,1])"
+
+. label variable presence_share "Presence-intensive workers (share, [0,1])"
+
+. 
+. label variable customer_interact_share "   of which face-to-face intensive"
+
+. label variable teamwork_interact_share "   of which face-to-face intensive"
+
+. label variable presence_interact_share "   of which in close proximity to oth
+> ers"
+
+. 
+. label variable ln_visit_change "Change in number of monthly visits (log)"
+
+. label variable visit_X_customer "   X share can work from home (customer)"
+
+. label variable visit_X_teamwork "   X share can work from home (teamwork)"
+
+. 
+. eststo: regress ln_growth customer_share teamwork_share presence_share, robus
+> t
 
 Linear regression                               Number of obs     =         79
-                                                F(7, 71)          =      12.75
-                                                Prob > F          =     0.0000
-                                                R-squared         =     0.5868
-                                                Root MSE          =     10.918
+                                                F(3, 75)          =       7.22
+                                                Prob > F          =     0.0003
+                                                R-squared         =     0.2480
+                                                Root MSE          =     .20605
 
 ------------------------------------------------------------------------------
              |               Robust
-      growth |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+   ln_growth |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
-visit_change |   .3702219   .1265632     2.93   0.005      .117862    .6225817
-visit_X_cu~s |  -1.147368   .5360192    -2.14   0.036     -2.21616   -.0785757
-visit_X_cu~f |   .5981393   .1996491     3.00   0.004     .2000502    .9962284
-visit_X_te~s |  -.8806714   .2644349    -3.33   0.001     -1.40794   -.3534033
-visit_X_te~f |  -.1848616   .6184427    -0.30   0.766    -1.418001    1.048278
-visit_X_pr~s |    .061753     .21052     0.29   0.770     -.358012    .4815179
-visit_X_pr~f |  -.5099755   .2047084    -2.49   0.015    -.9181524   -.1017986
-       _cons |  -4.434232   2.950784    -1.50   0.137    -10.31793    1.449464
+customer_s~e |  -.2861363   .1379903    -2.07   0.042    -.5610271   -.0112455
+teamwork_s~e |    .689622   .1583899     4.35   0.000     .3740931    1.005151
+presence_s~e |   .2270336    .103223     2.20   0.031     .0214029    .4326643
+       _cons |  -.2896717   .0582108    -4.98   0.000    -.4056336   -.1737099
 ------------------------------------------------------------------------------
+(est1 stored)
+
+. eststo: regress ln_growth customer_interact_share teamwork_interact_share pre
+> sence_interact_share, robust
+
+Linear regression                               Number of obs     =         79
+                                                F(3, 75)          =       3.59
+                                                Prob > F          =     0.0175
+                                                R-squared         =     0.1834
+                                                Root MSE          =     .21472
+
+------------------------------------------------------------------------------
+             |               Robust
+   ln_growth |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+customer_i~e |   -.408574   .1583391    -2.58   0.012    -.7240017   -.0931464
+teamwork_i~e |   .1073706   .5308893     0.20   0.840    -.9502151    1.164956
+presence_i~e |   .0785976   .1197762     0.66   0.514    -.1600088    .3172041
+       _cons |   -.115196    .051875    -2.22   0.029    -.2185364   -.0118557
+------------------------------------------------------------------------------
+(est2 stored)
+
+. eststo: regress ln_growth customer_interact_share teamwork_interact_share pre
+> sence_interact_share ln_visit_change, robust
+
+Linear regression                               Number of obs     =         78
+                                                F(4, 73)          =       6.19
+                                                Prob > F          =     0.0002
+                                                R-squared         =     0.3073
+                                                Root MSE          =      .1998
+
+------------------------------------------------------------------------------
+             |               Robust
+   ln_growth |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+customer_i~e |  -.4533396   .1418884    -3.20   0.002    -.7361228   -.1705565
+teamwork_i~e |   .3434905   .4862987     0.71   0.482    -.6257015    1.312683
+presence_i~e |  -.0529249   .1275178    -0.42   0.679    -.3070675    .2012178
+ln_visit_c~e |   .1875666   .0586468     3.20   0.002     .0706836    .3044495
+       _cons |  -.0025604   .0531134    -0.05   0.962    -.1084153    .1032944
+------------------------------------------------------------------------------
+(est3 stored)
+
+. eststo: regress ln_growth customer_interact_share teamwork_interact_share pre
+> sence_interact_share ln_visit_change visit_X_*, robust
+
+Linear regression                               Number of obs     =         78
+                                                F(6, 71)          =       6.46
+                                                Prob > F          =     0.0000
+                                                R-squared         =     0.5931
+                                                Root MSE          =     .15527
+
+------------------------------------------------------------------------------
+             |               Robust
+   ln_growth |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+customer_i~e |  -.2398222   .1095299    -2.19   0.032    -.4582187   -.0214257
+teamwork_i~e |   1.203933   .4873889     2.47   0.016     .2321073    2.175759
+presence_i~e |   .0831707   .0906629     0.92   0.362     -.097606    .2639474
+ln_visit_c~e |   .6441731   .1291648     4.99   0.000     .3866258    .9017203
+visit_X_cu~r |   .0007319   .1643109     0.00   0.996    -.3268947    .3283585
+visit_X_te~k |  -.8809391   .2168583    -4.06   0.000    -1.313342   -.4485358
+       _cons |  -.1351455   .0476111    -2.84   0.006    -.2300793   -.0402116
+------------------------------------------------------------------------------
+(est4 stored)
+
+. 
+. esttab using "../text/regression.tex", r2 star(* .1 ** .05 *** .01) se b(3) o
+> rder(customer_share customer_interact_share teamwork_share teamwork_interact_
+> share) noconstant nonote alignment(D{.}{.}{-1}) replace label
+(output written to ../text/regression.tex)
 
 . 
 end of do-file

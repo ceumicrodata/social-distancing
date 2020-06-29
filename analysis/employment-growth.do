@@ -22,13 +22,37 @@ graphregion(margin(1 40 1 1)) aspect(1)
 graph export "../text/fig5b.eps", replace
 graph export "../text/fig5b.pdf", replace
 
-foreach X in customer teamwork presence {
-	generate `X'_resilient_share = `X'_share - `X'_interact_share
-	generate visit_X_`X'_res = visit_change * `X'_resilient_share / 100
-	generate visit_X_`X'_aff = visit_change * `X'_interact_share / 100
+* transformations for regressions
+foreach X of var growth visit_change {
+	generate ln_`X' = ln(1 + `X' / 100)
 }
-	
-regress growth customer_share teamwork_share presence_share, robust
-regress growth customer_interact_share teamwork_interact_share presence_interact_share, robust
 
-regress growth visit_change visit_X_*, robust
+foreach X of var *share {
+	replace `X' = `X' / 100
+}
+
+foreach X in customer teamwork {
+	generate `X'_wfh_share = (`X'_share - `X'_interact_share) / `X'_share
+	generate visit_X_`X' = ln_visit_change * `X'_wfh_share
+}
+
+label variable ln_growth "Employment change (log)"
+
+label variable customer_share "Customer-facing workers (share, [0,1])"
+label variable teamwork_share "Teamwork-intensive workers (share, [0,1])"
+label variable presence_share "Presence-intensive workers (share, [0,1])"
+
+label variable customer_interact_share "   of which face-to-face intensive"
+label variable teamwork_interact_share "   of which face-to-face intensive"
+label variable presence_interact_share "   of which in close proximity to others"
+
+label variable ln_visit_change "Change in number of monthly visits (log)"
+label variable visit_X_customer "   X share can work from home (customer)"
+label variable visit_X_teamwork "   X share can work from home (teamwork)"
+
+eststo: regress ln_growth customer_share teamwork_share presence_share, robust
+eststo: regress ln_growth customer_interact_share teamwork_interact_share presence_interact_share, robust
+eststo: regress ln_growth customer_interact_share teamwork_interact_share presence_interact_share ln_visit_change, robust
+eststo: regress ln_growth customer_interact_share teamwork_interact_share presence_interact_share ln_visit_change visit_X_*, robust
+
+esttab using "../text/regression.tex", r2 star(* .1 ** .05 *** .01) se b(3) order(customer_share customer_interact_share teamwork_share teamwork_interact_share) noconstant nonote alignment(D{.}{.}{-1}) replace label
