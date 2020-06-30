@@ -101,7 +101,7 @@ variable presence_interact_share was byte now float
 . foreach X in customer teamwork {
   2.         generate `X'_wfh_share = (`X'_share - `X'_interact_share) / `X'_sh
 > are
-  3.         generate visit_X_`X' = ln_visit_change * `X'_wfh_share
+  3.         generate visit_X_`X' = ln_visit_change * `X'_interact_share
   4. }
 (3 missing values generated)
 (3 missing values generated)
@@ -118,16 +118,16 @@ variable presence_interact_share was byte now float
 > ,1])"
 
 . 
-. label variable customer_interact_share "   of which face-to-face intensive"
+. label variable customer_interact_share "--of which face-to-face intensive"
 
-. label variable teamwork_interact_share "   of which face-to-face intensive"
+. label variable teamwork_interact_share "--of which face-to-face intensive"
 
 . 
 . label variable ln_visit_change "Change in number of monthly visits (log)"
 
-. label variable visit_X_customer "   X share can work from home (customer)"
+. label variable visit_X_customer "--times customer-facing share"
 
-. label variable visit_X_teamwork "   X share can work from home (teamwork)"
+. label variable visit_X_teamwork "--times teamwork-intensive share"
 
 . 
 . eststo: regress ln_growth customer_share teamwork_share presence_interact_sha
@@ -195,22 +195,22 @@ ln_visit_c~e |   .1875666   .0586468     3.20   0.002     .0706836    .3044495
 > sence_interact_share ln_visit_change visit_X_*, robust
 
 Linear regression                               Number of obs     =         78
-                                                F(6, 71)          =       6.46
+                                                F(6, 71)          =       7.23
                                                 Prob > F          =     0.0000
-                                                R-squared         =     0.5931
-                                                Root MSE          =     .15527
+                                                R-squared         =     0.4525
+                                                Root MSE          =     .18012
 
 ------------------------------------------------------------------------------
              |               Robust
    ln_growth |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
-customer_i~e |  -.2398222   .1095299    -2.19   0.032    -.4582187   -.0214257
-teamwork_i~e |   1.203933   .4873889     2.47   0.016     .2321073    2.175759
-presence_i~e |   .0831707   .0906629     0.92   0.362     -.097606    .2639474
-ln_visit_c~e |   .6441731   .1291648     4.99   0.000     .3866258    .9017203
-visit_X_cu~r |   .0007319   .1643109     0.00   0.996    -.3268947    .3283585
-visit_X_te~k |  -.8809391   .2168583    -4.06   0.000    -1.313342   -.4485358
-       _cons |  -.1351455   .0476111    -2.84   0.006    -.2300793   -.0402116
+customer_i~e |   .0662021   .1549381     0.43   0.670    -.2427357    .3751399
+teamwork_i~e |   .3999062   .7596269     0.53   0.600    -1.114747    1.914559
+presence_i~e |    .005331   .1066123     0.05   0.960    -.2072479      .21791
+ln_visit_c~e |  -.0841952   .1216257    -0.69   0.491    -.3267099    .1583195
+visit_X_cu~r |   1.105441   .3790497     2.92   0.005     .3496377    1.861245
+visit_X_te~k |  -.1179246   1.269766    -0.09   0.926    -2.649766    2.413917
+       _cons |  -.1538973   .0737578    -2.09   0.041    -.3009661   -.0068285
 ------------------------------------------------------------------------------
 (est4 stored)
 
@@ -218,7 +218,8 @@ visit_X_te~k |  -.8809391   .2168583    -4.06   0.000    -1.313342   -.4485358
 . esttab using "../text/regression.tex", r2 star(* .1 ** .05 *** .01) se b(3) o
 > rder(customer_share customer_interact_share teamwork_share teamwork_interact_
 > share presence_interact_share ln_visit_change visit_X_customer visit_X_custom
-> er) noconstant nonote alignment(D{.}{.}{-1}) replace label
+> er) noconstant nonote alignment(D{.}{.}{-1}) mtitles("" "" "" "") replace lab
+> el
 (output written to ../text/regression.tex)
 
 . 
