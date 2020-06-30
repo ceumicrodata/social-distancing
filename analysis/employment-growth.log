@@ -218,8 +218,8 @@ visit_X_te~k |  -.1179246   1.269766    -0.09   0.926    -2.649766    2.413917
 . esttab using "../text/regression.tex", r2 star(* .1 ** .05 *** .01) se b(3) o
 > rder(customer_share customer_interact_share teamwork_share teamwork_interact_
 > share presence_interact_share ln_visit_change visit_X_customer visit_X_custom
-> er) noconstant nonote alignment(D{.}{.}{-1}) mtitles("" "" "" "") replace lab
-> el
+> er) noconstant nonote alignment(D{.}{.}{-1}) mtitles("" "" "" "") wrap replac
+> e label
 (output written to ../text/regression.tex)
 
 . 

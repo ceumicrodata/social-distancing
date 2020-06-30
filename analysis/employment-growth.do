@@ -54,4 +54,4 @@ eststo: regress ln_growth customer_interact_share teamwork_interact_share presen
 eststo: regress ln_growth customer_interact_share teamwork_interact_share presence_interact_share ln_visit_change, robust
 eststo: regress ln_growth customer_interact_share teamwork_interact_share presence_interact_share ln_visit_change visit_X_*, robust
 
-esttab using "../text/regression.tex", r2 star(* .1 ** .05 *** .01) se b(3) order(customer_share customer_interact_share teamwork_share teamwork_interact_share presence_interact_share ln_visit_change visit_X_customer visit_X_customer) noconstant nonote alignment(D{.}{.}{-1}) mtitles("" "" "" "") replace label
+esttab using "../text/regression.tex", r2 star(* .1 ** .05 *** .01) se b(3) order(customer_share customer_interact_share teamwork_share teamwork_interact_share presence_interact_share ln_visit_change visit_X_customer visit_X_customer) noconstant nonote alignment(D{.}{.}{-1}) mtitles("" "" "" "") wrap replace label
