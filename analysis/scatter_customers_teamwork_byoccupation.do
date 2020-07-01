@@ -30,7 +30,7 @@ replace label_occup2="Elementary school teachers"  if  SOCCode=="25-2021"
 
 
 scatter customer_interact_index teamwork_interact_index if ///
-	(customer_interact_index>0 & teamwork_interact_index>0), graphregion(color(white)) msymbol(circle_hollow) ///
+	(customer_interact_index>0 & teamwork_interact_index>0), graphregion(color(white)) msymbol(circle_hollow) scheme(s2mono) ///
 	ytitle("Customer contact") xtitle("Teamwork") mlabel(label_occup2) graphregion(margin(3 15 1 3))
 
 
