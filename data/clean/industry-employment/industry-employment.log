@@ -1,7 +1,7 @@
 
   ___  ____  ____  ____  ____ (R)
  /__    /   ____/   /   ____/
-___/   /   /___/   /   /___/   15.1   Copyright 1985-2017 StataCorp LLC
+___/   /   /___/   /   /___/   16.1   Copyright 1985-2019 StataCorp LLC
   Statistics/Data Analysis            StataCorp
                                       4905 Lakeway Drive
      MP - Parallel Edition            College Station, Texas 77845 USA
@@ -10,10 +10,9 @@ ___/   /   /___/   /   /___/   15.1   Copyright 1985-2017 StataCorp LLC
                                       979-696-4601 (fax)
 
 Single-user 2-core Stata perpetual license:
-       Serial number:  501506203290
+       Serial number:  501606204617
          Licensed to:  Miklos Koren
                        CEU MicroData
-
 
 Notes:
       1.  Stata is running in batch mode.
@@ -32,12 +31,12 @@ Notes:
 . tempfile ces
 
 . save `ces', replace
-(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St47274.000001 no
+(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St27503.000001 no
 > t found)
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St47274.000001 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St27503.000001 saved
 
 . 
-. import delimited "../../raw/bls/industry-employment/ces-2020-apr.csv", varnam
+. import delimited "../../raw/bls/industry-employment/ces-2020-may.csv", varnam
 > es(1) clear case(preserve)
 (3 vars, 881 obs)
 
@@ -51,12 +50,12 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St47274.000001 saved
 
 . 
 . replace growth = growth * employment
-(88 real changes made)
+(89 real changes made)
 
 . collapse (sum) employment growth, by(industry_code)
 
 . replace growth = growth / employment
-(87 real changes made)
+(88 real changes made)
 
 . 
 . summarize employment, detail
@@ -64,20 +63,20 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St47274.000001 saved
                       (sum) employment
 -------------------------------------------------------------
       Percentiles      Smallest
- 1%         13.9           13.9
- 5%         58.5           23.1
-10%          105           49.6       Obs                  88
-25%        335.9           50.5       Sum of Wgt.          88
+ 1%         23.7           23.7
+ 5%         64.9           36.7
+10%        114.3           50.5       Obs                  88
+25%       407.55           54.5       Sum of Wgt.          88
 
-50%       704.95                      Mean           1489.115
-                        Largest       Std. Dev.      1907.357
-75%       1869.7         6626.7
-90%       3574.3         7319.2       Variance        3638012
-95%       6384.3         7568.2       Skewness       2.116408
-99%       9166.7         9166.7       Kurtosis       7.199799
+50%        834.1                      Mean           1732.533
+                        Largest       Std. Dev.      2309.036
+75%       2135.7           8042
+90%       4250.5           8928       Variance        5331647
+95%       7855.2         9707.6       Skewness       2.495803
+99%      12303.1        12303.1       Kurtosis        9.52371
 
 . display r(sum)
-131042.1
+152462.9
 
 . 
 . save "industry-employment.dta", replace

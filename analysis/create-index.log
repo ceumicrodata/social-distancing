@@ -46,9 +46,9 @@ Notes:
 . tempfile industry
 
 . save `industry', replace
-(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St17166.000001 no
+(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St27524.000001 no
 > t found)
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St17166.000001 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St27524.000001 saved
 
 . 
 . 
@@ -66,7 +66,8 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St17166.000001 saved
 
 . 
 . local vars teamwork_share customer_share presence_share teamwork_interact_sha
-> re customer_interact_share presence_interact_share 
+> re customer_interact_share presence_interact_share ///
+> communication_share communication_interact_share 
 
 . keep industry_code industry_label `vars'
 
@@ -94,12 +95,14 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St17166.000001 saved
 (0 real changes made)
 (0 real changes made)
 (0 real changes made)
+(0 real changes made)
+(0 real changes made)
 
 . foreach X of var ces_employment {
   2.         replace `X' = round(`X'*10)/10
   3.         format `X' %11.1f
   4. }
-(58 real changes made)
+(63 real changes made)
 
 . 
 . label variable teamwork_share "Workers in teamwork-intensive occupations (per
@@ -110,6 +113,9 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St17166.000001 saved
 
 . label variable presence_share "Workers in occupations requiring physical pres
 > ence (percent)"
+
+. label variable communication_share "Workerd in teamwork-intensive or customer
+> -facing occupations (percent)"
 
 . 
 . label variable teamwork_interact_share "Workers in teamwork-intensive occupat
@@ -122,6 +128,11 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St17166.000001 saved
 > ical presence who cannot work from home (percent)"
 note: label truncated to 80 characters
 
+. label variable communication_interact_share "Workers in teamwork-intensive or
+>  customer-facing occupations who cannot work from home (percent)"
+note: label truncated to 80 characters
+
+. 
 . 
 . label variable ces_employment "Industry employment (thousand persons)"
 

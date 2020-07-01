@@ -3,7 +3,7 @@ import delimited "../../derived/crosswalk/ces2industry.csv", varnames(1) clear c
 tempfile ces
 save `ces', replace
 
-import delimited "../../raw/bls/industry-employment/ces-2020-apr.csv", varnames(1) clear case(preserve)
+import delimited "../../raw/bls/industry-employment/ces-2020-may.csv", varnames(1) clear case(preserve)
 merge 1:1 ces_industry using `ces', keep(match) nogen
 
 replace growth = growth * employment

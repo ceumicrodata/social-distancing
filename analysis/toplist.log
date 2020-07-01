@@ -48,10 +48,35 @@ Notes:
 end of do-file
 
 . 
-. collapse (mean) teamwork_share customer_share presence_share communication_sh
-> are affected_share face2face_share [aw=ces_employment], by(naics_2d)
-variable communication_share not found
-r(111);
+. collapse (mean) teamwork_interact_share customer_interact_share presence_inte
+> ract_share communication_interact_share [aw=ces_employment], by(naics_2d)
 
+. foreach X of var *_share {
+  2.         replace `X' = round(`X')
+  3. }
+(14 real changes made)
+(13 real changes made)
+(13 real changes made)
+(14 real changes made)
+
+. 
+. * NB: this is a comment
+. *gsort -face2face_share
+. 
+. *drop healthcare
+. drop if naics_2d==62
+(1 observation deleted)
+
+. 
+. gsort -communication_interact_share
+
+. keep if (_n<=5) | (_n>=_N-4)
+(8 observations deleted)
+
+. 
+. export delimited "../data/derived/top-industries.csv", replace
+(note: file ../data/derived/top-industries.csv not found)
+file ../data/derived/top-industries.csv saved
+
+. 
 end of do-file
-r(111);
