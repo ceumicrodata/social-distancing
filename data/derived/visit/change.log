@@ -35,14 +35,20 @@ Notes:
 
     Result                           # of obs.
     -----------------------------------------
-    not matched                       147,185
-        from master                   147,185  
+    not matched                       146,601
+        from master                   146,601  
         from using                          0  
 
-    matched                           302,433  
+    matched                           303,017  
     -----------------------------------------
 
 . mvencode visit*, mv(0) override
+visitors_apr: 146601 missing values recoded
+  visits_apr: 146601 missing values recoded
+visitors_feb: 146601 missing values recoded
+  visits_feb: 146601 missing values recoded
+visitors_may: 146601 missing values recoded
+  visits_may: 146601 missing values recoded
 
 . 
 . * compute employment-weighted averages for each industry
@@ -50,6 +56,8 @@ Notes:
   2.         egen local_`X' = sum(`X'), by(zip)
   3.         replace local_`X' = employment_weight * local_`X'
   4. }
+(440,169 real changes made, 1,209 to missing)
+(440,169 real changes made, 1,209 to missing)
 (440,242 real changes made, 1,209 to missing)
 (440,242 real changes made, 1,209 to missing)
 (440,253 real changes made, 1,209 to missing)
@@ -66,23 +74,28 @@ Notes:
 (81 real changes made, 2 to missing)
 (81 real changes made, 2 to missing)
 (81 real changes made, 2 to missing)
+(81 real changes made, 2 to missing)
+(81 real changes made, 2 to missing)
+(62 real changes made, 2 to missing)
+(62 real changes made, 2 to missing)
 (63 real changes made, 2 to missing)
 (63 real changes made, 2 to missing)
 (62 real changes made, 2 to missing)
 (62 real changes made, 2 to missing)
 
 . 
-. generate visit_change = visits_may / visits_feb * 100 - 100
+. generate visit_change = visits_apr / visits_feb * 100 - 100
 (20 missing values generated)
 
-. generate local_visit_change = local_visits_may / local_visits_feb * 100 - 100
+. generate local_visit_change = local_visits_apr / local_visits_feb * 100 - 100
 (2 missing values generated)
 
 . 
-. keep industry_code *_change
+. keep industry_code *_change *_feb
 
 . save "visit-change.dta"
-file visit-change.dta saved
+file visit-change.dta already exists
+r(602);
 
-. 
 end of do-file
+r(602);

@@ -25,7 +25,7 @@ Notes:
 . clear all
 
 . 
-. local months 02 05
+. local months 02 04 05
 
 . local variables raw_visitor_counts raw_visit_counts
 
@@ -38,9 +38,9 @@ Notes:
 . tempfile naics2industry
 
 . save `naics2industry', replace
-(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St52560.000001 no
+(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St39315.000001 no
 > t found)
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St52560.000001 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St39315.000001 saved
 
 . 
 . clear
@@ -49,9 +49,9 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St52560.000001 saved
 
 . save `patterns', replace emptyok
 (note: dataset contains 0 observations)
-(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St52560.000002 no
+(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St39315.000002 no
 > t found)
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St52560.000002 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St39315.000002 saved
 
 . foreach m in `months' {
   2.         import delimited "../../../input/safegraph-industry-location/naics
@@ -63,17 +63,19 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St52560.000002 saved
   5.         save `patterns', replace
   6. }
 (6 vars, 1,153,154 obs)
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St52560.000002 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St39315.000002 saved
+(6 vars, 1,130,823 obs)
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St39315.000002 saved
 (6 vars, 1,145,889 obs)
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St52560.000002 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St39315.000002 saved
 
 . 
 . * aggregate to 3-digit naics
 . generate naics_3d = int(naics_code/1000)
-(14,571 missing values generated)
+(21,636 missing values generated)
 
 . keep if iso_country_code == "US"
-(1 observation deleted)
+(2 observations deleted)
 
 . drop iso_country_code
 
@@ -88,29 +90,29 @@ naics_3d:                                       Number of Observations
                                              Total      Integers   Nonintegers
 |          #                 Negative            -             -             -
 |          #                 Zero                -             -             -
-|          #                 Positive    2,284,472     2,284,472             -
+|          #                 Positive    3,408,230     3,408,230             -
 |          #   #                       -----------   -----------   -----------
-|          #   #             Total       2,284,472     2,284,472             -
-|  .   .   #   #   #         Missing        14,570
+|          #   #             Total       3,408,230     3,408,230             -
+|  .   .   #   #   #         Missing        21,634
 +----------------------                -----------
-111                 928                  2,299,042
+111                 928                  3,429,864
   (79 unique values)
 
 zip:                                            Number of Observations
 ------                                 ---------------------------------------
                                              Total      Integers   Nonintegers
 |      #                     Negative            -             -             -
-|      #       #   #         Zero                3             3             -
-|  #   #   #   #   #         Positive    2,299,039     2,299,039             -
+|      #       #   #         Zero                5             5             -
+|  #   #   #   #   #         Positive    3,429,859     3,429,859             -
 |  #   #   #   #   #                   -----------   -----------   -----------
-|  #   #   #   #   #         Total       2,299,042     2,299,042             -
+|  #   #   #   #   #         Total       3,429,864     3,429,864             -
 |  #   #   #   #   #         Missing             -
 +----------------------                -----------
-0                 99999                  2,299,042
+0                 99999                  3,429,864
 (More than 99 unique values)
 
 . drop if missing(naics_3d, zip)
-(14,570 observations deleted)
+(21,634 observations deleted)
 
 . 
 . * convert to our industries
@@ -119,7 +121,7 @@ zip:                                            Number of Observations
     Result                           # of obs.
     -----------------------------------------
     not matched                             0
-    matched                         2,170,101  
+    matched                         3,237,324  
     -----------------------------------------
 
 . 
@@ -128,37 +130,37 @@ zip:                                            Number of Observations
 . 
 . * balance panel
 . reshape wide `variables', i(industry_code zip) j(month)
-(note: j = 2 5)
+(note: j = 2 4 5)
 
 Data                               long   ->   wide
 -----------------------------------------------------------------------------
-Number of obs.                  1.2e+06   ->  587330
-Number of variables                   5   ->       6
-j variable (2 values)             month   ->   (dropped)
+Number of obs.                  1.7e+06   ->  590030
+Number of variables                   5   ->       8
+j variable (3 values)             month   ->   (dropped)
 xij variables:
                      raw_visitor_counts   ->   raw_visitor_counts2 raw_visitor_
-> counts5
+> counts4 raw_visitor_counts5
                        raw_visit_counts   ->   raw_visit_counts2 raw_visit_coun
-> ts5
+> ts4 raw_visit_counts5
 -----------------------------------------------------------------------------
 
 . reshape long
-(note: j = 2 5)
+(note: j = 2 4 5)
 
 Data                               wide   ->   long
 -----------------------------------------------------------------------------
-Number of obs.                   587330   -> 1.2e+06
-Number of variables                   6   ->       5
-j variable (2 values)                     ->   month
+Number of obs.                   590030   -> 1.8e+06
+Number of variables                   8   ->       5
+j variable (3 values)                     ->   month
 xij variables:
-raw_visitor_counts2 raw_visitor_counts5   ->   raw_visitor_counts
-    raw_visit_counts2 raw_visit_counts5   ->   raw_visit_counts
+raw_visitor_counts2 raw_visitor_counts4 raw_visitor_counts5->raw_visitor_counts
+raw_visit_counts2 raw_visit_counts4 raw_visit_counts5->raw_visit_counts
 -----------------------------------------------------------------------------
 
 . * assume missing data means no visitors
 . mvencode `variables', mv(0) override
-raw_visito~s: 20562 missing values recoded
-raw_visit_~s: 20562 missing values recoded
+raw_visito~s: 45067 missing values recoded
+raw_visit_~s: 45067 missing values recoded
 
 . 
 . rename raw_visitor_counts visitors
@@ -166,21 +168,30 @@ raw_visit_~s: 20562 missing values recoded
 . rename raw_visit_counts visits
 
 . 
-. generate time = cond(month == 5, "_may", "_feb")
+. generate        time = "_feb" if month == 2
+(1,180,060 missing values generated)
 
+. replace         time = "_apr" if month == 4
+(590,030 real changes made)
+
+. replace         time = "_may" if month == 5
+(590,030 real changes made)
+
+. 
 . drop month
 
 . reshape wide visitors visits, i(industry_code zip) j(time) string
-(note: j = _feb _may)
+(note: j = _apr _feb _may)
 
 Data                               long   ->   wide
 -----------------------------------------------------------------------------
-Number of obs.                  1.2e+06   ->  587330
-Number of variables                   5   ->       6
-j variable (2 values)              time   ->   (dropped)
+Number of obs.                  1.8e+06   ->  590030
+Number of variables                   5   ->       8
+j variable (3 values)              time   ->   (dropped)
 xij variables:
-                               visitors   ->   visitors_feb visitors_may
-                                 visits   ->   visits_feb visits_may
+                               visitors   ->   visitors_apr visitors_feb visito
+> rs_may
+                                 visits   ->   visits_apr visits_feb visits_may
 -----------------------------------------------------------------------------
 
 . 

@@ -18,8 +18,8 @@ foreach X of var local* visit* {
 	replace `X' =  `X' / employment_weight
 }
 
-generate visit_change = visits_may / visits_feb * 100 - 100
-generate local_visit_change = local_visits_may / local_visits_feb * 100 - 100
+generate visit_change = visits_apr / visits_feb * 100 - 100
+generate local_visit_change = local_visits_apr / local_visits_feb * 100 - 100
 
-keep industry_code *_change
+keep industry_code *_change *_feb
 save "visit-change.dta"

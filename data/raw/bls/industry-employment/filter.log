@@ -55,8 +55,7 @@ xij variables:
 -----------------------------------------------------------------------------
 
 . 
-. generate growth = employmentM05/employmentM02 * 100 - 100
-(705 missing values generated)
+. generate growth = employmentM04/employmentM02 * 100 - 100
 
 . rename employmentM02 employment
 
@@ -65,9 +64,9 @@ xij variables:
 . keep ces_industry employment growth
 
 . 
-. export delimited "ces-2020-may.csv", replace
-(note: file ces-2020-may.csv not found)
-file ces-2020-may.csv saved
+. export delimited "ces-2020-apr.csv", replace
+(note: file ces-2020-apr.csv not found)
+file ces-2020-apr.csv saved
 
 . 
 end of do-file

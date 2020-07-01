@@ -1,8 +1,8 @@
 {
     "inputs": {
         "safegraph-industry-location": {
-            "content_id": "f7aeed4c4969eb3a4b3fdf2c20c459f11a9fa2365003f883ce50c1ea9c2a1c1ef59de70255c0b1e14ea196a9e4903445f4cfb0947553d8db5a4e6cd01a8feddc", 
-            "freeze_time": "20200620T003105039425+0200", 
+            "content_id": "032ba5f02eef25b6207b004ade1ff296be6845f998abd1edd83a1036899bcbeae59d344724f0649211241d73481d4e397d4bf0a3ebf2992e702a6684c03975d7", 
+            "freeze_time": "20200701T205942815440+0200", 
             "kind": "c1ecd0c5a8337c550dc1129715f80276-6fb3c90f-dd5c-49de-8bca-ca893cfe15ff"
         }
     }, 

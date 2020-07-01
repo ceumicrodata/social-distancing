@@ -31,12 +31,12 @@ Notes:
 . tempfile ces
 
 . save `ces', replace
-(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St27503.000001 no
+(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St27642.000001 no
 > t found)
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St27503.000001 saved
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St27642.000001 saved
 
 . 
-. import delimited "../../raw/bls/industry-employment/ces-2020-may.csv", varnam
+. import delimited "../../raw/bls/industry-employment/ces-2020-apr.csv", varnam
 > es(1) clear case(preserve)
 (3 vars, 881 obs)
 
@@ -50,12 +50,12 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St27503.000001 saved
 
 . 
 . replace growth = growth * employment
-(89 real changes made)
+(88 real changes made)
 
 . collapse (sum) employment growth, by(industry_code)
 
 . replace growth = growth / employment
-(88 real changes made)
+(87 real changes made)
 
 . 
 . summarize employment, detail

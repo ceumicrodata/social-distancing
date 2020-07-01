@@ -9,9 +9,9 @@ rename value employment
 drop footnote_codes
 reshape wide employment, i(ces_industry) j(period) string
 
-generate growth = employmentM05/employmentM02 * 100 - 100
+generate growth = employmentM04/employmentM02 * 100 - 100
 rename employmentM02 employment
 order ces_industry employment
 keep ces_industry employment growth
 
-export delimited "ces-2020-may.csv", replace
+export delimited "ces-2020-apr.csv", replace

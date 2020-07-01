@@ -1,6 +1,6 @@
 clear all
 
-local months 02 05
+local months 02 04 05
 local variables raw_visitor_counts raw_visit_counts
 
 * read industry aggregator
@@ -44,7 +44,10 @@ mvencode `variables', mv(0) override
 rename raw_visitor_counts visitors
 rename raw_visit_counts visits
 
-generate time = cond(month == 5, "_may", "_feb")
+generate 	time = "_feb" if month == 2
+replace 	time = "_apr" if month == 4
+replace 	time = "_may" if month == 5
+
 drop month
 reshape wide visitors visits, i(industry_code zip) j(time) string
 
