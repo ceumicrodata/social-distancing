@@ -3,7 +3,7 @@
 # Citation
 Please cite as 
 
-> Koren, Miklós, and Rita Pető. 2020. “Business Disruptions from Social Distancing.” Covid Economics. Centre for Economic Policy Research. arXiv. http://arxiv.org/abs/2003.13983.
+> Koren, Miklós, and Rita Pető. 2020. “Business Disruptions from Social Distancing.” arXiv. http://arxiv.org/abs/2003.13983.
 > ```
 > @ARTICLE{Koren2020-mk,
 >   title         = "Business disruptions from social distancing",
