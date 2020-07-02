@@ -27,13 +27,13 @@ foreach X in customer teamwork {
 
 label variable ln_growth "Employment change (log)"
 
-label variable customer_interact_share	"Customer-facing~workers \hspace*{1em}(share, [0,1])"
-label variable teamwork_interact_share	"Teamwork-intensive~workers \hspace*{1em}(share, [0,1])"
-label variable presence_interact_share 	"Presence-intensive~workers \hspace*{1em}(share, [0,1])"
+label variable customer_interact_share	"Customer-facing~workers (share, [0,1])"
+label variable teamwork_interact_share	"Teamwork-intensive~workers (share, [0,1])"
+label variable presence_interact_share 	"Presence-intensive~workers (share, [0,1])"
 
-label variable ln_visit_change 			"Change~in~number~of \hspace*{1em}monthly visits (log)"
-label variable visit_X_customer 		"\hspace*{1em}$\times$~customer-facing~share \hspace*{1em}([0,1])"
-label variable visit_X_teamwork 		"\hspace*{1em}$\times$~teamwork-intensive~share \hspace*{1em}([0,1])"
+label variable ln_visit_change 			"Change~in~number~of monthly visits (log)"
+label variable visit_X_customer 		"\hspace*{1em}$\times$~customer-facing~share ([0,1])"
+label variable visit_X_teamwork 		"\hspace*{1em}$\times$~teamwork-intensive~share ([0,1])"
 
 tw ///
 	(scatter ln_growth visit_X_customer,  msymbol(circle_hollow) mlabel(label)), ///
@@ -54,5 +54,5 @@ eststo: regress ln_growth customer_interact_share teamwork_interact_share presen
 esttab using "../text/regression.tex", r2 star(* .1 ** .05 *** .01) se b(3) ///
 	order(customer_interact_share teamwork_interact_share presence_interact_share ln_visit_change visit_X_customer visit_X_customer) ///
 	noconstant nonote alignment(D{.}{.}{-1}) mtitles("" "" "" "") ///
-	wrap replace label substitute() ///
+	replace label substitute() ///
 	prehead(`"{\setlength{\tabcolsep}{-2pt}"' `"{\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}\begin{tabular}{l*{4}{D{.}{.}{-1}}}\hline\hline"')

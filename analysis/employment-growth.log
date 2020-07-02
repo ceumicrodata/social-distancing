@@ -93,24 +93,24 @@ variable presence_interact_share was byte now float
 . label variable ln_growth "Employment change (log)"
 
 . 
-. label variable customer_interact_share  "Customer-facing~workers \hspace*{1em
-> }(share, [0,1])"
+. label variable customer_interact_share  "Customer-facing~workers (share, [0,1
+> ])"
 
-. label variable teamwork_interact_share  "Teamwork-intensive~workers \hspace*{
-> 1em}(share, [0,1])"
+. label variable teamwork_interact_share  "Teamwork-intensive~workers (share, [
+> 0,1])"
 
-. label variable presence_interact_share  "Presence-intensive~workers \hspace*{
-> 1em}(share, [0,1])"
+. label variable presence_interact_share  "Presence-intensive~workers (share, [
+> 0,1])"
 
 . 
-. label variable ln_visit_change                  "Change~in~number~of \hspace*
-> {1em}monthly visits (log)"
+. label variable ln_visit_change                  "Change~in~number~of monthly 
+> visits (log)"
 
 . label variable visit_X_customer                 "\hspace*{1em}$\times$~custom
-> er-facing~share \hspace*{1em}([0,1])"
+> er-facing~share ([0,1])"
 
 . label variable visit_X_teamwork                 "\hspace*{1em}$\times$~teamwo
-> rk-intensive~share \hspace*{1em}([0,1])"
+> rk-intensive~share ([0,1])"
 
 . 
 . tw ///
@@ -201,7 +201,7 @@ visit_X_te~k |   .3322733   1.499757     0.22   0.825    -2.658157    3.322704
 >         order(customer_interact_share teamwork_interact_share presence_intera
 > ct_share ln_visit_change visit_X_customer visit_X_customer) ///
 >         noconstant nonote alignment(D{.}{.}{-1}) mtitles("" "" "" "") ///
->         wrap replace label substitute() ///
+>         replace label substitute() ///
 >         prehead(`"{\setlength{\tabcolsep}{-2pt}"' `"{\def\sym#1{\ifmmode^{#1}
 > \else\(^{#1}\)\fi}\begin{tabular}{l*{4}{D{.}{.}{-1}}}\hline\hline"')
 (output written to ../text/regression.tex)
