@@ -1,56 +1,35 @@
 clear all
 
-use "../data/derived/industry_location_panel.dta", clear
-/* 
-Calibrate epsilon to gamma=1.04 in
+import delimited "../data/derived/crosswalk/2digit_names.csv", varnames(1) clear case(preserve)
+tempfile digit2
+save `digit2', replace
 
-Ciccone, Antonio, and Robert Hall. 1996. “Productivity and the Density of Economic Activity.” 
-The American Economic Review 86 (1): 54–70.
+use "../data/derived/industry_location_panel.dta"
 
-page 62.
+* add safegraph visits data
+* only use visits to plants in CBP
+* if not found, assume 0 visits
+merge 1:1 industry_code zip using "../data/derived/visit/visit-naics-zip.dta", nogen keep(master match)
+mvencode visit*, mv(0) override
 
-density^agglomeration = density^(epsilon * chi)
-*/
-scalar agglomeration = 0.04
-generate LHS = agglomeration * ln(population_density)
-generate RHS = (communication_share/100) * ln(population_density)
+merge m:1 industry_code using "../data/derived/visit/visit-change.dta", nogen keep(master match)
 
-regress LHS RHS [aw=employment_weight]
-scalar epsilon = _b[RHS]
-generate chi = communication_share/100
+* when either is very small, do not use that cell, use zip code average
+egen minvisit = rmin(visits_feb visits_may )
+generate ln_visit_change = cond(minvisit > 10, ln(visits_may) - ln(visits_feb), ln(1 + visit_change / 100))
+
+* winsorize change
+summarize ln_visit_change, detail
+replace ln_visit_change = r(p1) if ln_visit_change < r(p1)
+replace ln_visit_change = r(p99) if ln_visit_change > r(p99)
+
+* from employment regression, only F2F customer contact matters
+generate chi = customer_interact_share/100
 generate gamma = chi/(1-chi)
-
-* Eq 4
-generate contact = population_density^(epsilon*(1-chi))
-
-* current number of contacts
-summarize contact [aw=employment_weight]
-scalar current_contact = r(mean)
-
-* target contact is half
-scalar target_contact = current_contact * 0.5
-
-* loop to find the cap
-scalar cap = 10000
-scalar average = current_contact 
-generate counterfactual = .
-while average > target_contact {
-	quietly replace counterfactual = min(contact, min(population_density, cap)^(epsilon*(1-chi)))
-	quietly summarize counterfactual [aw=employment_weight]
-	scalar average = r(mean)
-	scalar cap = 0.90*cap
-}
-
-generate contact_ratio = counterfactual / contact
+generate contact_ratio = exp(ln_visit_change)
 * Eq 6 from the paper
 generate labor_subsidy = 100 - 100 * (1 - chi*contact_ratio) * (contact_ratio)^gamma / (1-chi)
 summarize labor_subsidy [aw=employment_weight]
-
-* compute for nyc
-merge m:1 zip using "nyc_zip.dta", keep(master match)
-generate nyc = (_m==3)
-summarize population_density if nyc==1 [aw=employment_weight]
-summarize labor_subsidy if nyc==1 [aw=employment_weight]
 
 save "wage_subsidy.dta", replace
 

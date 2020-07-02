@@ -25,128 +25,104 @@ Notes:
 . clear all
 
 . 
-. use "../data/derived/industry_location_panel.dta", clear
+. import delimited "../data/derived/crosswalk/2digit_names.csv", varnames(1) cl
+> ear case(preserve)
+(2 vars, 20 obs)
 
-. /* 
-> Calibrate epsilon to gamma=1.04 in
-> 
-> Ciccone, Antonio, and Robert Hall. 1996. “Productivity and the Density of Eco
-> nomic Activity.” 
-> The American Economic Review 86 (1): 54–70.
-> 
-> page 62.
-> 
-> density^agglomeration = density^(epsilon * chi)
-> */
-. scalar agglomeration = 0.04
+. tempfile digit2
 
-. generate LHS = agglomeration * ln(population_density)
-(5,984 missing values generated)
-
-. generate RHS = (communication_share/100) * ln(population_density)
-(5,984 missing values generated)
+. save `digit2', replace
+(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St41407.000001 no
+> t found)
+file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St41407.000001 saved
 
 . 
-. regress LHS RHS [aw=employment_weight]
-(sum of wgt is 116,253.349869885)
+. use "../data/derived/industry_location_panel.dta"
 
-      Source |       SS           df       MS      Number of obs   =   442,430
--------------+----------------------------------   F(1, 442428)    >  99999.00
-       Model |  616.080648         1  616.080648   Prob > F        =    0.0000
-    Residual |  1335.34982   442,428  .003018231   R-squared       =    0.3157
--------------+----------------------------------   Adj R-squared   =    0.3157
-       Total |  1951.43047   442,429   .00441072   Root MSE        =    .05494
+. 
+. * add safegraph visits data
+. * only use visits to plants in CBP
+. * if not found, assume 0 visits
+. merge 1:1 industry_code zip using "../data/derived/visit/visit-naics-zip.dta"
+> , nogen keep(master match)
 
-------------------------------------------------------------------------------
-         LHS |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
--------------+----------------------------------------------------------------
-         RHS |    .026333   .0000583   451.80   0.000     .0262187    .0264472
-       _cons |   .1821827   .0001805  1009.45   0.000      .181829    .1825364
-------------------------------------------------------------------------------
+    Result                           # of obs.
+    -----------------------------------------
+    not matched                       146,601
+        from master                   146,601  
+        from using                          0  
 
-. scalar epsilon = _b[RHS]
+    matched                           303,017  
+    -----------------------------------------
 
-. generate chi = communication_share/100
+. mvencode visit*, mv(0) override
+visitors_apr: 146601 missing values recoded
+  visits_apr: 146601 missing values recoded
+visitors_feb: 146601 missing values recoded
+  visits_feb: 146601 missing values recoded
+visitors_may: 146601 missing values recoded
+  visits_may: 146601 missing values recoded
+
+. 
+. merge m:1 industry_code using "../data/derived/visit/visit-change.dta", nogen
+>  keep(master match)
+
+    Result                           # of obs.
+    -----------------------------------------
+    not matched                             0
+    matched                           449,618  
+    -----------------------------------------
+
+. 
+. * when either is very small, do not use that cell, use zip code average
+. egen minvisit = rmin(visits_feb visits_may )
+
+. generate ln_visit_change = cond(minvisit > 10, ln(visits_may) - ln(visits_feb
+> ), ln(1 + visit_change / 100))
+(21,518 missing values generated)
+
+. 
+. * winsorize change
+. summarize ln_visit_change, detail
+
+                       ln_visit_change
+-------------------------------------------------------------
+      Percentiles      Smallest
+ 1%    -2.458515      -6.502254
+ 5%    -1.677389      -5.802118
+10%     -1.16586      -5.673588       Obs             428,100
+25%    -.6204664      -5.611777       Sum of Wgt.     428,100
+
+50%    -.3335903                      Mean          -.4528662
+                        Largest       Std. Dev.      .6019252
+75%     -.152202       5.090507
+90%     .1077274       5.133836       Variance        .362314
+95%     .2930875       5.534909       Skewness      -1.228699
+99%     .8206936       5.752199       Kurtosis       8.055012
+
+. replace ln_visit_change = r(p1) if ln_visit_change < r(p1)
+(4,281 real changes made)
+
+. replace ln_visit_change = r(p99) if ln_visit_change > r(p99)
+(25,799 real changes made)
+
+. 
+. * from employment regression, only F2F customer contact matters
+. generate chi = customer_interact_share/100
 
 . generate gamma = chi/(1-chi)
 
-. 
-. * Eq 4
-. generate contact = population_density^(epsilon*(1-chi))
-(5,527 missing values generated)
-
-. 
-. * current number of contacts
-. summarize contact [aw=employment_weight]
-
-    Variable |     Obs      Weight        Mean   Std. Dev.       Min        Max
--------------+-----------------------------------------------------------------
-     contact | 442,887    116441.9    1.098867   .0611941          0   1.287611
-
-. scalar current_contact = r(mean)
-
-. 
-. * target contact is half
-. scalar target_contact = current_contact * 0.5
-
-. 
-. * loop to find the cap
-. scalar cap = 10000
-
-. scalar average = current_contact 
-
-. generate counterfactual = .
-(449,618 missing values generated)
-
-. while average > target_contact {
-  2.         quietly replace counterfactual = min(contact, min(population_densi
-> ty, cap)^(epsilon*(1-chi)))
-  3.         quietly summarize counterfactual [aw=employment_weight]
-  4.         scalar average = r(mean)
-  5.         scalar cap = 0.90*cap
-  6. }
-
-. 
-. generate contact_ratio = counterfactual / contact
-(5,984 missing values generated)
+. generate contact_ratio = exp(ln_visit_change)
 
 . * Eq 6 from the paper
 . generate labor_subsidy = 100 - 100 * (1 - chi*contact_ratio) * (contact_ratio
 > )^gamma / (1-chi)
-(5,984 missing values generated)
 
 . summarize labor_subsidy [aw=employment_weight]
 
     Variable |     Obs      Weight        Mean   Std. Dev.       Min        Max
 -------------+-----------------------------------------------------------------
-labor_subs~y | 442,430   116253.35    18.54669   6.768195   3.113107   37.49002
-
-. 
-. * compute for nyc
-. merge m:1 zip using "nyc_zip.dta", keep(master match)
-
-    Result                           # of obs.
-    -----------------------------------------
-    not matched                       443,603
-        from master                   443,603  (_merge==1)
-        from using                          0  (_merge==2)
-
-    matched                             6,015  (_merge==3)
-    -----------------------------------------
-
-. generate nyc = (_m==3)
-
-. summarize population_density if nyc==1 [aw=employment_weight]
-
-    Variable |     Obs      Weight        Mean   Std. Dev.       Min        Max
--------------+-----------------------------------------------------------------
-population~y |   6,014  3959.52193    19323.45   12220.87          0   57231.17
-
-. summarize labor_subsidy if nyc==1 [aw=employment_weight]
-
-    Variable |     Obs      Weight        Mean   Std. Dev.       Min        Max
--------------+-----------------------------------------------------------------
-labor_subs~y |   5,844  3882.99624    21.27609   6.528568   5.396753   37.49002
+labor_subs~y | 442,887    116441.9     39.8762   4626.439  -1.42e-14    1686128
 
 . 
 . save "wage_subsidy.dta", replace
@@ -171,15 +147,60 @@ end of do-file
 
 . * weighted cost ratio
 . replace labor_subsidy = labor_subsidy * employment_weight
-(443,634 real changes made, 1,204 to missing)
+(448,670 real changes made, 1,209 to missing)
 
 . 
 . collapse (sum) labor_subsidy employment_weight, by(naics_2d)
 
 . * merge on names
 . merge 1:1 naics_2d using `digit2', nogen keep(master match)
-invalid file specification
-r(198);
 
+    Result                           # of obs.
+    -----------------------------------------
+    not matched                             0
+    matched                                19  
+    -----------------------------------------
+
+. 
+. replace labor_subsidy = round(labor_subsidy/employment_weight, 0.1)
+(19 real changes made)
+
+. rename employment_weight employment
+
+. replace employment = round(employment)
+(19 real changes made)
+
+. 
+. * calculate weighted average
+. summarize labor_subsidy [fw=employment], meanonly
+
+. scalar average = r(mean)
+
+. scalar N = r(N)
+
+. 
+. gsort -labor_subsidy
+
+. 
+. * add a row for average
+. set obs 20
+number of observations (_N) was 19, now 20
+
+. replace industry_label = "Average" in 20
+(1 real change made)
+
+. replace labor_subsidy = average in 20
+(1 real change made)
+
+. replace employment = N in 20
+(1 real change made)
+
+. 
+. order industry_label labor_subsidy employment
+
+. export delimited "cost_by_naics2.csv", replace
+(note: file cost_by_naics2.csv not found)
+file cost_by_naics2.csv saved
+
+. 
 end of do-file
-r(198);
