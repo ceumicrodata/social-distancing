@@ -27,12 +27,9 @@ foreach X in customer teamwork {
 
 label variable ln_growth "Employment change (log)"
 
-label variable customer_share 			"Customer-facing~workers \hspace*{1em}(share, [0,1])"
-label variable teamwork_share 			"Teamwork-intensive~workers \hspace*{1em}(share, [0,1])"
+label variable customer_interact_share	"Customer-facing~workers \hspace*{1em}(share, [0,1])"
+label variable teamwork_interact_share	"Teamwork-intensive~workers \hspace*{1em}(share, [0,1])"
 label variable presence_interact_share 	"Presence-intensive~workers \hspace*{1em}(share, [0,1])"
-
-label variable customer_interact_share 	"\hspace*{1em}of~which~face-to-face \hspace*{1em}intensive (share, [0,1])"
-label variable teamwork_interact_share 	"\hspace*{1em}of~which~face-to-face \hspace*{1em}intensive (share, [0,1])"
 
 label variable ln_visit_change 			"Change~in~number~of \hspace*{1em}monthly visits (log)"
 label variable visit_X_customer 		"\hspace*{1em}$\times$~customer-facing~share \hspace*{1em}([0,1])"
@@ -50,13 +47,12 @@ graph export "../text/fig5b.eps", replace
 graph export "../text/fig5b.pdf", replace
 
 
-eststo: regress ln_growth customer_share teamwork_share presence_interact_share, robust
 eststo: regress ln_growth customer_interact_share teamwork_interact_share presence_interact_share, robust
 eststo: regress ln_growth customer_interact_share teamwork_interact_share presence_interact_share ln_visit_change, robust
 eststo: regress ln_growth customer_interact_share teamwork_interact_share presence_interact_share ln_visit_change visit_X_*, robust
 
 esttab using "../text/regression.tex", r2 star(* .1 ** .05 *** .01) se b(3) ///
-	order(customer_share customer_interact_share teamwork_share teamwork_interact_share presence_interact_share ln_visit_change visit_X_customer visit_X_customer) ///
+	order(customer_interact_share teamwork_interact_share presence_interact_share ln_visit_change visit_X_customer visit_X_customer) ///
 	noconstant nonote alignment(D{.}{.}{-1}) mtitles("" "" "" "") ///
 	wrap replace label substitute() ///
 	prehead(`"{\setlength{\tabcolsep}{-2pt}"' `"{\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}\begin{tabular}{l*{4}{D{.}{.}{-1}}}\hline\hline"')

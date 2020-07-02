@@ -93,21 +93,14 @@ variable presence_interact_share was byte now float
 . label variable ln_growth "Employment change (log)"
 
 . 
-. label variable customer_share                   "Customer-facing~workers \hsp
-> ace*{1em}(share, [0,1])"
+. label variable customer_interact_share  "Customer-facing~workers \hspace*{1em
+> }(share, [0,1])"
 
-. label variable teamwork_share                   "Teamwork-intensive~workers \
-> hspace*{1em}(share, [0,1])"
+. label variable teamwork_interact_share  "Teamwork-intensive~workers \hspace*{
+> 1em}(share, [0,1])"
 
 . label variable presence_interact_share  "Presence-intensive~workers \hspace*{
 > 1em}(share, [0,1])"
-
-. 
-. label variable customer_interact_share  "\hspace*{1em}of~which~face-to-face \
-> hspace*{1em}intensive (share, [0,1])"
-
-. label variable teamwork_interact_share  "\hspace*{1em}of~which~face-to-face \
-> hspace*{1em}intensive (share, [0,1])"
 
 . 
 . label variable ln_visit_change                  "Change~in~number~of \hspace*
@@ -138,96 +131,75 @@ variable presence_interact_share was byte now float
 
 . 
 . 
-. eststo: regress ln_growth customer_share teamwork_share presence_interact_sha
-> re, robust
-
-Linear regression                               Number of obs     =         79
-                                                F(3, 75)          =       5.62
-                                                Prob > F          =     0.0016
-                                                R-squared         =     0.2208
-                                                Root MSE          =     .18647
-
-------------------------------------------------------------------------------
-             |               Robust
-   ln_growth |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
--------------+----------------------------------------------------------------
-customer_s~e |  -.3003343   .1157628    -2.59   0.011    -.5309455    -.069723
-teamwork_s~e |   .4619765   .1320045     3.50   0.001     .1990101    .7249429
-presence_i~e |   .1478245   .0980562     1.51   0.136    -.0475134    .3431623
-       _cons |  -.2098672   .0467657    -4.49   0.000    -.3030292   -.1167051
-------------------------------------------------------------------------------
-(est1 stored)
-
 . eststo: regress ln_growth customer_interact_share teamwork_interact_share pre
 > sence_interact_share, robust
 
 Linear regression                               Number of obs     =         79
-                                                F(3, 75)          =       3.70
-                                                Prob > F          =     0.0154
-                                                R-squared         =     0.1999
-                                                Root MSE          =     .18895
+                                                F(3, 75)          =       3.59
+                                                Prob > F          =     0.0176
+                                                R-squared         =     0.1875
+                                                Root MSE          =     .21944
 
 ------------------------------------------------------------------------------
              |               Robust
    ln_growth |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
-customer_i~e |  -.3466539   .1314774    -2.64   0.010    -.6085703   -.0847375
-teamwork_i~e |  -.2823678   .5287471    -0.53   0.595    -1.335686    .7709504
-presence_i~e |   .0765785   .1046861     0.73   0.467    -.1319668    .2851239
-       _cons |  -.0732002   .0455736    -1.61   0.112    -.1639874    .0175871
+customer_i~e |  -.4181217    .164463    -2.54   0.013    -.7457488   -.0904947
+teamwork_i~e |   .0236076   .5629201     0.04   0.967    -1.097787    1.145002
+presence_i~e |   .0792712   .1246066     0.64   0.527    -.1689578    .3275002
+       _cons |  -.1099897   .0534767    -2.06   0.043    -.2165208   -.0034587
 ------------------------------------------------------------------------------
-(est2 stored)
+(est1 stored)
 
 . eststo: regress ln_growth customer_interact_share teamwork_interact_share pre
 > sence_interact_share ln_visit_change, robust
 
 Linear regression                               Number of obs     =         78
-                                                F(4, 73)          =       7.32
-                                                Prob > F          =     0.0001
-                                                R-squared         =     0.3826
-                                                Root MSE          =      .1678
+                                                F(4, 73)          =       5.62
+                                                Prob > F          =     0.0005
+                                                R-squared         =     0.3019
+                                                Root MSE          =     .20558
 
 ------------------------------------------------------------------------------
              |               Robust
    ln_growth |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
-customer_i~e |  -.3973515   .1105909    -3.59   0.001    -.6177588   -.1769442
-teamwork_i~e |  -.0416469   .4445902    -0.09   0.926    -.9277138    .8444201
-presence_i~e |  -.0707399   .0971691    -0.73   0.469    -.2643976    .1229179
-ln_visit_c~e |   .2024425   .0565731     3.58   0.001     .0896924    .3151926
-       _cons |   .0517497   .0502281     1.03   0.306    -.0483549    .1518542
+customer_i~e |  -.4626853   .1517596    -3.05   0.003    -.7651419   -.1602288
+teamwork_i~e |   .2538213   .5318923     0.48   0.635    -.8062386    1.313881
+presence_i~e |  -.0513617   .1362478    -0.38   0.707    -.3229032    .2201797
+ln_visit_c~e |   .1849102   .0629189     2.94   0.004     .0595129    .3103074
+       _cons |   .0016639   .0552407     0.03   0.976    -.1084307    .1117586
 ------------------------------------------------------------------------------
-(est3 stored)
+(est2 stored)
 
 . eststo: regress ln_growth customer_interact_share teamwork_interact_share pre
 > sence_interact_share ln_visit_change visit_X_*, robust
 
 Linear regression                               Number of obs     =         78
-                                                F(6, 71)          =       9.69
+                                                F(6, 71)          =       6.94
                                                 Prob > F          =     0.0000
-                                                R-squared         =     0.5550
-                                                Root MSE          =     .14446
+                                                R-squared         =     0.4347
+                                                Root MSE          =     .18759
 
 ------------------------------------------------------------------------------
              |               Robust
    ln_growth |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
-customer_i~e |   .0696918   .1301181     0.54   0.594    -.1897564      .32914
-teamwork_i~e |   .3153828    .702322     0.45   0.655    -1.085007    1.715773
-presence_i~e |  -.0252469   .0824123    -0.31   0.760    -.1895723    .1390785
-ln_visit_c~e |  -.0994729    .095963    -1.04   0.303    -.2908177    .0918718
-visit_X_cu~r |   1.005859   .3185755     3.16   0.002     .3706372     1.64108
-visit_X_te~k |   .3510607   1.096573     0.32   0.750    -1.835444    2.537565
-       _cons |  -.1188335   .0633971    -1.87   0.065    -.2452438    .0075767
+customer_i~e |   .0116084   .1729289     0.07   0.947    -.3332021    .3564188
+teamwork_i~e |   .6001504   .8389281     0.72   0.477    -1.072625    2.272926
+presence_i~e |  -.0047979   .1129484    -0.04   0.966    -.2300105    .2204148
+ln_visit_c~e |  -.1186371   .1314952    -0.90   0.370     -.380831    .1435568
+visit_X_cu~r |   1.020831   .4466773     2.29   0.025     .1301817     1.91148
+visit_X_te~k |   .3322733   1.499757     0.22   0.825    -2.658157    3.322704
+       _cons |  -.1697359   .0790975    -2.15   0.035     -.327452   -.0120199
 ------------------------------------------------------------------------------
-(est4 stored)
+(est3 stored)
 
 . 
 . esttab using "../text/regression.tex", r2 star(* .1 ** .05 *** .01) se b(3) /
 > //
->         order(customer_share customer_interact_share teamwork_share teamwork_
-> interact_share presence_interact_share ln_visit_change visit_X_customer visit
-> _X_customer) ///
+>         order(customer_interact_share teamwork_interact_share presence_intera
+> ct_share ln_visit_change visit_X_customer visit_X_customer) ///
 >         noconstant nonote alignment(D{.}{.}{-1}) mtitles("" "" "" "") ///
 >         wrap replace label substitute() ///
 >         prehead(`"{\setlength{\tabcolsep}{-2pt}"' `"{\def\sym#1{\ifmmode^{#1}
