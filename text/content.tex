@@ -1,13 +1,15 @@
 \section*{Introduction}
-Social distancing measures are effective non-pharmaceutical interventions against the rapid spread of epidemics \cite{Bootsma2007-ww,Markel2007-ad,Hatchett2007-gc,Wilder-Smith2020-jj}. Many countries have implemented or are considering measures such as school closures, prohibition of large gatherings and restrictions on non-essential stores and transportation to slow down the spread of the 2019--20 coronavirus pandemic \cite{Anderson2020-qk,Cohen2020-jw,Thompson2020-lc,noauthor_2020-xi}. What are the economic effects of such social distancing interventions? Which businesses are most affected by the restrictions?
+
+Social distancing measures are effective non-pharmaceutical interventions against the rapid spread of epidemics \cite{Bootsma2007-ww,Markel2007-ad,Hatchett2007-gc,Wilder-Smith2020-jj}. Many countries have implemented measures such as school closures, prohibition of large gatherings and restrictions on non-essential stores and transportation to slow down the spread of the 2019--20 coronavirus pandemic \cite{Anderson2020-qk,Cohen2020-jw,Thompson2020-lc,noauthor_2020-xi}. What are the economic effects of such social distancing interventions? Which businesses are most affected by the restrictions?
 
 Past research has analyzed the efficacy of social distancing interventions on reducing the spread of epidemics using the 1918 Spanish Flu in the U.S. \cite{Hatchett2007-gc,Markel2007-ad,Bootsma2007-ww} and seasonal viral infections in France \cite{Adda2016-mn}. Our knowledge of economic impacts, however, is limited \cite{Wren-Lewis2020-vc}. For this question, past data may be less relevant, as the importance of face-to-face communication has increased steadily in the last 100 years through urbanization \cite{Henderson2010-mv,Henderson2002-ji} and specialization increased in business services as well \cite{Herrendorf2014-jx,Duarte2019-kc}. 
+Even if advances in information and communication technology made it increasingly possible to communicate with co-workers and customers without the need for physical face-to-face interactions, personal contacts are still inevitable in some industries. During the 2020 lockdown in the Netherlands only 31 percent of workers in the retail sector, 27 percent of the workers in the catering sector and 31 percent of the workers in the construction sector reported working from home \cite{von2020labour}.
 
-The starting point of this paper is the observation that many sectors rely heavily on face-to-face communication in the production process \cite{Charlot2004-zr,Tian2019-wq}. We build a model of communication to understand how limiting face-to-face interaction increases production costs. Without social distancing, workers specialize in a narrow range of tasks and interact with other workers completing other tasks. This division of labor reduces production costs but requires frequent contact between workers. In the model, the number of contacts per worker is the most frequent in high-population-density areas in businesses where the division of labor is important. When face-to-face interaction is limited, these are exactly the businesses that suffer the most.
+The starting point of this paper is the observation that many sectors rely heavily on face-to-face communication in the production process \cite{Charlot2004-zr,Tian2019-wq}. We build a model of communication to understand how limiting face-to-face interaction increases production costs. Without social distancing, workers specialize in a narrow range of tasks and interact with other workers completing other tasks. This division of labor reduces production costs but requires frequent contact between workers. In the model, the number of contacts per worker is the most frequent in businesses where the division of labor is important. When face-to-face interaction is limited, these are exactly the businesses that suffer the most.
 
-To measure business disruptions from social distancing, we turn to recent data on the task descriptions of each occupation \cite{National_Center_for_ONET_Development2020-wj} and the precise geographic location of non-farm businesses in the U.S. \cite{CBP}. We construct three groups of occupations and study their distribution in space. First, some occupations require face-to-face communication several times a week with other workers. Examples of these \emph{teamwork-intensive} occupations include maintenance, personal care related occupations and health care professionals. Other occupations require frequent contact with customers. Counselors, social workers and salespersons are examples of such \emph{customer-facing} occupations. The third group of workers may need to be in physical proximity of one another even if they do not communicate, for example, to operate machinery or access key resources. Examples of such occupations requiring \emph{physical presence} are drivers and machine operators, especially in mining and water transport, where crammed working environments are common.
+To measure business disruptions from social distancing, we turn to recent data on the task descriptions of each occupation \cite{National_Center_for_ONET_Development2020-wj}, the precise geographic location of non-farm businesses in the U.S. \cite{CBP}, and customer mobility patterns \cite{SafeGraph2020-gn}. We construct three groups of occupations. First, some occupations require face-to-face communication several times a week with other workers. Examples of these \emph{teamwork-intensive} occupations include maintenance, personal care related occupations and health care professionals. Other occupations require frequent face-to-face contact with customers. Retail salespersons, social workers and waiters and waitresses are examples of such \emph{customer-facing} occupations. The third group of workers may need to be in physical proximity of one another even if they do not communicate, for example, to operate machinery or access key resources. Examples of such occupations requiring \emph{physical presence} are drivers and machine operators, especially in mining and water transport, where crammed working environments are common. With our occupation level measures, we aim to capture the jobs that can be performed less efficiently from home. As O*NET measures the type of activities that are performed by the worker during normal times, we validate our indexes by using the American Time Use Survey (ATUS) \cite{ATUS}. The survey directly asks about the possibility of working from home.  
 
-The spatial distribution of employment matters because face-to-face interactions are more frequent in dense cities \cite{Charlot2004-zr,Tian2019-wq}. So any social distancing intervention imposes disproportionately more limitation on urban sectors. We use our theory-motivated measures to estimate which sectors and which locations will be particularly hurt by social distancing.
+To study how the patterns of interaction have changed in the U.S. during the Covid-19 pandemic, we use customer mobility data from SafeGraph \cite{SafeGraph2020-gn}. This dataset measures the number of visits to a business in a given month, as captured from several cell phone apps and made available to researchers in an anonymized form. ???????
 
 \section*{A model of communication}
 When workers communicate with others, they can divide labor more effectively. Production involves sequentially completing tasks indexed by $z\in[0,1]$. A single worker can do a range of tasks, but there is a benefit to specialization and division of labor \cite{Smith1778-qq,Becker1992-ac}. The labor cost of a worker completing $Z<1$ measure of tasks is $Z^{1+\gamma}/\gamma$, where $\gamma>0$ captures the benefits to the division of labor. As we show below, the higher the $\gamma$, the more specialized each worker will be in a narrower set of tasks. Without loss of generality, we normalize the wage rate of workers to one so that all costs are expressed relative to worker wages.
@@ -16,7 +18,7 @@ Once the range of tasks $Z$ is completed, the worker passes the unfinished produ
 
 The firm will optimally decide how to share tasks between workers. The key trade-off is economizing on the cost of communication while exploiting the division of labor \cite{Becker1992-ac}. Let $n$ denote the number of workers involved in the production process. Because workers are symmetric, each works on $Z=1/n$ range of tasks before passing the work to the next worker. Production involves $n-1$ ``contacts'' (instances of communication) and there is an additional contact with the customer. 
 
-Fig \ref{fig1} illustrates the division of labor between workers. Horizontal movement represents production along a range of tasks ($Z=1/n$), vertical movement represents interaction ($\tau$). We note three potential interpretations of our model. First, when workers work in teams, they can efficiently divide labor among themselves (panel A). The benefit of a larger team is better specialization. Second, communication may involve the customer (panel B). The benefit of more frequent interaction with the customer is a product or service that is better suited to their needs. Third, workers may need access to a key physical resource, such as a machine, vehicle or an oil well (panel C). In this case, even if they do not communicate, they may be subject to social distancing measures. The key assumption behind all three interpretations is that frequent interaction increases productivity, whether happening between workers, between workers and customers, or between workers and machines.
+Fig \ref{fig1} illustrates the division of labor between workers. Horizontal movement represents production along a range of tasks ($Z=1/n$), vertical movement represents interaction ($\tau$). We note three potential interpretations of our model. First, when workers work in teams, they can efficiently divide labor among themselves (panel A). The benefit of a larger team is better specialization. Law firms, management teams, and IT service firms are prime examples of businesses where intensive communication leads to narrow specialization \cite{Garicano2009-jv}. Second, communication may involve the customer (panel B). The benefit of more frequent interaction with the customer is a product or service that is better suited to their needs. Restaurants, beauty salons, personal and social services require such frequent interaction exactly because their service is so customized. Third, workers may need access to a key physical resource (panel C). In this case, even if they do not communicate, they may be subject to social distancing measures. For example, operators of machines, vehicle drivers or workers on an oil rig are all very much tied to a key resource to do their job. The key assumption behind all three interpretations is that frequent interaction increases productivity, whether happening between workers, between workers and customers, or between workers and machines.
 
 \begin{figure}[!h]
 \plos{\input{fig1a-input}\input{fig1b-input}\input{fig1c-input}}
@@ -44,63 +46,32 @@ The total cost of producing one good can be calculated by substituting in \eqref
 \end{equation}
 where $\chi=\gamma/(1+\gamma)\in(0,1)$ measures the importance of division of labor. This unit cost function is the same as if workers and communication were substitutable in the production function in a Cobb-Douglas fashion. Indeed, $\chi$ captures the share of costs associated with communication and can be calibrated accordingly.
 
-\subsection*{The cost of communication}
-Businesses may differ in $\chi$, how important communication is in their production process. Another source of heterogeneity is the cost of communication between workers, which we specify further as follows.
+\subsection*{Social distancing}
 
-When workers meet face to face, communication costs depend inversely on the population density in the neighborhood of the firm, $\tau=d^{-\varepsilon}$ with $\varepsilon>0$. This captures the Marshallian externality of knowledge spillovers \cite{Marshall1920-ps}, which happen more easily in densely populated areas \cite{Charlot2004-zr,Rossi-Hansberg2007-tm,Ioannides2008-bs,Tian2019-wq}. Contacts will be more frequent in dense areas,
-\begin{equation}\label{communication}
-	n^*(d) = d^{\varepsilon(1-\chi)}.
-\end{equation}
-The unit cost of production is
-\begin{equation}\label{cost2}
-c(d) = d^{-\varepsilon\chi}/\chi.
-\end{equation}
-Firms in dense areas face lower unit costs \cite{Ciccone1996-gu}, but this agglomeration benefit may be offset by higher wages and land rents in places with high population density \cite{Eberts1982-zf,Madden1985-pq,Combes2019-ud}. In spatial equilibrium (not modeled here), firms with high communication needs will choose to locate in high-density areas \cite{Tian2019-wq}.
+We study the effect of social distancing, which reduces the number of face-to-face contacts to some exogenous value $N$. This may be mandated by government orders to close certain places of business or stay at home. But it can also be the result of voluntary social distancing in response to the risk of infection. 
 
-\subsection*{Social distancing measures}
-We study the effect of a social distancing intervention that puts an upper limit $N$ on the number of face-to-face contacts. Firms can mitigate the disruption from this measure by moving communication online, but this is more costly per contact than face-to-face communication.
-
-The optimal number of contacts without social distancing is given by Eq \eqref{communication}. Firms with $n^*>N$ are limited by social distancing. Without moving communication online, their unit cost will increase to $c' = N d^{-\varepsilon} + N^{-\gamma}/\gamma$, which is greater than the optimal cost,
+The optimal number of contacts without social distancing is given by Eq \eqref{nstar}. Firms with $n^*>N$ are limited by social distancing. Without moving communication online, their unit cost will increase to $c' = N \tau + N^{-\gamma}/\gamma$, which is greater than the optimal cost,
 \begin{equation}\label{socdist}
-\frac{c'(d)}{c(d)} 
-	= \chi \frac{N}{n^*(d)} + (1-\chi) \left(\frac{N}{n^*(d)}\right)^{-\gamma}>1.
+\frac{c'}{c} 
+	= \chi \frac{N}{n^*} + (1-\chi) \left(\frac{N}{n^*}\right)^{-\gamma}>1.
 \end{equation}
-The first term of the weighted average is less than one, representing a reduction in communication costs once the number of contacts is limited. The second term is greater than one due to the fact that every worker has to complete a wider range of tasks than before, and they lose the benefit of specialization. Because $n^*$ is the cost-minimizing communication choice of the firm, the second term dominates, and production costs increase with social distancing.
-
-If the firm chooses to use telecommunication, the cost per contact will be $T>d^{\varepsilon}$ (otherwise the firm would have used telecommunication before). The proportional increase in production costs in this case is given by
-\begin{equation}\label{telco}
-\frac{c''(d)}{c(d)} 
-	= T^\chi d^{\varepsilon \chi}
-	>1.
-\end{equation}
-In both cases, the cost increase is highest for communication-intensive firms (large $\gamma$ and $\chi$) and those operating in a high-density area (high $d$ and hence high $n^*$).
-
-Fig \ref{fig2} displays the ratio of production costs under social distancing to the optimal production costs as a function of density. Firms in low-density areas are unaffected by social distancing since they do not have many contacts anyway. Those in intermediate-density areas would suffer less of a cost increase by switching to telecommunication. Firms in the highest-density areas will stick to face-to-face communication, which is still the more efficient form of communication despite restrictions. However, they will suffer the greatest cost increase. 
-
-\begin{figure}[!h]
-\plos{\centering\input{fig2-input}}
-
-\caption{{\bf Both social distancing and telecommunication hurt firms in dense areas more.}
-See Eq \eqref{socdist} and Eq \eqref{telco} for the relative production costs under the two interventions.}
-\label{fig2}
-\end{figure}
+The first term of the weighted average is less than one, representing a reduction in communication costs once the number of contacts declines. The second term is greater than one due to the fact that every worker has to complete a wider range of tasks than before, and they lose the benefit of specialization. Because $n^*$ is the cost-minimizing communication choice of the firm, the second term dominates, and production costs increase with social distancing.
 
 \section*{Data and methodology}
-To estimate the potential disruptions from social distancing, we need a measure of the importance of worker interaction (corresponding to $\chi$ in the model) and its cost (captured by population density $d$). 
+To estimate the potential disruptions from social distancing, we need a measure of the importance of worker interaction (corresponding to $\chi$ in the model) and its change (captured by the ratio $N/n^*$). 
 
 Let $\xi_o$ denote an indicator equal to one if occupation $o$ is interaction-intensive and zero otherwise. For industry $i$, $\chi_i = \sum_o s_{io}\xi_o$ measures the fraction of workers in affected occupations, with $s_{io}$ denoting the employment share of occupation $o$ in industry $i$.
 
 We use the Occupational Information Network (O*NET) \cite{National_Center_for_ONET_Development2020-wj} to measure the characteristics of a given occupation, similarly to previous studies \cite{Firpo2011-hp,Autor2013-sh,Jin2020-tq,Dingel2020-lh,Leibovici2020-qr,Mongey2020-qc}. The O*NET dataset contains detailed standardized descriptions on almost 1,000 occupations along eight dimensions. We focus on job characteristics that are related to recent social distancing measures, while prior work focused mainly on measuring offshorability of the given tasks \cite{Firpo2011-hp,Autor2013-sh}.
 
 Social distancing interventions limit the interaction between people and regulate physical proximity between individuals. We thus focus on three related job characteristics based on work context and work activity described in O*NET. The first two indicators capture how communication-intensive the job is. Communication can be of two types: internal communication with co-workers (\emph{teamwork}) or external communication directly with customers (\emph{customer-facing}). The third indicator takes into consideration the possibility that workers may need to be in physical proximity of one another even if they do not communicate. We create an index that shows how important \emph{physical presence} is to perform a given job. Table \ref{table1} details the specific O*NET indexes that contribute to each of our three measures.
-As social distancing measures only limit personal communication, for communication indexes, we require that the necessary face-to-face communication happens at least several times a week. 
-In teamwork, face-to-face meetings can often be substituted by more structured communication, for which working from home is not as disruptive. To allow for this possibility, we only classify occupations as teamwork-intensive where both emails and letters and memos are less frequent forms of communication than face-to-face meetings. This excludes most managers and certain business services. Similarly, for physical presence, we require at least a certain degree of proximity to other workers which corresponds to working in a shared office.
+As social distancing measures only limit personal communication, for communication indexes, we require that the necessary face-to-face communication happens at least several times a week. Face-to-face meetings can often be substituted by more structured communication, for which working from home is not as disruptive. To allow for this possibility, we only classify occupations as teamwork-intensive or customer-facing where both emails and letters and memos are less frequent forms of communication than face-to-face meetings. This excludes most managers and certain business services. Similarly, for physical presence, we require at least a certain degree of proximity to other workers which corresponds to working in a shared office.
 
 \begin{table}[!ht]
-%\begin{adjustwidth}{-2.25in}{0in} % Comment out/remove adjustwidth environment if table fits in text column.
+\begin{adjustwidth}{-2.25in}{0in} % Comment out/remove adjustwidth environment if table fits in text column.
 \caption{
 {\bf Definition of social distancing indexes.}}
-\begin{tabular}{|l|l|l|}
+\begin{tabular}{|l+l|l|}
 \hline
 {\bf Index} & {\bf Tasks} & {\bf Context} 
 \\ \thickhline
@@ -113,9 +84,9 @@ Teamwork & Work With Work Group or Team & Face-to-face  \\
 \hline
 Customer & Deal With External Customers & Face-to-face\\
 &  Performing for or Working Directly with the Public & discussions \\
-& Assisting and Caring for Others & several \\
-& Provide Consultation and Advice to Others & times a week\\
-& Establishing and Maintaining Interpersonal Relationships &\\
+& Assisting and Caring for Others & several times a week \\
+& Provide Consultation and Advice to Others & \& more often than\\
+& Establishing and Maintaining Interpersonal Relationships & emails, letters, memos \\
 \hline
 Presence & Handling and Moving Objects & Density of \\
 & Operating Vehicles, Mechanized Devices or Equipment & co-workers \\
@@ -128,7 +99,7 @@ Presence & Handling and Moving Objects & Density of \\
 \begin{flushleft} Each social distancing index (column 1) is created as an arithmetic average of the component indexes (column 2). To be classified an affected occupation, the average has to exceed 62.5 and the work context index has to exceed the threshold in column 3.
 \end{flushleft}
 \label{table1}
-%\end{adjustwidth}
+\end{adjustwidth}
 \end{table}
 
 We aggregate the measures to 6-digit occupation codes (Standard Occupational Classification; 2010-SOC). We have information on the relevance of teamwork, customer contact and physical presence  for 809 occupations in SOC 2010 codes.
@@ -143,65 +114,87 @@ Each circle represents an occupation. Teamwork and customer contact indexes are 
 \label{fig3}
 \end{figure}
 
-As a next step, we calculate for each sector the share of workers whose job requires a high level of teamwork, customer contact and physical presence. 
-We use the same sectoral breakdown as the Current Employment Statistics (CES) \cite{CES}. As all the indexes are an absolute value running from 0 to 100, we use 62.5 as a cutoff to define a job to be teamwork-intensive, customers contact-intensive or job that require physical presence from the worker.  The occupation structure of the industries are retrieved from the official industry-occupation matrix \cite{employment-matrix}, we use the employment statistics by occupation-industry for February 2020. 
+
+
+With our occupation-level measures, we aim to capture the type of activities that require frequent face-to-face contact. Our assumption is that these activities cannot be effectively done from home. To validate this assumption, we use data from the American Time Use Survey (ATUS) \cite{ATUS}, which directly asks the workers whether they \emph{can} work from home. Fig. \ref{customer_validation} plots our customer-intensity measure, for each occupation, against the share of workers who reported in ATUS that they can work from home (dark filled circles). Indeed, most customer-facing occupations have very few workers who can work from home. The pattern is different if we look at occupations that rely more on email, letters, and memos for customer communication (light hollow circles). The majority of these workers can work from home. Interestingly, for each degree of working from home (horizontal axis), there is sufficient variation in the importance of customer contact (vertical axis). The same patterns can be observed for teamwork-intensive occupations (Fig. \ref{teamwork_validation}). This makes use conclude that dropping occupations primarily relying on email, letters and memos is sufficient to control for the potential to work from home.
+
+
+\begin{figure}[!h]
+\plos{\includegraphics[width=0.7\linewidth]{customer_atus_validation.pdf}}
+
+\caption{{\bf Workers in customer-facing occupations with face-to-face interaction can rarely work from home.}
+Filled circles represent the occupations where face-to-face contacts are more important than emails and memos. Hollow circles represent the occupations where emails and memos are more important than face-to-face contacts. The indexes are constructed as explained in main text. }
+\label{customer_validation}
+\end{figure}
+
+\begin{figure}[!h]
+\plos{\includegraphics[width=0.7\linewidth]{teamwork_atus_validation.pdf}}
+
+\caption{{\bf Workers in teamwork-intensive occupations with face-to-face interaction can rarely work from home.}
+Filled circles represent the occupations where face-to-face contacts are more important than emails and memos. Hollow circles represent the occupations where emails and memos are more important than face-to-face contacts. The indexes are constructed as explained in main text. }
+\label{teamwork_validation}
+\end{figure}
+
+With our validated occupation measures in hand, our next step is to calculate for each sector the share of workers whose job requires a high level of teamwork, customer contact, and physical presence. 
+We use the same sectoral breakdown as the Current Employment Statistics (CES) \cite{CES}. As all the indexes are an absolute value running from 0 to 100, we use 62.5 as a cutoff to define a job to be teamwork-intensive, customers contact-intensive, or job that requires physical presence from the worker.  The occupation structure of the industries are retrieved from the official industry-occupation matrix \cite{employment-matrix}, we use the employment statistics by occupation-industry for February 2020. 
 
 Based on the share of relevant occupations in industry employment, the most teamwork-intensive sectors are, for example ``Hospitals,'' ``Accommodation'' and  ``Motion picture and sound recording industries.'' In contrast, teamwork is not important in sectors like ``Forestry and logging'' and ``Fishing, hunting and trapping.''  Customer contact is relevant in sectors like ``Hospitals''  and ``Retail'', while it is not relevant is sectors line ``Truck transportation,'' and ``Forestry and logging.'' Physical presence is relevant in sectors like  ``Truck transportation,'' ``Repair and maintenance,'' mining in general, while it is not relevant in finance and information technology sectors. 
 
 ``Hospitals'' score high on all three measures because communication in health care teams and with patients is important, and doctors and nurses work in close physical proximity to others. We nonetheless remove this sector from the analysis because of its inevitable direct role in combating the epidemic which is not captured well in a simple model of communication.
 
-To measure the heterogeneity in the cost of communication, we measure population density in the neighborhood of businesses. The assumption in the model is that communication costs are lower in dense areas. This is consistent with the fact that communication-intensive sectors such as business services and advertising, together with central administrative offices of production firms tend to be concentrated in high-density areas \cite{Aarland2007-dh}.
+To measure how the number of interactions has changed due to social distancing, we use data from SafeGraph \cite{SafeGraph2020-gn}, a data company that aggregates anonymized location data from numerous applications to provide insights about physical places. To enhance privacy, SafeGraph excludes census block group information if fewer than five devices visited an establishment in a month from a given census block group.
 
-The location of sectors comes from the County Business Patterns (CBP) data for 2017 \cite{CBP}. For a finer spatial resolution, we use the data tabulated by ZIP-Code Tabulation Areas. The CBP lists the number of establishments of a certain size for each ZIP-code and NAICS industry code. Because establishment sizes are given in bins (e.g., 1--4 employees), we take the midpoint of each bin as our estimated employment (e.g., 2.5 employees). In small industries and ZIP codes, the Census omits some size categories to protect the confidentiality of businesses. We impute employment in these plants from the national size distribution of plants in the same NAICS industry. Our estimated industry-level employment is a very good approximation to official employment statistics \cite{CES}. The correlation between our estimates based on CBP and the employment reported in CES is 0.98.
+We use the Monthly Patterns file that captures the number of visits by mobile devices in the sample to more than 4 million points of interest (POIs) in each month. Each POI is assigned a specific address, including a ZIP code, and a 6-digit NAICS code. Because the pandemic hit different regions of the U.S. at different times, we use both the industry and the regional variation of customer mobility data. We aggregate monthly visits by 3-digit NAICS code and ZIP code. This enables us to measure by how much, for example, visits to clothing stores have declined in downtown Manhattan.
 
-To understand the heterogeneity across regions, we average the share of workers in teamwork-intensive, customer-facing and physical presence occupations across industries active in each ZIP code. For each of the three occupation groups, let $\xi_{og}$ denote the indicator whether occupation $o$ belongs to group $g$. The industry share of workers in the occupation group is given by $\sum_o s_{io}\xi_{og}$. We compute the regional share of the occupation group as an employment-weighted average across industries, $\sum_i l_{ir}\sum_o s_{io}\xi_{og}/\sum_i l_{ir}$, where $l_{ir}$ is the estimated employment of industry $i$ in region (ZIP code) $r$. Because we only have industry but not occupation data by location, we have assumed that the occupation distribution within the sector, $s_{io}$, does not vary across locations. The fact that the CBP tabulates employment by establishments rather than firms makes this a good approximation. For example, a sporting good producer may also have an administrative office and a retail store in different locations, but these will be classified in their respective NAICS sectors rather than in sporting good manufacturing.
+We measure the percentage change in the number of visits between February and May 2020. When the industry-ZIP cell received fewer than ten visits in either month or when visits data are missing in SafeGraph, we replace the change in visits with the average of the ZIP code.
 
-We use population density to measure how locations differ in the costs of communication. We also experimented with using employment densities instead of population densities. Results were very similar, as the two measures are highly correlated with the exception of very high employment-density urban centers where population is more sparse \cite{Heblich2017-lb}.
+To validate the customer mobility data, we check the location of sectors in the County Business Patterns (CBP) data for 2017 \cite{CBP}. For a finer spatial resolution, we use the data tabulated by ZIP-Code Tabulation Areas. The CBP lists the number of establishments of a certain size for each ZIP-code and NAICS industry code. We estimate the employment of each industry in each ZIP code to be able to compute employment-weighted national averages of our statistics of interest.
+
+Because establishment sizes are given in bins (e.g., 1--4 employees), we take the midpoint of each bin as our estimated employment (e.g., 2.5 employees). In small industries and ZIP codes, the Census omits some size categories to protect the confidentiality of businesses. We impute employment in these plants from the national size distribution of plants in the same NAICS industry. Our estimated industry-level employment is a very good approximation to official employment statistics \cite{CES}. The correlation between our estimates based on CBP and the employment reported in CES is 0.98.
 
 \subsection*{Counterfactual calculations}
-To gauge the magnitude of the effect of social distancing, we calibrate the parameters of the model and compute the effect of a policy that limits the number of worker contacts. At the same time, we let the government introduce a proportional wage subsidy $\lambda$ to help offset the costs from lower interaction. With this subsidy, the cost of labor will be $(1-\lambda)$. We ask what level of $\lambda$ would compensate businesses for the communication disruption caused by social distancing. Using the cost change in Eq \ref{socdist}, we can express
+To gauge the magnitude of the effect of social distancing, we compute the effect of the decline in the number of customer-worker contacts. At the same time, we let the government introduce a proportional wage subsidy $\lambda$ to help offset the costs from lower interaction. With this subsidy, the cost of labor will be $(1-\lambda)$. 
+
+We ask what level of $\lambda$ would exactly compensate businesses for the communication disruption caused by social distancing. When interactions decrease, $N<n^*$, production costs increase. We compute the subsidy $\lambda$, which, when given to every worker, would exactly offset the cost increase. This way the business would not have to fire any of its workers. The goal of this exercise is not to evaluate any particular employment support policy, but to get a sense of the magnitude of business disruptions. 
+
+Using the cost change in Eq \ref{socdist}, we can express the compensating labor subsidy of industry $i$ in region $r$ as
 \begin{equation}\label{subsidy}
     \lambda_{ir} = 1 -
-        \frac{1-\chi_i}{1-\chi_i N/n_{ir}^*}
+        \frac{1-\chi_i}{1-\chi_i N_{ir}/n_{ir}^*}
         \left(
-        \frac{N}{n_{ir}^*}
+        \frac{N_{ir}}{n_{ir}^*}
         \right)^{\gamma_i}>0.
 \end{equation}
-The compensating wage subsidy increases in the importance of communication $\chi_i$ and the optimal number of contacts $n^*_{ir}$, and decreases in the number of allowed contacts $N$. The subscripts note that communication share is industry specific and the optimal number of contacts is both industry and region specific.
+We calibrate $n_{ir}^*$ to match the number of customer visits to establishments of industry $i$ in ZIP-code $r$ in February 2020, assuming that these visits were optimal before the pandemic hit the U.S. The new number of visits, $N_{it}$ will be calibrated to the number of customer visits in May 2020. The compensating wage subsidy increases in the importance of communication $\chi_i$ and decreases in the change in cotacts $N_{ir}/n^*_{ir}$. The subscripts note that communication share is industry specific and the change in contacts is both industry and region specific.
 
-We calibrate the upper limit on personal contacts $N$ such that the overall number of contacts in the economy, when averaged across ZIP codes and industries, is reduced by half, $\sum_{i,r}l_{ir}\min\{N,n_{ir}^*\} = 0.5\sum_{i,r}l_{ir}n_{ir}^*$. Due to the inherent nonlinearity of the model, other interventions will have different effects.
-
-To calibrate the importance of communication $\chi_i$, note that it is the cost share of communication, and can be correspondingly calibrated to the employment share of communication-intensive occupations in industry $i$. Here we take all occupations that are either teamwork intensive or customer facing.
-
-Population density in region $r$ can be measured directly in the data, as explained above.
-The only remaining parameter to calibrate is the elasticity of the communication externality $\varepsilon$. We rely on previous estimates of agglomeration effects that capture the elasticity of total factor productivity with respect to population density \cite{Ciccone1996-gu}. In our model, the elasticity of unit costs (which can be construed as the inverse of productivity) with respect to density is $-\varepsilon\chi$ (Eq \eqref{cost2}). We calibrate $\varepsilon=0.02$ so that, across all ZIP codes and industries, a regression of log model-implied productivity ($\varepsilon\chi_i\ln d_r$) on log population density $\ln d_r$ yields an elasticity of 0.04 \cite[page 60]{Ciccone1996-gu}.
-
-Given these parameter values, we compute the compensating wage subsidy for each industry in each ZIP code using Eq \ref{subsidy}. We report employment-weighted averages of this across sectors and across locations.
+To calibrate the importance of communication $\chi_i$, note that it is the cost share of communication, and can be correspondingly calibrated to the employment share of communication-intensive occupations in industry $i$. We then compute the compensating wage subsidy for each industry in each ZIP code using Eq \ref{subsidy}. We report employment-weighted averages of this across sectors and across locations.
 
 \section*{Results}
-Table \ref{table2} displays the top five and the bottom five industries by 2-digit NAICS industries as sorted by the percentage of workers in communication-intensive occupations, excluding hospitals and clinics. Across industries, retail trade, accommodation and food services, arts, entertainment, and recreation, other services and educational services have the highest share of communication-intensive workers, exceeding 35 percent. Transportation, production, construction and agricultural industries are less reliant on face-to-face communication. This heterogeneity across industries is important to understand the effect of social distancing measures.
+Table \ref{table2} displays the top five and the bottom five industries by 2-digit NAICS industries as sorted by the percentage of workers in communication-intensive occupations, excluding hospitals and clinics. Across industries, retail trade, accommodation and food services, arts, entertainment, and recreation, other services and administrative and support and waste management and remediation services have the highest share of communication-intensive workers, exceeding 35 percent. Information, transportation, production, professional, scientific, and technical Services and agricultural industries are less reliant on face-to-face communication. This heterogeneity across industries is important to understand the effect of social distancing measures.
 
 \begin{table}[!ht]
 %\begin{adjustwidth}{-2.25in}{0in} % Comment out/remove adjustwidth environment if table fits in text column.
 \caption{
-{\bf Retail, professional services, finance and restaurants are the most communication intensive.}}
-\begin{tabular}{|l|c|c|c|c|}
+{\bf Retail, accommodation and restaurants are the most communication intensive.}}
+\begin{tabular}{|l+c|c|c+c|}
 \hline
  & \multicolumn{3}{c}{\bf Communication} &  
 \\ 
 {\bf Industry} & {\bf Teamw.} & {\bf Custom.} & {\bf Overall} & {\bf Presence} 
 \\ \thickhline
-Retail trade &13&67&68&5\\
-Accommodation \& food services &8&50&51&1\\
-Arts, Entertainment, and Recreation &12&40&42&2\\
-Other Services (except Public Admin.) &12&38&41&12\\
-Educational Services &15&35&37&1\\
+Retail trade &13&65&66&4\\
+Accommodation \& food services &9&49&51&1\\
+Arts, Entertainment, and Recreation &12&37&40&2\\
+Other Services (except Public Admin.) &12&28&30&13\\
+Admin. \& Support \& Waste Manag.  &	17&	24&	7&	27\\
+\& Remed. Serv. &&&& \\
 ...&&&&\\
-Wholesale Trade &8&16&20&12\\
-Transportation and Warehousing  &8&10&16&32\\
-Manufacturing &7&6&11&10\\
-Construction &15&5&18&28\\
-Agri., forestry, fishing \& hunting &4&4&7&23\\
+Information&	6&	13&	15&	9\\
+Transportation and Warehousing&	8&	8&	14&	33\\
+Prof., Scient., and Technical Serv.&	5&	10&	12&	1\\
+Manufacturing&	7&	5&	9&	10\\
+Agri., forestry, fishing \& hunting &	4&	1&	4&	23\\
+
  \thickhline
 
 \hline
@@ -212,41 +205,48 @@ Agri., forestry, fishing \& hunting &4&4&7&23\\
 %\end{adjustwidth}
 \end{table}
 
-Fig \ref{fig4} plots the share of workers in the three affected occupation groups across ZIP codes by population density. Customer-facing occupations are overrepresented in dense areas. In the highest population density ZIP codes, 43 percent of workers are employed in customer-facing occupations. Teamwork-intensive occupations are broadly distributed in space.
+Table \ref{table4} reports the results of regressing the log change in industry employment between February and May 2020 on our social distancing indexes. Each regression is estimated with unweighted ordinary least squares. Across the entire non-farm economy, employment has dropped by 13 percent (not seasonally adjusted) \cite{CES}. 
 
-\begin{figure}[!h]
-\plos{\includegraphics[width=0.7\linewidth]{fig4.pdf}}
+As Column 1 shows, the drop was larger in industries with a larger share of customer-facing workers. There is no significant correlation between the share of workers with teamwork-intensive jobs or the share of workers requiring physical presence to do their work and employment losses. In Column 2, we control for the change in log customer visits. Indeed, changes in customer visits are positively correlated with changes in employment (both dropping for most of our industries). In Column 3, we introduce interactions with the change in log customer visits (as a proxy for $\ln (N/n^*)$) and the share of communication workers (as a proxy for $\chi$). As predicted by the model, the drop in customer visits has the largest effect on sectoral employment in sectors where the share of customer-facing workers is highest.
+ 
+\begin{table}[!ht]
+%\begin{adjustwidth}{-2.25in}{0in} % Comment out/remove adjustwidth environment if table fits in text column.
+\caption{
+{\bf Employment decline was sharpest in customer-facing industries.}}
+\input{regression.tex}
+\begin{flushleft} Regression results of change in log industry employment between February and May 2020 estimated by ordinary least squares (unweighted). Explanatory variables in Column 1 are the shares of customer-facing, teamwork-intensive and presence-requiring workers. Column 2 controls for the change in log monthly visits to industry establishments. Column 3 interacts the change in visits with the share of face-to-face intensive  workers in the two occupation groups. Robust standard errors are reported in parentheses. $p$-values are denoted by asterisk: * $<.1$ ** $<.05$ *** $<.01$.
+Sample excludes hospitals, clinics, and government establishments, as well as farming and fishing which are not present in CBP.
+\end{flushleft}
+\label{table4}
+%\end{adjustwidth}
+\end{table}
 
-\caption{{\bf Urban areas employ more workers in customer-facing occupations, less in occupations requiring physical presence.}
-Locally weighted polynomial regression of average share of teamwork-intensive occupations, customer-facing occupations and occupations requiring physical presence across sectors within the ZIP code (bandwidth $=0.5$).}
-\label{fig4}
-\end{figure}
 
-In the calibrated model, a social distancing policy that puts a cap on interactions per worker such that the total number of interactions drops by half nationwide is compensated a 12.2 percent wage subsidy. The distribution of the compensating wage subsidy is, however, unequal over space and across industries. 
-New York City, with a population density about 20 times the average U.S. city, would require a 13.3 percent wage subsidy. 
-By contrast, the compensating wage subsidy in agriculture, transportation and manufacturing would be less than 6 percent (Table \ref{table3}).
+As we see from the regression results above, the largest decline in sectoral employment are in sectors where the share of customer-facing workers is highest. We hence use the share of customer-facing workers for the following analysis. 
+
+In the calibrated model, the social distancing that took place between February and May 2020 would be compensated by a 39.9 percent wage subsidy. The distribution of the compensating wage subsidy is, however, unequal across industries. Retail trade, where customer visits practically ground to a halt, would require a 234 percent wage subsidy. By contrast, the compensating wage subsidy in agriculture, transportation and manufacturing would be less than 2 percent (Table \ref{table3}).
 
 \begin{table}[!ht]
 %\begin{adjustwidth}{-2.25in}{0in} % Comment out/remove adjustwidth environment if table fits in text column.
 \caption{
-{\bf The five most affected sectors require more than 20 percent wage subsidy.}}
-\begin{tabular}{|l|c|c|}
+{\bf The five most affected sectors require more than 14 percent wage subsidy.}}
+\begin{tabular}{|l+c|c|}
 \hline
 {\bf Industry} & {\bf Wage subsidy} & {\bf Employment} 
 \\ \thickhline
-Retail Trade	&22.1	&15,659\\
-Accommodation and Food Services	&17.7	&14,379\\
-Arts, Entertainment, and Recreation	&15.1	&2,494\\
-Other Services (except Public Admin.)	&14.5	&5,939\\
-Educational Services	&13.8	&3,838\\
+Retail Trade	&234	&15,672\\
+Arts, Entertainment, and Recreation	&30.2	&2,472\\
+Accommodation and Food Services	&26.1	&14,394\\
+Educational Services	&22.2	&3,8328\\
+Other Services (except Public Admin.)	&14.5	&5,941\\
 ...&&\\
-Wholesale Trade	&7.7	&5,936\\
-Construction	&6.8	&7,646\\
-Transportation and Warehousing	&5.9	&5,523\\
-Manufacturing	&4.5	&12,861\\
-Agriculture, Forestry, Fishing and Hunting	&2.6	&55\\
+Mining          &2.0    &660\\
+Wholesale Trade	&1.8	&5,934\\
+Construction	&1.1	&7,639\\
+Manufacturing	&1.1	&12,852\\
+Agriculture, Forestry, Fishing and Hunting	&0.5	&55\\
 \hline
-{\bf Average} & {\bf 12.2} & {\bf 116,496}\\
+{\bf Average} & {\bf 39.9} & {\bf 116,441}\\
  \thickhline
 
 \hline
@@ -257,34 +257,39 @@ Agriculture, Forestry, Fishing and Hunting	&2.6	&55\\
 %\end{adjustwidth}
 \end{table}
 
-
 \section*{Discussion and conclusions}
+
 The main cost of social distancing in our model is insufficient division of labor. This mechanism is motivated by \cite{Smith1778-qq} and captures the same trade-off as \cite{Becker1992-ac}. Our contribution is specifying the cost function in such a way that can be easily mapped to the data.
 
-More broadly, our argument is that frequent interaction increases productivity irrespective whether it is happening between workers, between workers and customers, or between workers and machines. In the main part of the empirical analysis, we focused only on the first two types of interactions, while we were silent about the third. But social distancing measures also affect sectors where workers need to be in physical proximity of one another even if they do not communicate, for example, to operate machinery or access key resources. This is relevant in sectors like ``Mining, Quarrying, and Oil and Gas Extraction'' and ``Transportation'' while it is not relevant in sectors like ``Finance and Insurance'' and ``Professional, Scientific, and Technical Services.'' As can be seen from Fig \ref{fig4}, occupations requiring physical presence have the highest share in less dense areas where production and mining plants are located. (Farms are not included in the CBP.) The share of these occupations in the most dense areas is only 3 percent.
+More broadly, our argument is that frequent interaction increases productivity irrespective whether it is happening between workers, between workers and customers, or between workers and machines. In the main part of the empirical analysis, we focused only on the first two types of interactions, while we were silent about the third. But social distancing measures also affect sectors where workers need to be in physical proximity of one another even if they do not communicate, for example, to operate machinery or access key resources. This is relevant in sectors like ``Mining, Quarrying, and Oil and Gas Extraction'' and ``Transportation'' while it is not relevant in sectors like ``Finance and Insurance'' and ``Professional, Scientific, and Technical Services.'' 
 
 To a greater or lesser extent, all sectors will be affected by social distancing. Some sectors are hit by the intervention due to restricted face-to-face communication, others are hit due to restricting physical proximity of people. Some sectors are less affected across all dimensions. Examples include ``Fishing, hunting and trapping,'' ``Printing and related support activities,'' and manufacturing in general. 
 
-Our results are consistent with parallel research on the overall economic effects of the coronavirus pandemic using O*NET data. Recent research found that about 34 percent of U.S. jobs can be performed from home \cite{Dingel2020-lh}. However, as our analysis points out, even among jobs that do not fall into this category, some are more at risk from social distancing than others. The share of workers working in close physical proximity to other people is similar to other recent estimates \cite{Leibovici2020-qr}. Workers in this group are found to be the most vulnerable across a wide range of socio-economic measures \cite{Jin2020-tq,Mongey2020-qc}. We contribute to this work by (i) building a model to understand how social distancing measures affect the production, (ii) identifying three groups of occupations affected by social distancing and (iii) taking into account the disproportionate costs borne by urban sectors.
+Our results are consistent with parallel research on the overall economic effects of the coronavirus pandemic using O*NET data. Recent research found that about 34 percent of U.S. jobs can be performed from home \cite{Dingel2020-lh}. However, as our analysis points out, even among jobs that do not fall into this category, some are more at risk from social distancing than others. The share of workers working in close physical proximity to other people is similar to other recent estimates \cite{Leibovici2020-qr}. Workers in this group are found to be the most vulnerable across a wide range of socio-economic measures \cite{Jin2020-tq,Mongey2020-qc}. We contribute to this work by (i) building a model to understand how social distancing measures affect the production, (ii) identifying three groups of occupations affected by social distancing and (iii) validating our model with customer visit and employment data.
 
 We see four avenues for further research. The first concerns the demand side of the economy, which we have mostly neglected by focusing on the production function. The employment response to a production disruption greatly depends on the elasticity of demand. We hypothesize that sectors like schooling and health care have inelastic demand and will continue to employ many workers despite significant disruptions. However, personal services, small grocery stores and restaurants may face more elastic demand and respond to large production cost increases by laying off a significant fraction of their work force.
 
-The second direction concerns the interaction between sectors and regions. Whenever productivity in any business drops, this shock can propagate to its buyers and suppliers. The aggregate consequences of the epidemic will hence be modulated by input-output linkages between sectors, regions and countries \cite{Caliendo2014-mr,Caselli2020-nf,Baldwin2020-wb}.
+The second direction concerns the interaction between sectors and regions. Whenever productivity in any business drops, this shock can propagate to its buyers and suppliers. The aggregate consequences of the epidemic will hence be modulated by input-output linkages between sectors, regions and countries \cite{Caliendo2014-mr,Caselli2020-nf,Baldwin2020-wb,Barrot2020-jf}.
 
 The third and forth directions concern the long-run response of businesses as they try to become more resilient to such shocks in the future. Whether the share of telecommunication remains large in the long run depends crucially on how easily it substitutes for face-to-face interaction. In our model, the two are perfect substitutes with the only distinction that the efficiency of face-to-face meetings improves with population density, whereas telecommunication does not depend on agglomeration \cite{Rossi-Hansberg2007-tm,Ioannides2008-bs,Tian2019-wq}. Previous work has found face-to-face communication to be more effective in high-intensity communication which is particularly helpful to overcome incentive problems in joint production \cite{Gaspar1998-gy,Storper2004-mg}. Data on internet flows suggests that telecommunication is not a good substitute for face-to-face meetings \cite{Cuberes2013-js}. None of these papers discuss disruptions from social distancing measures. Further study of the modes of communication in the O*NET occupation survey can shed light on whether telecommunication can act as a low-cost substitute for face-to-face meetings.
 
 Fourth, businesses may change their location in response to perceived threats and disruptions. As we discussed, epidemics have a disproportionate effect on cities. So it is conceivable that in a post-pandemic spatial equilibrium (not modeled here, but see \cite{Tian2019-wq}), the agglomeration premium falls and firms find it less attractive to locate in cities. A poignant point of comparison is the increased threat of terrorism in major cities following devastating attacks on New York, Washington, London, Paris, Madrid, Moscow and Mumbai. The general conclusion about terror threat is that cities have remained resilient and a robust attractor of businesses \cite{Glaeser2002-mw,Harrigan2002-ik}. We speculate that epidemics and social distancing can be more detrimental to cities than terror threats, because they tear apart the very fabric of urban life. However, we have limited data to make further predictions.
+
+\section*{Data Availability Statement}
+The mobility data used in this paper \cite{SafeGraph2020-gn} is confidential, but may be obtained free of charge for Covid-19-related research from the COVID-19 Consortium. Researchers interested in access to the data can apply at https://www.safegraph.com/covid-19-data-consortium. After signing a Data Agreement, access is granted within a few days. The authors will assist with any reasonable replication attempts for two years following publication.
+
+The code and all other data underlying our analysis are licensed for public use and will be made available on Zenodo. 
 
 \section*{Supporting information}
 
 % Include only the SI item label in the paragraph heading. Use the \nameref{label} command to cite SI items in the text.
 \paragraph*{S1 Full table of sectors.}
 \label{S1_File}
-{\bf Social distancing exposure by sector.} The percentage share of workers in teamwork-intensive, customer-facing, and physical-proximity occupations within the industry. ``Communucation share'' refers to the share of workers who are either teamwork-intensive or customer-facing. ``Affected share'' refers to the share of workers in any of the three occupation groups. Available at \url{https://github.com/ceumicrodata/social-distancing/blob/v1.3/data/derived/industry-index.csv}.
+{\bf Social distancing exposure by sector.} The percentage share of workers in teamwork-intensive, customer-facing, and physical-proximity occupations within the industry. ``Communication share'' refers to the share of workers who are either teamwork-intensive or customer-facing. ``Affected share'' refers to the share of workers in any of the three occupation groups. Available at \url{https://github.com/ceumicrodata/social-distancing/blob/v1.3/data/derived/industry-index.csv}.
 
 \paragraph*{S2 Full table of ZIP-codes.}
 \label{S2_File}
-{\bf Social distancing exposure by location.} The percentage share of workers in teamwork-intensive, customer-facing, and physical-proximity occupations within the ZIP code. ``Communucation share'' refers to the share of workers who are either teamwork-intensive or customer-facing. ``Affected share'' refers to the share of workers in any of the three occupation groups. Available at \url{https://github.com/ceumicrodata/social-distancing/blob/v1.3/data/derived/location-index.csv}.
+{\bf Social distancing exposure by location.} The percentage share of workers in teamwork-intensive, customer-facing, and physical-proximity occupations within the ZIP code. ``Communication share'' refers to the share of workers who are either teamwork-intensive or customer-facing. ``Affected share'' refers to the share of workers in any of the three occupation groups. Available at \url{https://github.com/ceumicrodata/social-distancing/blob/v1.3/data/derived/location-index.csv}.
 
 \paragraph*{S3 Data repository.}
 \label{S3_URL}
