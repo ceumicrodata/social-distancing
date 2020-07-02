@@ -37,25 +37,10 @@ Notes:
 . replace ces_employment = int(ces_employment*1000)
 (80 real changes made)
 
-. foreach X of var *_share {
+. foreach X of var *_interact_share {
   2.         summarize `X' [fw=ces_employment]
   3.         display "Millions of workers: " r(mean)/100 * r(sum_w) / 1e+6
   4. }
-
-    Variable |        Obs        Mean    Std. Dev.       Min        Max
--------------+---------------------------------------------------------
-teamwork_s~e |116,601,799    22.89693    12.46854          5         50
-Millions of workers: 26.698227
-
-    Variable |        Obs        Mean    Std. Dev.       Min        Max
--------------+---------------------------------------------------------
-customer_s~e |116,601,799    31.12022    21.38212          3         90
-Millions of workers: 36.286734
-
-    Variable |        Obs        Mean    Std. Dev.       Min        Max
--------------+---------------------------------------------------------
-presence_s~e |116,601,799    8.334792    12.98494          0         66
-Millions of workers: 9.7185178
 
     Variable |        Obs        Mean    Std. Dev.       Min        Max
 -------------+---------------------------------------------------------
@@ -74,11 +59,6 @@ Millions of workers: 9.6795258
 
     Variable |        Obs        Mean    Std. Dev.       Min        Max
 -------------+---------------------------------------------------------
-comm~n_share |116,601,799    42.87998    18.30046          8         91
-Millions of workers: 49.998832
-
-    Variable |        Obs        Mean    Std. Dev.       Min        Max
--------------+---------------------------------------------------------
 comm~t_share |116,601,799    29.88258    20.92463          4         90
 Millions of workers: 34.843623
 
@@ -91,7 +71,7 @@ Millions of workers: 34.843623
 
 . 
 . * employment-weighted average
-. foreach X of var *_share {
+. foreach X of var *_interact_share {
   2.         replace `X' = `X' * employment
   3.         replace employment = . if missing(`X')
   4. }
