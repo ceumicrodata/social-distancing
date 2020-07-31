@@ -444,7 +444,36 @@ As Column 1 shows, the drop was larger in industries with a larger share of cust
 %\begin{adjustwidth}{-2.25in}{0in} % Comment out/remove adjustwidth environment if table fits in text column.
 \caption{
 {\bf Employment decline was sharpest in customer-facing industries.}}
-\input{regression.tex}
+
+{\setlength{\tabcolsep}{-2pt}
+{\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}\begin{tabular}{l*{4}{D{.}{.}{-1}}}\hline\hline
+                    &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}\\
+                    &\multicolumn{1}{c}{} &\multicolumn{1}{c}{} &\multicolumn{1}{c}{} \\
+\hline
+Customer-facing~workers (share, [0,1])&      -0.418\sym{**} &      -0.463\sym{***}&       0.012         \\
+                    &     (0.164)         &     (0.152)         &     (0.173)         \\
+[1em]
+Teamwork-intensive~workers (share, [0,1])&       0.024         &       0.254         &       0.600         \\
+                    &     (0.563)         &     (0.532)         &     (0.839)         \\
+[1em]
+Presence-intensive~workers (share, [0,1])&       0.079         &      -0.051         &      -0.005         \\
+                    &     (0.125)         &     (0.136)         &     (0.113)         \\
+[1em]
+Change~in~number~of monthly visits (log)&                     &       0.185\sym{***}&      -0.119         \\
+                    &                     &     (0.063)         &     (0.131)         \\
+[1em]
+\hspace*{1em}$\times$~customer-facing~share ([0,1])&                     &                     &       1.021\sym{**} \\
+                    &                     &                     &     (0.447)         \\
+[1em]
+\hspace*{1em}$\times$~teamwork-intensive~share ([0,1])&                     &                     &       0.332         \\
+                    &                     &                     &     (1.500)         \\
+\hline
+Observations        &          79         &          78         &          78         \\
+\(R^{2}\)           &       0.187         &       0.302         &       0.435         \\
+\hline\hline
+\end{tabular}
+}
+
 \begin{flushleft} Regression results of change in log industry employment between February and May 2020 estimated by ordinary least squares (unweighted). Explanatory variables in Column 1 are the shares of customer-facing, teamwork-intensive and presence-requiring workers. Column 2 controls for the change in log monthly visits to industry establishments. Column 3 interacts the change in visits with the share of face-to-face intensive  workers in the two occupation groups. Robust standard errors are reported in parentheses. $p$-values are denoted by asterisk: * $<.1$ ** $<.05$ *** $<.01$.
 Sample excludes hospitals, clinics, and government establishments, as well as farming and fishing which are not present in CBP.
 \end{flushleft}
