@@ -2,6 +2,7 @@ clear all
 import excel "../../raw/bls/crosswalk/occupation.xlsx", cellrange(B2:D436) sheet("Table 1.9") firstrow
 
 keep if Industrytype=="Line item"
+rename NationalEmploymentMatrix Industrycode
 * deal with ranges
 split NAICSCode, parse("-")
 * second part is only the rightmost digits that are different

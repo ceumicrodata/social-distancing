@@ -1,0 +1,132 @@
+
+  ___  ____  ____  ____  ____ ®
+ /__    /   ____/   /   ____/      17.0
+___/   /   /___/   /   /___/       MP—Parallel Edition
+
+ Statistics and Data Science       Copyright 1985-2021 StataCorp LLC
+                                   StataCorp
+                                   4905 Lakeway Drive
+                                   College Station, Texas 77845 USA
+                                   800-STATA-PC        https://www.stata.com
+                                   979-696-4600        stata@stata.com
+
+Stata license: Single-user 2-core  perpetual
+Serial number: 501706328764
+  Licensed to: Miklos Koren
+               CEU MicroData
+
+Notes:
+      1. Stata is running in batch mode.
+      2. Unicode is supported; see help unicode_advice.
+      3. More than 2 billion observations are allowed; see help obs_advice.
+      4. Maximum number of variables is set to 5,000; see help set_maxvar.
+
+. do split_by_naics.do 
+
+. clear all
+
+. import excel "../../raw/bls/crosswalk/occupation.xlsx", cellrange(B2:D436) sh
+> eet("Table 1.9") firstrow
+(3 vars, 434 obs)
+
+. 
+. keep if Industrytype=="Line item"
+(139 observations deleted)
+
+. rename NationalEmploymentMatrix Industrycode
+
+. * deal with ranges
+. split NAICSCode, parse("-")
+variables created as string: 
+NAICSCode1  NAICSCode2
+
+. * second part is only the rightmost digits that are different
+. generate NAICS_end = substr(NAICSCode1, 1, strlen(NAICSCode1)-strlen(NAICSCod
+> e2)) + NAICSCode2
+
+. * roundabout way of calculating number of commas
+. generate number_comma = strlen(NAICSCode) - strlen(subinstr(NAICSCode, ",", "
+> ", .))
+
+. summarize number_comma
+
+    Variable |        Obs        Mean    Std. dev.       Min        Max
+-------------+---------------------------------------------------------
+number_comma |        295    .0915254    .4966857          0          5
+
+. local I = r(max)
+
+. expand number_comma+1
+(27 observations created)
+
+. egen i = seq(), by(Industrycode)
+
+. 
+. generate str stem = regexs(1) if regexm(NAICSCode,"([0-9]+)")
+(4 missing values generated)
+
+. generate str code = ""
+(322 missing values generated)
+
+. generate c = 2
+
+. forval i = 1/9 {
+  2.         replace code = substr(stem, 1, 3) + "`i'" if i==c & strpos(NAICSCo
+> de, ",`i'")
+  3.         replace c = c+1 if strpos(NAICSCode, ",`i'")
+  4. }
+(0 real changes made)
+(0 real changes made)
+variable code was str1 now str4
+(5 real changes made)
+(17 real changes made)
+(5 real changes made)
+(17 real changes made)
+(3 real changes made)
+(9 real changes made)
+(2 real changes made)
+(11 real changes made)
+(4 real changes made)
+(15 real changes made)
+(2 real changes made)
+(9 real changes made)
+(1 real change made)
+(2 real changes made)
+(5 real changes made)
+(22 real changes made)
+
+. replace code = stem if i==1 & missing(code) & number_comma
+(14 real changes made)
+
+. 
+. * pad with zero
+. replace code = strofreal(real(code)*10^(6-strlen(code)))
+variable code was str4 now str6
+(322 real changes made)
+
+. sort NAICSCode i
+
+. 
+. rename NAICSCode1 NAICS_begin
+
+. replace NAICS_begin = code if !(code==".")
+(41 real changes made)
+
+. replace NAICS_end = NAICS_begin if number_comma
+(41 real changes made)
+
+. 
+. destring NAICS_begin NAICS_end, force replace
+NAICS_begin: contains nonnumeric characters; replaced as long
+(4 missing values generated)
+NAICS_end: contains nonnumeric characters; replaced as long
+(4 missing values generated)
+
+. keep Industrycode NAICS_*
+
+. 
+. save "naics_aggregation.dta", replace
+file naics_aggregation.dta saved
+
+. 
+end of do-file

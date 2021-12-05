@@ -5,7 +5,7 @@ tempfile naics
 save `naics', replace
 
 clear all
-import excel "../../raw/bls/employment-matrix/matrix.xlsx", cellrange(A1:G110576) sheet("Matrix") firstrow
+import excel "../../raw/bls/employment-matrix/matrix.xlsx", cellrange(A1:G107532) sheet("Matrix") firstrow
 
 * drop all summaries
 keep if Occupationtype=="Line item" & Industrytype=="Line item"
