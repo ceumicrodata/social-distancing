@@ -1,5 +1,5 @@
 
-  ___  ____  ____  ____  ____ ©
+  ___  ____  ____  ____  ____ ®
  /__    /   ____/   /   ____/      17.0
 ___/   /   /___/   /   /___/       MP—Parallel Edition
 
@@ -47,7 +47,7 @@ census2010: all characters numeric; replaced as int
 . tempfile crosswalk
 
 . save `crosswalk'
-file /var/folders/f4/7drmhl1d5kj3wp1r33jvx32m0000gn/T//St04320.000001 saved
+file /var/folders/f4/7drmhl1d5kj3wp1r33jvx32m0000gn/T//St03750.000001 saved
     as .dta format
 
 . 
@@ -72,7 +72,7 @@ file /var/folders/f4/7drmhl1d5kj3wp1r33jvx32m0000gn/T//St04320.000001 saved
 . tempfile atus
 
 . save `atus'
-file /var/folders/f4/7drmhl1d5kj3wp1r33jvx32m0000gn/T//St04320.000002 saved
+file /var/folders/f4/7drmhl1d5kj3wp1r33jvx32m0000gn/T//St03750.000002 saved
     as .dta format
 
 . 
@@ -80,7 +80,7 @@ file /var/folders/f4/7drmhl1d5kj3wp1r33jvx32m0000gn/T//St04320.000002 saved
 
 . import delimited "../../clean/onet/risks.csv", case(preserve) varnames(1)
 (encoding automatically selected: ISO-8859-1)
-(25 vars, 766 obs)
+(25 vars, 736 obs)
 
 . 
 . **************
@@ -129,9 +129,9 @@ file /var/folders/f4/7drmhl1d5kj3wp1r33jvx32m0000gn/T//St04320.000002 saved
  14.         }
  15.         display "Correlation within `G': " corr_`G'
  16. }
-Correlation within teamwork: .60174315
-Correlation within customer: .42879538
-Correlation within presence: .69148471
+Correlation within teamwork: .60617054
+Correlation within customer: .42659172
+Correlation within presence: .69164458
 
 . 
 . * interaction for teamwork
@@ -152,12 +152,12 @@ Correlation within presence: .69148471
   5.         replace `X' = 0 if  (`X' < `cutoff')
   6.         replace `X' = 1 if  (`X' >= `cutoff')
   7. }
-(567 real changes made)
-(199 real changes made)
 (552 real changes made)
-(214 real changes made)
-(657 real changes made)
-(109 real changes made)
+(184 real changes made)
+(533 real changes made)
+(203 real changes made)
+(628 real changes made)
+(108 real changes made)
 
 . 
 . label variable teamwork_index "Teamwork communication index [0,100]"
@@ -217,14 +217,31 @@ Correlation within presence: .69148471
   variable presence_interact_index was float now byte
   variable presence_index was float now byte
   variable presence_interact was float now byte
-  (27,576 bytes saved)
+  (26,496 bytes saved)
 
 . 
 . sort SOCCode
 
 . merge 1:1 SOCCode using `atus'
-variable SOCCode does not uniquely identify observations in the master data
-r(459);
 
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                           305
+        from master                       166  (_merge==1)
+        from using                        139  (_merge==2)
+
+    Matched                               570  (_merge==3)
+    -----------------------------------------
+
+. * keep census code for future reference
+. 
+. /*NOTE
+> there are occupations that are only in ONet
+> and there are occupations that are only in ATUS
+> */
+. 
+. save "risks.dta", replace
+file risks.dta saved
+
+. 
 end of do-file
-r(459);

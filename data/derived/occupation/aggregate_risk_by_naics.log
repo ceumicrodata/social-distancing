@@ -1,24 +1,25 @@
 
-  ___  ____  ____  ____  ____ (R)
- /__    /   ____/   /   ____/
-___/   /   /___/   /   /___/   16.1   Copyright 1985-2019 StataCorp LLC
-  Statistics/Data Analysis            StataCorp
-                                      4905 Lakeway Drive
-     MP - Parallel Edition            College Station, Texas 77845 USA
-                                      800-STATA-PC        http://www.stata.com
-                                      979-696-4600        stata@stata.com
-                                      979-696-4601 (fax)
+  ___  ____  ____  ____  ____ ®
+ /__    /   ____/   /   ____/      17.0
+___/   /   /___/   /   /___/       MP—Parallel Edition
 
-Single-user 2-core Stata perpetual license:
-       Serial number:  501606204617
-         Licensed to:  Miklos Koren
-                       CEU MicroData
+ Statistics and Data Science       Copyright 1985-2021 StataCorp LLC
+                                   StataCorp
+                                   4905 Lakeway Drive
+                                   College Station, Texas 77845 USA
+                                   800-STATA-PC        https://www.stata.com
+                                   979-696-4600        stata@stata.com
+
+Stata license: Single-user 2-core  perpetual
+Serial number: 501706328764
+  Licensed to: Miklos Koren
+               CEU MicroData
 
 Notes:
-      1.  Stata is running in batch mode.
-      2.  Unicode is supported; see help unicode_advice.
-      3.  More than 2 billion observations are allowed; see help obs_advice.
-      4.  Maximum number of variables is set to 5000; see help set_maxvar.
+      1. Stata is running in batch mode.
+      2. Unicode is supported; see help unicode_advice.
+      3. More than 2 billion observations are allowed; see help obs_advice.
+      4. Maximum number of variables is set to 5,000; see help set_maxvar.
 
 . do aggregate_risk_by_naics.do 
 
@@ -33,32 +34,32 @@ Notes:
 . 
 . merge m:1 SOCCode using "risks.dta", keep(master match) nogen
 
-    Result                           # of obs.
+    Result                      Number of obs
     -----------------------------------------
-    not matched                            71
-        from master                        71  
+    Not matched                           301
+        from master                       301  
         from using                          0  
 
-    matched                            13,936  
+    Matched                            13,324  
     -----------------------------------------
 
 . * a few cases are missing the risk, take these to be low risk
 . mvencode `indexes', mv(0) override
-    teamwork: 607 missing values recoded
-    customer: 607 missing values recoded
-    presence: 607 missing values recoded
-teamwork_i~t: 607 missing values recoded
-customer_i~t: 607 missing values recoded
-presence_i~t: 607 missing values recoded
+    teamwork: 847 missing values recoded
+    customer: 847 missing values recoded
+    presence: 847 missing values recoded
+teamwork_i~t: 847 missing values recoded
+customer_i~t: 847 missing values recoded
+presence_i~t: 847 missing values recoded
 
 . 
 . replace Employment = round(Employment*1000)
-(14,007 real changes made)
+(13,625 real changes made)
 
 . compress
   variable Employment was double now long
   variable count was double now int
-  (140,070 bytes saved)
+  (136,250 bytes saved)
 
 . 
 . * both or all three
@@ -77,14 +78,14 @@ presence_i~t: 607 missing values recoded
 > can_wh ever_wh full_day_wh wh_5days wh_3days wh_1days wh_2weeks wh_1month  {
   2.         generate double `X'_share = `X' * Employment
   3. }
-(1,046 missing values generated)
-(1,046 missing values generated)
-(1,046 missing values generated)
-(1,046 missing values generated)
-(1,046 missing values generated)
-(1,046 missing values generated)
-(1,046 missing values generated)
-(1,046 missing values generated)
+(2,853 missing values generated)
+(2,853 missing values generated)
+(2,853 missing values generated)
+(2,853 missing values generated)
+(2,853 missing values generated)
+(2,853 missing values generated)
+(2,853 missing values generated)
+(2,853 missing values generated)
 
 . 
 . collapse (sum) Employment teamwork_share customer_share presence_share ///
@@ -167,7 +168,6 @@ presence_i~t: 607 missing values recoded
 
 . 
 . export delimited "naics_risk.csv", replace
-(note: file naics_risk.csv not found)
 file naics_risk.csv saved
 
 . 

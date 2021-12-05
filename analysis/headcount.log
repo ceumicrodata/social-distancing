@@ -1,24 +1,25 @@
 
-  ___  ____  ____  ____  ____ (R)
- /__    /   ____/   /   ____/
-___/   /   /___/   /   /___/   16.1   Copyright 1985-2019 StataCorp LLC
-  Statistics/Data Analysis            StataCorp
-                                      4905 Lakeway Drive
-     MP - Parallel Edition            College Station, Texas 77845 USA
-                                      800-STATA-PC        http://www.stata.com
-                                      979-696-4600        stata@stata.com
-                                      979-696-4601 (fax)
+  ___  ____  ____  ____  ____ ®
+ /__    /   ____/   /   ____/      17.0
+___/   /   /___/   /   /___/       MP—Parallel Edition
 
-Single-user 2-core Stata perpetual license:
-       Serial number:  501606204617
-         Licensed to:  Miklos Koren
-                       CEU MicroData
+ Statistics and Data Science       Copyright 1985-2021 StataCorp LLC
+                                   StataCorp
+                                   4905 Lakeway Drive
+                                   College Station, Texas 77845 USA
+                                   800-STATA-PC        https://www.stata.com
+                                   979-696-4600        stata@stata.com
+
+Stata license: Single-user 2-core  perpetual
+Serial number: 501706328764
+  Licensed to: Miklos Koren
+               CEU MicroData
 
 Notes:
-      1.  Stata is running in batch mode.
-      2.  Unicode is supported; see help unicode_advice.
-      3.  More than 2 billion observations are allowed; see help obs_advice.
-      4.  Maximum number of variables is set to 5000; see help set_maxvar.
+      1. Stata is running in batch mode.
+      2. Unicode is supported; see help unicode_advice.
+      3. More than 2 billion observations are allowed; see help obs_advice.
+      4. Maximum number of variables is set to 5,000; see help set_maxvar.
 
 . do headcount.do 
 
@@ -42,25 +43,25 @@ Notes:
   3.         display "Millions of workers: " r(mean)/100 * r(sum_w) / 1e+6
   4. }
 
-    Variable |        Obs        Mean    Std. Dev.       Min        Max
+    Variable |        Obs        Mean    Std. dev.       Min        Max
 -------------+---------------------------------------------------------
-teamwork_i~e |116,601,799    10.49666    4.868837          4         31
-Millions of workers: 12.2393
+teamwork_i~e |116,601,799    11.10034    6.560766          2         34
+Millions of workers: 12.943191
 
-    Variable |        Obs        Mean    Std. Dev.       Min        Max
+    Variable |        Obs        Mean    Std. dev.       Min        Max
 -------------+---------------------------------------------------------
-customer_i~e |116,601,799    26.67761    22.36741          1         90
-Millions of workers: 31.106575
+customer_i~e |116,601,799    23.67583    22.45405          1         89
+Millions of workers: 27.60644
 
-    Variable |        Obs        Mean    Std. Dev.       Min        Max
+    Variable |        Obs        Mean    Std. dev.       Min        Max
 -------------+---------------------------------------------------------
-presence_i~e |116,601,799    8.301352    12.91827          0         66
-Millions of workers: 9.6795258
+presence_i~e |116,601,799    9.597957    14.34205          0         65
+Millions of workers: 11.191391
 
-    Variable |        Obs        Mean    Std. Dev.       Min        Max
+    Variable |        Obs        Mean    Std. dev.       Min        Max
 -------------+---------------------------------------------------------
-comm~t_share |116,601,799    29.88258    20.92463          4         90
-Millions of workers: 34.843623
+comm~t_share |116,601,799    27.74979    20.59072          3         89
+Millions of workers: 32.356755
 
 . 
 . generate naics_2d = industry_code if industry_code<100

@@ -1,24 +1,25 @@
 
-  ___  ____  ____  ____  ____ (R)
- /__    /   ____/   /   ____/
-___/   /   /___/   /   /___/   16.1   Copyright 1985-2019 StataCorp LLC
-  Statistics/Data Analysis            StataCorp
-                                      4905 Lakeway Drive
-     MP - Parallel Edition            College Station, Texas 77845 USA
-                                      800-STATA-PC        http://www.stata.com
-                                      979-696-4600        stata@stata.com
-                                      979-696-4601 (fax)
+  ___  ____  ____  ____  ____ ®
+ /__    /   ____/   /   ____/      17.0
+___/   /   /___/   /   /___/       MP—Parallel Edition
 
-Single-user 2-core Stata perpetual license:
-       Serial number:  501606204617
-         Licensed to:  Miklos Koren
-                       CEU MicroData
+ Statistics and Data Science       Copyright 1985-2021 StataCorp LLC
+                                   StataCorp
+                                   4905 Lakeway Drive
+                                   College Station, Texas 77845 USA
+                                   800-STATA-PC        https://www.stata.com
+                                   979-696-4600        stata@stata.com
+
+Stata license: Single-user 2-core  perpetual
+Serial number: 501706328764
+  Licensed to: Miklos Koren
+               CEU MicroData
 
 Notes:
-      1.  Stata is running in batch mode.
-      2.  Unicode is supported; see help unicode_advice.
-      3.  More than 2 billion observations are allowed; see help obs_advice.
-      4.  Maximum number of variables is set to 5000; see help set_maxvar.
+      1. Stata is running in batch mode.
+      2. Unicode is supported; see help unicode_advice.
+      3. More than 2 billion observations are allowed; see help obs_advice.
+      4. Maximum number of variables is set to 5,000; see help set_maxvar.
 
 . do employment-growth.do 
 
@@ -35,10 +36,10 @@ Notes:
 . merge 1:1 industry_code using "../data/derived/visit/visit-change.dta", nogen
 >  keep(master match)
 
-    Result                           # of obs.
+    Result                      Number of obs
     -----------------------------------------
-    not matched                             0
-    matched                                81  
+    Not matched                             0
+    Matched                                81  
     -----------------------------------------
 
 . * if industry is not in SafeGraph, replace with average visit change in ZIP c
@@ -124,10 +125,10 @@ variable presence_interact_share was byte now float
 
 . 
 . graph export "../text/fig5b.eps", replace
-(file ../text/fig5b.eps written in EPS format)
+file ../text/fig5b.eps saved as EPS format
 
 . graph export "../text/fig5b.pdf", replace
-(file ../text/fig5b.pdf written in PDF format)
+file ../text/fig5b.pdf saved as PDF format
 
 . 
 . 
@@ -142,7 +143,7 @@ Linear regression                               Number of obs     =         79
 
 ------------------------------------------------------------------------------
              |               Robust
-   ln_growth |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+   ln_growth | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
 -------------+----------------------------------------------------------------
 customer_i~e |  -.4181217    .164463    -2.54   0.013    -.7457488   -.0904947
 teamwork_i~e |   .0236076   .5629201     0.04   0.967    -1.097787    1.145002
@@ -162,7 +163,7 @@ Linear regression                               Number of obs     =         78
 
 ------------------------------------------------------------------------------
              |               Robust
-   ln_growth |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+   ln_growth | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
 -------------+----------------------------------------------------------------
 customer_i~e |  -.4626853   .1517596    -3.05   0.003    -.7651419   -.1602288
 teamwork_i~e |   .2538213   .5318923     0.48   0.635    -.8062386    1.313881
@@ -183,7 +184,7 @@ Linear regression                               Number of obs     =         78
 
 ------------------------------------------------------------------------------
              |               Robust
-   ln_growth |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+   ln_growth | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
 -------------+----------------------------------------------------------------
 customer_i~e |   .0116084   .1729289     0.07   0.947    -.3332021    .3564188
 teamwork_i~e |   .6001504   .8389281     0.72   0.477    -1.072625    2.272926
@@ -204,6 +205,7 @@ visit_X_te~k |   .3322733   1.499757     0.22   0.825    -2.658157    3.322704
 >         replace label substitute() ///
 >         prehead(`"{\setlength{\tabcolsep}{-2pt}"' `"{\def\sym#1{\ifmmode^{#1}
 > \else\(^{#1}\)\fi}\begin{tabular}{l*{4}{D{.}{.}{-1}}}\hline\hline"')
+(file ../text/regression.tex not found)
 (output written to ../text/regression.tex)
 
 . 

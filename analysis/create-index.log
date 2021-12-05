@@ -1,24 +1,25 @@
 
-  ___  ____  ____  ____  ____ (R)
- /__    /   ____/   /   ____/
-___/   /   /___/   /   /___/   16.1   Copyright 1985-2019 StataCorp LLC
-  Statistics/Data Analysis            StataCorp
-                                      4905 Lakeway Drive
-     MP - Parallel Edition            College Station, Texas 77845 USA
-                                      800-STATA-PC        http://www.stata.com
-                                      979-696-4600        stata@stata.com
-                                      979-696-4601 (fax)
+  ___  ____  ____  ____  ____ ®
+ /__    /   ____/   /   ____/      17.0
+___/   /   /___/   /   /___/       MP—Parallel Edition
 
-Single-user 2-core Stata perpetual license:
-       Serial number:  501606204617
-         Licensed to:  Miklos Koren
-                       CEU MicroData
+ Statistics and Data Science       Copyright 1985-2021 StataCorp LLC
+                                   StataCorp
+                                   4905 Lakeway Drive
+                                   College Station, Texas 77845 USA
+                                   800-STATA-PC        https://www.stata.com
+                                   979-696-4600        stata@stata.com
+
+Stata license: Single-user 2-core  perpetual
+Serial number: 501706328764
+  Licensed to: Miklos Koren
+               CEU MicroData
 
 Notes:
-      1.  Stata is running in batch mode.
-      2.  Unicode is supported; see help unicode_advice.
-      3.  More than 2 billion observations are allowed; see help obs_advice.
-      4.  Maximum number of variables is set to 5000; see help set_maxvar.
+      1. Stata is running in batch mode.
+      2. Unicode is supported; see help unicode_advice.
+      3. More than 2 billion observations are allowed; see help obs_advice.
+      4. Maximum number of variables is set to 5,000; see help set_maxvar.
 
 . do create-index.do 
 
@@ -27,18 +28,19 @@ Notes:
 . 
 . import delimited "../data/derived/crosswalk/industry.csv", varnames(1) clear 
 > case(preserve)
+(encoding automatically selected: ISO-8859-1)
 (3 vars, 90 obs)
 
 . merge 1:1 industry_code using "../data/clean/industry-employment/industry-emp
 > loyment.dta", nogen keep(master match)
 
-    Result                           # of obs.
+    Result                      Number of obs
     -----------------------------------------
-    not matched                             2
+    Not matched                             2
         from master                         2  
         from using                          0  
 
-    matched                                88  
+    Matched                                88  
     -----------------------------------------
 
 . rename employment ces_employment
@@ -46,22 +48,24 @@ Notes:
 . tempfile industry
 
 . save `industry', replace
-(note: file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St27524.000001 no
-> t found)
-file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St27524.000001 saved
+(file /var/folders/f4/7drmhl1d5kj3wp1r33jvx32m0000gn/T//St03773.000001 not
+    found)
+file /var/folders/f4/7drmhl1d5kj3wp1r33jvx32m0000gn/T//St03773.000001 saved
+    as .dta format
 
 . 
 . 
 . import delimited "../data/derived/occupation/naics_risk.csv", varnames(1) cle
 > ar
+(encoding automatically selected: ISO-8859-1)
 (19 vars, 84 obs)
 
 . merge m:1 industry_code using `industry', nogen keep(master match)
 
-    Result                           # of obs.
+    Result                      Number of obs
     -----------------------------------------
-    not matched                             0
-    matched                                84  
+    Not matched                             0
+    Matched                                84  
     -----------------------------------------
 
 . 
@@ -78,10 +82,10 @@ file /var/folders/w1/7d52g2y563517gpc7n0sv5_r0000gn/T//St27524.000001 saved
 . merge 1:1 industry_code using `industry', nogen keep(master match) keepusing(
 > ces_employment)
 
-    Result                           # of obs.
+    Result                      Number of obs
     -----------------------------------------
-    not matched                             0
-    matched                                84  
+    Not matched                             0
+    Matched                                84  
     -----------------------------------------
 
 . 
@@ -144,7 +148,6 @@ note: label truncated to 80 characters
 file ../data/derived/industry-index.dta saved
 
 . export delimited "../data/derived/industry-index.csv", replace
-(note: file ../data/derived/industry-index.csv not found)
 file ../data/derived/industry-index.csv saved
 
 . 

@@ -1,24 +1,25 @@
 
-  ___  ____  ____  ____  ____ (R)
- /__    /   ____/   /   ____/
-___/   /   /___/   /   /___/   16.1   Copyright 1985-2019 StataCorp LLC
-  Statistics/Data Analysis            StataCorp
-                                      4905 Lakeway Drive
-     MP - Parallel Edition            College Station, Texas 77845 USA
-                                      800-STATA-PC        http://www.stata.com
-                                      979-696-4600        stata@stata.com
-                                      979-696-4601 (fax)
+  ___  ____  ____  ____  ____ ®
+ /__    /   ____/   /   ____/      17.0
+___/   /   /___/   /   /___/       MP—Parallel Edition
 
-Single-user 2-core Stata perpetual license:
-       Serial number:  501606204617
-         Licensed to:  Miklos Koren
-                       CEU MicroData
+ Statistics and Data Science       Copyright 1985-2021 StataCorp LLC
+                                   StataCorp
+                                   4905 Lakeway Drive
+                                   College Station, Texas 77845 USA
+                                   800-STATA-PC        https://www.stata.com
+                                   979-696-4600        stata@stata.com
+
+Stata license: Single-user 2-core  perpetual
+Serial number: 501706328764
+  Licensed to: Miklos Koren
+               CEU MicroData
 
 Notes:
-      1.  Stata is running in batch mode.
-      2.  Unicode is supported; see help unicode_advice.
-      3.  More than 2 billion observations are allowed; see help obs_advice.
-      4.  Maximum number of variables is set to 5000; see help set_maxvar.
+      1. Stata is running in batch mode.
+      2. Unicode is supported; see help unicode_advice.
+      3. More than 2 billion observations are allowed; see help obs_advice.
+      4. Maximum number of variables is set to 5,000; see help set_maxvar.
 
 . do toplist.do 
 
@@ -55,7 +56,7 @@ end of do-file
   2.         replace `X' = round(`X')
   3. }
 (14 real changes made)
-(13 real changes made)
+(14 real changes made)
 (13 real changes made)
 (14 real changes made)
 
@@ -75,7 +76,6 @@ end of do-file
 
 . 
 . export delimited "../data/derived/top-industries.csv", replace
-(note: file ../data/derived/top-industries.csv not found)
 file ../data/derived/top-industries.csv saved
 
 . 
